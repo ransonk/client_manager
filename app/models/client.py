@@ -6,16 +6,16 @@ class Client(db.Model, UserMixin):
   __tablename__ = 'clients'
 
   Id = db.Column(db.Integer, primary_key = True)
-  FirstName = db.Column(db.String(40), nullable = False)
-  LastName = db.Column(db.String(40), nullable = False)
-  Phone = db.Column(db.String(255))
-  Email = db.Column(db.String(255), unique = True)
-  Weight = db.Column(db.Integer)
-  Age = db.Column(db.Integer)
-  DueDate = db.Column(db.String(255))
-  Amount = db.Column(db.Integer)
-  Paid = db.Column(db.Boolean)
-  Hashed_Password = db.Column(db.String(255), nullable = False)
+  firstName = db.Column(db.String(40), nullable = False)
+  lastName = db.Column(db.String(40), nullable = False)
+  email = db.Column(db.String(255), unique = True)
+  phone = db.Column(db.String(255))
+  weight = db.Column(db.Integer)
+  age = db.Column(db.Integer)
+  duedate = db.Column(db.String(255))
+  amount = db.Column(db.Integer)
+  paid = db.Column(db.Boolean)
+  hashed_password = db.Column(db.String(255), nullable = False)
   created_on = db.Column(db.DateTime, server_default=db.func.now())
   updated_on = db.Column(
         db.DateTime,
@@ -26,6 +26,10 @@ class Client(db.Model, UserMixin):
   trainer = db.relationship(
     "Trainer",
     back_populates="clients"
+  )
+  reviews = db.relationship(
+    "Review",
+    back_populates="client"
   )
 
   @property
@@ -45,12 +49,13 @@ class Client(db.Model, UserMixin):
   def to_dict(self):
     return {
       "Id": self.id,
-      "FirstName": self.FirstName,
-      "LastName": self.LastName,
-      "Email": self.Email
-      "Weight": self.Weight
-      "Age": self.Age
-      "DueDate": self.DueDate
-      "Amount": self.Amount
-      "Paid": self.Paid
+      "firstName": self.firstName,
+      "lastName": self.lastName,
+      "email": self.email
+      "phone": self.phone
+      "weight": self.weight
+      "age": self.age
+      "duedate": self.duedate
+      "amount": self.amount
+      "paid": self.paid
     }

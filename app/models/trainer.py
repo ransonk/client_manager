@@ -6,9 +6,9 @@ class Trainer(db.Model, UserMixin):
   __tablename__ = 'trainers'
 
   Id = db.Column(db.Integer, primary_key = True)
-  FirstName = db.Column(db.String(40), nullable = True, unique = False)
-  LastName = db.Column(db.String(40), nullable = True, unique = False)
-  Email = db.Column(db.String(255), nullable = False, unique = True)
+  FirstName = db.Column(db.String(40), nullable = False)
+  LastName = db.Column(db.String(40), nullable = False)
+  Email = db.Column(db.String(255), nullable = False)
   Hashed_Password = db.Column(db.String(255), nullable = False)
   created_on = db.Column(db.DateTime, server_default=db.func.now())
   updated_on = db.Column(
