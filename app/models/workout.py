@@ -6,7 +6,7 @@ class Workout(db.Model, UserMixin):
   __tablename__ = 'workouts'
 
   id = db.Column(db.Integer, primary_key = True)
-  name= db.Column(db.string(255), nullable=False, unique = True)
+  name= db.Column(db.String(255), nullable=False, unique = True)
   description = db.Column(db.Text)
   workoutintensity_id = db.Column(db.Integer, db.ForeignKey("workoutintensities.id"))
   created_on = db.Column(db.DateTime, server_default=db.func.now())

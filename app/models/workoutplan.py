@@ -6,7 +6,7 @@ class WorkoutPlan(db.Model, UserMixin):
   __tablename__ = 'workoutplans'
 
   id = db.Column(db.Integer, primary_key = True)
-  name = db.Column(db.String(255) nullable=False)
+  name = db.Column(db.String(255), nullable=False)
   description = db.Column(db.Text)
   rating = db.Column(db.Integer)
   time = db.Column(db.Integer, nullable=False)

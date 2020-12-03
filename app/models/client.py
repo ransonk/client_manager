@@ -5,7 +5,7 @@ from flask_login import UserMixin
 class Client(db.Model, UserMixin):
   __tablename__ = 'clients'
 
-  Id = db.Column(db.Integer, primary_key = True)
+  id = db.Column(db.Integer, primary_key = True)
   firstName = db.Column(db.String(40), nullable = False)
   lastName = db.Column(db.String(40), nullable = False)
   email = db.Column(db.String(255), unique = True)
@@ -49,14 +49,14 @@ class Client(db.Model, UserMixin):
 
   def to_dict(self):
     return {
-      "Id": self.id,
+      "id": self.id,
       "firstName": self.firstName,
       "lastName": self.lastName,
-      "email": self.email
-      "phone": self.phone
-      "weight": self.weight
-      "age": self.age
-      "duedate": self.duedate
-      "amount": self.amount
+      "email": self.email,
+      "phone": self.phone,
+      "weight": self.weight,
+      "age": self.age,
+      "duedate": self.duedate,
+      "amount": self.amount,
       "paid": self.paid
     }
