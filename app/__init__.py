@@ -4,12 +4,14 @@ from flask_cors import CORS
 from flask_migrate import Migrate
 from flask_wtf.csrf import CSRFProtect, generate_csrf
 from flask_login import LoginManager
+# from flask_login_multi.login_manager import LoginManager
+# from app.libs.flask_login_multi import login_user
 
 from .models import db, Trainer, Client
 # from .models import db, User
-
+# user_routes
 # from .api.trainer_routes import trainer_routes
-from .api.user_routes import user_routes
+from .api.user_routes import trainer_routes, client_routes
 from .api.auth_routes import auth_routes
 
 from .seeds import seed_commands
@@ -19,16 +21,23 @@ from .config import Config
 app = Flask(__name__)
 
 # Setup login manager
-login = LoginManager(app)
-login.login_view = 'auth.unauthorized'
+login_manager = LoginManager(app)
+login_manager.login_view = 'auth.unauthorized'
+
+login_manager.blueprint_login_views = {
+    'trainer': 'trainer.trainer_login',
+    'client': 'client.client_login',
+}
 
 
 # @login.trainer_loader
 # def load_trainer(id):
-@login.user_loader
-def load_user(id):
-    return Trainer.query.get(int(id))
-    # return User.query.get(int(id))
+@login_manager.user_loader
+def load_user(id, endpoint='trainer'):
+    if endpoint == 'client':
+        return Client.query.get(id)
+    else:
+        return Trainer.query.get(id)
 
 
 # Tell flask about our seed commands
@@ -36,7 +45,8 @@ app.cli.add_command(seed_commands)
 
 app.config.from_object(Config)
 # app.register_blueprint(trainer_routes, url_prefix='/api/trainers')
-app.register_blueprint(user_routes, url_prefix='/api/users')
+app.register_blueprint(trainer_routes, url_prefix='/api/trainer')
+app.register_blueprint(client_routes, url_prefix='/api/client')
 app.register_blueprint(auth_routes, url_prefix='/api/auth')
 db.init_app(app)
 Migrate(app, db)

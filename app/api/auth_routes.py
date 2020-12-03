@@ -40,12 +40,16 @@ def login():
     # form manually to validate_on_submit can be used
     form['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():
-        # Add the user to the session, we are logged in!
+        # Add the trainer to the session, we are logged in!
         trainer = Trainer.query.filter(Trainer.email == form.data['email']).first()
         # user = User.query.filter(User.email == form.data['email']).first()
         login_user(trainer)
-        # login_user(user)
+        # Add the client to the session, we are logged in!
+        client = Client.query.filter(Client.email == form.data['email']).first()
+        # user = User.query.filter(User.email == form.data['email']).first()
+        login_user(client)
         return trainer.to_dict()
+        #>>>>>>>>>>> do we need client.to_dict()?
         # return user.to_dict()
     return {'errors': validation_errors_to_error_messages(form.errors)}, 401
 
@@ -77,6 +81,42 @@ def sign_up():
         db.session.commit()
         login_user(trainer)
         return trainer.to_dict()
+
+        # user = User(
+        #     username=form.data['username'],
+        #     email=form.data['email'],
+        #     password=form.data['password']
+        # )
+        # db.session.add(user)
+        # db.session.commit()
+        # login_user(user)
+        # return user.to_dict()
+    return {'errors': validation_errors_to_error_messages(form.errors)}
+
+@auth_routes.route('/create-client', methods=['POST'])
+def create_client():
+    """
+    Creates a new client account
+    """
+    form = SignUpForm()
+    form['csrf_token'].data = request.cookies['csrf_token']
+    if form.validate_on_submit():
+        client = Client(
+            firstName=form.data['firstName'],
+            lastName=form.data['lastName'],
+            email=form.data['email'],
+            phone=form.data['phone'],
+            weight=form.data['weight'],
+            age=form.data['age'],
+            duedate=form.data['duedate'],
+            amount=form.data['amount'],
+            paid=form.data['paid'],
+            password=form.data['password']
+        )
+        db.session.add(client)
+        db.session.commit()
+        login_user(client)
+        return client.to_dict()
 
         # user = User(
         #     username=form.data['username'],
