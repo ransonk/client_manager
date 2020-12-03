@@ -8,6 +8,7 @@ class Review(db.Model, UserMixin):
   id = db.Column(db.Integer, primary_key = True)
   description = db.Column(db.Text)
   client_id = db.Column(db.Integer, db.ForeignKey("clients.id"))
+  workoutplan_id = db.Column(db.Integer, db.ForeignKey("workoutplans.id"))
   created_on = db.Column(db.DateTime, server_default=db.func.now())
   updated_on = db.Column(
         db.DateTime,
