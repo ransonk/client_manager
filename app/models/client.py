@@ -16,6 +16,7 @@ class Client(db.Model, UserMixin):
   amount = db.Column(db.Integer)
   paid = db.Column(db.Boolean)
   hashed_password = db.Column(db.String(255), nullable = False)
+  trainer_id = db.Column(db.Integer, db.ForeignKey("trainers.id"))
   created_on = db.Column(db.DateTime, server_default=db.func.now())
   updated_on = db.Column(
         db.DateTime,

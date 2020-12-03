@@ -5,11 +5,11 @@ from flask_login import UserMixin
 class Trainer(db.Model, UserMixin):
   __tablename__ = 'trainers'
 
-  Id = db.Column(db.Integer, primary_key = True)
-  FirstName = db.Column(db.String(40), nullable = False)
-  LastName = db.Column(db.String(40), nullable = False)
-  Email = db.Column(db.String(255), nullable = False)
-  Hashed_Password = db.Column(db.String(255), nullable = False)
+  id = db.Column(db.Integer, primary_key = True)
+  firstName = db.Column(db.String(40), nullable = False)
+  lastName = db.Column(db.String(40), nullable = False)
+  email = db.Column(db.String(255), nullable = False)
+  hashed_password = db.Column(db.String(255), nullable = False)
   created_on = db.Column(db.DateTime, server_default=db.func.now())
   updated_on = db.Column(
         db.DateTime,
@@ -38,8 +38,9 @@ class Trainer(db.Model, UserMixin):
 
   def to_dict(self):
     return {
-      "Id": self.id,
-      "FirstName": self.FirstName,
-      "LastName": self.LastName,
-      "Email": self.Email
+      "id": self.id,
+      "firstName": self.firstName,
+      "lastName": self.lastName,
+      "email": self.email,
+      "clients": [client.to_dict() for client in self.clients]
     }
