@@ -24,6 +24,7 @@ class CreateClientForm(FlaskForm):
     amount = IntegerField('amount')
     paid = BooleanField("paid")
     password = StringField('password', validators=[DataRequired()])
+    trainer_id = IntegerField('trainer_id')
 
 # def user_exists(form, field):
 #     print("Checking if user exits", field.data)

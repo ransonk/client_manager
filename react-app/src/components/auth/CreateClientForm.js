@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { Redirect } from 'react-router-dom';
 import { signUp, createClient } from '../../services/auth';
 import clsx from 'clsx';
@@ -64,10 +65,12 @@ const CreateClientForm = ({ authenticated, setAuthenticated, props }) => {
   const [password, setPassword] = useState("");
   const [repeatPassword, setRepeatPassword] = useState("");
 
+  const currentTrainerId = useSelector((state) => state.store.current_trainer.id)
+
   const onSignUp = async (e) => {
     e.preventDefault();
     if (password === repeatPassword) {
-      const user = await createClient(firstName, lastName, email, phone, weight, age, duedate, amount, paid, password);
+      const user = await createClient(firstName, lastName, email, phone, weight, age, duedate, amount, paid, password, currentTrainerId);
       if (!user.errors) {
         // setAuthenticated(true);
       }

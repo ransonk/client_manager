@@ -50,7 +50,7 @@ export const signUp = async (firstName, lastName, email, password) => {
   return await response.json();
 }
 
-export const createClient = async (firstName, lastName, email, phone, weight, age, dueDate, amount, paid, password) => {
+export const createClient = async (firstName, lastName, email, phone, weight, age, dueDate, amount, paid, password, trainer_id) => {
   const response = await fetch("/api/auth/create-client", {
     method: "POST",
     headers: {
@@ -66,7 +66,8 @@ export const createClient = async (firstName, lastName, email, phone, weight, ag
       dueDate,
       amount,
       paid,
-      password
+      password,
+      trainer_id
     }),
   });
   return await response.json();

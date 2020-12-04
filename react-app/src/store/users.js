@@ -1,9 +1,9 @@
-export const SET_CURRENT_USER = "SET_CURRENT_USER";
+export const SET_CURRENT_TRAINER = "SET_CURRENT_TRAINER";
 export const SET_CURRENT_CLIENT = "SET_CURRENT_CLIENT"
 export const SET_CURRENT_CLIENTS = "SET_CURRENT_CLIENTS"
 
-export const setCurrentUser = (user) => {
-    return { type: SET_CURRENT_USER, user };
+export const setCurrentUser = (trainer) => {
+    return { type: SET_CURRENT_TRAINER, trainer };
 };
 
 export const setCurrentClient = (client) => {
@@ -36,21 +36,48 @@ export const setTrainerClients = (clients) => {
     }
 }
 
-export default function reducer(state = {}, action) {
+const initialState = {
+    current_trainer: {},
+    current_client: {},
+}
+
+export default function reducer(state = initialState, action) {
+    let newState = { ...state };
     switch (action.type) {
-        case SET_CURRENT_USER: {
-            return {
-                ...state,
-                current_user: action.user,
-            };
+        case SET_CURRENT_TRAINER: {
+            newState.current_trainer = { ...action.trainer }
+            return newState;
         }
         case SET_CURRENT_CLIENTS: {
-            return {
-                ...state,
-                clients: action.clients,
-            }
+            newState.clients = { ...action.clients }
+            return newState;
+        }
+        case SET_CURRENT_CLIENT: {
+            newState.client = { ...action.client }
+            return newState;
         }
         default:
             return state;
     }
 }
+
+// export default function reducer(state = initialState, action) {
+//     let newState = { ...state };
+//     switch (action.type) {
+//         case SET_CURRENT_TRAINER: {
+//             newState.current_trainer = {...action.trainer}
+//             return {
+//                 ...state,
+//                 current_: action.trainer,
+//             };
+//         }
+//         case SET_CURRENT_CLIENTS: {
+//             return {
+//                 ...state,
+//                 clients: action.clients,
+//             }
+//         }
+//         default:
+//             return state;
+//     }
+// }

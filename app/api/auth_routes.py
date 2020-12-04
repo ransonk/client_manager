@@ -114,7 +114,8 @@ def create_client():
             duedate=form.data['duedate'],
             amount=form.data['amount'],
             paid=form.data['paid'],
-            password=form.data['password']
+            password=form.data['password'],
+            trainer_id=form.data['trainer_id']
         )
         db.session.add(client)
         db.session.commit()
