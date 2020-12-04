@@ -2,7 +2,7 @@ from flask import Blueprint, jsonify, session, request
 from app.models import Trainer, Client, db
 # from app.models import User, db
 from app.forms import LoginForm
-from app.forms import SignUpForm
+from app.forms import SignUpForm, CreateClientForm
 from flask_login import current_user, login_user, logout_user, login_required
 
 auth_routes = Blueprint('auth', __name__)
@@ -100,7 +100,7 @@ def create_client():
     """
     Creates a new client account
     """
-    form = SignUpForm()
+    form = CreateClientForm()
     form['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():
         print(form.data)
@@ -108,12 +108,12 @@ def create_client():
             firstName=form.data['firstName'],
             lastName=form.data['lastName'],
             email=form.data['email'],
-            # phone=form.data['phone'],
-            # weight=form.data['weight'],
-            # age=form.data['age'],
-            # duedate=form.data['duedate'],
-            # amount=form.data['amount'],
-            # paid=form.data['paid'],
+            phone=form.data['phone'],
+            weight=form.data['weight'],
+            age=form.data['age'],
+            duedate=form.data['duedate'],
+            amount=form.data['amount'],
+            paid=form.data['paid'],
             password=form.data['password']
         )
         db.session.add(client)

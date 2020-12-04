@@ -9,16 +9,16 @@ const CreateClientForm = ({ authenticated, setAuthenticated }) => {
   const [phone, setPhone] = useState("");
   const [weight, setWeight] = useState("");
   const [age, setAge] = useState("");
-  const [dueDate, setDueDate] = useState("");
+  const [duedate, setDueDate] = useState("");
   const [amount, setAmount] = useState("");
-  const [paid, setPaid] = useState("");
+  const [paid, setPaid] = useState("False");
   const [password, setPassword] = useState("");
   const [repeatPassword, setRepeatPassword] = useState("");
 
   const onSignUp = async (e) => {
     e.preventDefault();
     if (password === repeatPassword) {
-      const user = await createClient(firstName, lastName, email, phone, weight, age, dueDate, amount, paid, password);
+      const user = await createClient(firstName, lastName, email, phone, weight, age, duedate, amount, paid, password);
       if (!user.errors) {
         // setAuthenticated(true);
       }
@@ -132,10 +132,10 @@ const CreateClientForm = ({ authenticated, setAuthenticated }) => {
       <div>
         <label>DueDate</label>
         <input
-          type="text"
-          name="dueDate"
+          type="string"
+          name="duedate"
           onChange={updateDueDate}
-          value={dueDate}
+          value={duedate}
         ></input>
       </div>
       <div>
@@ -150,7 +150,7 @@ const CreateClientForm = ({ authenticated, setAuthenticated }) => {
       <div>
         <label>Paid</label>
         <input
-          type="text"
+          type="boolean"
           name="paid"
           onChange={updatePaid}
           value={paid}
