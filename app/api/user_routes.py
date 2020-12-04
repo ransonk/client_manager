@@ -29,41 +29,16 @@ def trainer(id):
     trainer = Trainer.query.get(id)
     return trainer.to_dict()
 
-# @trainer_routes.route('/<int:id>/create-client', methods=['POST'])
-# def create_client():
-#     """
-#     Creates a new client account
-#     """
-#     form = CreateClientForm()
-#     form['csrf_token'].data = request.cookies['csrf_token']
-#     if form.validate_on_submit():
-#         print(form.data)
-#         client = Client(
-#             firstName=form.data['firstName'],
-#             lastName=form.data['lastName'],
-#             email=form.data['email'],
-#             phone=form.data['phone'],
-#             weight=form.data['weight'],
-#             age=form.data['age'],
-#             duedate=form.data['duedate'],
-#             amount=form.data['amount'],
-#             paid=form.data['paid'],
-#             password=form.data['password']
-#         )
-#         db.session.add(client)
-#         db.session.commit()
-#         # login_user(client)
-#         return client.to_dict()
+# Grab clients for particular trainer
+@trainer_routes.route('/<int:id>/clients')
+@login_required
+def clients(id):
+    trainer = Trainer.query.get(id)
+    clients = trainer.clients
 
-        # user = User(
-        #     username=form.data['username'],
-        #     email=form.data['email'],
-        #     password=form.data['password']
-        # )
-        # db.session.add(user)
-        # db.session.commit()
-        # login_user(user)
-        # return user.to_dict()
+    return {"clients": clients}
+
+
 
 
 
