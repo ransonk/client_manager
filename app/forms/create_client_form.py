@@ -1,22 +1,28 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField
+from wtforms import StringField, IntegerField, BooleanField
 from wtforms.validators import DataRequired, Email, ValidationError
 from app.models import Trainer, Client
 # from app.models import User
 
 
-def trainer_exists(form, field):
-    print("Checking if trainer exists", field.data)
+def client_exists(form, field):
+    print("Checking if client exists", field.data)
     email = field.data
-    trainer = Trainer.query.filter(Trainer.email == email).first()
-    if trainer:
+    client = Client.query.filter(Client.email == email).first()
+    if client:
         raise ValidationError("User is already registered.")
 
 
-class SignUpForm(FlaskForm):
+class CreateClientForm(FlaskForm):
     firstName = StringField('first name', validators=[DataRequired()])
     lastName = StringField('last name', validators=[DataRequired()])
-    email = StringField('email', validators=[DataRequired(), trainer_exists])
+    email = StringField('email', validators=[client_exists])
+    phone = StringField('phone')
+    weight = IntegerField('weight')
+    age = IntegerField('age')
+    duedate = StringField('duedate')
+    amount = IntegerField('amount')
+    paid = BooleanField("paid")
     password = StringField('password', validators=[DataRequired()])
 
 # def user_exists(form, field):

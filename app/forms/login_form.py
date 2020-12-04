@@ -5,11 +5,11 @@ from app.models import Trainer, Client
 # from app.models import User
 
 
-def trainer_exists(form, field):
-    print("Checking if trainer exists", field.data)
+def user_exists(form, field):
+    print("Checking if user exists", field.data)
     email = field.data
-    trainer = Trainer.query.filter(Trainer.email == email).first()
-    if not trainer:
+    user = Trainer.query.filter(Trainer.email == email).first() or Client.query.filter(Client.email == email).first()
+    if not user:
         raise ValidationError("Email provided not found.")
 
 
@@ -17,15 +17,15 @@ def password_matches(form, field):
     print("Checking if password matches")
     password = field.data
     email = form.data['email']
-    trainer = Trainer.query.filter(Trainer.email == email).first()
-    if not trainer:
+    user = Trainer.query.filter(Trainer.email == email).first() or Client.query.filter(Client.email == email).first()
+    if not user:
         raise ValidationError("No such user exists.")
-    if not trainer.check_password(password):
+    if not user.check_password(password):
         raise ValidationError("Password was incorrect.")
 
 
 class LoginForm(FlaskForm):
-    email = StringField('email', validators=[DataRequired(), trainer_exists])
+    email = StringField('email', validators=[DataRequired(), user_exists])
     password = StringField('password', validators=[
                            DataRequired(), password_matches])
 

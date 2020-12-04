@@ -18,7 +18,10 @@ export const login = async (email, password) => {
       password
     })
   });
-  return await response.json();
+  let res = await response.json();
+  console.log(res)
+  // console.log(await response.json())
+  return res;
 }
 
 export const logout = async () => {
@@ -42,6 +45,28 @@ export const signUp = async (firstName, lastName, email, password) => {
       lastName,
       email,
       password,
+    }),
+  });
+  return await response.json();
+}
+
+export const createClient = async (firstName, lastName, email, phone, weight, age, dueDate, amount, paid, password) => {
+  const response = await fetch("/api/auth/create-client", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      firstName,
+      lastName,
+      email,
+      phone,
+      weight,
+      age,
+      dueDate,
+      amount,
+      paid,
+      password
     }),
   });
   return await response.json();
