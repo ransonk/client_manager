@@ -5,7 +5,9 @@ from app.models import db, Trainer, Client
 # Adds a demo user, you can add other users here if you want
 def seed_trainers():
 
-    demo = Trainer(firstName='Trainer1', lastName='Demo', email='trainer1@aa.io',
+    demo = Trainer(firstName='Trainer1',
+                lastName='Demo',
+                email='trainer1@aa.io',
                 password='password')
 
     db.session.add(demo)
@@ -14,7 +16,15 @@ def seed_trainers():
 
 def seed_clients():
 
-    demo = Client(firstName='Client1', lastName='Demo', email='client1@aa.io',
+    demo = Client(firstName='Client1',
+                lastName='Demo',
+                email='client1@aa.io',
+                phone='123-123-1234',
+                weight='123 lbs',
+                age='43',
+                duedate='11/21/93',
+                amount='30.99',
+                paid=True,
                 password='password')
 
     db.session.add(demo)
