@@ -22,7 +22,7 @@ class CreateClientForm(FlaskForm):
     age = IntegerField('age')
     duedate = StringField('duedate')
     amount = IntegerField('amount')
-    paid = BooleanField("paid", validators=[DataRequired()])
+    paid = BooleanField("paid")
     password = StringField('password', validators=[DataRequired()])
 
 # def user_exists(form, field):
