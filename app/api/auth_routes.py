@@ -48,7 +48,7 @@ def login():
         # client = Client.query.filter(Client.email == form.data['email']).first()
         # # user = User.query.filter(User.email == form.data['email']).first()
         # login_user(client)
-        # return trainer.to_dict()
+        return trainer.to_dict()
         #>>>>>>>>>>> do we need client.to_dict()?
         # return user.to_dict()
     return {'errors': validation_errors_to_error_messages(form.errors)}, 401
