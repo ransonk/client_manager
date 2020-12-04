@@ -15,7 +15,7 @@ client_routes = Blueprint('clients', __name__, url_prefix="/client")
 def users():
 # def trainers():
     trainers = Trainer.query.all()
-    clients = Client.query.all()
+    # clients = Client.query.all()
     # return {"trainers": [trainer.to_dict() for trainer in trainers],
     #         "clients": [client.to_dict() for client in clients]}
     return {"trainers": [trainer.to_dict() for trainer in trainers]}
@@ -24,11 +24,11 @@ def users():
 @login_required
 def users():
 # def trainers():
-    trainers = Trainer.query.all()
+    # trainers = Trainer.query.all()
     clients = Client.query.all()
     # return {"trainers": [trainer.to_dict() for trainer in trainers],
     #         "clients": [client.to_dict() for client in clients]}
-    return {"trainers": [trainer.to_dict() for trainer in trainers]}
+    return {"clients": [client.to_dict() for client in clients]}
 
 # def users():
     # users = User.query.all()

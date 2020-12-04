@@ -39,18 +39,20 @@ def login():
     # Get the csrf_token from the request cookie and put it into the
     # form manually to validate_on_submit can be used
     form['csrf_token'].data = request.cookies['csrf_token']
+    print('here')
     if form.validate_on_submit():
+
+        #if trainer exists with that email
+        #else login with client
         # Add the trainer to the session, we are logged in!
-        trainer = Trainer.query.filter(Trainer.email == form.data['email']).first()
         # user = User.query.filter(User.email == form.data['email']).first()
-        login_user(trainer)
         # Add the client to the session, we are logged in!
-        # client = Client.query.filter(Client.email == form.data['email']).first()
+        # else client
         # # user = User.query.filter(User.email == form.data['email']).first()
-        # login_user(client)
-        return trainer.to_dict()
-        #>>>>>>>>>>> do we need client.to_dict()?
-        # return user.to_dict()
+        # #>>>>>>>>>>> do we need client.to_dict()?
+        user = Trainer.query.filter(Trainer.email == form.data['email']).first() or Client.query.filter(Client.email == form.data['email']).first()
+        login_user(user)
+        return user.to_dict()
     return {'errors': validation_errors_to_error_messages(form.errors)}, 401
 
 
@@ -101,21 +103,22 @@ def create_client():
     form = SignUpForm()
     form['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():
+        print(form.data)
         client = Client(
             firstName=form.data['firstName'],
             lastName=form.data['lastName'],
             email=form.data['email'],
-            phone=form.data['phone'],
-            weight=form.data['weight'],
-            age=form.data['age'],
-            duedate=form.data['duedate'],
-            amount=form.data['amount'],
-            paid=form.data['paid'],
+            # phone=form.data['phone'],
+            # weight=form.data['weight'],
+            # age=form.data['age'],
+            # duedate=form.data['duedate'],
+            # amount=form.data['amount'],
+            # paid=form.data['paid'],
             password=form.data['password']
         )
         db.session.add(client)
         db.session.commit()
-        login_user(client)
+        # login_user(client)
         return client.to_dict()
 
         # user = User(

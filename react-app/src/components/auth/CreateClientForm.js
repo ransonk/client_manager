@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Redirect } from 'react-router-dom';
-import { signUp } from '../../services/auth';
+import { signUp, createClient } from '../../services/auth';
 
 const CreateClientForm = ({ authenticated, setAuthenticated }) => {
   const [firstName, setFirstName] = useState("");
@@ -18,9 +18,9 @@ const CreateClientForm = ({ authenticated, setAuthenticated }) => {
   const onSignUp = async (e) => {
     e.preventDefault();
     if (password === repeatPassword) {
-      const user = await signUp(firstName, lastName, email, password);
+      const user = await createClient(firstName, lastName, email, phone, weight, age, dueDate, amount, paid, password);
       if (!user.errors) {
-        setAuthenticated(true);
+        // setAuthenticated(true);
       }
     }
   };
@@ -105,8 +105,8 @@ const CreateClientForm = ({ authenticated, setAuthenticated }) => {
       <div>
         <label>Phone</label>
         <input
-          type="text"
-          name="email"
+          type="integer"
+          name="phone"
           onChange={updatePhone}
           value={phone}
         ></input>
@@ -115,7 +115,7 @@ const CreateClientForm = ({ authenticated, setAuthenticated }) => {
         <label>Weight</label>
         <input
           type="text"
-          name="email"
+          name="weight"
           onChange={updateWeight}
           value={weight}
         ></input>
@@ -124,7 +124,7 @@ const CreateClientForm = ({ authenticated, setAuthenticated }) => {
         <label>Age</label>
         <input
           type="text"
-          name="email"
+          name="age"
           onChange={updateAge}
           value={age}
         ></input>
@@ -133,7 +133,7 @@ const CreateClientForm = ({ authenticated, setAuthenticated }) => {
         <label>DueDate</label>
         <input
           type="text"
-          name="email"
+          name="dueDate"
           onChange={updateDueDate}
           value={dueDate}
         ></input>
@@ -142,7 +142,7 @@ const CreateClientForm = ({ authenticated, setAuthenticated }) => {
         <label>Amount</label>
         <input
           type="text"
-          name="email"
+          name="amount"
           onChange={updateAmount}
           value={amount}
         ></input>
@@ -151,7 +151,7 @@ const CreateClientForm = ({ authenticated, setAuthenticated }) => {
         <label>Paid</label>
         <input
           type="text"
-          name="email"
+          name="paid"
           onChange={updatePaid}
           value={paid}
         ></input>
