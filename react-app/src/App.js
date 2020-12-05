@@ -64,9 +64,9 @@ function App() {
       {/* <Route path="/create-client" exact={true} authenticated={authenticated}>
         <CreateClientForm />
       </Route> */}
-      {/* <ProtectedRoute path="/trainers/:" exact={true} authenticated={authenticated}>
+      <ProtectedRoute path="/home" exact={true} authenticated={authenticated}>
         <UsersList />
-      </ProtectedRoute> */}
+      </ProtectedRoute>
       <ProtectedRoute path="/users/:userId" exact={true} authenticated={authenticated}>
         <User />
       </ProtectedRoute>
