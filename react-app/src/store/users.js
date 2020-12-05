@@ -60,24 +60,3 @@ export default function reducer(state = initialState, action) {
             return state;
     }
 }
-
-// export default function reducer(state = initialState, action) {
-//     let newState = { ...state };
-//     switch (action.type) {
-//         case SET_CURRENT_TRAINER: {
-//             newState.current_trainer = {...action.trainer}
-//             return {
-//                 ...state,
-//                 current_: action.trainer,
-//             };
-//         }
-//         case SET_CURRENT_CLIENTS: {
-//             return {
-//                 ...state,
-//                 clients: action.clients,
-//             }
-//         }
-//         default:
-//             return state;
-//     }
-// }

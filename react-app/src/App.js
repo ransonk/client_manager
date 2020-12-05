@@ -18,7 +18,7 @@ function App() {
 
   // const currentClient = useSelector((state) => state.store.current_client);
   // const currentClients = useSelector((state) => state.store.clients);
-  // const currentTrainer = useSelector((state) => state.store.current_user);
+  // const id = useSelector((state) => state.store.current_trainer.id);
 
   const interval = (id) => {
     setInterval(async function () {
@@ -36,7 +36,7 @@ function App() {
       }
       setLoaded(true);
       dispatch(setCurrentUser(user))
-      interval(user.id)
+      // interval(user.id)
       const clients = await fetchClients(user.id);
       dispatch(setTrainerClients(clients))
     })();
@@ -61,12 +61,15 @@ function App() {
       <ProtectedRoute path="/create-client" exact={true} authenticated={authenticated}>
         <CreateClientForm />
       </ProtectedRoute>
-      <ProtectedRoute path="/trainers/:" exact={true} authenticated={authenticated}>
+      {/* <Route path="/create-client" exact={true} authenticated={authenticated}>
+        <CreateClientForm />
+      </Route> */}
+      {/* <ProtectedRoute path="/trainers/:" exact={true} authenticated={authenticated}>
         <UsersList />
-      </ProtectedRoute>
-      {/* <ProtectedRoute path="/users/:userId" exact={true} authenticated={authenticated}>
-        <User />
       </ProtectedRoute> */}
+      <ProtectedRoute path="/users/:userId" exact={true} authenticated={authenticated}>
+        <User />
+      </ProtectedRoute>
       <ProtectedRoute path="/" exact={true} authenticated={authenticated}>
         <h1>My Home Page</h1>
       </ProtectedRoute>

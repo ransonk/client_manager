@@ -1,6 +1,6 @@
 from flask_wtf import FlaskForm
 from wtforms import StringField, IntegerField, BooleanField
-from wtforms.validators import DataRequired, Email, ValidationError
+from wtforms.validators import DataRequired, Email, ValidationError, Optional
 from app.models import Trainer, Client
 # from app.models import User
 
@@ -17,24 +17,11 @@ class CreateClientForm(FlaskForm):
     firstName = StringField('first name', validators=[DataRequired()])
     lastName = StringField('last name', validators=[DataRequired()])
     email = StringField('email', validators=[client_exists])
-    phone = StringField('phone')
-    weight = IntegerField('weight')
-    age = IntegerField('age')
-    duedate = StringField('duedate')
-    amount = IntegerField('amount')
-    paid = BooleanField("paid")
+    phone = StringField('phone', validators=[Optional()])
+    weight = StringField('weight', validators=[Optional()])
+    age = IntegerField('age', validators=[Optional()])
+    duedate = StringField('duedate', validators=[Optional()])
+    amount = StringField('amount', validators=[Optional()])
+    paid = BooleanField('paid', validators=[Optional()])
     password = StringField('password', validators=[DataRequired()])
     trainer_id = IntegerField('trainer_id')
-
-# def user_exists(form, field):
-#     print("Checking if user exits", field.data)
-#     email = field.data
-#     user = User.query.filter(User.email == email).first()
-#     if user:
-#         raise ValidationError("User is already registered.")
-
-
-# class SignUpForm(FlaskForm):
-#     username = StringField('username', validators=[DataRequired()])
-#     email = StringField('email', validators=[DataRequired(), user_exists])
-#     password = StringField('password', validators=[DataRequired()])

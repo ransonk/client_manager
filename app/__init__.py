@@ -13,6 +13,7 @@ from .models import db, Trainer, Client
 # from .api.trainer_routes import trainer_routes
 from .api.user_routes import trainer_routes, client_routes
 from .api.auth_routes import auth_routes
+# from flask_cors import CORS
 
 from .seeds import seed_commands
 
@@ -45,8 +46,8 @@ app.cli.add_command(seed_commands)
 
 app.config.from_object(Config)
 # app.register_blueprint(trainer_routes, url_prefix='/api/trainers')
-app.register_blueprint(trainer_routes, url_prefix='/api/trainer')
-app.register_blueprint(client_routes, url_prefix='/api/client')
+app.register_blueprint(trainer_routes, url_prefix='/api/trainers')
+app.register_blueprint(client_routes, url_prefix='/api/clients')
 app.register_blueprint(auth_routes, url_prefix='/api/auth')
 db.init_app(app)
 Migrate(app, db)
