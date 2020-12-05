@@ -58,5 +58,6 @@ class Client(db.Model, UserMixin):
       "age": self.age,
       "duedate": self.duedate,
       "amount": self.amount,
-      "paid": self.paid
+      "paid": self.paid,
+      "trainer_id": self.trainer_id
     }
