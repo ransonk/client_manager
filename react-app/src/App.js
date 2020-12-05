@@ -8,6 +8,7 @@ import NavBar from "./components/NavBar";
 import ProtectedRoute from "./components/auth/ProtectedRoute";
 import UsersList from "./components/UsersList";
 import User from "./components/User";
+import HomePage from './components/HomePage';
 import { authenticate } from "./services/auth";
 import { setCurrentUser, setCurrentClient, fetchClients, setTrainerClients } from "./store/users";
 
@@ -71,7 +72,8 @@ function App() {
         <User />
       </ProtectedRoute>
       <ProtectedRoute path="/" exact={true} authenticated={authenticated}>
-        <h1>My Home Page</h1>
+        {/* <h1>My Home Page</h1> */}
+        <HomePage setAuthenticated={setAuthenticated} />
       </ProtectedRoute>
     </BrowserRouter>
   );

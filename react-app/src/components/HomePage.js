@@ -1,9 +1,10 @@
 import React from 'react';
+import ButtonAppBar from './AppBar';
 
-function HomePage(props) {
+const HomePage = ({ setAuthenticated }) => {
     return (
         <div>
-
+            <ButtonAppBar setAuthenticated={setAuthenticated} />
         </div>
     );
 }
