@@ -44,7 +44,7 @@ const useStyles = makeStyles((theme) => ({
     fontSize: "3rem",
     position: "relative",
     // right: "4rem",
-    bottom: "2rem"
+    bottom: "1rem"
   },
   header2: {
     // color: theme.palette.primary.main,

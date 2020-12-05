@@ -27,3 +27,27 @@ html{
     width: 100%;
     /* height: ; */
 }
+
+.signup-page__container{
+    display: flex;
+    justify-content: space-evenly;
+
+}
+
+.signup__container{
+    display: flex;
+    /* align-items: center; */
+    /* text-align: center; */
+    justify-content: center;
+    width: 100%;
+    position: relative;
+    top: 10rem;
+    left: 10rem;
+    bottom: 10rem;
+
+}
+
+.signup__graphic{
+    width: 100%;
+    /* height: ; */
+}
