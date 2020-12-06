@@ -43,13 +43,10 @@ export default function ClientDrawer() {
 
 
     //Grabs list of clients for display in drawer
-    const clients = useSelector((state) => state.store.clients)
+    const clients = useSelector((state) => state.store.current_trainer.clients)
     if (!clients) return null;
 
     let clientsArray = Object.values(clients)
-
-    console.log('fuckin wow dude', clientsArray)
-
 
 
     const handleClick = (id) => {
@@ -57,12 +54,6 @@ export default function ClientDrawer() {
         let currentClient = clientsArray.filter(client => {
             if (client.id === id) return client;
         })
-        console.log('chosen one', currentClient)
-
-        // YOOOOO IT WORKS SON!!!!!!!!! the drawer returns the correct client when clicked.
-        // So now, go ahead and dispatch(64 - 65) and then make the client info page
-
-        // const currentClient = which client
         dispatch(setCurrentClient(currentClient))
     }
 
