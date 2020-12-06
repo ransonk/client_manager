@@ -2,10 +2,7 @@ from flask import Blueprint, jsonify, request
 from flask_login import login_required, current_user
 from app.forms import SignUpForm, CreateClientForm
 from app.models import Trainer, Client, db
-# from app.models import User
 
-# trainer_routes = Blueprint('trainers', __name__)
-# user_routes = Blueprint('users', __name__)
 trainer_routes = Blueprint('trainers', __name__)
 client_routes = Blueprint('clients', __name__)
 
@@ -20,20 +17,17 @@ def validation_errors_to_error_messages(validation_errors):
     return errorMessages
 
 
-# @trainer_routes.route('/')
+
 @trainer_routes.route('/')
 @login_required
 def users():
-# def trainers():
+
     trainers = Trainer.query.all()
-    # clients = Client.query.all()
-    # return {"trainers": [trainer.to_dict() for trainer in trainers],
-    #         "clients": [client.to_dict() for client in clients]}
     return {"trainers": [trainer.to_dict() for trainer in trainers]}
 
 
 
-# @trainer_routes.route('/<int:id>')
+
 @trainer_routes.route('/<int:id>')
 @login_required
 def trainer(id):
@@ -49,6 +43,15 @@ def clients(id):
     print(clients['clients'])
 
     return {"clients": clients['clients']}
+
+# @trainer_routes.route('/<int:id>/client/')
+# # @login_required
+# def client(cid):
+#     trainer = Trainer.query.get(id)
+#     clients = trainer.to_dict()
+#     client = Client.query.get(id)
+
+#     return client.to_dict()
 
 @trainer_routes.route('/<int:id>/create-client', methods=["POST"])
 # @login_required
@@ -82,19 +85,9 @@ def create_client(id):
         )
         db.session.add(client)
         db.session.commit()
-        # login_user(client)
         return client.to_dict()
 
     print('outsideee')
-        # user = User(
-        #     username=form.data['username'],
-        #     email=form.data['email'],
-        #     password=form.data['password']
-        # )
-        # db.session.add(user)
-        # db.session.commit()
-        # login_user(user)
-        # return user.to_dict()
     return {'errors': validation_errors_to_error_messages(form.errors)}
 
 

@@ -83,9 +83,9 @@ const CreateClientForm = ({ authenticated, setAuthenticated, props }) => {
         paid,
         password,
         trainer_id);
-      if (!user.errors) {
-        // setAuthenticated(true);
-      }
+      window.location.href = "/";
+    } else {
+      alert('Form information invalid')
     }
   };
 
