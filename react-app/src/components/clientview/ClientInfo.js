@@ -29,7 +29,8 @@ const ClientInfo = () => {
             setAge(secureClient.age)
         })();
     }, []);
-    console.log(paid)
+
+
 
     return (
         <div className='clientinfo__container'>

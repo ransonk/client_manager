@@ -59,7 +59,7 @@ export default function ClientDrawer() {
         console.log(currentClientList['0'])
         let currentClient = currentClientList[0]
         localStorage.setItem('CURRENT_CLIENT', JSON.stringify(currentClient))
-        // window.location.href = '/manage-client'
+        window.location.href = '/manage-client'
     }
 
     const list = (anchor) => (
