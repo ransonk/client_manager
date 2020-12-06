@@ -30,15 +30,6 @@ export default function ClientDrawer() {
         right: false,
     });
 
-    let currentClients = []
-    const clients = useSelector((state) => state.store.clients)
-    if (!clients) return null;
-
-    for (const [key, value] of Object.entries(clients)) {
-        currentClients.push(value.firstName + ' ' + value.lastName)
-    }
-    console.log(currentClients)
-
     const toggleDrawer = (anchor, open) => (event) => {
         if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
             return;
@@ -46,6 +37,21 @@ export default function ClientDrawer() {
 
         setState({ ...state, [anchor]: open });
     };
+
+
+    //Grabs list of clients for display in drawer
+    const clients = useSelector((state) => state.store.clients)
+    if (!clients) return null;
+
+    let clientsArray = Object.values(clients)
+
+    console.log('fuckin wow dude', clientsArray)
+
+
+
+    const handleClick = (id) => {
+        //redirect to client page with client info using id
+    }
 
     const list = (anchor) => (
         <div
@@ -66,10 +72,10 @@ export default function ClientDrawer() {
             </List>
             <Divider variant="middle" />
             <List>
-                {currentClients.map((text, index) => (
-                    <ListItem button key={text}>
+                {clientsArray.map(({ firstName, lastName, id }) => (
+                    <ListItem button key={id} onClick={handleClick(id)}>
                         <ListItemIcon><DirectionsRunTwoTone /></ListItemIcon>
-                        <ListItemText primary={text} />
+                        <ListItemText primary={firstName + ' ' + lastName} />
                     </ListItem>
                 ))}
             </List>
