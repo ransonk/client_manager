@@ -11,6 +11,8 @@ import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import ArrowDownward from '@material-ui/icons/ArrowDownward';
 import DirectionsRunTwoTone from '@material-ui/icons/DirectionsRunTwoTone';
+import { setCurrentClient } from '../store/users';
+import { fetchCurrentClient } from '../store/users';
 
 const useStyles = makeStyles({
     list: {
@@ -23,6 +25,7 @@ const useStyles = makeStyles({
 
 export default function ClientDrawer() {
     const classes = useStyles();
+    const dispatch = useDispatch();
     const [state, setState] = React.useState({
         top: false,
         left: false,
@@ -50,7 +53,17 @@ export default function ClientDrawer() {
 
 
     const handleClick = (id) => {
-        //redirect to client page with client info using id
+        // event.stopPropagation();
+        let currentClient = clientsArray.filter(client => {
+            if (client.id === id) return client;
+        })
+        console.log('chosen one', currentClient)
+
+        // YOOOOO IT WORKS SON!!!!!!!!! the drawer returns the correct client when clicked.
+        // So now, go ahead and dispatch(64 - 65) and then make the client info page
+
+        // const currentClient = which client
+        dispatch(setCurrentClient(currentClient))
     }
 
     const list = (anchor) => (
@@ -73,7 +86,7 @@ export default function ClientDrawer() {
             <Divider variant="middle" />
             <List>
                 {clientsArray.map(({ firstName, lastName, id }) => (
-                    <ListItem button key={id} onClick={handleClick(id)}>
+                    <ListItem button key={id} onClick={() => handleClick(id)}>
                         <ListItemIcon><DirectionsRunTwoTone /></ListItemIcon>
                         <ListItemText primary={firstName + ' ' + lastName} />
                     </ListItem>

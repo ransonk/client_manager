@@ -9,6 +9,7 @@ import ProtectedRoute from "./components/auth/ProtectedRoute";
 import UsersList from "./components/UsersList";
 import User from "./components/User";
 import HomePage from './components/HomePage';
+import ClientView from './components/clientview/ClientView';
 import { authenticate } from "./services/auth";
 import { setCurrentUser, setCurrentClient, fetchClients, setTrainerClients } from "./store/users";
 
@@ -49,7 +50,7 @@ function App() {
 
   return (
     <BrowserRouter>
-      {/* <NavBar setAuthenticated={setAuthenticated} /> */}
+      {/* <AppBar setAuthenticated={setAuthenticated} /> */}
       <Route path="/login" exact={true}>
         <LoginForm
           authenticated={authenticated}
@@ -62,9 +63,6 @@ function App() {
       <ProtectedRoute path="/create-client" exact={true} authenticated={authenticated}>
         <CreateClientForm />
       </ProtectedRoute>
-      {/* <Route path="/create-client" exact={true} authenticated={authenticated}>
-        <CreateClientForm />
-      </Route> */}
       <ProtectedRoute path="/home" exact={true} authenticated={authenticated}>
         <UsersList />
       </ProtectedRoute>
@@ -72,8 +70,11 @@ function App() {
         <User />
       </ProtectedRoute>
       <ProtectedRoute path="/" exact={true} authenticated={authenticated}>
-        {/* <h1>My Home Page</h1> */}
         <HomePage setAuthenticated={setAuthenticated} />
+      </ProtectedRoute>
+      <ProtectedRoute path="/client" exact={true} authenticated={authenticated}>
+        {/* <h1>My Home Page</h1> */}
+        <ClientView setAuthenticated={setAuthenticated} />
       </ProtectedRoute>
     </BrowserRouter>
   );
