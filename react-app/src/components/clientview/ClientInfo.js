@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { fetchClient } from '../../store/users';
+import EditClientProfile from './EditClientProfile';
 
 const ClientInfo = () => {
 
@@ -34,6 +35,7 @@ const ClientInfo = () => {
 
     return (
         <div className='clientinfo__container'>
+            <EditClientProfile />
             <div className='clientinfo__info'>
                 <h1 className='clientinfo__header'>{client.firstName + ' ' + client.lastName}</h1>
                 <div className='clientinfo__clientcard'>

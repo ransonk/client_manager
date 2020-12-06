@@ -2,6 +2,7 @@ from flask import Blueprint, jsonify, request
 from flask_login import login_required, current_user
 from app.forms import SignUpForm, CreateClientForm
 from app.models import Trainer, Client, db
+from werkzeug.security import generate_password_hash
 
 trainer_routes = Blueprint('trainers', __name__)
 client_routes = Blueprint('clients', __name__)
@@ -50,6 +51,27 @@ def safe_clients(id):
 def client(id):
     print('loook heree')
     client = Client.query.get(id)
+    return client.to_dict()
+
+
+@trainer_routes.route("/client/<int:id>/update", methods=["GET", "PUT"])
+# @login_required
+def updateClient(id):
+    client = Client.query.get(id)
+    req_data = request.get_json()
+    # return f"{req_data}"
+    client.firstName = req_data['firstName']
+    client.lastName = req_data['lastName']
+    client.email = req_data['email']
+    client.phone = req_data['phone']
+    client.weight = req_data['weight']
+    client.age = req_data['age']
+    client.duedate = req_data['duedate']
+    client.amount = req_data['amount']
+    client.paid = req_data['paid']
+    client.hashed_password = generate_password_hash(req_data['password'])
+    db.session.add(client)
+    db.session.commit()
     return client.to_dict()
 
 
