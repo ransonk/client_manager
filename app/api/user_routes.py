@@ -43,7 +43,7 @@ def safe_clients(id):
     clientObj = clients['clients']
     for i in clientObj:
         for k,v in i.items():
-            if k == "email" or k == "phone":
+            if k == "email" or k == "phone" or k == "amount" or k == "duedate" or k == "weight" or k == "age":
                 i[k] = 'Null'
 
 
