@@ -29,6 +29,18 @@ export const fetchClients = async (trainerId) => {
     return clients
 }
 
+export const fetchClient = async (clientId) => {
+    const response = await fetch(`/api/trainers/client/${clientId}`, {
+        headers: {
+            "Content-Type": "application/json",
+        },
+    });
+    const result = await response.json();
+    const client = { ...result }
+    console.log('THE RESULT', client)
+    return client
+}
+
 export const setTrainerClients = (clients) => {
     return {
         type: SET_CURRENT_CLIENTS,

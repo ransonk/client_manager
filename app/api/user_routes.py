@@ -17,15 +17,12 @@ def validation_errors_to_error_messages(validation_errors):
     return errorMessages
 
 
-
 @trainer_routes.route('/')
 @login_required
 def users():
 
     trainers = Trainer.query.all()
     return {"trainers": [trainer.to_dict() for trainer in trainers]}
-
-
 
 
 @trainer_routes.route('/<int:id>')
@@ -45,13 +42,15 @@ def safe_clients(id):
         for k,v in i.items():
             if k == "email" or k == "phone" or k == "amount" or k == "duedate" or k == "weight" or k == "age":
                 i[k] = 'Null'
-
-
-    # safeReturn = {k: v for k, v in clientObj.items() if key == 'firstName'}
-    print('loooooooook here', clientObj)
-
     return {"clients": clientObj}
-    # return {"clients": clients['clients']}
+
+
+@trainer_routes.route('/client/<int:id>')
+@login_required
+def client(id):
+    print('loook heree')
+    client = Client.query.get(id)
+    return client.to_dict()
 
 
 
@@ -121,11 +120,11 @@ def users():
     # users = User.query.all()
 #     return {"users": [user.to_dict() for user in users]}
 
-@client_routes.route('/<int:id>')
-@login_required
-def client(id):
-    client = Client.query.get(id)
-    return client.to_dict()
+# @client_routes.route('/<int:id>')
+# @login_required
+# def client(id):
+#     client = Client.query.get(id)
+#     return client.to_dict()
 
 # @user_routes.route('/<int:id>')
 # @login_required
