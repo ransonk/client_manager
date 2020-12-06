@@ -1,5 +1,6 @@
 import React from 'react';
 import { useDispatch, useSelector } from "react-redux";
+import { Route, Redirect } from 'react-router-dom';
 import clsx from 'clsx';
 import { makeStyles } from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
@@ -43,18 +44,19 @@ export default function ClientDrawer() {
 
 
     //Grabs list of clients for display in drawer
-    const clients = useSelector((state) => state.store.current_trainer.clients)
+    const clients = useSelector((state) => state.store.clients)
     if (!clients) return null;
 
     let clientsArray = Object.values(clients)
 
 
-    const handleClick = (id) => {
+    const handleClick = async (id) => {
         // event.stopPropagation();
         let currentClient = clientsArray.filter(client => {
             if (client.id === id) return client;
         })
-        dispatch(setCurrentClient(currentClient))
+        await dispatch(setCurrentClient(currentClient))
+        window.location.href = '/manage-client'
     }
 
     const list = (anchor) => (
