@@ -34,24 +34,37 @@ def trainer(id):
     trainer = Trainer.query.get(id)
     return trainer.to_dict()
 
-# Grab clients for particular trainer
-@trainer_routes.route('/<int:id>/clients')
+# Grab clients safely for particular trainer (no phones/emails)
+@trainer_routes.route('/<int:id>/s-clients')
 # @login_required
-def clients(id):
+def safe_clients(id):
     trainer = Trainer.query.get(id)
-    clients = trainer.to_dict()
-    print(clients['clients'])
+    clients = trainer.return_clients()
+    clientObj = clients['clients']
+    for i in clientObj:
+        for k,v in i.items():
+            if k == "email" or k == "phone" or k == "amount" or k == "duedate" or k == "weight" or k == "age":
+                i[k] = 'Null'
 
-    return {"clients": clients['clients']}
 
-# @trainer_routes.route('/<int:id>/client/')
+    # safeReturn = {k: v for k, v in clientObj.items() if key == 'firstName'}
+    print('loooooooook here', clientObj)
+
+    return {"clients": clientObj}
+    # return {"clients": clients['clients']}
+
+
+
+# @trainer_routes.route('/<int:id>/clients')
 # # @login_required
-# def client(cid):
+# def clients(id):
 #     trainer = Trainer.query.get(id)
 #     clients = trainer.to_dict()
-#     client = Client.query.get(id)
+#     print(clients['clients'])
 
-#     return client.to_dict()
+#     return {"clients": clients['clients']}
+
+
 
 @trainer_routes.route('/<int:id>/create-client', methods=["POST"])
 # @login_required

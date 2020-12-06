@@ -15,7 +15,7 @@ export const setCurrentClient = (client) => {
 };
 
 export const fetchClients = async (trainerId) => {
-    const response = await fetch(`/api/trainers/${trainerId}/clients`, {
+    const response = await fetch(`/api/trainers/${trainerId}/s-clients`, {
         headers: {
             "Content-Type": "application/json",
         },
@@ -39,6 +39,7 @@ export const setTrainerClients = (clients) => {
 const initialState = {
     current_trainer: {},
     current_client: {},
+    clients: {}
 }
 
 export default function reducer(state = initialState, action) {
@@ -48,13 +49,15 @@ export default function reducer(state = initialState, action) {
             newState.current_trainer = { ...action.trainer }
             return newState;
         }
-        // case SET_CURRENT_CLIENTS: {
-        //     newState.clients = { ...action.clients }
-        //     return newState;
-        // }
+        case SET_CURRENT_CLIENTS: {
+            newState.clients = { ...action.clients }
+            return newState;
+        }
         case SET_CURRENT_CLIENT: {
-            state.current_client = { ...action.client }
-            return state;
+            newState.current_client = { ...action.client }
+            return newState;
+            // state.current_client = { ...action.client }
+            // return state;
         }
         default:
             return state;

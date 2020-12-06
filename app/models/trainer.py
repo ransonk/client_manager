@@ -35,12 +35,24 @@ class Trainer(db.Model, UserMixin):
   def check_password(self, password):
     return check_password_hash(self.password, password)
 
+  def return_clients(self):
+    return {
+      "clients": [client.to_dict() for client in self.clients]
+    }
+
 
   def to_dict(self):
     return {
       "id": self.id,
       "firstName": self.firstName,
       "lastName": self.lastName,
-      "email": self.email,
-      "clients": [client.to_dict() for client in self.clients]
     }
+
+  # def to_dict(self):
+  #   return {
+  #     "id": self.id,
+  #     "firstName": self.firstName,
+  #     "lastName": self.lastName,
+  #     "email": self.email,
+  #     "clients": [client.to_dict() for client in self.clients]
+  #   }
