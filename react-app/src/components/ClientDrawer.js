@@ -51,15 +51,13 @@ export default function ClientDrawer() {
 
 
     const handleClick = async (id) => {
-        // event.stopPropagation();
         let currentClientList = clientsArray.filter(client => {
             if (client.id === id) return client;
         })
-        // await dispatch(setCurrentClient(currentClient))
         console.log(currentClientList['0'])
         let currentClient = currentClientList[0]
         localStorage.setItem('CURRENT_CLIENT', JSON.stringify(currentClient))
-        // window.location.href = '/manage-client'
+        window.location.href = '/manage-client'
     }
 
     const list = (anchor) => (
