@@ -29,47 +29,32 @@ export default function SimpleAccordion() {
     console.log('list', workoutList)
 
 
-
-    const workoutAccordion = () => {
-        return (
-
-            <div className={classes.root}>
-                {
-                    workoutList.map((workout, i) => {
-                        return (
-                            <>
-                                <Accordion>
-                                    <AccordionSummary
-                                        expandIcon={<ExpandMoreIcon />}
-                                        aria-controls='panel1a-content'
-                                        id="panel1a-header"
-                                    >
-                                        <Typography className={classes.heading}>{workout.name}</Typography>
-                                    </AccordionSummary>
-                                    <AccordionDetails>
-                                        <Typography>
-                                            {workout.description}
-                                        </Typography>
-                                    </AccordionDetails>
-                                </Accordion>
-                            </>
-                        )
-                    })
-                }
-            </div>
-
-
-
-
-        )
-    }
-
-
     return (
-        <>
-
-            {workoutAccordion}
-            {/* <h1> hello </h1> */}
-        </>
-    )
+        <div className={classes.root}>
+            {
+                workoutList.map((workout, i) => {
+                    let panelContent = `panel${i}a-content`
+                    let panelHeader = `panel${i}a-header`
+                    return (
+                        <Accordion>
+                            <AccordionSummary
+                                expandIcon={<ExpandMoreIcon />}
+                                aria-controls={panelContent}
+                                id={panelHeader}
+                            // aria-controls='panel1a-content'
+                            // id="panel1a-header"
+                            >
+                                <Typography className={classes.heading}>{workout.name}</Typography>
+                            </AccordionSummary>
+                            <AccordionDetails>
+                                <Typography>
+                                    {workout.description}
+                                </Typography>
+                            </AccordionDetails>
+                        </Accordion>
+                    )
+                })
+            }
+        </div>
+    );
 }
