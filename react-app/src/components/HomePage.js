@@ -30,9 +30,9 @@ const useStyles = makeStyles((theme) => ({
     }
 }));
 
-// const addWorkout = () => {
+const addWorkout = () => {
 
-// }
+}
 
 const HomePage = ({ setAuthenticated }) => {
     const classes = useStyles();
@@ -60,7 +60,7 @@ const HomePage = ({ setAuthenticated }) => {
                     <div className='home-clients__workouts'>
                         <Workouts />
                     </div>
-                    <Button variant="contained" color="secondary" type="submit" className={classes.addWorkout} onClick={AddWorkout}>
+                    <Button variant="contained" color="secondary" type="submit" className={classes.addWorkout} onClick={addWorkout}>
                         Add Workout
                     </Button>
 

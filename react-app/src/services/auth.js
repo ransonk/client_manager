@@ -73,3 +73,16 @@ export const createClient = async (firstName, lastName, email, phone, weight, ag
   });
   return await response.json();
 }
+
+export const createWorkout = async (name, description, trainer_id) => {
+  const response = await fetch(`/api/trainers/${trainer_id}/create-workout`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      name, description
+    }),
+  });
+  return await response.json();
+}
