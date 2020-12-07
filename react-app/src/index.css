@@ -58,6 +58,10 @@ html{
     align-items: center;
 }
 
+.editclient__btn{
+    position: relative;
+}
+
 .title__container{
     text-Align: center;
     border: 1px solid black;

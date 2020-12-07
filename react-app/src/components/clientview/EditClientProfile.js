@@ -4,6 +4,7 @@ import { Avatar, Typography, Button, Modal, TextField, MenuItem, Divider, Checkb
 import { makeStyles } from '@material-ui/core/styles';
 import Backdrop from '@material-ui/core/Backdrop';
 import Fade from '@material-ui/core/Fade';
+import { fetchClient } from '../../store/users';
 // import 'fontsource-roboto';
 import clsx from 'clsx';
 
@@ -12,6 +13,7 @@ const useStyles = makeStyles((theme) => ({
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
+
     },
     paper: {
         backgroundColor: 'white',
@@ -36,9 +38,10 @@ const useStyles = makeStyles((theme) => ({
         fontFamily: 'Roboto',
         fontSize: '16px',
         marginLeft: '-6px',
-        backgroundColor: 'white',
+        backgroundColor: 'secondary',
+        borderRadius: '3px',
         "&:hover": {
-            backgroundColor: '#f5f5f5'
+            backgroundColor: 'white'
         },
         margin: theme.spacing(1),
     },
@@ -56,7 +59,7 @@ const useStyles = makeStyles((theme) => ({
     exitBtn: {
         position: 'relative',
         bottom: '1.95rem',
-        left: '8.5rem',
+        left: '11rem',
         border: 'none',
         paddingRight: '0px',
         paddingLeft: '0px',
@@ -97,6 +100,10 @@ const useStyles = makeStyles((theme) => ({
             backgroundColor: '#106ba3',
         },
     },
+    paid: {
+        display: 'flex',
+        fontSize: '20px'
+    }
 }));
 
 const EditClientProfile = (props) => {
@@ -116,26 +123,37 @@ const EditClientProfile = (props) => {
     const [password, setPassword] = useState("");
     const [repeatPassword, setRepeatPassword] = useState("");
 
-    // access current_user id object from redux store
-    // ---------------------------------------
-    // const id = localStorage.getItem('USERID')
-    // ---------------------------------------
-    //check form submission for updateProfile call
-
-
     const client = JSON.parse(localStorage.getItem('CURRENT_CLIENT'))
     let id = client.id
+    let secureClient;
+    useEffect(() => {
+        (async () => {
+
+            secureClient = await fetchClient(id);
+            setFirstName(secureClient.firstName)
+            setLastName(secureClient.lastName)
+            setPhone(secureClient.phone)
+            setEmail(secureClient.email)
+            setPaid(secureClient.paid)
+            setDueDate(secureClient.duedate)
+            setAmount(secureClient.amount)
+            setWeight(secureClient.weight)
+            setAge(secureClient.age)
+        })();
+    }, []);
+
+
 
 
     const updateClientProfile = async () => {
-        if (password === repeatPassword) return alert('Passwords must match.')
+        if (password !== repeatPassword) return alert('Passwords must match.')
         const response = await fetch(`/api/trainers/client/${id}/update`, {
             method: "PUT",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ firstName, lastName, email, phone, weight, age, duedate, amount, paid, password }),
         });
         if (response.ok) {
-            window.location.reload()
+            window.location.href = '/'
         }
     };
 
@@ -228,19 +246,22 @@ const EditClientProfile = (props) => {
                             <TextField id='standard-basic' value={age} onChange={updateAge} label='Age' />
                             <TextField id='standard-basic' value={duedate} onChange={updateDueDate} label='DueDate' />
                             <TextField id='standard-basic' value={amount} onChange={updateAmount} label='Amount' />
-                            <p>Paid</p>
-                            <Checkbox
-                                className={classes.root}
-                                disableRipple
-                                color="default"
-                                checkedIcon={<span className={clsx(classes.icon, classes.checkedIcon)} />}
-                                icon={<span className={classes.icon} />}
-                                inputProps={{ 'aria-label': 'decorative checkbox' }}
-                                {...props}
-                                onChange={updatePaid}
-                            />
-                            <TextField id='standard-basic' value={password} onChange={updatePassword} label='Password' />
-                            <TextField id='standard-basic' value={password} onChange={updateRepeatPassword} label='Repeat Password' />
+                            <div className={classes.paid}>
+
+                                <p>Paid</p>
+                                <Checkbox
+                                    className={classes.root}
+                                    disableRipple
+                                    color="default"
+                                    checkedIcon={<span className={clsx(classes.icon, classes.checkedIcon)} />}
+                                    icon={<span className={classes.icon} />}
+                                    inputProps={{ 'aria-label': 'decorative checkbox' }}
+                                    {...props}
+                                    onChange={updatePaid}
+                                />
+                            </div>
+                            <TextField id='standard-basic' type='password' onChange={updatePassword} label='Password' />
+                            <TextField id='standard-basic' type='password' onChange={updateRepeatPassword} label='Repeat Password' />
                             <Button variant='contained' color='primary' className={classes.button} type='submit'>Submit</Button>
                         </form>
                     </Typography>

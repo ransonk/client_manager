@@ -29,13 +29,14 @@ const ClientInfo = () => {
             setWeight(secureClient.weight)
             setAge(secureClient.age)
         })();
+        // window.location.reload();
     }, []);
 
 
 
     return (
         <div className='clientinfo__container'>
-            <EditClientProfile />
+            <div className='editclient__btn'><EditClientProfile /></div>
             <div className='clientinfo__info'>
                 <h1 className='clientinfo__header'>{client.firstName + ' ' + client.lastName}</h1>
                 <div className='clientinfo__clientcard'>
