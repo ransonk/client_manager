@@ -2,7 +2,7 @@ import React from 'react';
 import ButtonAppBar from '../AppBar';
 import Title from './Title';
 import ClientInfo from './ClientInfo';
-// import 'fontsource-roboto';
+import Footer from '../Footer';
 
 const ClientView = ({ setAuthenticated }) => {
     return (
@@ -12,6 +12,7 @@ const ClientView = ({ setAuthenticated }) => {
                 <Title />
                 <ClientInfo />
             </div>
+            <Footer />
         </>
     );
 }
