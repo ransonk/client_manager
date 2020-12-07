@@ -25,9 +25,14 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
+
 export default function ButtonAppBar({ setAuthenticated }) {
     const classes = useStyles();
     // const [authenticated, setAuthenticated] = useState(false);
+
+    const toHome = async (e) => {
+        window.location.href = '/'
+    }
 
     const onLogout = async (e) => {
         await logout();
@@ -39,6 +44,7 @@ export default function ButtonAppBar({ setAuthenticated }) {
             <AppBar position="static">
                 <Toolbar className={classes.nav}>
                     <ClientDrawer />
+                    <Button color="inherit" onClick={toHome}>Home</Button>
                     <Button color="inherit" onClick={onLogout}>Logout</Button>
                     {/* <LogoutButton /> */}
                 </Toolbar>
