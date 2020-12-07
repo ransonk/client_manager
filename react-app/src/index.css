@@ -175,7 +175,13 @@ html{
 .home-clients__payment{
     display: block;
     text-align: center;
+    width: 30rem;
 
+}
+
+.home-clients__workouts{
+    display: flex;
+    justify-content: center;
 }
 
 .home-clients__clientcard{

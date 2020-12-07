@@ -11,7 +11,7 @@ import User from "./components/User";
 import HomePage from './components/HomePage';
 import ClientView from './components/clientview/ClientView';
 import { authenticate } from "./services/auth";
-import { setCurrentUser, setCurrentClient, fetchClients, setTrainerClients } from "./store/users";
+import { setCurrentUser, setCurrentClient, fetchClients, setTrainerClients, fetchWorkouts, setWorkouts } from "./store/users";
 
 function App() {
   const dispatch = useDispatch();
@@ -41,6 +41,9 @@ function App() {
       // interval(user.id)
       const clients = await fetchClients(user.id);
       dispatch(setTrainerClients(clients))
+
+      const workouts = await fetchWorkouts();
+      dispatch(setWorkouts(workouts))
     })();
   }, []);
 

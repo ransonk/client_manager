@@ -1,7 +1,7 @@
 from flask import Blueprint, jsonify, request
 from flask_login import login_required, current_user
 from app.forms import SignUpForm, CreateClientForm
-from app.models import Trainer, Client, db
+from app.models import Trainer, Client, Workout, db
 from werkzeug.security import generate_password_hash
 
 trainer_routes = Blueprint('trainers', __name__)
@@ -54,6 +54,7 @@ def client(id):
     return client.to_dict()
 
 
+
 @trainer_routes.route("/client/<int:id>/update", methods=["GET", "PUT"])
 # @login_required
 def updateClient(id):
@@ -75,6 +76,12 @@ def updateClient(id):
     return client.to_dict()
 
 
+@trainer_routes.route('/workouts')
+# @login_required
+def workouts():
+    print('WORKOUTSSSSSSS')
+    workouts = Workout.query.all()
+    return {"workouts": [workout.to_dict() for workout in workouts]}
 
 # @trainer_routes.route('/<int:id>/clients')
 # # @login_required
