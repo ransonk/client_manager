@@ -165,6 +165,10 @@ html{
     padding-top: 1rem;
 }
 
+.home-clients__header{
+    position: sticky;
+}
+
 .home-clients__info{
     display: block;
     text-align: center;
@@ -177,6 +181,17 @@ html{
     text-align: center;
     width: 30rem;
 
+}
+
+.home-clients__workouts{
+
+    overflow-y: hidden;
+    overflow-x: hidden;
+    height: 15rem;
+}
+
+.home-clients__workouts:hover{
+    overflow-y: scroll;
 }
 
 .home-clients__workouts{

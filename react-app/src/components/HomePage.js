@@ -3,6 +3,7 @@ import ButtonAppBar from './AppBar';
 import Footer from './Footer';
 import { makeStyles } from '@material-ui/core/styles';
 import Workouts from './workouts/Workouts';
+import { Button } from '@material-ui/core';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -22,7 +23,16 @@ const useStyles = makeStyles((theme) => ({
         position: 'absolute',
         bottom: '0'
     },
+    addWorkout: {
+        width: "10rem",
+        position: "relative",
+        top: "1rem"
+    }
 }));
+
+// const addWorkout = () => {
+
+// }
 
 const HomePage = ({ setAuthenticated }) => {
     const classes = useStyles();
@@ -50,6 +60,9 @@ const HomePage = ({ setAuthenticated }) => {
                     <div className='home-clients__workouts'>
                         <Workouts />
                     </div>
+                    <Button variant="contained" color="secondary" type="submit" className={classes.addWorkout} onClick={AddWorkout}>
+                        Add Workout
+                    </Button>
 
                 </div>
             </div>
