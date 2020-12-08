@@ -22,8 +22,8 @@ const useStyles = makeStyles((theme) => ({
     },
     exitBtn: {
         position: 'relative',
-        bottom: '1.95rem',
-        left: '11rem',
+        bottom: '0.5rem',
+        left: '12rem',
         border: 'none',
         paddingRight: '0px',
         paddingLeft: '0px',
