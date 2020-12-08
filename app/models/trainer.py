@@ -66,6 +66,7 @@ class Trainer(db.Model, UserMixin):
       "id": self.id,
       "firstName": self.firstName,
       "lastName": self.lastName,
+      "email": self.email,
     }
 
   # def to_dict(self):
@@ -73,6 +74,5 @@ class Trainer(db.Model, UserMixin):
   #     "id": self.id,
   #     "firstName": self.firstName,
   #     "lastName": self.lastName,
-  #     "email": self.email,
   #     "clients": [client.to_dict() for client in self.clients]
   #   }

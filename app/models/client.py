@@ -35,6 +35,11 @@ class Client(db.Model, UserMixin):
     back_populates="client"
   )
 
+  workoutplans = db.relationship(
+    "WorkoutPlan",
+    back_populates="client"
+  )
+
   @property
   def password(self):
     return self.hashed_password
@@ -48,6 +53,11 @@ class Client(db.Model, UserMixin):
   def check_password(self, password):
     return check_password_hash(self.password, password)
 
+
+  def return_workoutplans(self):
+    return {
+      "workoutplans": [workoutplan.to_dict() for workoutplan in self.workoutplans]
+    }
 
   def to_dict(self):
     return {

@@ -8,6 +8,7 @@ import Footer from '../Footer';
 // import WorkoutSchedule from './WorkoutSchedule';
 
 const ClientView = ({ setAuthenticated }) => {
+
     return (
         <>
             <ButtonAppBar setAuthenticated={setAuthenticated} />

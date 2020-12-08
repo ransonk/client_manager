@@ -264,7 +264,7 @@ const EditClientProfile = (props) => {
                             <TextField id='standard-basic' value={weight} onChange={updateWeight} label='Weight' />
                             <TextField id='standard-basic' value={age} onChange={updateAge} label='Age' />
                             <TextField id='standard-basic' value={duedate} onChange={updateDueDate} label='DueDate' />
-                            <TextField id='standard-basic' value={amount} onChange={updateAmount} label='Amount' />
+                            <TextField id='standard-basic' value={amount} onChange={updateAmount} label='Amount $' />
                             <TextField id='standard-basic' value={noshows} onChange={updateNoShows} label='No Shows' />
                             <TextField id='standard-basic' value={cancellations} onChange={updateCancellations} label='Cancellations' />
                             <TextField id='standard-basic' type='password' onChange={updatePassword} label='Password' />
