@@ -5,6 +5,7 @@ import Footer from './Footer';
 import { makeStyles } from '@material-ui/core/styles';
 import Workouts from './workouts/Workouts';
 import CreateNewWorkout from './workouts/CreateNewWorkout';
+import CreateNewIntensity from './workouts/CreateNewIntensity';
 import { Button } from '@material-ui/core';
 import { authenticate } from "../services/auth";
 import Intensities from './workouts/Intensities';
@@ -98,6 +99,7 @@ const HomePage = ({ setAuthenticated }) => {
                     <div className='home-clients__workouts'>
                         <Intensities />
                     </div>
+                    <CreateNewIntensity />
 
 
 
