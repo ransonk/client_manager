@@ -11,6 +11,7 @@ import { fetchWorkoutPlans, setWorkoutPlans } from '../../../store/users';
 const useStyles = makeStyles({
     root: {
         minWidth: 275,
+        margin: '0.5rem',
     },
     bullet: {
         display: 'inline-block',
@@ -29,7 +30,9 @@ export default function SimpleCard() {
 
     const workoutPlans = useSelector((state) => state.store.workoutplans)
     console.log('workoutplans', workoutPlans)
+    let workoutPlanList = Object.values(workoutPlans)
 
+    // workoutPlans.map(workout => console.log(workout.name))
 
 
 
@@ -39,26 +42,26 @@ export default function SimpleCard() {
     const bull = <span className={classes.bullet}>•</span>;
 
     return (
-        <>
-            {/* {workoutPlans.map((workout, i) => {
+        <div className='workoutplans__container'>
+            {workoutPlanList.map((workout, i) => {
 
                 return (
 
                     <Card className={classes.root}>
                         <CardContent>
-                            <Typography className={classes.title} color="textSecondary" gutterBottom>
+                            <Typography variant="h5" component="h2" gutterBottom>
                                 {workout.name}
                             </Typography>
-                            <Typography variant="h5" component="h2">
+                            <Typography className={classes.title}>
                                 {workout.date}
                             </Typography>
                             <Typography className={classes.pos} color="textSecondary">
                                 {workout.description}
                             </Typography>
                             <Typography variant="body2" component="p">
-                                {workout.pull + ' ' + workout.push}
+                                {workout.pull ? 'Pull Day' : 'Push Day'}
                                 <br />
-                                {'"a benevolent smile"'}
+
                             </Typography>
                         </CardContent>
                         <CardActions>
@@ -68,7 +71,7 @@ export default function SimpleCard() {
 
                 )
 
-            })} */}
-        </>
+            })}
+        </div>
     );
 }

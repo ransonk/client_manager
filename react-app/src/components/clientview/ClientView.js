@@ -16,6 +16,7 @@ const ClientView = ({ setAuthenticated }) => {
                 <Title />
                 <ClientInfo />
                 <div className='client-view__workout-plans'>
+                    <h1>Workout Plans</h1>
                     {/* <WorkoutSchedule/> */}
                     {/* <BuildWorkoutPlan /> */}
                     <WorkoutPlans />
