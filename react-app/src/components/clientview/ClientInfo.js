@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchClient } from '../../store/users';
 import EditClientProfile from './EditClientProfile';
 import { setCurrentClient } from '../../store/users';
+import { fetchWorkoutPlans, setWorkoutPlans } from '../../store/users'
 
 const ClientInfo = () => {
     const dispatch = useDispatch();
@@ -14,6 +15,8 @@ const ClientInfo = () => {
     const [duedate, setDueDate] = useState();
     const [amount, setAmount] = useState();
     const [weight, setWeight] = useState();
+    const [noshows, setNoShows] = useState();
+    const [cancellations, setCancellations] = useState();
     const [age, setAge] = useState();
 
 
@@ -32,14 +35,39 @@ const ClientInfo = () => {
             setAmount(secureClient.amount)
             setWeight(secureClient.weight)
             setAge(secureClient.age)
+            setNoShows(secureClient.noshows)
+            setCancellations(secureClient.cancellations)
             setFirstName(secureClient.firstName)
             setLastName(secureClient.lastName)
             // dispatch(setCurrentClient(secureClient))
+            const workoutplans = await fetchWorkoutPlans(id);
+            dispatch(setWorkoutPlans(workoutplans))
 
         })();
         // window.location.reload();
     }, [phone, email, paid, duedate, amount, weight, age, firstName]);
 
+
+    // useEffect(() => {
+    //     (async () => {
+    //         const user = await authenticate();
+    //         if (!user.errors) {
+    //             setAuthenticated(true);
+    //         }
+    //         setLoaded(true);
+    //         dispatch(setCurrentUser(user))
+    //         setName(user.firstName)
+    //         // interval(user.id)
+    //         const clients = await fetchClients(user.id);
+    //         dispatch(setTrainerClients(clients))
+
+    //         const workouts = await fetchWorkouts(user.id);
+    //         dispatch(setWorkouts(workouts))
+
+    //         const intensities = await fetchIntensities(id);
+    //         dispatch(setIntensities(intensities))
+    //     })();
+    // }, []);
 
 
     return (
@@ -59,6 +87,11 @@ const ClientInfo = () => {
                         <p>Age: {age}</p>
                         <p>Weight: {weight}</p>
                     </div>
+                    <div className='clientinfo__info__contact'>
+                        <p className='card__header'>Attendance</p>
+                        <p>No Shows: {noshows}</p>
+                        <p>Cancellations: {cancellations}</p>
+                    </div>
                 </div>
             </div>
             <div className='clientinfo__payment'>
@@ -66,8 +99,8 @@ const ClientInfo = () => {
                 <div className='clientinfo__paymentcard'>
 
                     <div className='clientinfo__info__payment'>
-                        <p className='card__header'>Amount</p>
-                        <p>${amount}</p>
+                        <p className='card__header'>Due</p>
+                        <p>{'$' + amount}</p>
                     </div>
                     <div className='clientinfo__info__payment'>
                         <p className='card__header'>Paid</p>

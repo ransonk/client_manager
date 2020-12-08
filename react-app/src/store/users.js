@@ -5,6 +5,8 @@ export const SET_WORKOUTS = "SET_WORKOUTS";
 export const ADD_WORKOUT = "ADD_WORKOUT";
 export const SET_INTENSITIES = "SET_INTENSITIES";
 export const ADD_INTENSITY = "ADD_INTENSITY";
+export const SET_WORKOUT_PLANS = "SET_WORKOUT_PLANS";
+export const ADD_WORKOUT_PLAN = "ADD_WORKOUT_PLAN";
 
 export const setCurrentUser = (trainer) => {
     return { type: SET_CURRENT_TRAINER, trainer };
@@ -39,6 +41,13 @@ export const setIntensities = (intensities) => {
     }
 }
 
+export const setWorkoutPlans = (workoutplans) => {
+    return {
+        type: SET_WORKOUT_PLANS,
+        workoutplans
+    }
+}
+
 export const fetchClients = async (trainerId) => {
     const response = await fetch(`/api/trainers/${trainerId}/s-clients`, {
         headers: {
@@ -63,6 +72,21 @@ export const fetchClient = async (clientId) => {
     const result = await response.json();
     const client = { ...result }
     return client
+}
+
+export const fetchWorkoutPlans = async (clientId) => {
+    const response = await fetch(`/api/trainers/client/${clientId}/workout-plans`, {
+        headers: {
+            "Content-Type": "application/json",
+        },
+    });
+    const result = await response.json();
+    const workoutplans = {}
+    // console.log('clients', result)
+    result.workoutplans.forEach(workoutplan => {
+        workoutplans[workoutplan.id] = workoutplan
+    })
+    return workoutplans
 }
 
 export const fetchWorkouts = async (trainerId) => {
@@ -100,7 +124,8 @@ const initialState = {
     current_client: {},
     clients: {},
     workouts: {},
-    intensities: {}
+    intensities: {},
+    workoutplans: {},
 }
 
 export default function reducer(state = initialState, action) {
@@ -124,6 +149,10 @@ export default function reducer(state = initialState, action) {
         }
         case SET_INTENSITIES: {
             newState.intensities = { ...action.intensities }
+            return newState;
+        }
+        case SET_WORKOUT_PLANS: {
+            newState.workoutplans = { ...action.workoutplans }
             return newState;
         }
         default:

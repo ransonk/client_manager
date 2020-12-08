@@ -9,12 +9,10 @@ class WorkoutPlan(db.Model, UserMixin):
   name = db.Column(db.String(255), nullable=False)
   description = db.Column(db.Text)
   rating = db.Column(db.Integer)
-  time = db.Column(db.Integer, nullable=False)
-  date = db.Column(db.Integer, nullable=False)
+  time = db.Column(db.String(255), nullable=False)
+  date = db.Column(db.String(255), nullable=False)
   pull = db.Column(db.Boolean)
   push = db.Column(db.Boolean)
-  noshows = db.Column(db.Integer)
-  cancellations = db.Column(db.Integer)
   client_id = db.Column(db.Integer, db.ForeignKey("clients.id"))
   created_on = db.Column(db.DateTime, server_default=db.func.now())
   updated_on = db.Column(
@@ -23,25 +21,37 @@ class WorkoutPlan(db.Model, UserMixin):
         server_onupdate=db.func.now()
     )
 
+  client = db.relationship(
+    "Client",
+    back_populates="workoutplans"
+  )
+
+  workout = db.relationship(
+    "Workout",
+    back_populates="workoutplan"
+  )
+
   workoutintensity = db.relationship(
     "WorkoutIntensity",
     back_populates="workoutplan"
   )
+
   reviews = db.relationship(
     "Review",
     back_populates="workoutplan"
   )
 
+
   def to_dict(self):
     return {
       "id": self.id,
+      "name": self.name,
       "description": self.description,
       "rating": self.rating,
       "time": self.time,
       "date": self.date,
       "pull": self.pull,
       "push": self.push,
-      "noshows": self.noshows,
-      "cancellations": self.cancellations,
-      "reviews": [review.to_dict() for review in self.reviews]
     }
+
+      # "reviews": [review.to_dict() for review in self.reviews]

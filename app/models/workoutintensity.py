@@ -18,19 +18,16 @@ class WorkoutIntensity(db.Model, UserMixin):
         server_onupdate=db.func.now()
     )
 
-  workoutplan = db.relationship(
-    "WorkoutPlan",
-    back_populates="workoutintensity"
-  )
-  workout = db.relationship(
-    "Workout",
-    back_populates="workoutintensity"
-  )
-
   trainer = db.relationship(
     "Trainer",
     back_populates="workoutintensity"
   )
+
+  workoutplan = db.relationship(
+    "WorkoutPlan",
+    back_populates="workoutintensity"
+  )
+
 
   def to_dict(self):
     return {

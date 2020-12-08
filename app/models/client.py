@@ -15,6 +15,8 @@ class Client(db.Model, UserMixin):
   duedate = db.Column(db.String(255))
   amount = db.Column(db.String(40))
   paid = db.Column(db.Boolean)
+  noshows = db.Column(db.Integer)
+  cancellations = db.Column(db.Integer)
   hashed_password = db.Column(db.String(255), nullable = False)
   trainer_id = db.Column(db.Integer, db.ForeignKey("trainers.id"))
   created_on = db.Column(db.DateTime, server_default=db.func.now())
@@ -33,6 +35,11 @@ class Client(db.Model, UserMixin):
     back_populates="client"
   )
 
+  workoutplans = db.relationship(
+    "WorkoutPlan",
+    back_populates="client"
+  )
+
   @property
   def password(self):
     return self.hashed_password
@@ -47,6 +54,11 @@ class Client(db.Model, UserMixin):
     return check_password_hash(self.password, password)
 
 
+  def return_workoutplans(self):
+    return {
+      "workoutplans": [workoutplan.to_dict() for workoutplan in self.workoutplans]
+    }
+
   def to_dict(self):
     return {
       "id": self.id,
@@ -59,5 +71,7 @@ class Client(db.Model, UserMixin):
       "duedate": self.duedate,
       "amount": self.amount,
       "paid": self.paid,
+      "noshows": self.noshows,
+      "cancellations": self.cancellations,
       "trainer_id": self.trainer_id
     }
