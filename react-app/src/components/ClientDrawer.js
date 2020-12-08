@@ -18,10 +18,17 @@ import { fetchCurrentClient } from '../store/users';
 const useStyles = makeStyles({
     list: {
         width: 250,
+        backgroundColor: '#99c1de'
     },
     fullList: {
         width: 'auto',
+        backgroundColor: '#99c1de'
     },
+    paperAnchorLeft: {
+        backgroundColor: '#99c1de',
+        color: "blue"
+
+    }
 });
 
 export default function ClientDrawer() {
@@ -29,7 +36,7 @@ export default function ClientDrawer() {
     const dispatch = useDispatch();
     const [state, setState] = React.useState({
         top: false,
-        left: false,
+        left: true,
         bottom: false,
         right: false,
     });

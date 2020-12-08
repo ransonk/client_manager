@@ -36,6 +36,7 @@ const HomePage = ({ setAuthenticated }) => {
     const dispatch = useDispatch();
     // const [authenticated, setAuthenticated] = useState(false);
     const [loaded, setLoaded] = useState(false);
+    const [name, setName] = useState();
 
     useEffect(() => {
         (async () => {
@@ -45,6 +46,7 @@ const HomePage = ({ setAuthenticated }) => {
             }
             setLoaded(true);
             dispatch(setCurrentUser(user))
+            setName(user.firstName)
             // interval(user.id)
             const clients = await fetchClients(user.id);
             dispatch(setTrainerClients(clients))
@@ -62,6 +64,7 @@ const HomePage = ({ setAuthenticated }) => {
     return (
         <div className='home-page-layout'>
             <ButtonAppBar setAuthenticated={setAuthenticated} />
+            <div className='home-welcome__message'>Welcome Back, {name}</div>
             <div className='home-clients__container'>
 
                 <div className='home-clients__info'>
@@ -79,7 +82,7 @@ const HomePage = ({ setAuthenticated }) => {
                     </div>
                 </div>
                 <div className='home-clients__payment'>
-                    <h1 className='home-clients__header'>Workouts</h1>
+                    <h1 className='home-clients__header'>Available Workouts</h1>
                     <div className='home-clients__workouts'>
                         <Workouts />
                     </div>
