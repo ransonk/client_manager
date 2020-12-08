@@ -90,6 +90,9 @@ const LoginForm = ({ authenticated, setAuthenticated }) => {
 
   if (authenticated) {
     return <Redirect to="/" />;
+    // window.location.reload();
+    // fix this it needs to be like logging you in correctly.
+    //when you log in it thinks ur the last user!!
   }
 
   return (

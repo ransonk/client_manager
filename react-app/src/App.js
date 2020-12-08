@@ -20,7 +20,7 @@ function App() {
 
   // const currentClient = useSelector((state) => state.store.current_client);
   // const currentClients = useSelector((state) => state.store.clients);
-  // const id = useSelector((state) => state.store.current_trainer.id);
+  const id = useSelector((state) => state.store.current_trainer.id);
 
   const interval = (id) => {
     setInterval(async function () {
@@ -50,6 +50,7 @@ function App() {
   if (!loaded) {
     return null;
   }
+
 
   return (
     <BrowserRouter>
