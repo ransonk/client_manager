@@ -86,6 +86,7 @@ def workouts(id):
     print('loook at thisssssssssssss', workoutsObj)
     return {"workouts": workoutsObj}
 
+
 @trainer_routes.route('/<int:id>/intensities')
 # @login_required
 def intensities(id):
@@ -160,6 +161,29 @@ def create_workout(id):
     print('outsideee')
     return {'errors': validation_errors_to_error_messages(form.errors)}
 
+
+@trainer_routes.route('/delete-workout/<int:id>', methods=["DELETE"])
+# @login_required
+def delete_workout(id):
+    """
+    Creates a new workout
+    """
+    form = CreateWorkoutForm()
+    form['csrf_token'].data = request.cookies['csrf_token']
+    if form.validate_on_submit():
+        workout = Workout(
+            name=form.data['name'],
+            description=form.data['description'],
+            trainer_id=id
+        )
+        db.session.add(workout)
+        db.session.commit()
+        return workout.to_dict()
+
+    print('outsideee')
+    return {'errors': validation_errors_to_error_messages(form.errors)}
+
+
 @trainer_routes.route('/<int:id>/create-intensity', methods=["POST"])
 # @login_required
 def create_intensity(id):
@@ -182,6 +206,17 @@ def create_intensity(id):
     return {'errors': validation_errors_to_error_messages(form.errors)}
 
 
+@trainer_routes.route('/delete-intensity/<int:id>', methods=["GET", "DELETE"])
+# @login_required
+def delete_intensity(id):
+    """
+    Deletes selected Workout Intensity
+    """
+    # intensity = WorkoutIntensity.query.filter(WorkoutIntensity.id == id).delete()
+    intensity = WorkoutIntensity.query.get(id)
+    db.session.delete(intensity)
+    db.session.commit()
+    return {'message':'delete successful'}
 
 
 
