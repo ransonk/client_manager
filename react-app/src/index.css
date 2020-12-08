@@ -7,7 +7,7 @@ html{
 }
 
 
-a{
+.addWorkout{
     position: relative;
     font-family: consolas;
     display: inline-block;
@@ -25,7 +25,7 @@ a{
     2px 2px 8px rgba(0, 0, 0, 0.15);
 }
 
-a:hover{
+.addWorkout:hover{
 
     box-shadow: inset -2px -2px 8px rgba(255, 255, 255, 1),
     inset -2px -2px 12px rgba(255, 255, 255, 0.5),
@@ -33,7 +33,7 @@ a:hover{
     inset 2px 2px 8px rgba(0, 0, 0, 0.15);
 }
 
-a:hover span{
+.addWorkout:hover span{
     display: inline-block;
     transform: scale(0.98);
 }
