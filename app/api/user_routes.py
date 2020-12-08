@@ -86,6 +86,15 @@ def workouts(id):
     print('loook at thisssssssssssss', workoutsObj)
     return {"workouts": workoutsObj}
 
+@trainer_routes.route('/<int:id>/intensities')
+# @login_required
+def intensities(id):
+    trainer = Trainer.query.get(id)
+    intensities = trainer.return_workoutintensities()
+    intensitiesObj = intensities['workoutintensity']
+    print('loook at thisssssssssssss', intensitiesObj)
+    return {"intensities": intensitiesObj}
+
 
 # @trainer_routes.route('/<int:id>/clients')
 # # @login_required

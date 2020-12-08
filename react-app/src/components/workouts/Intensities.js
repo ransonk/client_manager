@@ -6,7 +6,7 @@ import AccordionSummary from '@material-ui/core/AccordionSummary';
 import AccordionDetails from '@material-ui/core/AccordionDetails';
 import Typography from '@material-ui/core/Typography';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import { fetchWorkouts, setWorkouts } from '../../store/users';
+import { fetchIntensities, setIntensities } from '../../store/users';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -20,19 +20,19 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 
-export default function Workouts() {
+export default function Intensities() {
     const classes = useStyles();
-    const workouts = useSelector((state) => state.store.workouts)
+    const intensities = useSelector((state) => state.store.intensities)
 
-    console.log('workoutsss', workouts)
-    let workoutList = Object.values(workouts)
-    console.log('list', workoutList)
+    console.log('intensitiesss', intensities)
+    let intensityList = Object.values(intensities)
+    console.log('list', intensityList)
 
 
     return (
         <div className={classes.root}>
             {
-                workoutList.map((workout, i) => {
+                intensityList.map((intensity, i) => {
                     let panelContent = `panel${i}a-content`
                     let panelHeader = `panel${i}a-header`
                     return (
@@ -44,11 +44,11 @@ export default function Workouts() {
                             // aria-controls='panel1a-content'
                             // id="panel1a-header"
                             >
-                                <Typography className={classes.heading}>{workout.name}</Typography>
+                                <Typography className={classes.heading}>{'Sets: ' + intensity.sets + ' ' + 'Reps: ' + intensity.reps}</Typography>
                             </AccordionSummary>
                             <AccordionDetails>
                                 <Typography>
-                                    {workout.description}
+                                    delete button
                                 </Typography>
                             </AccordionDetails>
                         </Accordion>
