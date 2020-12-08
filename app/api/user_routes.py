@@ -1,7 +1,7 @@
 from flask import Blueprint, jsonify, request
 from flask_login import login_required, current_user
-from app.forms import SignUpForm, CreateClientForm, CreateWorkoutForm
-from app.models import Trainer, Client, Workout, db
+from app.forms import SignUpForm, CreateClientForm, CreateWorkoutForm, CreateIntensityForm
+from app.models import Trainer, Client, Workout, WorkoutIntensity, db
 from werkzeug.security import generate_password_hash
 
 trainer_routes = Blueprint('trainers', __name__)
@@ -156,6 +156,27 @@ def create_workout(id):
         db.session.add(workout)
         db.session.commit()
         return workout.to_dict()
+
+    print('outsideee')
+    return {'errors': validation_errors_to_error_messages(form.errors)}
+
+@trainer_routes.route('/<int:id>/create-intensity', methods=["POST"])
+# @login_required
+def create_intensity(id):
+    """
+    Creates a new workout
+    """
+    form = CreateIntensityForm()
+    form['csrf_token'].data = request.cookies['csrf_token']
+    if form.validate_on_submit():
+        intensity = WorkoutIntensity(
+            reps=form.data['sets'],
+            sets=form.data['reps'],
+            trainer_id=id
+        )
+        db.session.add(intensity)
+        db.session.commit()
+        return intensity.to_dict()
 
     print('outsideee')
     return {'errors': validation_errors_to_error_messages(form.errors)}
