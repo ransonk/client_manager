@@ -105,11 +105,6 @@ const useStyles = makeStyles((theme) => ({
         display: 'flex',
         fontSize: '20px'
     },
-    addWorkout: {
-        width: "10rem",
-        position: "relative",
-        top: "1rem"
-    },
 }));
 
 const CreateNewWorkout = (props) => {
@@ -153,9 +148,9 @@ const CreateNewWorkout = (props) => {
 
         <div className='profile-edit__container'>
 
-            <Button variant="contained" color="secondary" className={classes.addWorkout} onClick={handleOpenModal}>
+            <a className='addWorkout' onClick={handleOpenModal}>
                 Add Workout
-            </Button>
+            </a>
             <Modal
                 aria-labelledby="transition-modal-title"
                 aria-describedby="transition-modal-description"

@@ -12,11 +12,13 @@ import { fetchIntensities, setIntensities } from '../../store/users';
 const useStyles = makeStyles((theme) => ({
     root: {
         width: '70%',
+        // borderRadius: '50px'
     },
     heading: {
         fontSize: theme.typography.pxToRem(15),
         fontWeight: theme.typography.fontWeightRegular,
     },
+
 }));
 
 
