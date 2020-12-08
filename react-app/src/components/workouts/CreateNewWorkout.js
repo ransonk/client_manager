@@ -7,6 +7,7 @@ import Fade from '@material-ui/core/Fade';
 import { fetchClient } from '../../store/users';
 // import 'fontsource-roboto';
 import clsx from 'clsx';
+import { createWorkout } from '../../services/auth';
 
 const useStyles = makeStyles((theme) => ({
     modal: {
@@ -121,11 +122,12 @@ const CreateNewWorkout = (props) => {
 
     const trainer_id = useSelector((state) => state.store.current_trainer.id)
 
-    const createWorkout = async (e) => {
+    const createThisWorkout = async (e) => {
         e.preventDefault();
         const workout = await createWorkout(
             name,
-            description);
+            description,
+            trainer_id);
         window.location.href = "/";
     };
 
@@ -168,7 +170,7 @@ const CreateNewWorkout = (props) => {
             >
                 <Fade in={openModal}>
                     <Typography variant='h5'>
-                        <form className={classes.paper} noValidate autoComplete='off' onSubmit={createWorkout}>
+                        <form className={classes.paper} noValidate autoComplete='off' onSubmit={createThisWorkout}>
                             <Button size='large' variant='contained' onClick={handleCloseModal} className={classes.exitBtn} variant='outlined'>x</Button>
                             <Typography variant='h4' className={classes.editHeading}>
                                 Create a Workout

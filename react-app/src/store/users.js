@@ -56,19 +56,19 @@ export const fetchClient = async (clientId) => {
     return client
 }
 
-export const fetchWorkouts = async () => {
-    const response = await fetch(`/api/trainers/workouts`, {
+export const fetchWorkouts = async (trainerId) => {
+    const response = await fetch(`/api/trainers/${trainerId}/workouts`, {
         headers: {
             "Content-Type": "application/json",
         },
     });
     const result = await response.json();
-    const workouts = {}
-    console.log('clients', result)
+    console.log('workoutssss', result.workouts)
+    const workoutss = {}
     result.workouts.forEach(workout => {
-        workouts[workout.id] = workout
+        workoutss[workout.id] = workout
     })
-    return workouts
+    return workoutss
 }
 
 const initialState = {
