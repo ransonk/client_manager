@@ -2,9 +2,12 @@ import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from "react-redux";
 import { fetchClient } from '../../store/users';
 import EditClientProfile from './EditClientProfile';
+import { setCurrentClient } from '../../store/users';
 
 const ClientInfo = () => {
-
+    const dispatch = useDispatch();
+    const [firstName, setFirstName] = useState();
+    const [lastName, setLastName] = useState();
     const [phone, setPhone] = useState();
     const [email, setEmail] = useState();
     const [paid, setPaid] = useState();
@@ -29,9 +32,13 @@ const ClientInfo = () => {
             setAmount(secureClient.amount)
             setWeight(secureClient.weight)
             setAge(secureClient.age)
+            setFirstName(secureClient.firstName)
+            setLastName(secureClient.lastName)
+            // dispatch(setCurrentClient(secureClient))
+
         })();
         // window.location.reload();
-    }, []);
+    }, [phone, email, paid, duedate, amount, weight, age, firstName]);
 
 
 
@@ -39,7 +46,7 @@ const ClientInfo = () => {
         <div className='clientinfo__container'>
             <div className='editclient__btn'><EditClientProfile /></div>
             <div className='clientinfo__info'>
-                <h1 className='clientinfo__header'>{client.firstName + ' ' + client.lastName}</h1>
+                <h1 className='clientinfo__header'>{firstName + ' ' + lastName}</h1>
                 <div className='clientinfo__clientcard'>
 
                     <div className='clientinfo__info__contact'>

@@ -121,13 +121,14 @@ const EditClientProfile = (props) => {
     const [age, setAge] = useState("");
     const [duedate, setDueDate] = useState("");
     const [amount, setAmount] = useState("");
-    const [paid, setPaid] = useState(false);
+    const [paid, setPaid] = useState();
     const [password, setPassword] = useState("");
     const [repeatPassword, setRepeatPassword] = useState("");
 
     const client = JSON.parse(localStorage.getItem('CURRENT_CLIENT'))
     let id = client.id
     let secureClient;
+
     useEffect(() => {
         (async () => {
 
@@ -155,7 +156,7 @@ const EditClientProfile = (props) => {
             body: JSON.stringify({ firstName, lastName, email, phone, weight, age, duedate, amount, paid, password }),
         });
         if (response.ok) {
-            window.location.href = '/'
+            window.location.reload()
         }
     };
 
@@ -201,7 +202,11 @@ const EditClientProfile = (props) => {
     };
 
     const updatePaid = (e) => {
-        setPaid(!paid)
+        if (e.target.checked) {
+            setPaid(true)
+        } else {
+            setPaid(false)
+        }
     };
 
     const updatePassword = (e) => {
@@ -253,6 +258,7 @@ const EditClientProfile = (props) => {
                                 <p>Paid</p>
                                 <Checkbox
                                     className={classes.root}
+                                    checked={paid}
                                     disableRipple
                                     color="default"
                                     checkedIcon={<span className={clsx(classes.icon, classes.checkedIcon)} />}
