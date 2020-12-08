@@ -135,32 +135,16 @@ def create_client(id):
 @trainer_routes.route('/<int:id>/create-workout', methods=["POST"])
 # @login_required
 def create_workout(id):
-    print('route startedsdafdsafdsafdsafdasfds')
     """
-    Creates a new client account
+    Creates a new workout
     """
     form = CreateWorkoutForm()
-    print(form.data['phone'])
-    print(form.data['weight'])
-    print(form.data['age'])
-    print(form.data['duedate'])
-    print(form.data['amount'])
-    print(form.data['paid'])
     form['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():
-        print('hereeeeeeeeee')
-        client = Client(
-            firstName=form.data['firstName'],
-            lastName=form.data['lastName'],
-            email=form.data['email'],
-            phone=form.data['phone'],
-            weight=form.data['weight'],
-            age=form.data['age'],
-            duedate=form.data['duedate'],
-            amount=form.data['amount'],
-            paid=form.data['paid'],
-            password=form.data['password'],
-            trainer_id=id
+        workout = Workout(
+            name=form.data['name'],
+            description=form.data['description'],
+            # workoutintensity_id=id
         )
         db.session.add(client)
         db.session.commit()
