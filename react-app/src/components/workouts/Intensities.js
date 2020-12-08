@@ -28,6 +28,14 @@ const useStyles = makeStyles((theme) => ({
         paddingRight: '0px',
         paddingLeft: '0px',
     },
+    delete: {
+        position: 'relative',
+        left: '7rem',
+        fontWeight: 'bold',
+        "&:hover": {
+            cursor: 'pointer'
+        }
+    }
 
 }));
 
@@ -64,8 +72,9 @@ export default function Intensities() {
                                 <Typography className={classes.heading}>{'Sets: ' + intensity.sets + ' ' + 'Reps: ' + intensity.reps}</Typography>
                             </AccordionSummary>
                             <AccordionDetails>
-                                <Typography>delete</Typography>
-                                <Button size='large' variant='contained' onClick={() => handleDeleteIntensity(intensity.id)} className={classes.exitBtn} variant='outlined'>x</Button>
+                                <Typography className={classes.delete} onClick={() => handleDeleteIntensity(intensity.id)}>
+                                    Delete
+                                </Typography>
                             </AccordionDetails>
                         </Accordion>
                     )

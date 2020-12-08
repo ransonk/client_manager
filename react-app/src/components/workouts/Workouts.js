@@ -6,7 +6,9 @@ import AccordionSummary from '@material-ui/core/AccordionSummary';
 import AccordionDetails from '@material-ui/core/AccordionDetails';
 import Typography from '@material-ui/core/Typography';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import { Button } from '@material-ui/core';
 import { fetchWorkouts, setWorkouts } from '../../store/users';
+import { deleteWorkout } from '../../services/auth';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -17,6 +19,22 @@ const useStyles = makeStyles((theme) => ({
         fontSize: theme.typography.pxToRem(15),
         fontWeight: theme.typography.fontWeightRegular,
     },
+    exitBtn: {
+        position: 'relative',
+        bottom: '0.5rem',
+        left: '3rem',
+        border: 'none',
+        paddingRight: '0px',
+        paddingLeft: '0px',
+    },
+    delete: {
+        position: 'relative',
+        left: '7rem',
+        fontWeight: 'bold',
+        "&:hover": {
+            cursor: 'pointer'
+        }
+    }
 }));
 
 
@@ -28,6 +46,9 @@ export default function Workouts() {
     let workoutList = Object.values(workouts)
     console.log('list', workoutList)
 
+    const handleDeleteWorkout = async (id) => {
+        const deleted = await deleteWorkout(id)
+    }
 
     return (
         <div className={classes.root}>
@@ -50,6 +71,13 @@ export default function Workouts() {
                                 <Typography>
                                     {workout.description}
                                 </Typography>
+                                {/* <Button size='large' variant='contained' onClick={() => handleDeleteWorkout(workout.id)} className={classes.exitBtn} variant='outlined'>x</Button> */}
+                            </AccordionDetails>
+                            <AccordionDetails>
+                                <Typography className={classes.delete} onClick={() => handleDeleteWorkout(workout.id)}>
+                                    Delete
+                                </Typography>
+                                {/* <Button size='large' variant='contained' onClick={() => handleDeleteWorkout(workout.id)} className={classes.exitBtn} variant='outlined'>x</Button> */}
                             </AccordionDetails>
                         </Accordion>
                     )

@@ -162,26 +162,17 @@ def create_workout(id):
     return {'errors': validation_errors_to_error_messages(form.errors)}
 
 
-@trainer_routes.route('/delete-workout/<int:id>', methods=["DELETE"])
+@trainer_routes.route('/delete-workout/<int:id>', methods=["GET", "DELETE"])
 # @login_required
 def delete_workout(id):
     """
-    Creates a new workout
+    Deletes selected Workout Intensity
     """
-    form = CreateWorkoutForm()
-    form['csrf_token'].data = request.cookies['csrf_token']
-    if form.validate_on_submit():
-        workout = Workout(
-            name=form.data['name'],
-            description=form.data['description'],
-            trainer_id=id
-        )
-        db.session.add(workout)
-        db.session.commit()
-        return workout.to_dict()
-
-    print('outsideee')
-    return {'errors': validation_errors_to_error_messages(form.errors)}
+    # intensity = WorkoutIntensity.query.filter(WorkoutIntensity.id == id).delete()
+    workout = Workout.query.get(id)
+    db.session.delete(workout)
+    db.session.commit()
+    return {'message':'delete successful'}
 
 
 @trainer_routes.route('/<int:id>/create-intensity', methods=["POST"])
