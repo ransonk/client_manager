@@ -128,7 +128,7 @@ const CreateNewWorkout = (props) => {
             name,
             description,
             trainer_id);
-        window.location.href = "/";
+        window.location.reload();
     };
 
     const handleOpenModal = () => {
