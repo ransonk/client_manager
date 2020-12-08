@@ -90,8 +90,17 @@ export const createWorkout = async (name, description, trainer_id) => {
 export const deleteWorkout = async (workoutId) => {
   const response = await fetch(`/api/trainers/delete-workout/${workoutId}`, {
     method: "DELETE",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      workoutId
+    }),
   });
-  return await response.json();
+  const resJSON = await response.json();
+  if (resJSON.message === "delete successful") {
+    window.location.href = '/';
+  }
 }
 
 export const createIntensity = async (sets, reps, trainer_id) => {
