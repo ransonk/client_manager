@@ -64,6 +64,7 @@ const HomePage = ({ setAuthenticated }) => {
                         Add Workout
                     </Button>
 
+
                 </div>
             </div>
             <Footer className={classes.footer} />
