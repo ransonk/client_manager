@@ -22,6 +22,11 @@ class Trainer(db.Model, UserMixin):
       back_populates="trainer"
   )
 
+  workouts = db.relationship(
+    "Workout",
+    back_populates="trainer"
+  )
+
   @property
   def password(self):
     return self.hashed_password

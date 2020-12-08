@@ -58,6 +58,7 @@ const HomePage = ({ setAuthenticated }) => {
                     </div>
                     <CreateNewWorkout />
 
+
                 </div>
             </div>
             <Footer className={classes.footer} />

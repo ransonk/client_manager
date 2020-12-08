@@ -1,6 +1,6 @@
 from werkzeug.security import generate_password_hash
 # from app.models import db, User
-from app.models import db, Trainer, Client
+from app.models import db, Trainer, Client, Workout
 
 # Adds a demo user, you can add other users here if you want
 def seed_trainers():
@@ -27,6 +27,16 @@ def seed_clients():
                 paid=True,
                 trainer_id=1,
                 password='client')
+
+    db.session.add(demo)
+
+    db.session.commit()
+
+def seed_workouts():
+
+    demo = Workout(name='Push Ups',
+                description='Elbows at 90 degree angle',
+                trainer_id=1,)
 
     db.session.add(demo)
 
