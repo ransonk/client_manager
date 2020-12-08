@@ -1,6 +1,6 @@
 from flask import Blueprint, jsonify, request
 from flask_login import login_required, current_user
-from app.forms import SignUpForm, CreateClientForm
+from app.forms import SignUpForm, CreateClientForm, CreateWorkoutForm
 from app.models import Trainer, Client, Workout, db
 from werkzeug.security import generate_password_hash
 
@@ -76,12 +76,16 @@ def updateClient(id):
     return client.to_dict()
 
 
-@trainer_routes.route('/workouts')
+# grab trainer specific workouts by id
+@trainer_routes.route('/<int:id>/workouts')
 # @login_required
-def workouts():
-    print('WORKOUTSSSSSSS')
-    workouts = Workout.query.all()
-    return {"workouts": [workout.to_dict() for workout in workouts]}
+def workouts(id):
+    trainer = Trainer.query.get(id)
+    workouts = trainer.return_workouts()
+    workoutsObj = workouts['workouts']
+    print('loook at thisssssssssssss', workoutsObj)
+    return {"workouts": workoutsObj}
+
 
 # @trainer_routes.route('/<int:id>/clients')
 # # @login_required
@@ -102,12 +106,6 @@ def create_client(id):
     Creates a new client account
     """
     form = CreateClientForm()
-    print(form.data['phone'])
-    print(form.data['weight'])
-    print(form.data['age'])
-    print(form.data['duedate'])
-    print(form.data['amount'])
-    print(form.data['paid'])
     form['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():
         print('hereeeeeeeeee')
@@ -144,11 +142,11 @@ def create_workout(id):
         workout = Workout(
             name=form.data['name'],
             description=form.data['description'],
-            # workoutintensity_id=id
+            trainer_id=id
         )
-        db.session.add(client)
+        db.session.add(workout)
         db.session.commit()
-        return client.to_dict()
+        return workout.to_dict()
 
     print('outsideee')
     return {'errors': validation_errors_to_error_messages(form.errors)}

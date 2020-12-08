@@ -31,5 +31,6 @@ class Workout(db.Model, UserMixin):
     return {
       "id": self.id,
       "name": self.name,
-      "description": self.description
+      "description": self.description,
+      "trainer_id": self.trainer_id
     }

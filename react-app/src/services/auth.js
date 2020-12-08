@@ -81,7 +81,7 @@ export const createWorkout = async (name, description, trainer_id) => {
       "Content-Type": "application/json",
     },
     body: JSON.stringify({
-      name, description
+      name, description, trainer_id
     }),
   });
   return await response.json();

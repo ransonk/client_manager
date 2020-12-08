@@ -45,6 +45,11 @@ class Trainer(db.Model, UserMixin):
       "clients": [client.to_dict() for client in self.clients]
     }
 
+  def return_workouts(self):
+    return {
+      "workouts": [workout.to_dict() for workout in self.workouts]
+    }
+
 
   def to_dict(self):
     return {

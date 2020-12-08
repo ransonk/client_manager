@@ -42,7 +42,7 @@ function App() {
       const clients = await fetchClients(user.id);
       dispatch(setTrainerClients(clients))
 
-      const workouts = await fetchWorkouts();
+      const workouts = await fetchWorkouts(user.id);
       dispatch(setWorkouts(workouts))
     })();
   }, []);
