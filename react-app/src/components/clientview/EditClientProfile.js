@@ -35,13 +35,15 @@ const useStyles = makeStyles((theme) => ({
     },
     menuButton: {
         border: 'none',
+        position: 'relative',
+        bottom: '5rem',
         fontFamily: 'Roboto',
         fontSize: '16px',
         marginLeft: '-6px',
-        backgroundColor: 'secondary',
+        backgroundColor: 'white',
         borderRadius: '3px',
         "&:hover": {
-            backgroundColor: 'white'
+            backgroundColor: 'lightgray'
         },
         margin: theme.spacing(1),
     },
