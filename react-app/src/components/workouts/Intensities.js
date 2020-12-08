@@ -6,7 +6,9 @@ import AccordionSummary from '@material-ui/core/AccordionSummary';
 import AccordionDetails from '@material-ui/core/AccordionDetails';
 import Typography from '@material-ui/core/Typography';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import { Button } from '@material-ui/core';
 import { fetchIntensities, setIntensities } from '../../store/users';
+import { deleteIntensity } from '../../services/auth';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -17,6 +19,14 @@ const useStyles = makeStyles((theme) => ({
     heading: {
         fontSize: theme.typography.pxToRem(15),
         fontWeight: theme.typography.fontWeightRegular,
+    },
+    exitBtn: {
+        position: 'relative',
+        bottom: '1.95rem',
+        left: '11rem',
+        border: 'none',
+        paddingRight: '0px',
+        paddingLeft: '0px',
     },
 
 }));
@@ -29,6 +39,11 @@ export default function Intensities() {
     console.log('intensitiesss', intensities)
     let intensityList = Object.values(intensities)
     console.log('list', intensityList)
+
+
+    const handleDeleteIntensity = async (id) => {
+        const deleted = await deleteIntensity(id)
+    }
 
 
     return (
@@ -49,9 +64,8 @@ export default function Intensities() {
                                 <Typography className={classes.heading}>{'Sets: ' + intensity.sets + ' ' + 'Reps: ' + intensity.reps}</Typography>
                             </AccordionSummary>
                             <AccordionDetails>
-                                <Typography>
-                                    delete button
-                                </Typography>
+                                <Typography>delete</Typography>
+                                <Button size='large' variant='contained' onClick={() => handleDeleteIntensity(intensity.id)} className={classes.exitBtn} variant='outlined'>x</Button>
                             </AccordionDetails>
                         </Accordion>
                     )

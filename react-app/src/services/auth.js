@@ -87,6 +87,13 @@ export const createWorkout = async (name, description, trainer_id) => {
   return await response.json();
 }
 
+export const deleteWorkout = async (workoutId) => {
+  const response = await fetch(`/api/trainers/delete-workout/${workoutId}`, {
+    method: "DELETE",
+  });
+  return await response.json();
+}
+
 export const createIntensity = async (sets, reps, trainer_id) => {
   const response = await fetch(`/api/trainers/${trainer_id}/create-intensity`, {
     method: "POST",
@@ -98,4 +105,20 @@ export const createIntensity = async (sets, reps, trainer_id) => {
     }),
   });
   return await response.json();
+}
+
+export const deleteIntensity = async (intensityId) => {
+  const response = await fetch(`/api/trainers/delete-intensity/${intensityId}`, {
+    method: "DELETE",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      intensityId
+    }),
+  });
+  const resJSON = await response.json();
+  if (resJSON.message === "delete successful") {
+    window.location.href = '/';
+  }
 }
