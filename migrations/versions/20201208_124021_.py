@@ -1,8 +1,8 @@
 """empty message
 
-Revision ID: 196b7ddcc4d7
+Revision ID: 23532e4c802b
 Revises: ffdc0a98111c
-Create Date: 2020-12-07 23:04:34.024513
+Create Date: 2020-12-08 12:40:21.396815
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = '196b7ddcc4d7'
+revision = '23532e4c802b'
 down_revision = 'ffdc0a98111c'
 branch_labels = None
 depends_on = None
@@ -39,6 +39,8 @@ def upgrade():
     sa.Column('duedate', sa.String(length=255), nullable=True),
     sa.Column('amount', sa.String(length=40), nullable=True),
     sa.Column('paid', sa.Boolean(), nullable=True),
+    sa.Column('noshows', sa.Integer(), nullable=True),
+    sa.Column('cancellations', sa.Integer(), nullable=True),
     sa.Column('hashed_password', sa.String(length=255), nullable=False),
     sa.Column('trainer_id', sa.Integer(), nullable=True),
     sa.Column('created_on', sa.DateTime(), server_default=sa.text('now()'), nullable=True),
@@ -56,8 +58,6 @@ def upgrade():
     sa.Column('date', sa.Integer(), nullable=False),
     sa.Column('pull', sa.Boolean(), nullable=True),
     sa.Column('push', sa.Boolean(), nullable=True),
-    sa.Column('noshows', sa.Integer(), nullable=True),
-    sa.Column('cancellations', sa.Integer(), nullable=True),
     sa.Column('client_id', sa.Integer(), nullable=True),
     sa.Column('created_on', sa.DateTime(), server_default=sa.text('now()'), nullable=True),
     sa.Column('updated_on', sa.DateTime(), server_default=sa.text('now()'), nullable=True),

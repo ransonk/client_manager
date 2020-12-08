@@ -23,5 +23,7 @@ class CreateClientForm(FlaskForm):
     duedate = StringField('duedate', validators=[Optional()])
     amount = StringField('amount', validators=[Optional()])
     paid = BooleanField('paid', validators=[Optional()])
+    noshows = IntegerField('No Shows', validators=[Optional()])
+    cancellations = IntegerField('Cancellations', validators=[Optional()])
     password = StringField('password', validators=[DataRequired()])
     trainer_id = IntegerField('trainer_id')

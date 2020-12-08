@@ -13,8 +13,8 @@ class WorkoutPlan(db.Model, UserMixin):
   date = db.Column(db.Integer, nullable=False)
   pull = db.Column(db.Boolean)
   push = db.Column(db.Boolean)
-  noshows = db.Column(db.Integer)
-  cancellations = db.Column(db.Integer)
+  # noshows = db.Column(db.Integer)
+  # cancellations = db.Column(db.Integer)
   client_id = db.Column(db.Integer, db.ForeignKey("clients.id"))
   created_on = db.Column(db.DateTime, server_default=db.func.now())
   updated_on = db.Column(

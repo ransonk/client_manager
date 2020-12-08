@@ -70,6 +70,8 @@ def updateClient(id):
     client.duedate = req_data['duedate']
     client.amount = req_data['amount']
     client.paid = req_data['paid']
+    client.noshows = req_data['noshows']
+    client.cancellations = req_data['cancellations']
     client.hashed_password = generate_password_hash(req_data['password'])
     db.session.add(client)
     db.session.commit()
@@ -129,6 +131,8 @@ def create_client(id):
             duedate=form.data['duedate'],
             amount=form.data['amount'],
             paid=form.data['paid'],
+            noshows=form.data['noshows'],
+            cancellations=form.data['cancellations'],
             password=form.data['password'],
             trainer_id=id
         )

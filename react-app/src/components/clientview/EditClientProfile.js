@@ -122,6 +122,8 @@ const EditClientProfile = (props) => {
     const [duedate, setDueDate] = useState("");
     const [amount, setAmount] = useState("");
     const [paid, setPaid] = useState();
+    const [noshows, setNoShows] = useState();
+    const [cancellations, setCancellations] = useState();
     const [password, setPassword] = useState("");
     const [repeatPassword, setRepeatPassword] = useState("");
 
@@ -142,6 +144,8 @@ const EditClientProfile = (props) => {
             setAmount(secureClient.amount)
             setWeight(secureClient.weight)
             setAge(secureClient.age)
+            setNoShows(secureClient.noshows)
+            setCancellations(secureClient.cancellations)
         })();
     }, []);
 
@@ -153,7 +157,7 @@ const EditClientProfile = (props) => {
         const response = await fetch(`/api/trainers/client/${id}/update`, {
             method: "PUT",
             headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ firstName, lastName, email, phone, weight, age, duedate, amount, paid, password }),
+            body: JSON.stringify({ firstName, lastName, email, phone, weight, age, duedate, amount, paid, noshows, cancellations, password }),
         });
         if (response.ok) {
             window.location.reload()
@@ -199,6 +203,14 @@ const EditClientProfile = (props) => {
 
     const updateAmount = (e) => {
         setAmount(e.target.value);
+    };
+
+    const updateNoShows = (e) => {
+        setNoShows(e.target.value);
+    };
+
+    const updateCancellations = (e) => {
+        setCancellations(e.target.value);
     };
 
     const updatePaid = (e) => {
@@ -253,6 +265,10 @@ const EditClientProfile = (props) => {
                             <TextField id='standard-basic' value={age} onChange={updateAge} label='Age' />
                             <TextField id='standard-basic' value={duedate} onChange={updateDueDate} label='DueDate' />
                             <TextField id='standard-basic' value={amount} onChange={updateAmount} label='Amount' />
+                            <TextField id='standard-basic' value={noshows} onChange={updateNoShows} label='No Shows' />
+                            <TextField id='standard-basic' value={cancellations} onChange={updateCancellations} label='Cancellations' />
+                            <TextField id='standard-basic' type='password' onChange={updatePassword} label='Password' />
+                            <TextField id='standard-basic' type='password' onChange={updateRepeatPassword} label='Repeat Password' />
                             <div className={classes.paid}>
 
                                 <p>Paid</p>
@@ -268,8 +284,6 @@ const EditClientProfile = (props) => {
                                     onChange={updatePaid}
                                 />
                             </div>
-                            <TextField id='standard-basic' type='password' onChange={updatePassword} label='Password' />
-                            <TextField id='standard-basic' type='password' onChange={updateRepeatPassword} label='Repeat Password' />
                             <Button variant='contained' color='primary' className={classes.button} type='submit'>Submit</Button>
                         </form>
                     </Typography>

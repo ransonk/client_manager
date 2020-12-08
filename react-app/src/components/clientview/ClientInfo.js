@@ -14,6 +14,8 @@ const ClientInfo = () => {
     const [duedate, setDueDate] = useState();
     const [amount, setAmount] = useState();
     const [weight, setWeight] = useState();
+    const [noshows, setNoShows] = useState();
+    const [cancellations, setCancellations] = useState();
     const [age, setAge] = useState();
 
 
@@ -32,6 +34,8 @@ const ClientInfo = () => {
             setAmount(secureClient.amount)
             setWeight(secureClient.weight)
             setAge(secureClient.age)
+            setNoShows(secureClient.noshows)
+            setCancellations(secureClient.cancellations)
             setFirstName(secureClient.firstName)
             setLastName(secureClient.lastName)
             // dispatch(setCurrentClient(secureClient))
@@ -58,6 +62,11 @@ const ClientInfo = () => {
                         <p className='card__header'>Stats</p>
                         <p>Age: {age}</p>
                         <p>Weight: {weight}</p>
+                    </div>
+                    <div className='clientinfo__info__contact'>
+                        <p className='card__header'>Attendance</p>
+                        <p>No Shows: {noshows}</p>
+                        <p>Cancellations: {cancellations}</p>
                     </div>
                 </div>
             </div>

@@ -15,6 +15,8 @@ class Client(db.Model, UserMixin):
   duedate = db.Column(db.String(255))
   amount = db.Column(db.String(40))
   paid = db.Column(db.Boolean)
+  noshows = db.Column(db.Integer)
+  cancellations = db.Column(db.Integer)
   hashed_password = db.Column(db.String(255), nullable = False)
   trainer_id = db.Column(db.Integer, db.ForeignKey("trainers.id"))
   created_on = db.Column(db.DateTime, server_default=db.func.now())
@@ -59,5 +61,7 @@ class Client(db.Model, UserMixin):
       "duedate": self.duedate,
       "amount": self.amount,
       "paid": self.paid,
+      "noshows": self.noshows,
+      "cancellations": self.cancellations,
       "trainer_id": self.trainer_id
     }

@@ -25,6 +25,8 @@ def seed_clients():
                 duedate='11/21/93',
                 amount='30.99',
                 paid=True,
+                noshows=0,
+                cancellations=1,
                 trainer_id=1,
                 password='client')
 
