@@ -3,10 +3,10 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import UserMixin
 
 class Routine(db.Model, UserMixin):
-  __tablename__ = 'exercises'
+  __tablename__ = 'routines'
 
   id = db.Column(db.Integer, primary_key = True)
-  owner_id = db.Column(db.Integer, db.ForeignKey('routinelist.id'))
+  owner_id = db.Column(db.Integer, db.ForeignKey('routinelists.id'))
   workout_id = db.Column(db.Integer, db.ForeignKey('workouts.id'))
   workoutintensity_id = db.Column(db.Integer, db.ForeignKey('workoutintensities.id'))
   created_on = db.Column(db.DateTime, server_default=db.func.now())
