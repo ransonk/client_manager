@@ -44,30 +44,9 @@ const ClientInfo = () => {
             dispatch(setWorkoutPlans(workoutplans))
 
         })();
-        // window.location.reload();
+
     }, [phone, email, paid, duedate, amount, weight, age, firstName]);
 
-
-    // useEffect(() => {
-    //     (async () => {
-    //         const user = await authenticate();
-    //         if (!user.errors) {
-    //             setAuthenticated(true);
-    //         }
-    //         setLoaded(true);
-    //         dispatch(setCurrentUser(user))
-    //         setName(user.firstName)
-    //         // interval(user.id)
-    //         const clients = await fetchClients(user.id);
-    //         dispatch(setTrainerClients(clients))
-
-    //         const workouts = await fetchWorkouts(user.id);
-    //         dispatch(setWorkouts(workouts))
-
-    //         const intensities = await fetchIntensities(id);
-    //         dispatch(setIntensities(intensities))
-    //     })();
-    // }, []);
 
 
     return (
@@ -76,7 +55,6 @@ const ClientInfo = () => {
             <div className='clientinfo__info'>
                 <h1 className='clientinfo__header'>{firstName + ' ' + lastName}</h1>
                 <div className='clientinfo__clientcard'>
-
                     <div className='clientinfo__info__contact'>
                         <p className='card__header'>Contact</p>
                         <p>Phone: {phone}</p>

@@ -4,8 +4,8 @@ import Title from './Title';
 import ClientInfo from './ClientInfo';
 import Footer from '../Footer';
 // import BuildWorkoutPlan from './BuildWorkoutPlan';
-// import WorkoutPlans from './WorkoutPlans';
-// import WorkoutSchedule from './WorkoutSchedule';
+import WorkoutPlans from './workoutplans/WorkoutPlans';
+// import WorkoutSchedule from './workoutplans/WorkoutSchedule';
 
 const ClientView = ({ setAuthenticated }) => {
 
@@ -16,9 +16,10 @@ const ClientView = ({ setAuthenticated }) => {
                 <Title />
                 <ClientInfo />
                 <div className='client-view__workout-plans'>
+                    <h1>Workout Plans</h1>
                     {/* <WorkoutSchedule/> */}
                     {/* <BuildWorkoutPlan /> */}
-                    {/* <WorkoutPlans/> */}
+                    <WorkoutPlans />
                 </div>
             </div>
             <Footer />
