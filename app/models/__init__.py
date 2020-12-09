@@ -6,3 +6,5 @@ from .trainer import Trainer
 from .workout import Workout
 from .workoutintensity import WorkoutIntensity
 from .workoutplan import WorkoutPlan
+from .routinelist import RoutineList
+from .routine import Routine
