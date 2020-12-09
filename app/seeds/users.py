@@ -106,16 +106,16 @@ def seed_workoutplans():
 
 def seed_routinelist():
 
-    demo = RoutineList(name='routinelist 1',
+    routinelist1 = RoutineList(name='routinelist 1',
                 workoutplan_id=1)
 
-    db.session.add(demo)
+    db.session.add(routinelist1)
 
     db.session.commit()
 
 def seed_routine():
-
-    demo = Routine(owner='routinelist 1',
+    some_owner = RoutineList.query.filter_by(name='routinelist 1').first()
+    demo = Routine(owner=some_owner,
                 workout_id=1,
                 workoutintensity_id=1)
 
