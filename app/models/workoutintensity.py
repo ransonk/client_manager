@@ -10,7 +10,6 @@ class WorkoutIntensity(db.Model, UserMixin):
   sets = db.Column(db.Integer, nullable=False)
   reps = db.Column(db.Integer, nullable=False)
   trainer_id = db.Column(db.Integer, db.ForeignKey("trainers.id"))
-  workoutplan_id = db.Column(db.Integer, db.ForeignKey("workoutplans.id"))
   created_on = db.Column(db.DateTime, server_default=db.func.now())
   updated_on = db.Column(
         db.DateTime,
@@ -23,8 +22,8 @@ class WorkoutIntensity(db.Model, UserMixin):
     back_populates="workoutintensity"
   )
 
-  workoutplan = db.relationship(
-    "WorkoutPlan",
+  routine = db.relationship(
+    "Routine",
     back_populates="workoutintensity"
   )
 

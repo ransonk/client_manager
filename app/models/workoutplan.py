@@ -26,20 +26,30 @@ class WorkoutPlan(db.Model, UserMixin):
     back_populates="workoutplans"
   )
 
-  workout = db.relationship(
-    "Workout",
+  routinelist = db.relationship(
+    "RoutineList",
     back_populates="workoutplan"
   )
 
-  workoutintensity = db.relationship(
-    "WorkoutIntensity",
-    back_populates="workoutplan"
-  )
+  # workout = db.relationship(
+  #   "Workout",
+  #   back_populates="workoutplan"
+  # )
+
+  # workoutintensity = db.relationship(
+  #   "WorkoutIntensity",
+  #   back_populates="workoutplan"
+  # )
 
   reviews = db.relationship(
     "Review",
     back_populates="workoutplan"
   )
+
+  def return_exerciselist(self):
+    return {
+      "exerciselist": [elist.to_dict() for elist in self.exerciselist]
+    }
 
 
   def to_dict(self):
