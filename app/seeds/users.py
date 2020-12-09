@@ -56,7 +56,7 @@ def seed_workoutintensity():
 
 def seed_workoutplans():
 
-    demo = WorkoutPlan(name='Suzy Workout',
+    demo = WorkoutPlan(name='Back Workout',
                 description='for fridays',
                 time='3:00pm',
                 date='12/8/2020',
@@ -64,16 +64,43 @@ def seed_workoutplans():
                 push=False,
                 client_id=1,)
 
-    demo2 = WorkoutPlan(name='Suzy Workout',
+    demo2 = WorkoutPlan(name='Shoulders Workout',
                 description='for fridays',
                 time='3:00pm',
                 date='12/8/2020',
                 pull=True,
+                push=False,
+                client_id=1,)
+
+    demo3 = WorkoutPlan(name='Chest Workout',
+                description='for fridays',
+                time='3:00pm',
+                date='12/8/2020',
+                pull=False,
+                push=True,
+                client_id=1,)
+
+    demo4 = WorkoutPlan(name='Legs Workout',
+                description='for fridays',
+                time='3:00pm',
+                date='12/8/2020',
+                pull=False,
+                push=True,
+                client_id=1,)
+
+    demo5 = WorkoutPlan(name='Abs Workout',
+                description='for fridays',
+                time='3:00pm',
+                date='12/8/2020',
+                pull=False,
                 push=False,
                 client_id=1,)
 
     db.session.add(demo)
     db.session.add(demo2)
+    db.session.add(demo3)
+    db.session.add(demo4)
+    db.session.add(demo5)
 
     db.session.commit()
 
