@@ -49,6 +49,7 @@ export default function SimpleCard() {
     return (
         <div className='workoutplans__container'>
             {workoutPlanList.map((workout, i) => {
+                // console.log(workout.routinelist[0].name)
 
                 return (
 
@@ -66,7 +67,7 @@ export default function SimpleCard() {
                             <Typography variant="body2" component="p">
                                 {workout.pull ? 'Pull Day' : 'Push Day'}
                                 <br />
-
+                                {/* {workout.routinelist[0].name ? workout.routinelist[0].name : 'No Name'} */}
                             </Typography>
                             <RoutineList workoutId={workout.id} />
                         </CardContent>

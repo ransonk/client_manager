@@ -44,7 +44,7 @@ def seed_workouts():
 
     db.session.commit()
 
-def seed_workoutintensity():
+def seed_workoutintensities():
 
     demo = WorkoutIntensity(sets=3,
                 reps=10,

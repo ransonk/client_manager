@@ -33,5 +33,6 @@ class WorkoutIntensity(db.Model, UserMixin):
       "id": self.id,
       "description": self.description,
       "sets": self.sets,
-      "reps": self.reps
+      "reps": self.reps,
+      "trainer_id": self.trainer_id
     }

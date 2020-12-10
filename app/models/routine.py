@@ -29,16 +29,11 @@ class Routine(db.Model, UserMixin):
   )
 
 
-#   def to_dict(self):
-#     return {
-#       "id": self.id,
-#       "name": self.name,
-#       "description": self.description,
-#       "rating": self.rating,
-#       "time": self.time,
-#       "date": self.date,
-#       "pull": self.pull,
-#       "push": self.push,
-#     }
+  def to_dict(self):
+    return {
+      "id": self.id,
+      # "workout": [workout.to_dict() for workout in self.workout],
+      # "workoutintensity": [workoutintensity.to_dict() for workoutintensity in self.workoutintensity]
+    }
 
       # "reviews": [review.to_dict() for review in self.reviews]
