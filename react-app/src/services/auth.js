@@ -87,14 +87,14 @@ export const createWorkout = async (name, type, trainer_id) => {
   return await response.json();
 }
 
-export const createWorkoutPlan = async (name, description, rating, time, date, client_id) => {
+export const createWorkoutPlan = async (name, description, time, date, client_id) => {
   const response = await fetch(`/api/trainers/client/${client_id}/create-workout-plan`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
     body: JSON.stringify({
-      name, description, rating, time, date, client_id
+      name, description, time, date, client_id
     }),
   });
   return await response.json();

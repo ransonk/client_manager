@@ -7,8 +7,7 @@ class WorkoutPlan(db.Model, UserMixin):
 
   id = db.Column(db.Integer, primary_key = True)
   name = db.Column(db.String(255), nullable=False)
-  description = db.Column(db.Text)
-  rating = db.Column(db.Integer)
+  description = db.Column(db.String(500))
   time = db.Column(db.String(255), nullable=False)
   date = db.Column(db.String(255), nullable=False)
   client_id = db.Column(db.Integer, db.ForeignKey("clients.id"))
@@ -55,9 +54,9 @@ class WorkoutPlan(db.Model, UserMixin):
       "id": self.id,
       "name": self.name,
       "description": self.description,
-      "rating": self.rating,
       "time": self.time,
       "date": self.date,
+      "client_id": self.client_id
     }
 
       # "reviews": [review.to_dict() for review in self.reviews]

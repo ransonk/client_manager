@@ -95,6 +95,7 @@ const AddWorkoutPlan = (props) => {
 
     const client = JSON.parse(localStorage.getItem('CURRENT_CLIENT'))
     let client_id = client.id
+    console.log(client_id)
 
     const workouts = useSelector((state) => state.store.workouts)
     const sortedWorkouts = Object.values(workouts)
@@ -109,14 +110,7 @@ const AddWorkoutPlan = (props) => {
     })
 
     let description =
-        `${workout1} ${set1}
-    ${workout2} ${set2}
-    ${workout3} ${set3}
-    ${workout4} ${set4}
-    ${workout5} ${set5}
-    ${workout6} ${set6}
-    ${workout7} ${set7}
-    ${workout8} ${set8} `
+        `${workout1} ${set1} ${workout2} ${set2} ${workout3} ${set3} ${workout4} ${set4} ${workout5} ${set5} ${workout6} ${set6} ${workout7} ${set7} ${workout8} ${set8} `
 
     // console.log(description)
 
@@ -126,6 +120,8 @@ const AddWorkoutPlan = (props) => {
         const workoutPlan = await createWorkoutPlan(
             name,
             description,
+            time,
+            date,
             client_id
         );
         window.location.reload();

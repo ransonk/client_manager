@@ -1,8 +1,8 @@
 """empty message
 
-Revision ID: e4765c0ab7cf
+Revision ID: b42818f5bc05
 Revises: 
-Create Date: 2020-12-09 22:08:49.236130
+Create Date: 2020-12-10 01:11:54.560096
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = 'e4765c0ab7cf'
+revision = 'b42818f5bc05'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -74,12 +74,9 @@ def upgrade():
     op.create_table('workoutplans',
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('name', sa.String(length=255), nullable=False),
-    sa.Column('description', sa.Text(), nullable=True),
-    sa.Column('rating', sa.Integer(), nullable=True),
+    sa.Column('description', sa.String(length=500), nullable=True),
     sa.Column('time', sa.String(length=255), nullable=False),
     sa.Column('date', sa.String(length=255), nullable=False),
-    sa.Column('pull', sa.Boolean(), nullable=True),
-    sa.Column('push', sa.Boolean(), nullable=True),
     sa.Column('client_id', sa.Integer(), nullable=True),
     sa.Column('created_on', sa.DateTime(), server_default=sa.text('now()'), nullable=True),
     sa.Column('updated_on', sa.DateTime(), server_default=sa.text('now()'), nullable=True),

@@ -183,7 +183,6 @@ def create_workout_plan(id):
         workoutplan = WorkoutPlan(
             name=form.data['name'],
             description=form.data['description'],
-            rating=form.data['rating'],
             time=form.data['time'],
             date=form.data['date'],
             client_id=id
