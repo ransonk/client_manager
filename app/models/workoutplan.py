@@ -11,8 +11,6 @@ class WorkoutPlan(db.Model, UserMixin):
   rating = db.Column(db.Integer)
   time = db.Column(db.String(255), nullable=False)
   date = db.Column(db.String(255), nullable=False)
-  pull = db.Column(db.Boolean)
-  push = db.Column(db.Boolean)
   client_id = db.Column(db.Integer, db.ForeignKey("clients.id"))
   created_on = db.Column(db.DateTime, server_default=db.func.now())
   updated_on = db.Column(
@@ -60,8 +58,6 @@ class WorkoutPlan(db.Model, UserMixin):
       "rating": self.rating,
       "time": self.time,
       "date": self.date,
-      "pull": self.pull,
-      "push": self.push,
     }
 
       # "reviews": [review.to_dict() for review in self.reviews]
