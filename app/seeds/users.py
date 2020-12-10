@@ -37,7 +37,7 @@ def seed_clients():
 def seed_workouts():
 
     demo = Workout(name='Push Ups',
-                description='Elbows at 90 degree angle',
+                type='push',
                 trainer_id=1,)
 
     db.session.add(demo)
@@ -60,40 +60,30 @@ def seed_workoutplans():
                 description='for fridays',
                 time='3:00pm',
                 date='12/8/2020',
-                pull=True,
-                push=False,
                 client_id=1,)
 
     demo2 = WorkoutPlan(name='Shoulders Workout',
                 description='for fridays',
                 time='3:00pm',
                 date='12/8/2020',
-                pull=True,
-                push=False,
                 client_id=1,)
 
     demo3 = WorkoutPlan(name='Chest Workout',
                 description='for fridays',
                 time='3:00pm',
                 date='12/8/2020',
-                pull=False,
-                push=True,
                 client_id=1,)
 
     demo4 = WorkoutPlan(name='Legs Workout',
                 description='for fridays',
                 time='3:00pm',
                 date='12/8/2020',
-                pull=False,
-                push=True,
                 client_id=1,)
 
     demo5 = WorkoutPlan(name='Abs Workout',
                 description='for fridays',
                 time='3:00pm',
                 date='12/8/2020',
-                pull=False,
-                push=False,
                 client_id=1,)
 
     db.session.add(demo)

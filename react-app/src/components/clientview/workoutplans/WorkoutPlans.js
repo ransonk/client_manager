@@ -6,8 +6,9 @@ import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
-import { fetchWorkoutPlans, setWorkoutPlans, fetchRoutineList } from '../../../store/users';
-import RoutineList from './RoutineList';
+import { fetchWorkoutPlans, setWorkoutPlans } from '../../../store/users';
+import AddWorkoutPlan from './AddWorkoutPlan';
+
 
 const useStyles = makeStyles({
     root: {
@@ -48,6 +49,7 @@ export default function SimpleCard() {
 
     return (
         <div className='workoutplans__container'>
+            <AddWorkoutPlan />
             {workoutPlanList.map((workout, i) => {
                 // console.log(workout.routinelist[0].name)
 

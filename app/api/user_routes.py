@@ -1,6 +1,7 @@
 from flask import Blueprint, jsonify, request
 from flask_login import login_required, current_user
-from app.forms import SignUpForm, CreateClientForm, CreateWorkoutForm, CreateIntensityForm
+
+from app.forms import SignUpForm, CreateClientForm, CreateWorkoutForm, CreateIntensityForm, CreateWorkoutPlanForm
 from app.models import Trainer, Client, Workout, WorkoutIntensity, WorkoutPlan, db
 from werkzeug.security import generate_password_hash
 
@@ -113,6 +114,18 @@ def workout_plans(id):
     return {"workoutplans": plansObj}
 
 
+# @trainer_routes.route('/client/<int:id>/create-workout-plan')
+# # @login_required
+# def create_workout_plan(id):
+#     client = Client.query.get(id)
+#     workoutplans = client.return_workoutplans()
+#     plansObj = workoutplans['workoutplans']
+#     # for i in clientObj:
+#     #     for k,v in i.items():
+#     #         if k == "email" or k == "phone" or k == "amount" or k == "duedate" or k == "weight" or k == "age":
+#     #             i[k] = 'Null'
+#     return {"workoutplans": plansObj}
+
 @trainer_routes.route('/workout-plans/<int:id>/routinelist')
 # @login_required
 def routine_lists(id):
@@ -124,6 +137,7 @@ def routine_lists(id):
     #         if k == "email" or k == "phone" or k == "amount" or k == "duedate" or k == "weight" or k == "age":
     #             i[k] = 'Null'
     return {"routinelists": listsObj}
+
 
 # @trainer_routes.route('/<int:id>/clients')
 # # @login_required
@@ -169,6 +183,31 @@ def create_client(id):
     print('outsideee')
     return {'errors': validation_errors_to_error_messages(form.errors)}
 
+@trainer_routes.route('/client/<int:id>/create-workout-plan', methods=["POST"])
+# @login_required
+def create_workout_plan(id):
+    print('route startedsdafdsafdsafdsafdasfds')
+    """
+    Creates a new client account
+    """
+    form = CreateWorkoutPlanForm()
+    form['csrf_token'].data = request.cookies['csrf_token']
+    if form.validate_on_submit():
+        print('hereeeeeeeeee')
+        workoutplan = WorkoutPlan(
+            name=form.data['name'],
+            description=form.data['description'],
+            time=form.data['time'],
+            date=form.data['date'],
+            client_id=id
+        )
+        db.session.add(workoutplan)
+        db.session.commit()
+        return workoutplan.to_dict()
+
+    print('outsideee')
+    return {'errors': validation_errors_to_error_messages(form.errors)}
+
 
 @trainer_routes.route('/<int:id>/create-workout', methods=["POST"])
 # @login_required
@@ -181,7 +220,7 @@ def create_workout(id):
     if form.validate_on_submit():
         workout = Workout(
             name=form.data['name'],
-            description=form.data['description'],
+            type=form.data['type'],
             trainer_id=id
         )
         db.session.add(workout)

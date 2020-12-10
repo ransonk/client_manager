@@ -67,7 +67,7 @@ export const fetchClients = async (trainerId) => {
     });
     const result = await response.json();
     const clients = {}
-    console.log('clients', result)
+    // console.log('clients', result)
     result.clients.forEach(client => {
         clients[client.id] = client
     })
@@ -123,7 +123,7 @@ export const fetchWorkouts = async (trainerId) => {
         },
     });
     const result = await response.json();
-    console.log('workoutssss', result.workouts)
+    // console.log('workoutssss', result.workouts)
     const workoutss = {}
     result.workouts.forEach(workout => {
         workoutss[workout.id] = workout
@@ -138,7 +138,7 @@ export const fetchIntensities = async (trainerId) => {
         },
     });
     const result = await response.json();
-    console.log('workoutssss', result.workouts)
+    // console.log('workoutssss', result.workouts)
     const intensities = {}
     result.intensities.forEach(intensity => {
         intensities[intensity.id] = intensity

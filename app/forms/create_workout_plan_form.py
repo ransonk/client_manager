@@ -6,7 +6,9 @@ from app.models import Trainer, Client
 
 
 
-class CreateWorkoutForm(FlaskForm):
+class CreateWorkoutPlanForm(FlaskForm):
     name = StringField('first name', validators=[DataRequired()])
-    type = StringField('Push or Pull', validators=[DataRequired()])
-    trainer_id = IntegerField('trainer_id')
+    description = StringField('description', validators=[DataRequired()])
+    time = StringField('time', validators=[DataRequired()])
+    date = StringField('date', validators=[DataRequired()])
+    client_id = IntegerField('client_id')

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux'
-import { Avatar, Typography, Button, Modal, TextField, MenuItem, Divider, Checkbox } from '@material-ui/core';
+import { Avatar, Typography, Button, Modal, TextField, RadioGroup, Radio, FormLabel, FormControl, FormControlLabel } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import Backdrop from '@material-ui/core/Backdrop';
 import Fade from '@material-ui/core/Fade';
@@ -105,6 +105,9 @@ const useStyles = makeStyles((theme) => ({
         display: 'flex',
         fontSize: '20px'
     },
+    radio: {
+        marginTop: '1.5rem',
+    }
 }));
 
 const CreateNewWorkout = (props) => {
@@ -113,7 +116,7 @@ const CreateNewWorkout = (props) => {
     const classes = useStyles();
     const [openModal, setOpenModal] = React.useState(false);
     const [name, setName] = useState("");
-    const [description, setDescription] = useState("");
+    const [type, setType] = useState("");
 
     const trainer_id = useSelector((state) => state.store.current_trainer.id)
 
@@ -121,7 +124,7 @@ const CreateNewWorkout = (props) => {
         e.preventDefault();
         const workout = await createWorkout(
             name,
-            description,
+            type,
             trainer_id);
         window.location.reload();
     };
@@ -139,8 +142,8 @@ const CreateNewWorkout = (props) => {
         setName(e.target.value);
     };
 
-    const updateDescription = (e) => {
-        setDescription(e.target.value);
+    const handleChange = (e) => {
+        setType(e.target.value);
     };
 
 
@@ -171,7 +174,13 @@ const CreateNewWorkout = (props) => {
                                 Create a Workout
                             </Typography>
                             <TextField id='standard-basic' value={name} onChange={updateName} label='Name of Exercise' autoFocus />
-                            <TextField id='standard-basic' value={description} onChange={updateDescription} label='Description' />
+                            <FormControl component="fieldset" className={classes.radio}>
+                                <FormLabel component="legend">Type of Workout</FormLabel>
+                                <RadioGroup row className={classes.radio} aria-label="gender" name="gender1" value={type} onChange={handleChange}>
+                                    <FormControlLabel value="push" control={<Radio color='primary' />} label="Push" />
+                                    <FormControlLabel value="pull" control={<Radio color='primary' />} label="Pull" />
+                                </RadioGroup>
+                            </FormControl>
                             <Button variant='contained' color='primary' className={classes.button} type='submit'>Submit</Button>
                         </form>
                     </Typography>

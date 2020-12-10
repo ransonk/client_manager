@@ -7,12 +7,9 @@ class WorkoutPlan(db.Model, UserMixin):
 
   id = db.Column(db.Integer, primary_key = True)
   name = db.Column(db.String(255), nullable=False)
-  description = db.Column(db.Text)
-  rating = db.Column(db.Integer)
+  description = db.Column(db.String(500))
   time = db.Column(db.String(255), nullable=False)
   date = db.Column(db.String(255), nullable=False)
-  pull = db.Column(db.Boolean)
-  push = db.Column(db.Boolean)
   client_id = db.Column(db.Integer, db.ForeignKey("clients.id"))
   created_on = db.Column(db.DateTime, server_default=db.func.now())
   updated_on = db.Column(
@@ -56,12 +53,10 @@ class WorkoutPlan(db.Model, UserMixin):
       "id": self.id,
       "name": self.name,
       "description": self.description,
-      "rating": self.rating,
       "time": self.time,
       "date": self.date,
-      "pull": self.pull,
-      "push": self.push,
-      "routinelist": [routinelist.to_dict() for routinelist in self.routinelist]
+      "client_id": self.client_id
+
     }
 
       # "reviews": [review.to_dict() for review in self.reviews]
