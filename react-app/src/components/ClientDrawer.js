@@ -306,7 +306,7 @@ export default function ClientDrawer({ authenticated, setAuthenticated, props })
 
     return (
         <>
-            <div>
+            <div className='navButtons'>
                 {['clients'].map((anchor) => (
                     <React.Fragment key={anchor}>
                         <Button onClick={toggleDrawer(anchor, true)}>{anchor}</Button>

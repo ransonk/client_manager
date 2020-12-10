@@ -68,7 +68,7 @@ const ClientInfo = () => {
                     <div className='clientinfo__info__contact'>
                         <p className='card__header'>Attendance</p>
                         <p>No Shows: {noshows}</p>
-                        <p>Cancellations: {cancellations}</p>
+                        <p className='cancellation'>Cancellations: {cancellations}</p>
                     </div>
                 </div>
             </div>
@@ -88,7 +88,7 @@ const ClientInfo = () => {
                     </div>
                     <div className='clientinfo__info__payment__duedate'>
                         <p className='card__header'>Next Due Date</p>
-                        <p>{duedate}</p>
+                        <p className='duedate'>{duedate}</p>
                     </div>
                 </div>
             </div>
