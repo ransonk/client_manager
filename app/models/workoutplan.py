@@ -46,10 +46,9 @@ class WorkoutPlan(db.Model, UserMixin):
     back_populates="workoutplan"
   )
 
-  def return_exerciselist(self):
-    return {
-      "exerciselist": [elist.to_dict() for elist in self.exerciselist]
-    }
+  # def return_routinelist(self):
+  #   return {
+  #   }
 
 
   def to_dict(self):
@@ -62,6 +61,7 @@ class WorkoutPlan(db.Model, UserMixin):
       "date": self.date,
       "pull": self.pull,
       "push": self.push,
+      "routinelist": [routinelist.to_dict() for routinelist in self.routinelist]
     }
 
       # "reviews": [review.to_dict() for review in self.reviews]
