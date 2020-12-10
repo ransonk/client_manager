@@ -23,6 +23,9 @@ const useStyles = makeStyles((theme) => ({
     title: {
         flexGrow: 1,
     },
+    home: {
+
+    }
 }));
 
 
@@ -44,7 +47,7 @@ export default function ButtonAppBar({ setAuthenticated }) {
             <AppBar position="static">
                 <Toolbar className={classes.nav}>
                     <ClientDrawer />
-                    <Button color="inherit" onClick={toHome}>Home</Button>
+                    <Button color="inherit" className={classes.home} onClick={toHome}>Home</Button>
                     <Button color="inherit" onClick={onLogout}>Logout</Button>
                     {/* <LogoutButton /> */}
                 </Toolbar>
