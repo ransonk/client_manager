@@ -269,8 +269,8 @@ def create_intensity(id):
     form['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():
         intensity = WorkoutIntensity(
-            reps=form.data['sets'],
-            sets=form.data['reps'],
+            reps=form.data['reps'],
+            sets=form.data['sets'],
             trainer_id=id
         )
         db.session.add(intensity)

@@ -7,6 +7,6 @@ from app.models import Trainer, Client
 
 
 class CreateIntensityForm(FlaskForm):
-    reps = IntegerField('sets', validators=[DataRequired()])
-    sets = IntegerField('reps', validators=[DataRequired()])
+    sets = IntegerField('sets', validators=[DataRequired()])
+    reps = IntegerField('reps', validators=[DataRequired()])
     trainer_id = IntegerField('trainer_id')
