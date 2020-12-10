@@ -1,5 +1,6 @@
 from flask import Blueprint, jsonify, request
 from flask_login import login_required, current_user
+
 from app.forms import SignUpForm, CreateClientForm, CreateWorkoutForm, CreateIntensityForm, CreateWorkoutPlanForm
 from app.models import Trainer, Client, Workout, WorkoutIntensity, WorkoutPlan, db
 from werkzeug.security import generate_password_hash
@@ -124,6 +125,19 @@ def workout_plans(id):
 #     #         if k == "email" or k == "phone" or k == "amount" or k == "duedate" or k == "weight" or k == "age":
 #     #             i[k] = 'Null'
 #     return {"workoutplans": plansObj}
+
+@trainer_routes.route('/workout-plans/<int:id>/routinelist')
+# @login_required
+def routine_lists(id):
+    workoutplan = WorkoutPlan.query.get(id)
+    routinelists = workoutplan.return_routinelist()
+    listsObj = routinelists['routinelist']
+    # for i in clientObj:
+    #     for k,v in i.items():
+    #         if k == "email" or k == "phone" or k == "amount" or k == "duedate" or k == "weight" or k == "age":
+    #             i[k] = 'Null'
+    return {"routinelists": listsObj}
+
 
 # @trainer_routes.route('/<int:id>/clients')
 # # @login_required

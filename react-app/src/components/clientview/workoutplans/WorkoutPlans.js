@@ -9,6 +9,7 @@ import Typography from '@material-ui/core/Typography';
 import { fetchWorkoutPlans, setWorkoutPlans } from '../../../store/users';
 import AddWorkoutPlan from './AddWorkoutPlan';
 
+
 const useStyles = makeStyles({
     root: {
         minWidth: 275,
@@ -33,7 +34,11 @@ export default function SimpleCard() {
     // console.log('workoutplans', workoutPlans)
     let workoutPlanList = Object.values(workoutPlans)
 
-    // workoutPlans.map(workout => console.log(workout.name))
+    // let iterateIds = [];
+    // workoutPlanList.map(workout => {
+    //     iterateIds.push(workout.id)
+    // })
+
 
 
 
@@ -46,6 +51,7 @@ export default function SimpleCard() {
         <div className='workoutplans__container'>
             <AddWorkoutPlan />
             {workoutPlanList.map((workout, i) => {
+                // console.log(workout.routinelist[0].name)
 
                 return (
 
@@ -63,8 +69,9 @@ export default function SimpleCard() {
                             <Typography variant="body2" component="p">
                                 {workout.pull ? 'Pull Day' : 'Push Day'}
                                 <br />
-
+                                {/* {workout.routinelist[0].name ? workout.routinelist[0].name : 'No Name'} */}
                             </Typography>
+                            <RoutineList workoutId={workout.id} />
                         </CardContent>
                         <CardActions>
                             <Button size="small">Learn More</Button>

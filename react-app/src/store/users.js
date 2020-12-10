@@ -7,6 +7,10 @@ export const SET_INTENSITIES = "SET_INTENSITIES";
 export const ADD_INTENSITY = "ADD_INTENSITY";
 export const SET_WORKOUT_PLANS = "SET_WORKOUT_PLANS";
 export const ADD_WORKOUT_PLAN = "ADD_WORKOUT_PLAN";
+export const SET_ROUTINE_LISTS = "SET_ROUTINE_LISTS";
+export const ADD_ROUTINE_LIST = "ADD_ROUTINE_LIST";
+export const SET_ROUTINES = "SET_ROUTINES";
+export const ADD_ROUTINE = "ADD_ROUTINE";
 
 export const setCurrentUser = (trainer) => {
     return { type: SET_CURRENT_TRAINER, trainer };
@@ -45,6 +49,13 @@ export const setWorkoutPlans = (workoutplans) => {
     return {
         type: SET_WORKOUT_PLANS,
         workoutplans
+    }
+}
+
+export const setRoutineLists = (routinelists) => {
+    return {
+        type: SET_ROUTINE_LISTS,
+        routinelists
     }
 }
 
@@ -89,6 +100,22 @@ export const fetchWorkoutPlans = async (clientId) => {
     return workoutplans
 }
 
+export const fetchRoutineList = async (workoutPlanId) => {
+    const response = await fetch(`/api/trainers/workout-plans/${workoutPlanId}/routinelist`, {
+        headers: {
+            "Content-Type": "application/json",
+        },
+    });
+    const result = await response.json();
+    const routinelists = {}
+    // console.log('clients', result)
+    result.routinelists.forEach(routinelist => {
+        routinelists[routinelist.id] = routinelist
+    })
+    console.log('fetchRoutineList returns:', routinelists)
+    return routinelists
+}
+
 export const fetchWorkouts = async (trainerId) => {
     const response = await fetch(`/api/trainers/${trainerId}/workouts`, {
         headers: {
@@ -126,6 +153,8 @@ const initialState = {
     workouts: {},
     intensities: {},
     workoutplans: {},
+    routinelists: {},
+    routines: {},
 }
 
 export default function reducer(state = initialState, action) {
@@ -153,6 +182,10 @@ export default function reducer(state = initialState, action) {
         }
         case SET_WORKOUT_PLANS: {
             newState.workoutplans = { ...action.workoutplans }
+            return newState;
+        }
+        case SET_ROUTINE_LISTS: {
+            newState.routinelists = { ...action.routinelists }
             return newState;
         }
         default:

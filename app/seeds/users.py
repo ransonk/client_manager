@@ -44,7 +44,7 @@ def seed_workouts():
 
     db.session.commit()
 
-def seed_workoutintensity():
+def seed_workoutintensities():
 
     demo = WorkoutIntensity(sets=3,
                 reps=10,
@@ -100,6 +100,18 @@ def seed_routinelist():
                 workoutplan_id=1)
 
     db.session.add(routinelist1)
+
+    routinelist2 = RoutineList(name='routinelist 2',
+                workoutplan_id=2)
+
+    db.session.add(routinelist1)
+
+    routinelist3 = RoutineList(name='routinelist 3',
+                workoutplan_id=3)
+
+    db.session.add(routinelist1)
+    db.session.add(routinelist2)
+    db.session.add(routinelist3)
 
     db.session.commit()
 
