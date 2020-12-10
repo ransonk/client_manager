@@ -8,6 +8,7 @@ import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import { fetchWorkoutPlans, setWorkoutPlans } from '../../../store/users';
 import AddWorkoutPlan from './AddWorkoutPlan';
+import { Divider } from '@material-ui/core';
 
 
 const useStyles = makeStyles({
@@ -57,54 +58,58 @@ export default function SimpleCard() {
     const bull = <span className={classes.bullet}>•</span>;
 
     return (
-        <div className='workoutplans__container'>
-            <AddWorkoutPlan />
-            {workoutPlanList.map((workout, i) => {
-                // console.log(workout.routinelist[0].name)
+        <>
+            {/* <AddWorkoutPlan /> */}
+            <div className='workoutplans__container'>
+                {workoutPlanList.map((workout, i) => {
+                    // console.log(workout.routinelist[0].name)
 
-                return (
+                    return (
 
-                    <Card className={classes.root}>
-                        <CardContent>
-                            <Typography variant="h5" component="h2" gutterBottom>
-                                {workout.name}
-                            </Typography>
-                            <Typography className={classes.title}>
-                                {workout.date}
-                            </Typography>
-                            <Typography variant="body2" component="p" className={classes.bold}>
-                                {bull}{workout.pull ? 'Pull Day' : 'Push Day'}{bull}
+                        <Card className={classes.root}>
+                            <CardContent>
+                                <Typography variant="h5" component="h2" gutterBottom>
+                                    {workout.name}
+                                </Typography>
+                                <Typography className={classes.title}>
+                                    {'Date: ' + workout.date}
+
+                                </Typography>
+                                <Typography className={classes.title}>
+                                    {'Time: ' + workout.time}
+                                </Typography>
                                 <br />
-                            </Typography>
-                            {/* <Typography className={classes.pos} color="textSecondary"> */}
-                            <div>
-                                <p className={classes.bold}>{workout.workout1}</p>
-                                {workout.set1}
-                                <p className={classes.bold}>{workout.workout2}</p>
-                                {workout.set2}
-                                <p className={classes.bold}>{workout.workout3}</p>
-                                {workout.set3}
-                                <p className={classes.bold}>{workout.workout4}</p>
-                                {workout.set4}
-                                <p className={classes.bold}>{workout.workout5}</p>
-                                {workout.set5}
-                                <p className={classes.bold}>{workout.workout6}</p>
-                                {workout.set6}
-                                <p className={classes.bold}>{workout.workout7}</p>
-                                {workout.set7}
-                                <p className={classes.bold}>{workout.workout8}</p>
-                                {workout.set8}
-                            </div>
-                            {/* </Typography> */}
-                        </CardContent>
-                        <CardActions>
-                            <Button size="small">Learn More</Button>
-                        </CardActions>
-                    </Card>
+                                <Divider />
+                                {/* <Typography className={classes.pos} color="textSecondary"> */}
+                                <div>
+                                    <p className={classes.bold}>{workout.workout1}</p>
+                                    {workout.set1}
+                                    <p className={classes.bold}>{workout.workout2}</p>
+                                    {workout.set2}
+                                    <p className={classes.bold}>{workout.workout3}</p>
+                                    {workout.set3}
+                                    <p className={classes.bold}>{workout.workout4}</p>
+                                    {workout.set4}
+                                    <p className={classes.bold}>{workout.workout5}</p>
+                                    {workout.set5}
+                                    <p className={classes.bold}>{workout.workout6}</p>
+                                    {workout.set6}
+                                    <p className={classes.bold}>{workout.workout7}</p>
+                                    {workout.set7}
+                                    <p className={classes.bold}>{workout.workout8}</p>
+                                    {workout.set8}
+                                </div>
+                                {/* </Typography> */}
+                            </CardContent>
+                            {/* <CardActions>
+                                <Button size="small">Learn More</Button>
+                            </CardActions> */}
+                        </Card>
 
-                )
+                    )
 
-            })}
-        </div>
+                })}
+            </div>
+        </>
     );
 }
