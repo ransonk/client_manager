@@ -15,7 +15,7 @@ const useStyles = makeStyles((theme) => ({
     },
     nav: {
         display: "flex",
-        justifyContent: "space-between"
+        justifyContent: "space-between",
     },
     menuButton: {
         marginRight: theme.spacing(2),
