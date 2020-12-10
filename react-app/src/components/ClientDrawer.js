@@ -94,8 +94,8 @@ export default function ClientDrawer() {
                         <ListItemText primary={firstName + ' ' + lastName} />
                     </ListItem>
                 ))}
-                <CreateNewClient />
             </List>
+            <CreateNewClient />
         </div>
     );
 

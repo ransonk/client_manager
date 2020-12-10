@@ -232,6 +232,7 @@ const CreateNewClient = ({ authenticated, setAuthenticated, props }) => {
                 BackdropProps={{
                     timeout: 500,
                 }}
+                closeAfterTransition
             >
                 <Fade in={openModal}>
                     <Typography variant='h5'>
@@ -241,15 +242,15 @@ const CreateNewClient = ({ authenticated, setAuthenticated, props }) => {
                                 Create a Client
                             </Typography>
                             <TextField id='standard-basic' value={firstName} onChange={updateFirstName} label='First Name' autoFocus />
-                            <TextField id='standard-basic' value={lastName} onChange={updateLastName} label='Last Name' autoFocus />
-                            <TextField id='standard-basic' value={email} onChange={updateEmail} label='Email' autoFocus />
-                            <TextField id='standard-basic' value={phone} onChange={updatePhone} label='Phone' autoFocus />
-                            <TextField id='standard-basic' value={weight} onChange={updateWeight} label='Weight' autoFocus />
-                            <TextField id='standard-basic' value={age} onChange={updateAge} label='Age' autoFocus />
-                            <TextField id='standard-basic' value={duedate} onChange={updateDueDate} label='Due Date' autoFocus />
-                            <TextField id='standard-basic' value={amount} onChange={updateAmount} label='Amount' autoFocus />
-                            <TextField id='standard-basic' type="password" value={password} onChange={updatePassword} label='Password' autoFocus />
-                            <TextField id='standard-basic' type="password" value={repeatPassword} onChange={updateRepeatPassword} label='Repeat Password' autoFocus />
+                            <TextField id='standard-basic' value={lastName} onChange={updateLastName} label='Last Name' />
+                            <TextField id='standard-basic' value={email} onChange={updateEmail} label='Email' />
+                            <TextField id='standard-basic' value={phone} onChange={updatePhone} label='Phone' />
+                            <TextField id='standard-basic' value={weight} onChange={updateWeight} label='Weight' />
+                            <TextField id='standard-basic' value={age} onChange={updateAge} label='Age' />
+                            <TextField id='standard-basic' value={duedate} onChange={updateDueDate} label='Due Date' />
+                            <TextField id='standard-basic' value={amount} onChange={updateAmount} label='Amount' />
+                            <TextField id='standard-basic' type="password" value={password} onChange={updatePassword} label='Password' />
+                            <TextField id='standard-basic' type="password" value={repeatPassword} onChange={updateRepeatPassword} label='Repeat Password' />
                             <div className={classes.paid}>
 
                                 <p>Paid</p>
