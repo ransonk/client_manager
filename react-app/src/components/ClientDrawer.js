@@ -63,7 +63,7 @@ const useStyles = makeStyles({
     },
     menuButton: {
         border: 'none',
-        fontFamily: 'Roboto',
+        fontFamily: 'Gill Sans, Gill Sans MT, Calibri, Trebuchet MS, sans-serif',
         fontSize: '16px',
         marginLeft: '-6px',
         backgroundColor: 'secondary',

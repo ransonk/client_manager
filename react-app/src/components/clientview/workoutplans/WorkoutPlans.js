@@ -30,6 +30,7 @@ const useStyles = makeStyles({
     },
     title: {
         fontSize: 14,
+        color: '#457b9d',
     },
     pos: {
         marginBottom: 0,
@@ -39,7 +40,7 @@ const useStyles = makeStyles({
     },
     delete: {
         position: 'relative',
-        color: 'red',
+        color: '#e63946',
         fontWeight: 'bold',
         "&:hover": {
             cursor: 'pointer'
@@ -78,12 +79,11 @@ export default function SimpleCard() {
                                 <Typography variant="h5" component="h2" gutterBottom>
                                     {workout.name}
                                 </Typography>
-                                <Typography className={classes.title}>
-                                    {'Date: ' + workout.date}
-
+                                <Typography>
+                                    Date: <span className={classes.title}>{workout.date}</span>
                                 </Typography>
-                                <Typography className={classes.title}>
-                                    {'Time: ' + workout.time}
+                                <Typography>
+                                    Time: <span className={classes.title}>{workout.time}</span>
                                 </Typography>
                                 <br />
                                 <Divider />

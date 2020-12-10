@@ -174,15 +174,19 @@ const EditClientProfile = (props) => {
     };
 
     const handleDeleteClient = async () => {
-        const response = await fetch(`/api/trainers/delete-client/${id}`, {
-            method: "DELETE",
-            headers: {
-                "Content-Type": "application/json",
-            },
-        });
-        const resJSON = await response.json();
-        if (resJSON.message === "delete successful") {
-            window.location.href = '/';
+        if (window.confirm('Are you sure you want do delete this client? This action is irreversible and all data associated with this client will be lost')) {
+
+
+            const response = await fetch(`/api/trainers/delete-client/${id}`, {
+                method: "DELETE",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+            });
+            const resJSON = await response.json();
+            if (resJSON.message === "delete successful") {
+                window.location.href = '/';
+            }
         }
     }
 
