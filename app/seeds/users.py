@@ -37,7 +37,7 @@ def seed_clients():
 def seed_workouts():
 
     demo = Workout(name='Push Ups',
-                description='Elbows at 90 degree angle',
+                type='push',
                 trainer_id=1,)
 
     db.session.add(demo)

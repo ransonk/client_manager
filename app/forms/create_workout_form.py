@@ -8,5 +8,5 @@ from app.models import Trainer, Client
 
 class CreateWorkoutForm(FlaskForm):
     name = StringField('first name', validators=[DataRequired()])
-    description = StringField('last name', validators=[DataRequired()])
+    type = StringField('Push or Pull', validators=[DataRequired()])
     trainer_id = IntegerField('trainer_id')

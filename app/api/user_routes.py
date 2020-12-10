@@ -168,7 +168,7 @@ def create_workout(id):
     if form.validate_on_submit():
         workout = Workout(
             name=form.data['name'],
-            description=form.data['description'],
+            type=form.data['type'],
             trainer_id=id
         )
         db.session.add(workout)

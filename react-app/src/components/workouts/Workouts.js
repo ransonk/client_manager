@@ -34,6 +34,10 @@ const useStyles = makeStyles((theme) => ({
         "&:hover": {
             cursor: 'pointer'
         }
+    },
+    type: {
+        color: 'gray',
+        fontSize: '14px'
     }
 }));
 
@@ -68,8 +72,8 @@ export default function Workouts() {
                                 <Typography className={classes.heading}>{workout.name}</Typography>
                             </AccordionSummary>
                             <AccordionDetails>
-                                <Typography>
-                                    {workout.description}
+                                <Typography className={classes.type}>
+                                    (Type: {workout.type})
                                 </Typography>
                                 {/* <Button size='large' variant='contained' onClick={() => handleDeleteWorkout(workout.id)} className={classes.exitBtn} variant='outlined'>x</Button> */}
                             </AccordionDetails>
