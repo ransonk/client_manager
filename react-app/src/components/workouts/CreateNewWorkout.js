@@ -29,6 +29,7 @@ const useStyles = makeStyles((theme) => ({
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
+        fontFamily: 'Gill Sans, Gill Sans MT, Calibri, Trebuchet MS, sans-serif',
 
     },
     editHeading: {
@@ -36,7 +37,7 @@ const useStyles = makeStyles((theme) => ({
     },
     menuButton: {
         border: 'none',
-        fontFamily: 'Roboto',
+        fontFamily: 'Gill Sans, Gill Sans MT, Calibri, Trebuchet MS, sans-serif',
         fontSize: '16px',
         marginLeft: '-6px',
         backgroundColor: 'secondary',

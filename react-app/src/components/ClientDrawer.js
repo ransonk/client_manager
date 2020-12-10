@@ -63,7 +63,7 @@ const useStyles = makeStyles({
     },
     menuButton: {
         border: 'none',
-        fontFamily: 'Roboto',
+        fontFamily: 'Gill Sans, Gill Sans MT, Calibri, Trebuchet MS, sans-serif',
         fontSize: '16px',
         marginLeft: '-6px',
         backgroundColor: 'secondary',
@@ -306,7 +306,7 @@ export default function ClientDrawer({ authenticated, setAuthenticated, props })
 
     return (
         <>
-            <div>
+            <div className='navButtons'>
                 {['clients'].map((anchor) => (
                     <React.Fragment key={anchor}>
                         <Button onClick={toggleDrawer(anchor, true)}>{anchor}</Button>

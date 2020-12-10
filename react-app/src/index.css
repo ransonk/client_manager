@@ -10,11 +10,11 @@ html{
 .addWorkout{
     margin-top: 1.2rem;
     position: relative;
-    font-family: consolas;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     display: inline-block;
     padding: 10px 30px;
     text-decoration: none;
-    text-transform: uppercase;
+    /* text-transform: uppercase; */
     font-weight: 500;
     letter-spacing: 2px;
     color: black;
@@ -41,18 +41,17 @@ html{
 
 .addClient{
     margin-top: 1.2rem;
-    margin-left: 5rem;
+    margin-left: 6.5rem;
     position: relative;
-    font-family: consolas;
-    display: inline-block;
-    padding: 10px 30px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;    display: inline-block;
+    padding: 5px 10px;
     text-decoration: none;
     text-transform: uppercase;
     font-weight: 800;
-    letter-spacing: 2px;
+    letter-spacing: 1px;
     color: white;
     font-size: 18px;
-    border-radius: 40px;
+    border-radius: 50px;
     /* box-shadow: -2px -2px 8px rgba(255, 255, 255, 1),
     -2px -2px 12px rgba(255, 255, 255, 0.5),
     inset 2px 2px 4px rgba(255, 255, 255, 0.1),
@@ -60,11 +59,14 @@ html{
 }
 
 .addClient:hover{
-
-    box-shadow: inset -2px -2px 8px rgba(255, 255, 255, 1),
+    box-shadow: -2px -2px 8px rgba(255, 255, 255, 1),
+    -2px -2px 12px rgba(255, 255, 255, 0.5),
+    inset 2px 2px 4px rgba(255, 255, 255, 0.1),
+    6px 6px 8px rgba(0, 0, 0, 0.15);
+    /* box-shadow: inset -2px -2px 8px rgba(255, 255, 255, 1),
     inset -2px -2px 12px rgba(255, 255, 255, 0.5),
     inset 2px 2px 4px rgba(255, 255, 255, 0.1),
-    inset 2px 2px 8px rgba(0, 0, 0, 0.15);
+    inset 2px 2px 8px rgba(0, 0, 0, 0.15); */
 }
 
 .addClient:hover span{
@@ -77,8 +79,7 @@ html{
     position: relative;
     top: 1.9rem;
     left: 2rem;
-    font-family: consolas;
-    /* display: inline-block; */
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     padding: 10px 30px;
     text-decoration: none;
     text-transform: uppercase;
@@ -105,6 +106,48 @@ html{
     display: inline-block;
     transform: scale(0.98);
 }
+
+.editProfile{
+    margin-top: 3rem;
+    position: relative;
+    bottom: 5rem;
+    left: 2rem;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    padding: 10px 30px;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: 800;
+    /* letter-spacing: 2px; */
+    color: black;
+    font-size: 18px;
+    border-radius: 40px;
+    box-shadow: -2px -2px 8px rgba(255, 255, 255, 1),
+    -2px -2px 12px rgba(255, 255, 255, 0.5),
+    inset 2px 2px 4px rgba(255, 255, 255, 0.1),
+    2px 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.editProfile:hover{
+
+    box-shadow: inset -2px -2px 8px rgba(255, 255, 255, 1),
+    inset -2px -2px 12px rgba(255, 255, 255, 0.5),
+    inset 2px 2px 4px rgba(255, 255, 255, 0.1),
+    inset 2px 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.editProfile:hover span{
+    display: inline-block;
+    transform: scale(0.98);
+}
+
+/* .info{
+    letter-spacing: 1px;
+} */
+
+/* .homebutton{
+    position: relative;
+    right: 17rem;
+} */
 
 body::-webkit-scrollbar {
     width: 1.5em;
@@ -200,7 +243,8 @@ body::-webkit-scrollbar {
 
 .title__container{
     text-Align: center;
-    /* border: 1px solid black; */
+    position: relative;
+    left: 2rem;
     font-size: 2rem;
     font-family: Pacifico, cursive;
     margin-top: 3rem;
@@ -215,18 +259,20 @@ body::-webkit-scrollbar {
 /* /manage-client section */
 
 .clientinfo__container{
-
+    letter-spacing: 2px;
     border-radius: 3px;
-    width: 100%;
+    width: 80rem;
     height: 30rem;
     display: flex;
     padding-top: 1rem;
-    justify-content: space-evenly;
+    justify-content: space-around;
     align-content: center;
+    margin-top: 2rem;
 }
 
 .clientinfo__header{
     text-align: center;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
 .clientinfo__info{
@@ -235,7 +281,9 @@ body::-webkit-scrollbar {
     width: 30rem;
     height: 20rem;
     border-radius: 20px;
-    padding: 2rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    padding-bottom: 5rem;
     background-color: #E0E5EC;
     box-shadow: -2px -2px 8px rgba(255, 255, 255, 1),
     -2px -2px 12px rgba(255, 255, 255, 0.5),
@@ -244,7 +292,7 @@ body::-webkit-scrollbar {
     /* box-shadow:
     inset -3px -3px 7px #A3B1C6,
     inset 3px 3px 5px
-     #ffffff */
+    #ffffff */
 }
 
 .clientinfo__payment{
@@ -253,7 +301,9 @@ body::-webkit-scrollbar {
     width: 25rem;
     height: 20rem;
     border-radius: 20px;
-    padding: 2rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    padding-bottom: 5rem;
     background-color: #E0E5EC;
     box-shadow: -2px -2px 8px rgba(255, 255, 255, 1),
     -2px -2px 12px rgba(255, 255, 255, 0.5),
@@ -263,6 +313,7 @@ body::-webkit-scrollbar {
     inset -3px -3px 7px #A3B1C6,
     inset 3px 3px 5px
      #ffffff */
+
 
 }
 
@@ -272,16 +323,27 @@ body::-webkit-scrollbar {
     /* border: 1px solid blue; */
     padding: 1rem;
     margin-right: 2rem;
+    margin-left: 2rem;
+    padding-left: 2.5rem;
+    background-color: white;
+    box-shadow:
+    inset -3px -3px 7px #ffffff73,
+    inset 3px 3px 5px
+    rgba(94, 104, 121, .288)
 }
 
 .clientinfo__paymentcard{
     display: flex;
     justify-content: space-evenly;
-    /* border: 1px solid blue; */
     padding: 1rem;
-    margin-left: 2rem;
-    /* display: block;
-    text-align: center; */
+    margin-left: 1rem;
+    padding-bottom: 6rem;
+    margin-right: 1rem;
+    background-color: white;
+    box-shadow:
+    inset -3px -3px 7px #ffffff73,
+    inset 3px 3px 5px
+    rgba(94, 104, 121, .288)
 }
 
 .clientinfo__info__contact{
@@ -290,7 +352,16 @@ body::-webkit-scrollbar {
     display: flex;
     flex-direction: column;
     margin-right: 2rem;
-    text-align: center;
+    /* justify-content: center; */
+
+}
+
+.cancellation{
+    margin-top: 2.2rem;
+}
+
+.duedate{
+    margin-top: 2.6rem;
 }
 
 .clientinfo__info__payment{
@@ -304,6 +375,7 @@ body::-webkit-scrollbar {
 
 .clientinfo__info__payment__duedate{
     justify-content: flex-start;
+    /* align-content: center; */
 }
 
 /* home - client / workout section */
@@ -325,6 +397,7 @@ body::-webkit-scrollbar {
 
 .home-welcome__message{
     font-size: 2rem;
+    /* font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; */
     font-family: Pacifico, cursive;
     margin-top: 3rem;
 
@@ -332,10 +405,11 @@ body::-webkit-scrollbar {
 
 .home-clients__header{
     color: black;
-}
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;}
 
 .home-clients__header2{
     color: black;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
 .home-clients__info{
@@ -368,18 +442,18 @@ body::-webkit-scrollbar {
     margin-top: 3rem;
     border-radius: 20px;
     background-color: #E0E5EC;
-    box-shadow: -2px -2px 8px rgba(255, 255, 255, 1),
+    /* box-shadow: -2px -2px 8px rgba(255, 255, 255, 1),
     -2px -2px 12px rgba(255, 255, 255, 0.5),
     inset 2px 2px 4px rgba(255, 255, 255, 0.1),
-    6px 6px 8px rgba(0, 0, 0, 0.15);
+    6px 6px 8px rgba(0, 0, 0, 0.15); */
     /* box-shadow:
     inset -3px -3px 7px #A3B1C6,
     inset 3px 3px 5px
      #ffffff */
-    /* box-shadow:
+    box-shadow:
     inset -3px -3px 7px #ffffff73,
     inset 3px 3px 5px
-    rgba(94, 104, 121, .288) */
+    rgba(94, 104, 121, .288)
 
 }
 
@@ -461,6 +535,7 @@ body::-webkit-scrollbar {
 .card__header{
     font-weight: bold;
     font-size: 1.5rem;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
 .client-view__workout-plans{
@@ -470,8 +545,15 @@ body::-webkit-scrollbar {
     width: 60rem;
     height: 25rem;
     /* margin-top: 3rem; */
-    border-radius: 50px;
+    border-radius: 20px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     background-color: #E0E5EC;
+    padding-bottom: 2rem;
+    padding-right: 3rem;
+    box-shadow: -2px -2px 8px rgba(255, 255, 255, 1),
+    -2px -2px 12px rgba(255, 255, 255, 0.5),
+    inset 2px 2px 4px rgba(255, 255, 255, 0.1),
+    6px 6px 8px rgba(0, 0, 0, 0.15);
     /* box-shadow:
     inset -3px -3px 7px #ffffff,
     inset 3px 3px 5px
@@ -489,6 +571,18 @@ body::-webkit-scrollbar {
 
 .client-view__workout-plans-header{
     display: flex;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    height: 5rem;
+    box-shadow:
+    inset -3px -3px 7px #ffffff73,
+    inset 3px 3px 5px
+    rgba(94, 104, 121, .288);
+    padding-left: 3rem;
+    padding-right: 4rem;
+    /* box-shadow: -2px -2px 8px rgba(255, 255, 255, 1),
+    -2px -2px 12px rgba(255, 255, 255, 0.5),
+    inset 2px 2px 4px rgba(255, 255, 255, 0.1),
+    6px 6px 8px rgba(0, 0, 0, 0.15); */
 
 }
 
@@ -496,6 +590,7 @@ body::-webkit-scrollbar {
     display: flex;
     margin-top: 3rem;
     overflow-x: hidden;
+    margin-left: 3rem;
 }
 
 .workoutplans__container:hover{

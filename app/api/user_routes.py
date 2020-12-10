@@ -272,6 +272,21 @@ def delete_workoutPlan(id):
     return {'message':'delete successful'}
 
 
+@trainer_routes.route('/delete-client/<int:id>', methods=["GET", "DELETE"])
+# @login_required
+def delete_client(id):
+    """
+    Deletes selected Workout Intensity
+    """
+    # intensity = WorkoutIntensity.query.filter(WorkoutIntensity.id == id).delete()
+    db.session.query(WorkoutPlan).filter(WorkoutPlan.client_id == id).delete()
+    db.session.commit()
+    client = Client.query.get(id)
+    db.session.delete(client)
+    db.session.commit()
+    return {'message':'delete successful'}
+
+
 @trainer_routes.route('/<int:id>/create-intensity', methods=["POST"])
 # @login_required
 def create_intensity(id):

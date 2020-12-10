@@ -5,8 +5,8 @@ import { makeStyles } from '@material-ui/core/styles';
 import Backdrop from '@material-ui/core/Backdrop';
 import Fade from '@material-ui/core/Fade';
 import { fetchClient } from '../../store/users';
-// import 'fontsource-roboto';
 import clsx from 'clsx';
+
 
 const useStyles = makeStyles((theme) => ({
     modal: {
@@ -65,6 +65,15 @@ const useStyles = makeStyles((theme) => ({
         border: 'none',
         paddingRight: '0px',
         paddingLeft: '0px',
+    },
+    deleteBtn: {
+        position: 'relative',
+        bottom: '4rem',
+        right: '9rem',
+        border: 'none',
+        paddingRight: '0px',
+        paddingLeft: '0px',
+        color: 'red'
     },
     icon: {
         borderRadius: 3,
@@ -164,6 +173,23 @@ const EditClientProfile = (props) => {
         }
     };
 
+    const handleDeleteClient = async () => {
+        if (window.confirm('Are you sure you want do delete this client? This action is irreversible and all data associated with this client will be lost')) {
+
+
+            const response = await fetch(`/api/trainers/delete-client/${id}`, {
+                method: "DELETE",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+            });
+            const resJSON = await response.json();
+            if (resJSON.message === "delete successful") {
+                window.location.href = '/';
+            }
+        }
+    }
+
     const handleOpenModal = () => {
         setOpenModal(true);
     };
@@ -231,13 +257,14 @@ const EditClientProfile = (props) => {
 
 
 
+
     return (
 
         <div className='profile-edit__container'>
 
-            <button type="button" className={classes.menuButton} onClick={handleOpenModal}>
+            <a type="button" className='editProfile' onClick={handleOpenModal}>
                 Edit Profile
-            </button>
+            </a>
             <Modal
                 aria-labelledby="transition-modal-title"
                 aria-describedby="transition-modal-description"
@@ -254,6 +281,7 @@ const EditClientProfile = (props) => {
                     <Typography variant='h5'>
                         <form className={classes.paper} noValidate autoComplete='off' onSubmit={updateClientProfile}>
                             <Button size='large' variant='contained' onClick={handleCloseModal} className={classes.exitBtn} variant='outlined'>x</Button>
+                            <Button size='large' variant='contained' onClick={handleDeleteClient} className={classes.deleteBtn} variant='outlined'>Delete Client</Button>
                             <Typography variant='h4' className={classes.editHeading}>
                                 Edit Client Profile
                             </Typography>

@@ -29,6 +29,7 @@ const useStyles = makeStyles((theme) => ({
     },
     delete: {
         position: 'relative',
+        color: '#e63946',
         left: '7rem',
         fontWeight: 'bold',
         "&:hover": {

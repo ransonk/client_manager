@@ -31,6 +31,7 @@ const useStyles = makeStyles((theme) => ({
     delete: {
         position: 'relative',
         left: '7rem',
+        color: '#e63946',
         fontWeight: 'bold',
         "&:hover": {
             cursor: 'pointer'
