@@ -237,10 +237,10 @@ const AddWorkoutPlan = (props) => {
     return (
 
         <div className='profile-edit__container'>
-
             <a className='addWorkoutPlan' onClick={handleOpenModal}>
                 +
             </a>
+
             <Modal
                 aria-labelledby="transition-modal-title"
                 aria-describedby="transition-modal-description"
@@ -574,10 +574,6 @@ const AddWorkoutPlan = (props) => {
                     </Typography>
                 </Fade>
             </Modal>
-
-
-
-
         </div>
     );
 }
