@@ -103,7 +103,7 @@ const LoginForm = ({ authenticated, setAuthenticated }) => {
       <div className='login__container'>
         <Container maxWidth="sm" className={classes.border}>
           <form className={classes.loginForm} onSubmit={onLogin}>
-            <p className={classes.header1}>Client Manager</p>
+            <p className={classes.header1}>Trainer Hub</p>
             {/* <h2 className={classes.header2}>Welcome to Client Manager</h2> */}
             <div>
               {errors.map((error) => (

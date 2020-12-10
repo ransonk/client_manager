@@ -14,6 +14,8 @@ import ArrowDownward from '@material-ui/icons/ArrowDownward';
 import DirectionsRunTwoTone from '@material-ui/icons/DirectionsRunTwoTone';
 import { setCurrentClient } from '../store/users';
 import { fetchCurrentClient } from '../store/users';
+import CreateClientForm from './auth/CreateClientForm';
+import CreateNewClient from './CreateNewClient';
 
 const useStyles = makeStyles({
     list: {
@@ -92,6 +94,7 @@ export default function ClientDrawer() {
                         <ListItemText primary={firstName + ' ' + lastName} />
                     </ListItem>
                 ))}
+                <CreateNewClient />
             </List>
         </div>
     );

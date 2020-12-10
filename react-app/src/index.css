@@ -39,6 +39,40 @@ html{
     transform: scale(0.98);
 }
 
+.addClient{
+    margin-top: 1.2rem;
+    margin-left: 5rem;
+    position: relative;
+    font-family: consolas;
+    font-weight: bold;
+    display: inline-block;
+    padding: 10px 30px;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: 500;
+    letter-spacing: 2px;
+    color: black;
+    font-size: 18px;
+    border-radius: 40px;
+    /* box-shadow: -2px -2px 8px rgba(255, 255, 255, 1),
+    -2px -2px 12px rgba(255, 255, 255, 0.5),
+    inset 2px 2px 4px rgba(255, 255, 255, 0.1),
+    2px 2px 8px rgba(0, 0, 0, 0.15); */
+}
+
+.addClient:hover{
+
+    box-shadow: inset -2px -2px 8px rgba(255, 255, 255, 1),
+    inset -2px -2px 12px rgba(255, 255, 255, 0.5),
+    inset 2px 2px 4px rgba(255, 255, 255, 0.1),
+    inset 2px 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.addClient:hover span{
+    display: inline-block;
+    transform: scale(0.98);
+}
+
 .addWorkoutPlan{
     margin-top: 3rem;
     position: relative;
