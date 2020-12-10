@@ -196,7 +196,22 @@ def create_workout_plan(id):
         print('hereeeeeeeeee')
         workoutplan = WorkoutPlan(
             name=form.data['name'],
-            description=form.data['description'],
+            workout1=form.data['workout1'],
+            set1=form.data['set1'],
+            workout2=form.data['workout2'],
+            set2=form.data['set2'],
+            workout3=form.data['workout3'],
+            set3=form.data['set3'],
+            workout4=form.data['workout4'],
+            set4=form.data['set4'],
+            workout5=form.data['workout5'],
+            set5=form.data['set5'],
+            workout6=form.data['workout6'],
+            set6=form.data['set6'],
+            workout7=form.data['workout7'],
+            set7=form.data['set7'],
+            workout8=form.data['workout8'],
+            set8=form.data['set8'],
             time=form.data['time'],
             date=form.data['date'],
             client_id=id

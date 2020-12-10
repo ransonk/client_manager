@@ -1,8 +1,8 @@
 """empty message
 
-Revision ID: b42818f5bc05
-Revises: 
-Create Date: 2020-12-10 01:11:54.560096
+Revision ID: dfbea9b68fa0
+Revises: 0710f67527d8
+Create Date: 2020-12-10 01:49:02.197565
 
 """
 from alembic import op
@@ -10,8 +10,8 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = 'b42818f5bc05'
-down_revision = None
+revision = 'dfbea9b68fa0'
+down_revision = '0710f67527d8'
 branch_labels = None
 depends_on = None
 
@@ -74,7 +74,22 @@ def upgrade():
     op.create_table('workoutplans',
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('name', sa.String(length=255), nullable=False),
-    sa.Column('description', sa.String(length=500), nullable=True),
+    sa.Column('workout1', sa.String(length=500), nullable=True),
+    sa.Column('set1', sa.String(length=500), nullable=True),
+    sa.Column('workout2', sa.String(length=500), nullable=True),
+    sa.Column('set2', sa.String(length=500), nullable=True),
+    sa.Column('workout3', sa.String(length=500), nullable=True),
+    sa.Column('set3', sa.String(length=500), nullable=True),
+    sa.Column('workout4', sa.String(length=500), nullable=True),
+    sa.Column('set4', sa.String(length=500), nullable=True),
+    sa.Column('workout5', sa.String(length=500), nullable=True),
+    sa.Column('set5', sa.String(length=500), nullable=True),
+    sa.Column('workout6', sa.String(length=500), nullable=True),
+    sa.Column('set6', sa.String(length=500), nullable=True),
+    sa.Column('workout7', sa.String(length=500), nullable=True),
+    sa.Column('set7', sa.String(length=500), nullable=True),
+    sa.Column('workout8', sa.String(length=500), nullable=True),
+    sa.Column('set8', sa.String(length=500), nullable=True),
     sa.Column('time', sa.String(length=255), nullable=False),
     sa.Column('date', sa.String(length=255), nullable=False),
     sa.Column('client_id', sa.Integer(), nullable=True),

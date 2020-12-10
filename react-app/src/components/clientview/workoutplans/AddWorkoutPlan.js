@@ -109,8 +109,16 @@ const AddWorkoutPlan = (props) => {
         if (workout.type === 'pull') return workout
     })
 
-    let description =
-        `${workout1} ${set1} ${workout2} ${set2} ${workout3} ${set3} ${workout4} ${set4} ${workout5} ${set5} ${workout6} ${set6} ${workout7} ${set7} ${workout8} ${set8} `
+
+    // let description =
+    //     `${workout1} ${set1}\n
+    //     ${workout2} ${set2}\n
+    //     ${workout3} ${set3}\n
+    //     ${workout4} ${set4}\n
+    //     ${workout5} ${set5}\n
+    //     ${workout6} ${set6}\n
+    //     ${workout7} ${set7}\n
+    //     ${workout8} ${set8} `
 
     // console.log(description)
 
@@ -119,7 +127,22 @@ const AddWorkoutPlan = (props) => {
         e.preventDefault();
         const workoutPlan = await createWorkoutPlan(
             name,
-            description,
+            workout1,
+            set1,
+            workout2,
+            set2,
+            workout3,
+            set3,
+            workout4,
+            set4,
+            workout5,
+            set5,
+            workout6,
+            set6,
+            workout7,
+            set7,
+            workout8,
+            set8,
             time,
             date,
             client_id
