@@ -149,6 +149,22 @@ export const deleteWorkout = async (workoutId) => {
   }
 }
 
+export const deleteWorkoutPlan = async (workoutPlanId) => {
+  const response = await fetch(`/api/trainers/delete-workoutPlan/${workoutPlanId}`, {
+    method: "DELETE",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      workoutPlanId
+    }),
+  });
+  const resJSON = await response.json();
+  if (resJSON.message === "delete successful") {
+    window.location.reload();
+  }
+}
+
 export const createIntensity = async (sets, reps, trainer_id) => {
   const response = await fetch(`/api/trainers/${trainer_id}/create-intensity`, {
     method: "POST",
