@@ -6,7 +6,8 @@ import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
-import { fetchWorkoutPlans, setWorkoutPlans } from '../../../store/users';
+import { fetchWorkoutPlans, setWorkoutPlans, fetchRoutineList } from '../../../store/users';
+import RoutineList from './RoutineList';
 
 const useStyles = makeStyles({
     root: {
@@ -29,10 +30,14 @@ const useStyles = makeStyles({
 export default function SimpleCard() {
 
     const workoutPlans = useSelector((state) => state.store.workoutplans)
-    console.log('workoutplans', workoutPlans)
+    // console.log('workoutplans', workoutPlans)
     let workoutPlanList = Object.values(workoutPlans)
 
-    // workoutPlans.map(workout => console.log(workout.name))
+    // let iterateIds = [];
+    // workoutPlanList.map(workout => {
+    //     iterateIds.push(workout.id)
+    // })
+
 
 
 
@@ -63,6 +68,7 @@ export default function SimpleCard() {
                                 <br />
 
                             </Typography>
+                            <RoutineList workoutId={workout.id} />
                         </CardContent>
                         <CardActions>
                             <Button size="small">Learn More</Button>

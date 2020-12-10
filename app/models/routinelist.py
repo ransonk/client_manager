@@ -42,16 +42,10 @@ class RoutineList(db.Model, UserMixin):
   # )
 
 
-  # def to_dict(self):
-  #   return {
-  #     "id": self.id,
-  #     "name": self.name,
-  #     "description": self.description,
-  #     "rating": self.rating,
-  #     "time": self.time,
-  #     "date": self.date,
-  #     "pull": self.pull,
-  #     "push": self.push,
-  #   }
+  def to_dict(self):
+    return {
+      "id": self.id,
+      "name": self.name,
+    }
 
       # "reviews": [review.to_dict() for review in self.reviews]

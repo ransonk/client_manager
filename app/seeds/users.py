@@ -111,6 +111,18 @@ def seed_routinelist():
 
     db.session.add(routinelist1)
 
+    routinelist2 = RoutineList(name='routinelist 2',
+                workoutplan_id=2)
+
+    db.session.add(routinelist1)
+
+    routinelist3 = RoutineList(name='routinelist 3',
+                workoutplan_id=3)
+
+    db.session.add(routinelist1)
+    db.session.add(routinelist2)
+    db.session.add(routinelist3)
+
     db.session.commit()
 
 def seed_routine():
