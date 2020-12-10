@@ -30,7 +30,7 @@ const useStyles = makeStyles({
 export default function SimpleCard() {
 
     const workoutPlans = useSelector((state) => state.store.workoutplans)
-    console.log('workoutplans', workoutPlans)
+    // console.log('workoutplans', workoutPlans)
     let workoutPlanList = Object.values(workoutPlans)
 
     // workoutPlans.map(workout => console.log(workout.name))

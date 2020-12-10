@@ -9,7 +9,7 @@ import MenuItem from '@material-ui/core/MenuItem';
 import ListSubheader from '@material-ui/core/ListSubheader';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
-// import { createWorkout } from '../../services/auth';
+import { createWorkoutPlan } from '../../../services/auth';
 
 const useStyles = makeStyles((theme) => ({
     modal: {
@@ -93,6 +93,9 @@ const AddWorkoutPlan = (props) => {
     const [workout8, setWorkout8] = useState("");
     const [set8, setSet8] = useState("");
 
+    const client = JSON.parse(localStorage.getItem('CURRENT_CLIENT'))
+    let client_id = client.id
+
     const workouts = useSelector((state) => state.store.workouts)
     const sortedWorkouts = Object.values(workouts)
     const intensities = useSelector((state) => state.store.intensities)
@@ -104,18 +107,29 @@ const AddWorkoutPlan = (props) => {
     const pullWorkouts = sortedWorkouts.filter(workout => {
         if (workout.type === 'pull') return workout
     })
-    console.log('sorted bitch', sortedWorkouts)
-    console.log('push workout', pushWorkouts)
-    console.log('pull workout', pullWorkouts)
 
-    // const createThisWorkoutPlan = async (e) => {
-    //     e.preventDefault();
-    //     const workoutPlan = await createWorkout(
-    //         name,
-    //         description,
-    //         trainer_id);
-    //     window.location.reload();
-    // };
+    let description =
+        `${workout1} ${set1}
+    ${workout2} ${set2}
+    ${workout3} ${set3}
+    ${workout4} ${set4}
+    ${workout5} ${set5}
+    ${workout6} ${set6}
+    ${workout7} ${set7}
+    ${workout8} ${set8} `
+
+    // console.log(description)
+
+
+    const createThisWorkoutPlan = async (e) => {
+        e.preventDefault();
+        const workoutPlan = await createWorkoutPlan(
+            name,
+            description,
+            client_id
+        );
+        window.location.reload();
+    };
 
     const handleOpenModal = () => {
         setOpenModal(true);
@@ -222,8 +236,8 @@ const AddWorkoutPlan = (props) => {
             >
                 <Fade in={openModal}>
                     <Typography variant='h5'>
-                        {/* <form className={classes.paper} noValidate autoComplete='off' onSubmit={createThisWorkout}> */}
-                        <form className={classes.paper} noValidate autoComplete='off'>
+                        <form className={classes.paper} noValidate autoComplete='off' onSubmit={createThisWorkoutPlan}>
+                            {/* <form className={classes.paper} noValidate autoComplete='off'> */}
                             <Button size='large' variant='contained' onClick={handleCloseModal} className={classes.exitBtn} variant='outlined'>x</Button>
                             <Typography variant='h4' className={classes.editHeading}>
                                 Create a Workout Plan

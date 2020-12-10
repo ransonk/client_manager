@@ -87,18 +87,18 @@ export const createWorkout = async (name, type, trainer_id) => {
   return await response.json();
 }
 
-// export const createWorkoutPlan = async (name, type, trainer_id) => {
-//   const response = await fetch(`/api/trainers/${trainer_id}/create-workout`, {
-//     method: "POST",
-//     headers: {
-//       "Content-Type": "application/json",
-//     },
-//     body: JSON.stringify({
-//       name, type, trainer_id
-//     }),
-//   });
-//   return await response.json();
-// }
+export const createWorkoutPlan = async (name, description, rating, time, date, client_id) => {
+  const response = await fetch(`/api/trainers/client/${client_id}/create-workout-plan`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      name, description, rating, time, date, client_id
+    }),
+  });
+  return await response.json();
+}
 
 export const deleteWorkout = async (workoutId) => {
   const response = await fetch(`/api/trainers/delete-workout/${workoutId}`, {
