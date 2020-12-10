@@ -9,6 +9,7 @@ import Typography from '@material-ui/core/Typography';
 import { fetchWorkoutPlans, setWorkoutPlans } from '../../../store/users';
 import AddWorkoutPlan from './AddWorkoutPlan';
 import { Divider } from '@material-ui/core';
+import { deleteWorkoutPlan } from '../../../services/auth';
 
 
 const useStyles = makeStyles({
@@ -35,11 +36,20 @@ const useStyles = makeStyles({
     },
     bold: {
         fontWeight: 'bold',
-    }
+    },
+    delete: {
+        position: 'relative',
+        color: 'red',
+        fontWeight: 'bold',
+        "&:hover": {
+            cursor: 'pointer'
+        }
+    },
 });
 
 export default function SimpleCard() {
 
+    const classes = useStyles();
     const workoutPlans = useSelector((state) => state.store.workoutplans)
     // console.log('workoutplans', workoutPlans)
     let workoutPlanList = Object.values(workoutPlans)
@@ -50,12 +60,9 @@ export default function SimpleCard() {
     // })
 
 
-
-
-
-
-    const classes = useStyles();
-    const bull = <span className={classes.bullet}>•</span>;
+    const handleDeleteWorkoutPlan = async (id) => {
+        const deleted = await deleteWorkoutPlan(id)
+    }
 
     return (
         <>
@@ -101,9 +108,9 @@ export default function SimpleCard() {
                                 </div>
                                 {/* </Typography> */}
                             </CardContent>
-                            {/* <CardActions>
-                                <Button size="small">Learn More</Button>
-                            </CardActions> */}
+                            <Typography className={classes.delete} onClick={() => handleDeleteWorkoutPlan(workout.id)}>
+                                Delete
+                                </Typography>
                         </Card>
 
                     )
