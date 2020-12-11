@@ -615,25 +615,54 @@ body::-webkit-scrollbar {
     -8px -8px 12px 0 rgba(255, 255, 255, 0.3); */
 }
 
-.client-view__workout-plans-header{
+.client-view__workout-plans-header-on{
     display: flex;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     height: 5rem;
     position: relative;
-    width: 20rem;
-    left: 15rem;
+    width: 13rem;
+    left: 5rem;
+    /* bottom: 1rem; */
+    /* box-shadow:
+    inset -3px -3px 7px #ffffff73,
+    inset 3px 3px 5px
+    rgba(94, 104, 121, .288); */
+    padding-left: 1rem;
+    padding-right: 1rem;
+    box-shadow: -2px -2px 8px rgba(255, 255, 255, 1),
+    -2px -2px 12px rgba(255, 255, 255, 0.5),
+    inset 2px 2px 4px rgba(255, 255, 255, 0.1),
+    6px 6px 8px rgba(0, 0, 0, 0.15);
+
+}
+
+.client-view__workout-plans-header-off{
+    display: flex;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    height: 5rem;
+    position: relative;
+    width: 13rem;
+    left: 5rem;
     /* bottom: 1rem; */
     box-shadow:
     inset -3px -3px 7px #ffffff73,
     inset 3px 3px 5px
     rgba(94, 104, 121, .288);
-    padding-left: 3rem;
-    padding-right: 4rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
     /* box-shadow: -2px -2px 8px rgba(255, 255, 255, 1),
     -2px -2px 12px rgba(255, 255, 255, 0.5),
     inset 2px 2px 4px rgba(255, 255, 255, 0.1),
     6px 6px 8px rgba(0, 0, 0, 0.15); */
 
+}
+
+.client-view__workout-plans-header-off:hover{
+    cursor: pointer;
+}
+
+.client-view__workout-sched-header-off:hover{
+    cursor: pointer;
 }
 
 .client-view__workout-schedule{
@@ -671,7 +700,7 @@ body::-webkit-scrollbar {
     -8px -8px 12px 0 rgba(255, 255, 255, 0.3); */
 }
 
-.client-view__workout-calendar-header{
+.client-view__workout-sched-header-on{
     display: flex;
     background-color: #dbded5;
     color: black;
@@ -681,7 +710,7 @@ body::-webkit-scrollbar {
     justify-content: center;
     width: 10rem;
     bottom: 4rem;
-    left: 27rem;
+    left: 21rem;
     padding-bottom: 0.4rem;
     /* box-shadow:
     inset -3px -3px 7px #ffffff73,
@@ -693,6 +722,31 @@ body::-webkit-scrollbar {
     -2px -2px 12px rgba(255, 255, 255, 0.5),
     inset 2px 2px 4px rgba(255, 255, 255, 0.1),
     6px 6px 8px rgba(0, 0, 0, 0.15);
+
+}
+
+.client-view__workout-sched-header-off{
+    display: flex;
+    background-color: #dbded5;
+    color: black;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    height: 5rem;
+    position: relative;
+    justify-content: center;
+    width: 10rem;
+    bottom: 4rem;
+    left: 21rem;
+    padding-bottom: 0.4rem;
+    box-shadow:
+    inset -3px -3px 7px #ffffff73,
+    inset 3px 3px 5px
+    rgba(94, 104, 121, .288);
+    padding-left: 1rem;
+    padding-right: 1rem;
+    /* box-shadow: -2px -2px 8px rgba(255, 255, 255, 1),
+    -2px -2px 12px rgba(255, 255, 255, 0.5),
+    inset 2px 2px 4px rgba(255, 255, 255, 0.1),
+    6px 6px 8px rgba(0, 0, 0, 0.15); */
 
 }
 

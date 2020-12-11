@@ -23,7 +23,7 @@ const useStyles = makeStyles({
             overflowY: 'scroll',
         }
     },
-    addWorkout: {
+    addWorkoutPlan: {
         minWidth: 275,
         margin: '0.5rem',
         height: '20rem',
@@ -75,13 +75,13 @@ export default function SimpleCard() {
         <>
             {/* <AddWorkoutPlan /> */}
             <div className='workoutplans__container'>
-                <Card className={classes.addWorkout}>
+                <Card className={classes.addWorkoutPlan}>
                     <CardContent>
                         <br />
                         <br />
                         <br />
                         <Typography variant="h5" component="h2" gutterBottom>
-                            Add Workout
+                            Add Workout Plan
                         </Typography>
                         <AddWorkoutPlan />
 
