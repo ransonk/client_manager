@@ -17,15 +17,22 @@ const ClientView = ({ setAuthenticated }) => {
             <div className='client-view__container'>
                 <Title />
                 <ClientInfo />
-                <div className='client-view__workout-plans-header'>
-                    <h1>Workout Plans</h1>
-                    <AddWorkoutPlan />
-                </div>
-                <div className='client-view__workout-plans'>
-                    <WorkoutPlans />
-                </div>
-                <div className='client-view__workout-schedule'>
-                    <ClientCalendar />
+                <div className='workout-and-calendar__container'>
+
+
+                    <div className='client-view__workout-calendar-header'>
+                        <h1>Calendar</h1>
+                    </div>
+                    <div className='client-view__workout-schedule'>
+                        <ClientCalendar />
+                    </div>
+                    <div className='client-view__workout-plans-header'>
+                        <h1>Workout Plans</h1>
+                        <AddWorkoutPlan />
+                    </div>
+                    <div className='client-view__workout-plans'>
+                        <WorkoutPlans />
+                    </div>
                 </div>
             </div>
             <Footer />

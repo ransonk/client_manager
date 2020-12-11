@@ -69,6 +69,15 @@ export default function SimpleCard() {
         <>
             {/* <AddWorkoutPlan /> */}
             <div className='workoutplans__container'>
+                <Card className={classes.root}>
+                    <CardContent>
+                        <Typography variant="h5" component="h2" gutterBottom>
+                            Add Workout
+                        </Typography>
+
+
+                    </CardContent>
+                </Card>
                 {workoutPlanList.map((workout, i) => {
                     // console.log(workout.routinelist[0].name)
 

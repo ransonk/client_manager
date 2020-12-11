@@ -40,6 +40,10 @@ const useStyles = makeStyles({
             cursor: 'pointer'
         }
     },
+    cardHeader: {
+        marginBottom: '1rem',
+        color: 'blue'
+    }
 });
 
 export default function ClientCalendar() {
@@ -134,6 +138,10 @@ export default function ClientCalendar() {
 
                         <Card className={classes.root}>
                             <CardContent>
+                                <Typography variant="h5" component="h2" gutterBottom className={classes.cardHeader}>
+                                    Today
+                                </Typography>
+                                <Divider />
                                 <Typography variant="h5" component="h2" gutterBottom>
                                     {workout.name}
                                 </Typography>
