@@ -66,47 +66,48 @@ const HomePage = ({ setAuthenticated }) => {
 
 
     return (
-        <div className='home-page-layout'>
+        <>
             <ButtonAppBar setAuthenticated={setAuthenticated} />
-            <div className='home-welcome__message'>Welcome Back, {name}</div>
-            <div className='home-clients__info'>
-                <h1 className='home-clients__header'>Today's Clients</h1>
-                <div className='home-clients__clientcard'>
+            <div className='home-page__container'>
+                <div className='home-welcome__message'>Welcome Back, {name}</div>
+                <div className='home-clients__info'>
+                    <h1 className='home-clients__header'>Today's Clients</h1>
+                    <div className='home-clients__clientcard'>
 
-                    <div className='home-clients__info__contact'>
-                        <p className='card__header'>Contact</p>
+                        <div className='home-clients__info__contact'>
+                            <p className='card__header'>Contact</p>
 
-                    </div>
-                    <div className='home-clients__info__contact'>
-                        <p className='card__header'>Stats</p>
+                        </div>
+                        <div className='home-clients__info__contact'>
+                            <p className='card__header'>Stats</p>
 
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div className='home-clients__container'>
+                <div className='home-clients__container'>
+                    <div className='home-clients__title'>Build Reusable Routines</div>
+                    <div className='workouts-and-intensities'>
+                        <div className='home-clients__payment'>
+                            <h1 className='home-clients__header2'>Available Workouts</h1>
+                            <div className='home-clients__workouts'>
+                                <Workouts />
+                            </div>
+                            <CreateNewWorkout />
 
-                <div className='home-clients__payment'>
-                    <h1 className='home-clients__header2'>Available Workouts</h1>
-                    <div className='home-clients__workouts'>
-                        <Workouts />
+
+                        </div>
+                        <div className='home-clients__payment'>
+                            <h1 className='home-clients__header2'>Available Intensities</h1>
+                            <div className='home-clients__workouts'>
+                                <Intensities />
+                            </div>
+                            <CreateNewIntensity />
+                        </div>
                     </div>
-                    <CreateNewWorkout />
-
-
-                </div>
-                <div className='home-clients__payment'>
-                    <h1 className='home-clients__header2'>Available Intensities</h1>
-                    <div className='home-clients__workouts'>
-                        <Intensities />
-                    </div>
-                    <CreateNewIntensity />
-
-
-
                 </div>
             </div>
             <Footer className={classes.footer} />
-        </div>
+        </>
     );
 }
 
