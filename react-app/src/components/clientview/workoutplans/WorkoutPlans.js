@@ -23,6 +23,11 @@ const useStyles = makeStyles({
             overflowY: 'scroll',
         }
     },
+    addWorkout: {
+        minWidth: 275,
+        margin: '0.5rem',
+        height: '20rem',
+    },
     bullet: {
         display: 'inline-block',
         margin: '0 2px',
@@ -42,6 +47,7 @@ const useStyles = makeStyles({
         position: 'relative',
         color: '#e63946',
         fontWeight: 'bold',
+        marginBottom: '1rem',
         "&:hover": {
             cursor: 'pointer'
         }
@@ -69,12 +75,15 @@ export default function SimpleCard() {
         <>
             {/* <AddWorkoutPlan /> */}
             <div className='workoutplans__container'>
-                <Card className={classes.root}>
+                <Card className={classes.addWorkout}>
                     <CardContent>
+                        <br />
+                        <br />
+                        <br />
                         <Typography variant="h5" component="h2" gutterBottom>
                             Add Workout
                         </Typography>
-
+                        <AddWorkoutPlan />
 
                     </CardContent>
                 </Card>
