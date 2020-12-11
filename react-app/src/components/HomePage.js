@@ -70,7 +70,7 @@ const HomePage = ({ setAuthenticated }) => {
             <ButtonAppBar setAuthenticated={setAuthenticated} />
             <div className='home-page__container'>
                 <div className='home-welcome__message'>Welcome Back, {name}</div>
-                <div className='home-clients__info'>
+                {/* <div className='home-clients__info'>
                     <h1 className='home-clients__header'>Today's Clients</h1>
                     <div className='home-clients__clientcard'>
 
@@ -83,7 +83,7 @@ const HomePage = ({ setAuthenticated }) => {
 
                         </div>
                     </div>
-                </div>
+                </div> */}
                 <div className='home-clients__container'>
                     <div className='home-clients__title'>Build Reusable Routines</div>
                     <div className='workouts-and-intensities'>
