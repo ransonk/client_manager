@@ -11,8 +11,8 @@ import ClientCalendar from './clientCalendar';
 
 const ClientView = ({ setAuthenticated }) => {
 
-    const [plans, setPlans] = useState(true);
-    const [sched, setSched] = useState();
+    const [plans, setPlans] = useState(false);
+    const [sched, setSched] = useState(true);
 
     const clickWorkoutPlans = (e) => {
         // window.alert('hi')
@@ -37,14 +37,11 @@ const ClientView = ({ setAuthenticated }) => {
                     <div className={'client-buttons', (plans === false ? 'client-view__workout-sched-header-on' : 'client-view__workout-sched-header-off')} onClick={clickSchedule}>
                         <h1>Calendar</h1>
                     </div>
-                    <div className='client-view__workout-schedule'>
-                        <ClientCalendar />
-                    </div>
                     <div className={'client-buttons', (plans === true ? 'client-view__workout-plans-header-on' : 'client-view__workout-plans-header-off')} onClick={clickWorkoutPlans}>
                         <h1>Workout Plans</h1>
                     </div>
                     <div className='client-view__workout-plans'>
-                        <WorkoutPlans />
+                        {plans ? <WorkoutPlans /> : <ClientCalendar />}
                     </div>
                 </div>
             </div>

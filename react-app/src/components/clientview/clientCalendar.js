@@ -14,7 +14,7 @@ const useStyles = makeStyles({
         overflowY: 'hidden',
         height: '20rem',
         '&:hover': {
-            overflowY: 'scroll',
+            overflowY: 'auto',
         }
     },
     bullet: {
