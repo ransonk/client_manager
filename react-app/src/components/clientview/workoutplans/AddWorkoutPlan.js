@@ -95,7 +95,7 @@ const AddWorkoutPlan = (props) => {
 
     const client = JSON.parse(localStorage.getItem('CURRENT_CLIENT'))
     let client_id = client.id
-    console.log(client_id)
+    // console.log(client_id)
 
     const workouts = useSelector((state) => state.store.workouts)
     const sortedWorkouts = Object.values(workouts)

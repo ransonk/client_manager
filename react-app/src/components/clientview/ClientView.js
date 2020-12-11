@@ -7,6 +7,7 @@ import Footer from '../Footer';
 import WorkoutPlans from './workoutplans/WorkoutPlans';
 // import WorkoutSchedule from './workoutplans/WorkoutSchedule';
 import AddWorkoutPlan from './workoutplans/AddWorkoutPlan';
+import ClientCalendar from './clientCalendar';
 
 const ClientView = ({ setAuthenticated }) => {
 
@@ -22,6 +23,9 @@ const ClientView = ({ setAuthenticated }) => {
                 </div>
                 <div className='client-view__workout-plans'>
                     <WorkoutPlans />
+                </div>
+                <div className='client-view__workout-schedule'>
+                    <ClientCalendar />
                 </div>
             </div>
             <Footer />
