@@ -47,9 +47,9 @@ export default function Workouts() {
     const classes = useStyles();
     const workouts = useSelector((state) => state.store.workouts)
 
-    console.log('workoutsss', workouts)
+    // console.log('workoutsss', workouts)
     let workoutList = Object.values(workouts)
-    console.log('list', workoutList)
+    // console.log('list', workoutList)
 
     const handleDeleteWorkout = async (id) => {
         const deleted = await deleteWorkout(id)

@@ -45,9 +45,9 @@ export default function Intensities() {
     const classes = useStyles();
     const intensities = useSelector((state) => state.store.intensities)
 
-    console.log('intensitiesss', intensities)
+    // console.log('intensitiesss', intensities)
     let intensityList = Object.values(intensities)
-    console.log('list', intensityList)
+    // console.log('list', intensityList)
 
 
     const handleDeleteIntensity = async (id) => {

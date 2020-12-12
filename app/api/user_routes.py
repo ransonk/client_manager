@@ -79,6 +79,22 @@ def updateClient(id):
     return client.to_dict()
 
 
+# LOOK HERE --- get today workouts
+@trainer_routes.route("/today-clients", methods=["GET", "POST"])
+# @login_required
+def today_plans():
+    print('TODAY PLANNNNNNNNNNNSSSSSSSSSSSSSS HEREEEEEEEEEEEEEEEEEEE')
+    req_data = request.get_json()
+    clients = req_data['clientIds']
+    todays_plans = WorkoutPlan.query.filter(WorkoutPlan.client_id == id)
+    User.query.filter(User.email.endswith('@example.com')).all()
+    print('HEY THESE CLIENTS', clients)
+
+    db.session.add(client)
+    db.session.commit()
+    return client.to_dict()
+
+
 # grab trainer specific workouts by id
 @trainer_routes.route('/<int:id>/workouts')
 # @login_required

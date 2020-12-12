@@ -7,7 +7,7 @@ import Footer from '../Footer';
 import WorkoutPlans from './workoutplans/WorkoutPlans';
 // import WorkoutSchedule from './workoutplans/WorkoutSchedule';
 import AddWorkoutPlan from './workoutplans/AddWorkoutPlan';
-import ClientCalendar from './clientCalendar';
+import ClientCalendar from './ClientCalendar';
 
 const ClientView = ({ setAuthenticated }) => {
 
