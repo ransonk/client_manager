@@ -268,7 +268,7 @@ const AddWorkoutPlan = (props) => {
                                 Create a Workout Plan
                             </Typography>
                             <span><TextField id='standard-basic' className={classes.inputs} value={name} onChange={updateName} label='Name of Workout Plan' autoFocus />
-                                <TextField id='standard-basic' className={classes.inputs} value={time} onChange={updateTime} label='Time' />
+                                <TextField id='standard-basic' className={classes.inputs} value={time} onChange={updateTime} label='Time: 03:45 pm' />
                                 <TextField id='standard-basic' className={classes.inputs} value={date} onChange={updateDate} label='Date: mm/dd/yyyy' /></span>
                             <div>
                                 <FormControl className={classes.formControl}>

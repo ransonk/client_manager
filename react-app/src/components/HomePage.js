@@ -79,8 +79,8 @@ const HomePage = ({ setAuthenticated }) => {
             <ButtonAppBar setAuthenticated={setAuthenticated} />
             <div className='home-page__container'>
                 <div className='home-welcome__message'>Welcome Back, {name}</div>
-                <div className='home-clients__container'>
-                    <p>Schedule For Today</p>
+                <div className='today-sched__container'>
+                    <p className='today-sched__title'>Today's Overview</p>
                     <TodaysClients />
                 </div>
                 <div className='home-clients__container'>
