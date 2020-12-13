@@ -41,6 +41,7 @@ const HomePage = ({ setAuthenticated }) => {
     // const [authenticated, setAuthenticated] = useState(false);
     const [loaded, setLoaded] = useState(false);
     const [name, setName] = useState();
+    let trainerId = useSelector(state => state.store.current_trainer.id)
 
     useEffect(() => {
         (async () => {
@@ -51,19 +52,17 @@ const HomePage = ({ setAuthenticated }) => {
             setLoaded(true);
             dispatch(setCurrentUser(user))
             setName(user.firstName)
-            // interval(user.id)
-            // localStorage.setItem('CURRENT_TRAINER_ID', JSON.stringify(user.id))
 
-            const clients = await fetchClients(user.id);
+            const clients = await fetchClients(trainerId);
             dispatch(setTrainerClients(clients))
 
-            const todaysPlans = await fetchTodaysPlans(user.id)
+            const todaysPlans = await fetchTodaysPlans(trainerId)
             dispatch(setTodaysPlans(todaysPlans))
 
-            const workouts = await fetchWorkouts(user.id);
+            const workouts = await fetchWorkouts(trainerId);
             dispatch(setWorkouts(workouts))
 
-            const intensities = await fetchIntensities(user.id);
+            const intensities = await fetchIntensities(trainerId);
             dispatch(setIntensities(intensities))
 
         })();

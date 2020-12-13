@@ -11,7 +11,7 @@ import User from "./components/User";
 import HomePage from './components/HomePage';
 import ClientView from './components/clientview/ClientView';
 import { authenticate } from "./services/auth";
-import { setCurrentUser, setCurrentClient, fetchClients, setTrainerClients, fetchWorkouts, setWorkouts, fetchIntensities, setIntensities, fetchWorkoutPlans } from "./store/users";
+import { setCurrentUser, setCurrentClient, fetchClients, fetchTodaysPlans, setTodaysPlans, setTrainerClients, fetchWorkouts, setWorkouts, fetchIntensities, setIntensities, fetchWorkoutPlans } from "./store/users";
 
 function App() {
   const dispatch = useDispatch();
@@ -47,6 +47,9 @@ function App() {
 
       const intensities = await fetchIntensities(user.id);
       dispatch(setIntensities(intensities))
+
+      const todaysPlans = await fetchTodaysPlans(user.id)
+      dispatch(setTodaysPlans(todaysPlans))
 
     })();
   }, []);
