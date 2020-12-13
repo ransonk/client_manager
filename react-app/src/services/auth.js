@@ -104,7 +104,7 @@ export const createWorkoutPlan = async (
   workout7,
   set7,
   workout8,
-  set8, time, date, client_id, trainer_id) => {
+  set8, time, date, clientFirstName, clientLastName, client_id, trainer_id) => {
   const response = await fetch(`/api/trainers/client/${client_id}/create-workout-plan`, {
     method: "POST",
     headers: {
@@ -127,7 +127,7 @@ export const createWorkoutPlan = async (
       workout7,
       set7,
       workout8,
-      set8, time, date, trainer_id
+      set8, time, date, clientFirstName, clientLastName, trainer_id
     }),
   });
   return await response.json();

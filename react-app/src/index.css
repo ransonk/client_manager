@@ -62,20 +62,21 @@ html{
 }
 
 .addClient:hover{
-    box-shadow: -2px -2px 8px rgba(255, 255, 255, 1),
+    cursor: pointer;
+    /* box-shadow: -2px -2px 8px rgba(255, 255, 255, 1),
     -2px -2px 12px rgba(255, 255, 255, 0.5),
     inset 2px 2px 4px rgba(255, 255, 255, 0.1),
-    6px 6px 8px rgba(0, 0, 0, 0.15);
+    6px 6px 8px rgba(0, 0, 0, 0.15); */
     /* box-shadow: inset -2px -2px 8px rgba(255, 255, 255, 1),
     inset -2px -2px 12px rgba(255, 255, 255, 0.5),
     inset 2px 2px 4px rgba(255, 255, 255, 0.1),
     inset 2px 2px 8px rgba(0, 0, 0, 0.15); */
 }
 
-.addClient:hover span{
+/* .addClient:hover span{
     display: inline-block;
     transform: scale(0.98);
-}
+} */
 
 .addWorkoutPlan{
     font-size: 5rem;

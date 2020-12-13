@@ -228,8 +228,8 @@ def create_workout_plan(id):
             date=form.data['date'],
             clientFirstName=form.data['clientFirstName'],
             clientLastName=form.data['clientLastName'],
-            trainer_id=form.data['trainer_id'],
-            client_id=id
+            client_id=id,
+            trainer_id=form.data['trainer_id']
         )
         db.session.add(workoutplan)
         db.session.commit()
