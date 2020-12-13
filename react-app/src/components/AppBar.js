@@ -8,6 +8,7 @@ import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import { logout } from '../services/auth';
 import ClientDrawer from './ClientDrawer';
+import { setClearStore } from '../store/users';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -37,6 +38,7 @@ export default function ButtonAppBar({ setAuthenticated }) {
     }
 
     const onLogout = async (e) => {
+        // setClearStore();
         await logout();
         setAuthenticated(false);
     };

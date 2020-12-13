@@ -39,16 +39,16 @@ function App() {
       setLoaded(true);
       dispatch(setCurrentUser(user))
       // interval(user.id)
-      const clients = await fetchClients(user.id);
+      const clients = await fetchClients(id);
       dispatch(setTrainerClients(clients))
 
-      const workouts = await fetchWorkouts(user.id);
+      const workouts = await fetchWorkouts(id);
       dispatch(setWorkouts(workouts))
 
-      const intensities = await fetchIntensities(user.id);
+      const intensities = await fetchIntensities(id);
       dispatch(setIntensities(intensities))
 
-      const todaysPlans = await fetchTodaysPlans(user.id)
+      const todaysPlans = await fetchTodaysPlans(id)
       dispatch(setTodaysPlans(todaysPlans))
 
     })();

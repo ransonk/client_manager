@@ -12,6 +12,7 @@ export const SET_ROUTINE_LISTS = "SET_ROUTINE_LISTS";
 export const ADD_ROUTINE_LIST = "ADD_ROUTINE_LIST";
 export const SET_ROUTINES = "SET_ROUTINES";
 export const ADD_ROUTINE = "ADD_ROUTINE";
+export const CLEAR_STORE = "CLEAR_STORE";
 
 export const setCurrentUser = (trainer) => {
     return { type: SET_CURRENT_TRAINER, trainer };
@@ -64,6 +65,13 @@ export const setRoutineLists = (routinelists) => {
     return {
         type: SET_ROUTINE_LISTS,
         routinelists
+    }
+}
+
+export const setClearStore = (clear) => {
+    return {
+        type: CLEAR_STORE,
+        clear
     }
 }
 
@@ -211,6 +219,16 @@ export default function reducer(state = initialState, action) {
         }
         case SET_ROUTINE_LISTS: {
             newState.routinelists = { ...action.routinelists }
+            return newState;
+        }
+        case CLEAR_STORE: {
+            newState.current_trainer = {}
+            newState.clients = {}
+            newState.current_client = {}
+            newState.workouts = {}
+            newState.intensities = {}
+            newState.workoutplans = {}
+            newState.todaysPlans = {}
             return newState;
         }
         default:

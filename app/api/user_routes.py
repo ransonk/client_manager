@@ -35,6 +35,7 @@ def trainer(id):
 
 # Grab clients safely for particular trainer (no phones/emails)
 @trainer_routes.route('/<int:id>/s-clients')
+#this one ->>>>>>>>>>>
 # @login_required
 def safe_clients(id):
     trainer = Trainer.query.get(id)
@@ -57,6 +58,7 @@ def client(id):
 
 
 @trainer_routes.route("/client/<int:id>/update", methods=["GET", "PUT"])
+#this one ->>>>>>>>>>>
 # @login_required
 def updateClient(id):
     client = Client.query.get(id)
@@ -81,6 +83,7 @@ def updateClient(id):
 
 
 @trainer_routes.route("/<int:id>/todays-clients", methods=["GET"])
+#this one ->>>>>>>>>>>
 # @login_required
 def today_workout_plans(id):
     trainer = Trainer.query.get(id)
@@ -92,6 +95,7 @@ def today_workout_plans(id):
 
 # grab trainer specific workouts by id
 @trainer_routes.route('/<int:id>/workouts')
+#this one ->>>>>>>>>>>
 # @login_required
 def workouts(id):
     trainer = Trainer.query.get(id)
@@ -102,6 +106,7 @@ def workouts(id):
 
 
 @trainer_routes.route('/<int:id>/intensities')
+#this one ->>>>>>>>>>>
 # @login_required
 def intensities(id):
     trainer = Trainer.query.get(id)
@@ -113,6 +118,7 @@ def intensities(id):
 
 # Grab client specific workouts
 @trainer_routes.route('/client/<int:id>/workout-plans')
+#this one ->>>>>>>>>>>
 # @login_required
 def workout_plans(id):
     client = Client.query.get(id)
@@ -162,6 +168,7 @@ def routine_lists(id):
 
 
 @trainer_routes.route('/<int:id>/create-client', methods=["POST"])
+#this one ->>>>>>>>>>>
 # @login_required
 def create_client(id):
     print('route startedsdafdsafdsafdsafdasfds')
@@ -195,6 +202,7 @@ def create_client(id):
     return {'errors': validation_errors_to_error_messages(form.errors)}
 
 @trainer_routes.route('/client/<int:id>/create-workout-plan', methods=["POST"])
+#this one ->>>>>>>>>>>
 # @login_required
 def create_workout_plan(id):
     print('route startedsdafdsafdsafdsafdasfds')
@@ -240,6 +248,7 @@ def create_workout_plan(id):
 
 
 @trainer_routes.route('/<int:id>/create-workout', methods=["POST"])
+#this one ->>>>>>>>>>>
 # @login_required
 def create_workout(id):
     """
@@ -262,6 +271,7 @@ def create_workout(id):
 
 
 @trainer_routes.route('/delete-workout/<int:id>', methods=["GET", "DELETE"])
+#this one ->>>>>>>>>>>
 # @login_required
 def delete_workout(id):
     """
@@ -275,6 +285,7 @@ def delete_workout(id):
 
 
 @trainer_routes.route('/delete-workoutPlan/<int:id>', methods=["GET", "DELETE"])
+#this one ->>>>>>>>>>>
 # @login_required
 def delete_workoutPlan(id):
     """
@@ -288,6 +299,7 @@ def delete_workoutPlan(id):
 
 
 @trainer_routes.route('/delete-client/<int:id>', methods=["GET", "DELETE"])
+#this one ->>>>>>>>>>>
 # @login_required
 def delete_client(id):
     """
@@ -303,6 +315,7 @@ def delete_client(id):
 
 
 @trainer_routes.route('/<int:id>/create-intensity', methods=["POST"])
+#this one ->>>>>>>>>>>
 # @login_required
 def create_intensity(id):
     """
@@ -325,6 +338,7 @@ def create_intensity(id):
 
 
 @trainer_routes.route('/delete-intensity/<int:id>', methods=["GET", "DELETE"])
+#this one ->>>>>>>>>>>
 # @login_required
 def delete_intensity(id):
     """
