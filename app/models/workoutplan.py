@@ -25,6 +25,8 @@ class WorkoutPlan(db.Model, UserMixin):
   set8 = db.Column(db.String(500))
   time = db.Column(db.String(255), nullable=False)
   date = db.Column(db.String(255), nullable=False)
+  clientFirstName = db.Column(db.String(255), nullable=False)
+  clientLastName = db.Column(db.String(255), nullable=False)
   client_id = db.Column(db.Integer, db.ForeignKey("clients.id"))
   trainer_id = db.Column(db.Integer, db.ForeignKey("trainers.id"))
   created_on = db.Column(db.DateTime, server_default=db.func.now())
@@ -91,6 +93,8 @@ class WorkoutPlan(db.Model, UserMixin):
       "set8": self.set8,
       "time": self.time,
       "date": self.date,
+      "clientFirstName": self.clientFirstName,
+      "clientLastName": self.clientLastName,
       "client_id": self.client_id,
       "trainer_id": self.trainer_id
 

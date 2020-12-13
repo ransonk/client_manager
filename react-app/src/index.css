@@ -388,6 +388,8 @@ body::-webkit-scrollbar {
     padding-right: 1rem;
     align-content: center;
     margin-top: 2rem;
+    margin-bottom: 2rem;
+    padding-bottom: 2rem;
     /* background-color: #c5dedd; */
     background-color: #dbded5;
     box-shadow:

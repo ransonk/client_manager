@@ -52,7 +52,7 @@ const HomePage = ({ setAuthenticated }) => {
             dispatch(setCurrentUser(user))
             setName(user.firstName)
             // interval(user.id)
-            localStorage.setItem('CURRENT_TRAINER_ID', JSON.stringify(user.id))
+            // localStorage.setItem('CURRENT_TRAINER_ID', JSON.stringify(user.id))
 
             const clients = await fetchClients(user.id);
             dispatch(setTrainerClients(clients))
@@ -80,7 +80,7 @@ const HomePage = ({ setAuthenticated }) => {
             <div className='home-page__container'>
                 <div className='home-welcome__message'>Welcome Back, {name}</div>
                 <div className='home-clients__container'>
-                    <p>Today's Clients</p>
+                    <p>Schedule For Today</p>
                     <TodaysClients />
                 </div>
                 <div className='home-clients__container'>

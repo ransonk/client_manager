@@ -226,6 +226,8 @@ def create_workout_plan(id):
             set8=form.data['set8'],
             time=form.data['time'],
             date=form.data['date'],
+            clientFirstName=form.data['clientFirstName'],
+            clientLastName=form.data['clientLastName'],
             trainer_id=form.data['trainer_id'],
             client_id=id
         )

@@ -1,8 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from "react-redux";
 import { makeStyles } from '@material-ui/core/styles';
-import { authenticate } from '../services/auth';
-import { fetchClients } from '../store/users';
+import Timeline from '@material-ui/lab/Timeline';
+import TimelineItem from '@material-ui/lab/TimelineItem';
+import TimelineSeparator from '@material-ui/lab/TimelineSeparator';
+import TimelineConnector from '@material-ui/lab/TimelineConnector';
+import TimelineContent from '@material-ui/lab/TimelineContent';
+import TimelineOppositeContent from '@material-ui/lab/TimelineOppositeContent';
+import TimelineDot from '@material-ui/lab/TimelineDot';
+import Paper from '@material-ui/core/Paper';
+import Typography from '@material-ui/core/Typography';
+import FitnessCenterIcon from '@material-ui/icons/FitnessCenter';
 
 
 const useStyles = makeStyles({
@@ -42,38 +50,33 @@ const useStyles = makeStyles({
     cardHeader: {
         marginBottom: '1rem',
         color: 'blue'
-    }
+    },
+    paper: {
+        padding: '6px 16px',
+    },
+    secondaryTail: {
+        backgroundColor: 'black',
+    },
 });
 
 export default function TodaysClients() {
     const classes = useStyles();
 
-    let trainer_id = JSON.parse(localStorage.getItem('CURRENT_TRAINER_ID'))
+    let allPlansObj = useSelector(state => state.store.todaysPlans)
+    let allPlans = Object.values(allPlansObj)
+    console.log('hola', allPlans)
 
-    const listOfClients = async (trainer_id) => {
-        const response = await fetch(`/api/trainers/${trainer_id}/todays-clients`, {
-            headers: {
-                "Content-Type": "application/json",
-            },
-        })
-        const result = await response.json();
-        const todayPlans = {}
-        result.workoutplans.forEach(plan => {
-            todayPlans[plan.id] = plan
-            console.log('waiting', todayPlans)
-        })
-        return 'successful'
-    }
-    let listTodayClients;
 
-    useEffect(() => {
-        (async () => {
-            listTodayClients = await listOfClients(trainer_id);
 
-        })();
-    }, []);
-    console.log('waiting2', listTodayClients)
-    //================================================================
+    // let date = new Date();
+    // let dd = date.getDate();
+    // let mm = date.getMonth() + 1;
+
+    // let yyyy = date.getFullYear();
+    // if (dd < 10) { dd = '0' + dd }
+    // if (mm < 10) { mm = '0' + mm }
+    // let date1 = mm + '/' + dd + '/' + yyyy;
+
 
 
 
@@ -116,17 +119,17 @@ export default function TodaysClients() {
         console.log('month translator broken')
     }
 
-    // let todaysWorkout = workoutPlanList.filter((workout) => {
-    //     let m1 = workout.date.toString().split('/')[0]
-    //     let d1 = workout.date.toString().split('/')[1]
+    let todayslist = allPlans.filter((plan) => {
+        let m1 = plan.date.toString().split('/')[0]
+        let d1 = plan.date.toString().split('/')[1]
 
-    //     if (day1 == d1 && mms == m1) {
-    //         return workout
-    //     } else {
-    //         return
-    //     }
-    // })
-    // // console.log(todaysWorkout)
+        if (day1 == d1 && mms == m1) {
+            return plan
+        } else {
+            return
+        }
+    })
+    console.log('today!: ', todayslist)
     // // workoutPlanList.map(workout => console.log(workout.date))
 
     // let tomorrowsWorkout = workoutPlanList.filter((workout) => {
@@ -145,60 +148,90 @@ export default function TodaysClients() {
 
         <div className='workoutplans__container'>
 
-            {/* {workoutPlanList.map(workout => {
+            <Timeline align="alternate">
 
-                let m1 = workout.date.toString().split('/')[0]
-                let d1 = workout.date.toString().split('/')[1]
-
-                if (day1 == d1 && mms == m1) {
-
-
+                {todayslist.map(item => {
                     return (
 
-
-
-                        <Card className={classes.root}>
-                            <CardContent>
-                                <Typography variant="h5" component="h2" gutterBottom className={classes.cardHeader}>
-                                    Today
+                        <TimelineItem>
+                            <TimelineOppositeContent>
+                                <Typography variant="body2" color="textSecondary">
+                                    {item.time}
                                 </Typography>
-                                <Divider />
-                                <Typography variant="h5" component="h2" gutterBottom>
-                                    {workout.name}
-                                </Typography>
-                                <Typography>
-                                    <span className={classes.title}>{workout.date}</span>
-                                </Typography>
-                                <Typography>
-                                    Time: <span className={classes.title}>{workout.time}</span>
-                                </Typography>
-                                <br />
-                                <Divider />
-                                <div>
-                                    <p className={classes.bold}>{workout.workout1}</p>
-                                    {workout.set1}
-                                    <p className={classes.bold}>{workout.workout2}</p>
-                                    {workout.set2}
-                                    <p className={classes.bold}>{workout.workout3}</p>
-                                    {workout.set3}
-                                    <p className={classes.bold}>{workout.workout4}</p>
-                                    {workout.set4}
-                                    <p className={classes.bold}>{workout.workout5}</p>
-                                    {workout.set5}
-                                    <p className={classes.bold}>{workout.workout6}</p>
-                                    {workout.set6}
-                                    <p className={classes.bold}>{workout.workout7}</p>
-                                    {workout.set7}
-                                    <p className={classes.bold}>{workout.workout8}</p>
-                                    {workout.set8}
-                                </div>
-                            </CardContent>
-                        </Card>
-
+                            </TimelineOppositeContent>
+                            <TimelineSeparator>
+                                <TimelineDot>
+                                    <FitnessCenterIcon />
+                                </TimelineDot>
+                                <TimelineConnector />
+                            </TimelineSeparator>
+                            <TimelineContent>
+                                <Paper elevation={3} className={classes.paper}>
+                                    <Typography variant="h6" component="h1">
+                                        {item.clientFirstName + ' ' + item.clientLastName}
+                                    </Typography>
+                                    <Typography>{item.name}</Typography>
+                                </Paper>
+                            </TimelineContent>
+                        </TimelineItem>
                     )
+                })
                 }
-            })} */}
-        </div>
+            </Timeline>
+            {/* <TimelineItem>
+                    <TimelineOppositeContent>
+                        <Typography variant="body2" color="textSecondary">
+                            10:00 am
+          </Typography>
+                    </TimelineOppositeContent>
+                    <TimelineSeparator>
+                        <TimelineDot color="primary">
+                            <LaptopMacIcon />
+                        </TimelineDot>
+                        <TimelineConnector />
+                    </TimelineSeparator>
+                    <TimelineContent>
+                        <Paper elevation={3} className={classes.paper}>
+                            <Typography variant="h6" component="h1">
+                                Code
+            </Typography>
+                            <Typography>Because it&apos;s awesome!</Typography>
+                        </Paper>
+                    </TimelineContent>
+                </TimelineItem>
+                <TimelineItem>
+                    <TimelineSeparator>
+                        <TimelineDot color="primary" variant="outlined">
+                            <HotelIcon />
+                        </TimelineDot>
+                        <TimelineConnector className={classes.secondaryTail} />
+                    </TimelineSeparator>
+                    <TimelineContent>
+                        <Paper elevation={3} className={classes.paper}>
+                            <Typography variant="h6" component="h1">
+                                Sleep
+            </Typography>
+                            <Typography>Because you need rest</Typography>
+                        </Paper>
+                    </TimelineContent>
+                </TimelineItem>
+                <TimelineItem>
+                    <TimelineSeparator>
+                        <TimelineDot color="secondary">
+                            <RepeatIcon />
+                        </TimelineDot>
+                    </TimelineSeparator>
+                    <TimelineContent>
+                        <Paper elevation={3} className={classes.paper}>
+                            <Typography variant="h6" component="h1">
+                                Repeat
+            </Typography>
+                            <Typography>Because this is the life you love!</Typography>
+                        </Paper>
+                    </TimelineContent>
+                </TimelineItem> */}
+
+        </div >
 
     )
 }

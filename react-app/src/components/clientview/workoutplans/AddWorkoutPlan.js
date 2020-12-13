@@ -10,6 +10,8 @@ import ListSubheader from '@material-ui/core/ListSubheader';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import { createWorkoutPlan } from '../../../services/auth';
+import { fetchClient } from '../../../store/users';
+
 
 const useStyles = makeStyles((theme) => ({
     modal: {
@@ -92,6 +94,8 @@ const AddWorkoutPlan = (props) => {
     const [set7, setSet7] = useState("");
     const [workout8, setWorkout8] = useState("");
     const [set8, setSet8] = useState("");
+    const [clientFirstName, setClientFirstName] = useState("");
+    const [clientLastName, setClientLastName] = useState("");
 
     const client = JSON.parse(localStorage.getItem('CURRENT_CLIENT'))
     let client_id = client.id
@@ -103,6 +107,7 @@ const AddWorkoutPlan = (props) => {
     const intensities = useSelector((state) => state.store.intensities)
     const sortedIntensities = Object.values(intensities)
 
+
     const pushWorkouts = sortedWorkouts.filter(workout => {
         if (workout.type === 'push') return workout
     })
@@ -111,17 +116,14 @@ const AddWorkoutPlan = (props) => {
     })
 
 
-    // let description =
-    //     `${workout1} ${set1}\n
-    //     ${workout2} ${set2}\n
-    //     ${workout3} ${set3}\n
-    //     ${workout4} ${set4}\n
-    //     ${workout5} ${set5}\n
-    //     ${workout6} ${set6}\n
-    //     ${workout7} ${set7}\n
-    //     ${workout8} ${set8} `
+    useEffect(() => {
+        (async () => {
+            const client = await fetchClient(client_id)
+            setClientFirstName(client.firstName)
+            setClientLastName(client.lastName)
 
-    // console.log(description)
+        })();
+    }, []);
 
 
     const createThisWorkoutPlan = async (e) => {
@@ -146,6 +148,8 @@ const AddWorkoutPlan = (props) => {
             set8,
             time,
             date,
+            clientFirstName,
+            clientLastName,
             client_id,
             trainer_id
         );
@@ -265,7 +269,7 @@ const AddWorkoutPlan = (props) => {
                             </Typography>
                             <span><TextField id='standard-basic' className={classes.inputs} value={name} onChange={updateName} label='Name of Workout Plan' autoFocus />
                                 <TextField id='standard-basic' className={classes.inputs} value={time} onChange={updateTime} label='Time' />
-                                <TextField id='standard-basic' className={classes.inputs} value={date} onChange={updateDate} label='Date' /></span>
+                                <TextField id='standard-basic' className={classes.inputs} value={date} onChange={updateDate} label='Date: mm/dd/yyyy' /></span>
                             <div>
                                 <FormControl className={classes.formControl}>
                                     <InputLabel htmlFor="grouped-native-select">Workouts</InputLabel>

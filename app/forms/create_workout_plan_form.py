@@ -26,5 +26,7 @@ class CreateWorkoutPlanForm(FlaskForm):
     set8 = StringField('set8')
     time = StringField('time', validators=[DataRequired()])
     date = StringField('date', validators=[DataRequired()])
+    clientFirstName = StringField('clientFirstName'),
+    clientLastName = StringField('clientLastName'),
     client_id = IntegerField('client_id')
     trainer_id = IntegerField('trainer_id')

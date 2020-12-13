@@ -16,13 +16,13 @@ def seed_trainers():
 
 def seed_clients():
 
-    demo = Client(firstName='Client1',
-                lastName='Demo',
-                email='client2@aa.io',
+    demo = Client(firstName='Mike',
+                lastName='Shuff',
+                email='mike@aa.io',
                 phone='123-123-1234',
                 weight='123 lbs',
                 age='43',
-                duedate='11/21/93',
+                duedate='11/21/21',
                 amount='30.99',
                 paid=True,
                 noshows=0,
@@ -30,7 +30,52 @@ def seed_clients():
                 trainer_id=1,
                 password='client')
 
+    demo1 = Client(firstName='Peter',
+                lastName='Kang',
+                email='peter@aa.io',
+                phone='123-123-1234',
+                weight='123 lbs',
+                age='43',
+                duedate='11/21/21',
+                amount='99.99',
+                paid=True,
+                noshows=0,
+                cancellations=1,
+                trainer_id=1,
+                password='client')
+
+    demo2 = Client(firstName='Derek',
+                lastName='Kim',
+                email='derek@aa.io',
+                phone='123-123-1234',
+                weight='123 lbs',
+                age='43',
+                duedate='11/21/21',
+                amount='35.99',
+                paid=True,
+                noshows=0,
+                cancellations=1,
+                trainer_id=1,
+                password='client')
+
+    demo3 = Client(firstName='Warren',
+                lastName='Tamagri',
+                email='warren@aa.io',
+                phone='123-123-1234',
+                weight='123 lbs',
+                age='43',
+                duedate='11/21/21',
+                amount='1,000',
+                paid=True,
+                noshows=4,
+                cancellations=1,
+                trainer_id=1,
+                password='client')
+
     db.session.add(demo)
+    db.session.add(demo1)
+    db.session.add(demo2)
+    db.session.add(demo3)
 
     db.session.commit()
 
@@ -40,7 +85,27 @@ def seed_workouts():
                 type='push',
                 trainer_id=1,)
 
+    demo1 = Workout(name='Pull Ups',
+                type='pull',
+                trainer_id=1,)
+
+    demo2 = Workout(name='Squats',
+                type='push',
+                trainer_id=1,)
+
+    demo3 = Workout(name='Shoulder Press',
+                type='push',
+                trainer_id=1,)
+
+    demo4 = Workout(name='Rows',
+                type='pull',
+                trainer_id=1,)
+
     db.session.add(demo)
+    db.session.add(demo1)
+    db.session.add(demo2)
+    db.session.add(demo3)
+    db.session.add(demo4)
 
     db.session.commit()
 
@@ -50,7 +115,22 @@ def seed_workoutintensities():
                 reps=10,
                 trainer_id=1,)
 
+    demo1 = WorkoutIntensity(sets=4,
+                reps=12,
+                trainer_id=1,)
+
+    demo2 = WorkoutIntensity(sets=2,
+                reps=20,
+                trainer_id=1,)
+
+    demo3 = WorkoutIntensity(sets=5,
+                reps=6,
+                trainer_id=1,)
+
     db.session.add(demo)
+    db.session.add(demo1)
+    db.session.add(demo2)
+    db.session.add(demo3)
 
     db.session.commit()
 
@@ -74,7 +154,9 @@ def seed_workoutplans():
                 workout8='Push Ups',
                 set8='Reps: 10, Sets 3',
                 time='3:00pm',
-                date='12/8/2020',
+                date='12/13/2020',
+                clientFirstName='Mike',
+                clientLastName='Shuff',
                 client_id=1,
                 trainer_id=1)
 
@@ -96,7 +178,9 @@ def seed_workoutplans():
                 workout8='Push Ups',
                 set8='Reps: 10, Sets 3',
                 time='3:00pm',
-                date='12/8/2020',
+                date='12/13/2020',
+                clientFirstName='Mike',
+                clientLastName='Shuff',
                 client_id=1,
                 trainer_id=1)
 
@@ -118,7 +202,9 @@ def seed_workoutplans():
                 workout8='Push Ups',
                 set8='Reps: 10, Sets 3',
                 time='3:00pm',
-                date='12/8/2020',
+                date='12/14/2020',
+                clientFirstName='Mike',
+                clientLastName='Shuff',
                 client_id=1,
                 trainer_id=1)
 
@@ -139,9 +225,11 @@ def seed_workoutplans():
                 set7='Reps: 10, Sets 3',
                 workout8='Push Ups',
                 set8='Reps: 10, Sets 3',
-                time='3:00pm',
-                date='12/8/2020',
-                client_id=1,
+                time='5:00pm',
+                date='12/14/2020',
+                clientFirstName='Peter',
+                clientLastName='Kang',
+                client_id=2,
                 trainer_id=1)
 
     demo5 = WorkoutPlan(name='Abs Workout',
@@ -162,8 +250,34 @@ def seed_workoutplans():
                 workout8='Push Ups',
                 set8='Reps: 10, Sets 3',
                 time='3:00pm',
-                date='12/8/2020',
-                client_id=1,
+                date='12/14/2020',
+                clientFirstName='Derek',
+                clientLastName='Kim',
+                client_id=3,
+                trainer_id=1)
+
+    demo6 = WorkoutPlan(name='Abs Workout',
+                workout1='Push Ups',
+                set1='Reps: 10, Sets 3',
+                workout2='Push Ups',
+                set2='Reps: 10, Sets 3',
+                workout3='Push Ups',
+                set3='Reps: 10, Sets 3',
+                workout4='Push Ups',
+                set4='Reps: 10, Sets 3',
+                workout5='Push Ups',
+                set5='Reps: 10, Sets 3',
+                workout6='Push Ups',
+                set6='Reps: 10, Sets 3',
+                workout7='Push Ups',
+                set7='Reps: 10, Sets 3',
+                workout8='Push Ups',
+                set8='Reps: 10, Sets 3',
+                time='3:00pm',
+                date='12/14/2020',
+                clientFirstName='Warren',
+                clientLastName='Tamagri',
+                client_id=4,
                 trainer_id=1)
 
     db.session.add(demo)
@@ -171,6 +285,7 @@ def seed_workoutplans():
     db.session.add(demo3)
     db.session.add(demo4)
     db.session.add(demo5)
+    db.session.add(demo6)
 
     db.session.commit()
 
