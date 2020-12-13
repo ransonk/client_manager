@@ -10,7 +10,9 @@ const useStyles = makeStyles((theme) => ({
     },
     nav: {
         display: "flex",
-        justifyContent: "space-between"
+        justifyContent: "space-between",
+        color: 'white',
+        fontSize: '1.5rem'
     },
     menuButton: {
         marginRight: theme.spacing(2),
@@ -40,25 +42,6 @@ function Footer() {
     if (dd < 10) { dd = '0' + dd }
     if (mm < 10) { mm = '0' + mm }
     let date1 = mm + '/' + dd + '/' + yyyy;
-    // console.log(date1.toString().split('/')[0])
-    // console.log(date1.toString().split('/')[1])
-    // console.log(date1.toString().split('/')[2])
-
-    // const today = new Date()
-    // console.log('today: ', today.toString().split(' ')[0])
-    // const tomorrow = new Date(today)
-    // tomorrow.setDate(tomorrow.getDate() + 1)
-    // console.log('tomorrow: ', tomorrow)
-    // const nextDay = new Date(tomorrow)
-    // nextDay.setDate(nextDay.getDate() + 1)
-    // console.log('today: ', today.toString().split(' ')[0], friday
-    // today.toString().split(' ')[1], dec
-    // today.toString().split(' ')[2]) 11
-    // console.log('next day: ', nextDay.toString().split(' ')[0],
-    //     nextDay.toString().split(' ')[1],
-    //     nextDay.toString().split(' ')[2])
-
-
 
 
     return (
@@ -76,17 +59,6 @@ function Footer() {
             </AppBar>
         </div>
     );
-    // return (
-    //     <div className='footer__container'>
-    //         <div className='footer__day'>
-    //             {date1}
-    //         </div>
-    //         <div className='footer__time'>
-    //             {time}
-    //         </div>
-    //         {/* <div className='footer__weather'></div> */}
-    //     </div>
-    // );
 }
 
 export default Footer;

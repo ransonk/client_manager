@@ -15,7 +15,9 @@ const useStyles = makeStyles((theme) => ({
     },
     nav: {
         display: "flex",
-        justifyContent: "space-between",
+        justifyContent: "center !important",
+        color: 'white',
+        // fontWeight: 'bold'
     },
     menuButton: {
         marginRight: theme.spacing(2),
@@ -23,9 +25,6 @@ const useStyles = makeStyles((theme) => ({
     title: {
         flexGrow: 1,
     },
-    home: {
-
-    }
 }));
 
 

@@ -43,6 +43,15 @@ const HomePage = ({ setAuthenticated }) => {
     const [name, setName] = useState();
     let trainerId = useSelector(state => state.store.current_trainer.id)
 
+    let date = new Date();
+    let dd = date.getDate();
+    let mm = date.getMonth() + 1;
+
+    let yyyy = date.getFullYear();
+    if (dd < 10) { dd = '0' + dd }
+    if (mm < 10) { mm = '0' + mm }
+    let date1 = mm + '/' + dd + '/' + yyyy;
+
     useEffect(() => {
         (async () => {
             const user = await authenticate();
@@ -79,8 +88,13 @@ const HomePage = ({ setAuthenticated }) => {
             <div className='home-page__container'>
                 <div className='home-welcome__message'>Welcome Back, {name}</div>
                 <div className='today-sched__container'>
-                    <p className='today-sched__title'>Today's Overview</p>
-                    <TodaysClients />
+                    <div className='overview__container'>
+                        <p className='today-sched__title'>Today's Overview</p>
+                        {date1}
+                    </div>
+                    <div className='todaysclients__container'>
+                        <TodaysClients />
+                    </div>
                 </div>
                 <div className='home-clients__container'>
                     <div className='home-clients__title'>Reusable Routines</div>
