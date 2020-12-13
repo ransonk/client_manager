@@ -9,7 +9,10 @@ import CreateNewIntensity from './workouts/CreateNewIntensity';
 import { Button } from '@material-ui/core';
 import { authenticate } from "../services/auth";
 import Intensities from './workouts/Intensities';
-import { setCurrentUser, setCurrentClient, fetchClients, setTrainerClients, fetchWorkouts, setWorkouts, fetchIntensities, setIntensities } from "../store/users";
+import { setCurrentUser, setCurrentClient, fetchClients, setTrainerClients, fetchTodaysPlans, setTodaysPlans, fetchWorkouts, setWorkouts, fetchIntensities, setIntensities, fetchTodaysClients } from "../store/users";
+import ClientCalendar from './clientview/ClientCalendar';
+import TodaysClients from './TodaysClients';
+
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -49,14 +52,20 @@ const HomePage = ({ setAuthenticated }) => {
             dispatch(setCurrentUser(user))
             setName(user.firstName)
             // interval(user.id)
+            localStorage.setItem('CURRENT_TRAINER_ID', JSON.stringify(user.id))
+
             const clients = await fetchClients(user.id);
             dispatch(setTrainerClients(clients))
+
+            const todaysPlans = await fetchTodaysPlans(user.id)
+            dispatch(setTodaysPlans(todaysPlans))
 
             const workouts = await fetchWorkouts(user.id);
             dispatch(setWorkouts(workouts))
 
             const intensities = await fetchIntensities(user.id);
             dispatch(setIntensities(intensities))
+
         })();
     }, []);
 
@@ -70,22 +79,12 @@ const HomePage = ({ setAuthenticated }) => {
             <ButtonAppBar setAuthenticated={setAuthenticated} />
             <div className='home-page__container'>
                 <div className='home-welcome__message'>Welcome Back, {name}</div>
-                {/* <div className='home-clients__info'>
-                    <h1 className='home-clients__header'>Today's Clients</h1>
-                    <div className='home-clients__clientcard'>
-
-                        <div className='home-clients__info__contact'>
-                            <p className='card__header'>Contact</p>
-
-                        </div>
-                        <div className='home-clients__info__contact'>
-                            <p className='card__header'>Stats</p>
-
-                        </div>
-                    </div>
-                </div> */}
                 <div className='home-clients__container'>
-                    <div className='home-clients__title'>Build Reusable Routines</div>
+                    <p>Today's Clients</p>
+                    <TodaysClients />
+                </div>
+                <div className='home-clients__container'>
+                    <div className='home-clients__title'>Reusable Routines</div>
                     <div className='workouts-and-intensities'>
                         <div className='home-clients__payment'>
                             <h1 className='home-clients__header2'>Available Workouts</h1>

@@ -73,7 +73,8 @@ const useStyles = makeStyles((theme) => ({
         border: 'none',
         paddingRight: '0px',
         paddingLeft: '0px',
-        color: 'red'
+        color: 'red',
+        fontFamily: 'Calibri'
     },
     icon: {
         borderRadius: 3,

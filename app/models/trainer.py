@@ -32,6 +32,11 @@ class Trainer(db.Model, UserMixin):
     back_populates="trainer"
   )
 
+  workoutplans = db.relationship(
+    "WorkoutPlan",
+    back_populates="trainer"
+  )
+
   @property
   def password(self):
     return self.hashed_password
@@ -58,6 +63,11 @@ class Trainer(db.Model, UserMixin):
   def return_workoutintensities(self):
     return {
       "workoutintensity": [intensity.to_dict() for intensity in self.workoutintensity]
+    }
+
+  def return_workoutplans(self):
+    return {
+      "workoutplans": [workoutplan.to_dict() for workoutplan in self.workoutplans]
     }
 
 

@@ -79,6 +79,17 @@ def updateClient(id):
     return client.to_dict()
 
 
+
+@trainer_routes.route("/<int:id>/todays-clients", methods=["GET"])
+# @login_required
+def today_workout_plans(id):
+    trainer = Trainer.query.get(id)
+    today_plans = trainer.return_workoutplans()
+    plansObj = today_plans['workoutplans']
+    # plansObj = workoutplans['workoutplans']
+    return {"workoutplans": plansObj}
+
+
 # grab trainer specific workouts by id
 @trainer_routes.route('/<int:id>/workouts')
 # @login_required
@@ -194,6 +205,7 @@ def create_workout_plan(id):
     form['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():
         print('hereeeeeeeeee')
+            # req_data = request.get_json()
         workoutplan = WorkoutPlan(
             name=form.data['name'],
             workout1=form.data['workout1'],
@@ -214,6 +226,7 @@ def create_workout_plan(id):
             set8=form.data['set8'],
             time=form.data['time'],
             date=form.data['date'],
+            trainer_id=form.data['trainer_id'],
             client_id=id
         )
         db.session.add(workoutplan)

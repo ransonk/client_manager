@@ -1,9 +1,10 @@
 /* TODO Add site wide styles */
 
 html{
-    overflow: scroll;
+    overflow: auto;
     /* background-color: #feeafa; */
-    background-color: #c5dedd;
+    background-color: #dbded5;
+    /* background-color: #c5dedd; */
     /* background-color: #E0E5EC; */
     /* background-color: #d3eeed; */
 }
@@ -21,7 +22,6 @@ html{
     letter-spacing: 2px;
     color: black;
     font-size: 18px;
-    border-radius: 40px;
     box-shadow: -2px -2px 8px rgba(255, 255, 255, 1),
     -2px -2px 12px rgba(255, 255, 255, 0.5),
     inset 2px 2px 4px rgba(255, 255, 255, 0.1),
@@ -30,10 +30,11 @@ html{
 
 .addWorkout:hover{
 
-    box-shadow: inset -2px -2px 8px rgba(255, 255, 255, 1),
+    box-shadow:
     inset -2px -2px 12px rgba(255, 255, 255, 0.5),
-    inset 2px 2px 4px rgba(255, 255, 255, 0.1),
+    inset -2px -2px 4px rgba(255, 255, 255, 1),
     inset 2px 2px 8px rgba(0, 0, 0, 0.15);
+    cursor: pointer;
 }
 
 .addWorkout:hover span{
@@ -77,36 +78,17 @@ html{
 }
 
 .addWorkoutPlan{
-    margin-top: 3rem;
+    font-size: 5rem;
+    font-weight: 300;
     position: relative;
-    top: 1.9rem;
-    left: 2rem;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    padding: 10px 30px;
-    text-decoration: none;
-    text-transform: uppercase;
-    font-weight: 800;
-    /* letter-spacing: 2px; */
-    color: black;
-    font-size: 18px;
-    border-radius: 40px;
-    box-shadow: -2px -2px 8px rgba(255, 255, 255, 1),
-    -2px -2px 12px rgba(255, 255, 255, 0.5),
-    inset 2px 2px 4px rgba(255, 255, 255, 0.1),
-    2px 2px 8px rgba(0, 0, 0, 0.15);
+    top: 1rem;
 }
 
 .addWorkoutPlan:hover{
 
-    box-shadow: inset -2px -2px 8px rgba(255, 255, 255, 1),
-    inset -2px -2px 12px rgba(255, 255, 255, 0.5),
-    inset 2px 2px 4px rgba(255, 255, 255, 0.1),
-    inset 2px 2px 8px rgba(0, 0, 0, 0.15);
-}
-
-.addWorkoutPlan:hover span{
-    display: inline-block;
-    transform: scale(0.98);
+    overflow: hidden;
+    overflow-y: hidden;
+    cursor: pointer;
 }
 
 .editProfile{
@@ -119,10 +101,9 @@ html{
     text-decoration: none;
     text-transform: uppercase;
     font-weight: 800;
-    /* letter-spacing: 2px; */
     color: black;
     font-size: 18px;
-    border-radius: 40px;
+    /* border-radius: 40px; */
     box-shadow: -2px -2px 8px rgba(255, 255, 255, 1),
     -2px -2px 12px rgba(255, 255, 255, 0.5),
     inset 2px 2px 4px rgba(255, 255, 255, 0.1),
@@ -131,25 +112,17 @@ html{
 
 .editProfile:hover{
 
-    box-shadow: inset -2px -2px 8px rgba(255, 255, 255, 1),
+    box-shadow:
     inset -2px -2px 12px rgba(255, 255, 255, 0.5),
-    inset 2px 2px 4px rgba(255, 255, 255, 0.1),
+    inset -2px -2px 4px rgba(255, 255, 255, 1),
     inset 2px 2px 8px rgba(0, 0, 0, 0.15);
+    cursor: pointer;
 }
 
 .editProfile:hover span{
     display: inline-block;
     transform: scale(0.98);
 }
-
-/* .info{
-    letter-spacing: 1px;
-} */
-
-/* .homebutton{
-    position: relative;
-    right: 17rem;
-} */
 
 body::-webkit-scrollbar {
     width: 1.5em;
@@ -165,7 +138,7 @@ body::-webkit-scrollbar {
   }
 
 .MuiDrawer-paper{
-    background-color: #99c1de !important
+    background-color: #b0c9c2 !important
 }
 
 .Mui-expanded{
@@ -236,7 +209,7 @@ body::-webkit-scrollbar {
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 80rem;
+    height: 120rem;
 }
 
 .editclient__btn{
@@ -282,11 +255,12 @@ body::-webkit-scrollbar {
     text-align: center;
     width: 35rem;
     height: 20rem;
-    border-radius: 20px;
+    border-radius: 5px;
     padding-left: 2rem;
     padding-right: 2rem;
     padding-bottom: 5rem;
-    background-color: #99c1de;
+    color: black;
+    background-color: #dbded5;
     /* background-color: #E0E5EC; */
     box-shadow:
     inset -3px -3px 7px #ffffff73,
@@ -307,11 +281,12 @@ body::-webkit-scrollbar {
     text-align: center;
     width: 30rem;
     height: 20rem;
-    border-radius: 20px;
+    border-radius: 5px;
     padding-left: 2rem;
     padding-right: 2rem;
     padding-bottom: 5rem;
-    background-color: #99c1de;
+    color: black;
+    background-color: #dbded5;
     /* background-color: #E0E5EC; */
     box-shadow:
     inset -3px -3px 7px #ffffff73,
@@ -337,11 +312,12 @@ body::-webkit-scrollbar {
     margin-right: 2rem;
     margin-left: 2rem;
     padding-left: 2.5rem;
+    color: black;
     background-color: white;
     box-shadow:
     inset -3px -3px 7px #ffffff73,
     inset 3px 3px 5px
-    rgba(94, 104, 121, .288)
+    #A3B1C6
 }
 
 .clientinfo__paymentcard{
@@ -351,11 +327,12 @@ body::-webkit-scrollbar {
     margin-left: 1rem;
     padding-bottom: 6rem;
     margin-right: 1rem;
+    color: black;
     background-color: white;
     box-shadow:
     inset -3px -3px 7px #ffffff73,
     inset 3px 3px 5px
-    rgba(94, 104, 121, .288)
+    #A3B1C6
 }
 
 .clientinfo__info__contact{
@@ -402,19 +379,24 @@ body::-webkit-scrollbar {
 
 .home-clients__container{
     letter-spacing: 2px;
-    border-radius: 20px;
-    width: 80rem;
+    border-radius: 5px;
+    width: 65rem;
     height: 35rem;
     display: block;
     padding-top: 1rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
     align-content: center;
     margin-top: 2rem;
     /* background-color: #c5dedd; */
-    background-color: #99c1de;
-    box-shadow: -2px -2px 8px rgba(255, 255, 255, 1),
+    background-color: #dbded5;
+    box-shadow:
+    inset -3px -3px 7px #ffffff73,
+    inset 3px 3px 5px #bdbfb8
+    /* box-shadow: -2px -2px 8px rgba(255, 255, 255, 1),
     -2px -2px 12px rgba(255, 255, 255, 0.5),
     inset 2px 2px 4px rgba(255, 255, 255, 0.1),
-    6px 6px 8px rgba(0, 0, 0, 0.15);
+    6px 6px 8px rgba(0, 0, 0, 0.15); */
 }
 
 .workouts-and-intensities{
@@ -438,10 +420,11 @@ body::-webkit-scrollbar {
     font-size: 2rem;
     font-family: Calibri;
     font-weight: 800;
-    width: 30rem;
+    width: 20rem;
     height: 2rem;
     position: relative;
-    left: 25rem;
+    left: 23rem;
+    margin-top: 0.5rem;
     box-shadow:
     inset -3px -3px 7px #ffffff73,
     inset 3px 3px 5px
@@ -493,8 +476,8 @@ body::-webkit-scrollbar {
     width: 30rem;
     height: 25rem;
     margin-top: 3rem;
-    border-radius: 20px;
-    background-color: #c5dedd;
+    border-radius: 5px;
+    background-color: #a5bcb6;
     /* background-color: #E0E5EC; */
     box-shadow: -2px -2px 8px rgba(255, 255, 255, 1),
     -2px -2px 12px rgba(255, 255, 255, 0.5),
@@ -539,7 +522,7 @@ body::-webkit-scrollbar {
 }
 
 .home-clients__workouts:hover{
-    overflow-y: scroll;
+    overflow-y: auto;
 }
 
 .home-clients__workouts{
@@ -592,16 +575,25 @@ body::-webkit-scrollbar {
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
+.workout-and-calendar__container{
+    display: flex;
+    margin-top: 3rem;
+    flex-direction: column;
+}
+
 .client-view__workout-plans{
     display: block;
     text-align: center;
     align-content: center;
+    position: relative;
+    /* right: 10rem; */
     width: 60rem;
     height: 25rem;
+    bottom: 10rem;
     /* margin-top: 3rem; */
     border-radius: 20px;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    background-color: #c5dedd;
+    background-color: #dbded5;
     /* background-color: #E0E5EC; */
     padding-bottom: 2rem;
     padding-right: 3rem;
@@ -612,7 +604,7 @@ body::-webkit-scrollbar {
     /* box-shadow:
     inset -3px -3px 7px #ffffff,
     inset 3px 3px 5px
-     #A3B1C6 */
+    #A3B1C6 */
     /* background-color: white;
     box-shadow:
     12px 12px 16px 0 rgba(0, 0, 0, 0.25),
@@ -624,22 +616,137 @@ body::-webkit-scrollbar {
     -8px -8px 12px 0 rgba(255, 255, 255, 0.3); */
 }
 
-.client-view__workout-plans-header{
+.client-view__workout-plans-header-on{
     display: flex;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     height: 5rem;
+    position: relative;
+    width: 13rem;
+    left: 3rem;
+    bottom: 10rem;
+    padding-left: 1rem;
     box-shadow:
     inset -3px -3px 7px #ffffff73,
     inset 3px 3px 5px
     rgba(94, 104, 121, .288);
-    padding-left: 3rem;
-    padding-right: 4rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+
+}
+
+.client-view__workout-plans-header-off{
+    display: flex;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    height: 5rem;
+    position: relative;
+    bottom: 10rem;
+    width: 13rem;
+    left: 4rem;
+    padding-left: 1rem;
+    box-shadow: -2px -2px 8px rgba(255, 255, 255, 1),
+    -2px -2px 12px rgba(255, 255, 255, 0.5),
+    inset 2px 2px 4px rgba(255, 255, 255, 0.1),
+    6px 6px 8px rgba(0, 0, 0, 0.15);
     /* box-shadow: -2px -2px 8px rgba(255, 255, 255, 1),
     -2px -2px 12px rgba(255, 255, 255, 0.5),
     inset 2px 2px 4px rgba(255, 255, 255, 0.1),
     6px 6px 8px rgba(0, 0, 0, 0.15); */
 
 }
+
+.client-view__workout-plans-header-off:hover{
+    cursor: pointer;
+}
+
+.client-view__workout-sched-header-off:hover{
+    cursor: pointer;
+}
+
+.client-view__workout-schedule{
+    display: block;
+    text-align: center;
+    align-content: center;
+    width: 60rem;
+    height: 25rem;
+    /* margin-top: 3rem; */
+    border-radius: 20px;
+    position: relative;
+    /* right: 13rem; */
+    bottom: 10rem;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    background-color: #dbded5;
+    /* background-color: #E0E5EC; */
+    padding-bottom: 2rem;
+    padding-right: 3rem;
+    /* box-shadow: -2px -2px 8px rgba(255, 255, 255, 1),
+    -2px -2px 12px rgba(255, 255, 255, 0.5),
+    inset 2px 2px 4px rgba(255, 255, 255, 0.1),
+    6px 6px 8px rgba(0, 0, 0, 0.15); */
+    box-shadow:
+    inset -3px -3px 7px #ffffff,
+    inset 3px 3px 5px
+    rgba(94, 104, 121, .288)
+    /* background-color: white;
+    box-shadow:
+    12px 12px 16px 0 rgba(0, 0, 0, 0.25),
+    -8px -8px 12px 0 rgba(255, 255, 255, 0.3); */
+
+    /* background-color: white; */
+    /* box-shadow:
+    12px 12px 16px 0 rgba(0, 0, 0, 0.25),
+    -8px -8px 12px 0 rgba(255, 255, 255, 0.3); */
+}
+
+.client-view__workout-sched-header-on{
+    display: flex;
+    background-color: #dbded5;
+    color: black;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    height: 5rem;
+    position: relative;
+    justify-content: center;
+    width: 10rem;
+    bottom: 4.6rem;
+    left: 18rem;
+    padding-bottom: 0.4rem;
+    box-shadow:
+    inset -3px -3px 7px #ffffff73,
+    inset 3px 3px 5px
+    rgba(94, 104, 121, .288);
+    padding-left: 1rem;
+    padding-right: 1rem;
+    /* box-shadow:
+    inset -3px -3px 7px #ffffff73,
+    inset 3px 3px 5px
+    rgba(94, 104, 121, .288);
+    padding-left: 3rem;
+    padding-right: 4rem; */
+
+}
+
+.client-view__workout-sched-header-off{
+    display: flex;
+    background-color: #dbded5;
+    color: black;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    height: 5rem;
+    position: relative;
+    justify-content: center;
+    width: 10rem;
+    bottom: 4.6rem;
+    left: 18rem;
+    padding-bottom: 0.4rem;
+    box-shadow: -2px -2px 8px rgba(255, 255, 255, 1),
+    -2px -2px 12px rgba(255, 255, 255, 0.5),
+    inset 2px 2px 4px rgba(255, 255, 255, 0.1),
+    6px 6px 8px rgba(0, 0, 0, 0.15);
+    /* box-shadow: -2px -2px 8px rgba(255, 255, 255, 1),
+    -2px -2px 12px rgba(255, 255, 255, 0.5),
+    inset 2px 2px 4px rgba(255, 255, 255, 0.1),
+    6px 6px 8px rgba(0, 0, 0, 0.15); */
+
+}
+
 
 .workoutplans__container{
     display: flex;
@@ -650,12 +757,12 @@ body::-webkit-scrollbar {
 
 .workoutplans__container:hover{
     /* margin-top: 1rem; */
-    overflow-x: scroll;
+    overflow-x: auto;
 }
 
 .workoutplans__container::-webkit-scrollbar {
 
-    background-color: transparent;
+    background-color: #dbded5;
 }
 
 .workoutplans__container::-webkit-scrollbar-track {
@@ -663,7 +770,7 @@ body::-webkit-scrollbar {
 }
 
 .workoutplans__container::-webkit-scrollbar-thumb {
-    background-color: #99c1de;
+    background-color: white;
     outline: none;
     /* outline: 1px solid #99c1de; */
   }

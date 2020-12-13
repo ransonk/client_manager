@@ -75,7 +75,8 @@ def seed_workoutplans():
                 set8='Reps: 10, Sets 3',
                 time='3:00pm',
                 date='12/8/2020',
-                client_id=1,)
+                client_id=1,
+                trainer_id=1)
 
     demo2 = WorkoutPlan(name='Shoulders Workout',
                 workout1='Push Ups',
@@ -96,7 +97,8 @@ def seed_workoutplans():
                 set8='Reps: 10, Sets 3',
                 time='3:00pm',
                 date='12/8/2020',
-                client_id=1,)
+                client_id=1,
+                trainer_id=1)
 
     demo3 = WorkoutPlan(name='Chest Workout',
                 workout1='Push Ups',
@@ -117,7 +119,8 @@ def seed_workoutplans():
                 set8='Reps: 10, Sets 3',
                 time='3:00pm',
                 date='12/8/2020',
-                client_id=1,)
+                client_id=1,
+                trainer_id=1)
 
     demo4 = WorkoutPlan(name='Legs Workout',
                 workout1='Push Ups',
@@ -138,7 +141,8 @@ def seed_workoutplans():
                 set8='Reps: 10, Sets 3',
                 time='3:00pm',
                 date='12/8/2020',
-                client_id=1,)
+                client_id=1,
+                trainer_id=1)
 
     demo5 = WorkoutPlan(name='Abs Workout',
                 workout1='Push Ups',
@@ -159,7 +163,8 @@ def seed_workoutplans():
                 set8='Reps: 10, Sets 3',
                 time='3:00pm',
                 date='12/8/2020',
-                client_id=1,)
+                client_id=1,
+                trainer_id=1)
 
     db.session.add(demo)
     db.session.add(demo2)
