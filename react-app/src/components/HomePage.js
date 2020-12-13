@@ -9,9 +9,10 @@ import CreateNewIntensity from './workouts/CreateNewIntensity';
 import { Button } from '@material-ui/core';
 import { authenticate } from "../services/auth";
 import Intensities from './workouts/Intensities';
-import { setCurrentUser, setCurrentClient, fetchClients, setTrainerClients, fetchWorkouts, setWorkouts, fetchIntensities, setIntensities } from "../store/users";
+import { setCurrentUser, setCurrentClient, fetchClients, setTrainerClients, fetchTodaysPlans, setTodaysPlans, fetchWorkouts, setWorkouts, fetchIntensities, setIntensities, fetchTodaysClients } from "../store/users";
 import ClientCalendar from './clientview/ClientCalendar';
 import TodaysClients from './TodaysClients';
+
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -51,15 +52,20 @@ const HomePage = ({ setAuthenticated }) => {
             dispatch(setCurrentUser(user))
             setName(user.firstName)
             // interval(user.id)
-            // localStorage.setItem('CURRENT_TRAINER_ID', JSON.stringify(user.id))
+            localStorage.setItem('CURRENT_TRAINER_ID', JSON.stringify(user.id))
+
             const clients = await fetchClients(user.id);
             dispatch(setTrainerClients(clients))
+
+            const todaysPlans = await fetchTodaysPlans(user.id)
+            dispatch(setTodaysPlans(todaysPlans))
 
             const workouts = await fetchWorkouts(user.id);
             dispatch(setWorkouts(workouts))
 
             const intensities = await fetchIntensities(user.id);
             dispatch(setIntensities(intensities))
+
         })();
     }, []);
 

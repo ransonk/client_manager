@@ -95,6 +95,7 @@ const AddWorkoutPlan = (props) => {
 
     const client = JSON.parse(localStorage.getItem('CURRENT_CLIENT'))
     let client_id = client.id
+    let trainer_id = JSON.parse(localStorage.getItem('CURRENT_TRAINER_ID'))
     // console.log(client_id)
 
     const workouts = useSelector((state) => state.store.workouts)
@@ -145,7 +146,8 @@ const AddWorkoutPlan = (props) => {
             set8,
             time,
             date,
-            client_id
+            client_id,
+            trainer_id
         );
         window.location.reload();
     };

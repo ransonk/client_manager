@@ -6,6 +6,7 @@ export const ADD_WORKOUT = "ADD_WORKOUT";
 export const SET_INTENSITIES = "SET_INTENSITIES";
 export const ADD_INTENSITY = "ADD_INTENSITY";
 export const SET_WORKOUT_PLANS = "SET_WORKOUT_PLANS";
+export const SET_TODAYS_PLANS = "SET_TODAYS_PLANS";
 export const ADD_WORKOUT_PLAN = "ADD_WORKOUT_PLAN";
 export const SET_ROUTINE_LISTS = "SET_ROUTINE_LISTS";
 export const ADD_ROUTINE_LIST = "ADD_ROUTINE_LIST";
@@ -48,6 +49,13 @@ export const setIntensities = (intensities) => {
 export const setWorkoutPlans = (workoutplans) => {
     return {
         type: SET_WORKOUT_PLANS,
+        workoutplans
+    }
+}
+
+export const setTodaysPlans = (workoutplans) => {
+    return {
+        type: SET_TODAYS_PLANS,
         workoutplans
     }
 }
@@ -98,6 +106,20 @@ export const fetchWorkoutPlans = async (clientId) => {
         workoutplans[workoutplan.id] = workoutplan
     })
     return workoutplans
+}
+
+export const fetchTodaysPlans = async (trainer_id) => {
+    const response = await fetch(`/api/trainers/${trainer_id}/todays-clients`, {
+        headers: {
+            "Content-Type": "application/json",
+        },
+    })
+    const result = await response.json();
+    const todayPlans = {}
+    result.workoutplans.forEach(plan => {
+        todayPlans[plan.id] = plan
+    })
+    return todayPlans
 }
 
 export const fetchRoutineList = async (workoutPlanId) => {
@@ -153,8 +175,7 @@ const initialState = {
     workouts: {},
     intensities: {},
     workoutplans: {},
-    routinelists: {},
-    routines: {},
+    todaysPlans: {}
 }
 
 export default function reducer(state = initialState, action) {
@@ -182,6 +203,10 @@ export default function reducer(state = initialState, action) {
         }
         case SET_WORKOUT_PLANS: {
             newState.workoutplans = { ...action.workoutplans }
+            return newState;
+        }
+        case SET_TODAYS_PLANS: {
+            newState.todaysPlans = { ...action.workoutplans }
             return newState;
         }
         case SET_ROUTINE_LISTS: {

@@ -47,40 +47,32 @@ const useStyles = makeStyles({
 
 export default function TodaysClients() {
     const classes = useStyles();
-    const [id, setId] = useState();
 
-    const clients = useSelector((state) => state.store.clients)
-    if (!clients) return null;
+    let trainer_id = JSON.parse(localStorage.getItem('CURRENT_TRAINER_ID'))
 
-    let clientsArray = Object.values(clients)
-
-    console.log('clients array: ', clientsArray)
-    let clientIds
-
-    //================================================================
-    //CHANGE BACK TO SENDING ARRAY, SEE USER_ROUTES TO FINISH
-    // clientIds = clientsArray.map(client => client.id)
-    clientIds = 1
-    console.log('client ids', clientIds)
-
-
-    const listOfClients = async () => {
-        const response = await fetch("/api/trainers/today-clients", {
-            method: "POST",
+    const listOfClients = async (trainer_id) => {
+        const response = await fetch(`/api/trainers/${trainer_id}/todays-clients`, {
             headers: {
                 "Content-Type": "application/json",
             },
-            body: JSON.stringify({
-                clientIds
-            })
         })
-        const result = response.json();
-        const workoutPlans = { ...result }
-        return workoutPlans
+        const result = await response.json();
+        const todayPlans = {}
+        result.workoutplans.forEach(plan => {
+            todayPlans[plan.id] = plan
+            console.log('waiting', todayPlans)
+        })
+        return 'successful'
     }
+    let listTodayClients;
 
-    listOfClients();
+    useEffect(() => {
+        (async () => {
+            listTodayClients = await listOfClients(trainer_id);
 
+        })();
+    }, []);
+    console.log('waiting2', listTodayClients)
     //================================================================
 
 

@@ -26,6 +26,7 @@ class WorkoutPlan(db.Model, UserMixin):
   time = db.Column(db.String(255), nullable=False)
   date = db.Column(db.String(255), nullable=False)
   client_id = db.Column(db.Integer, db.ForeignKey("clients.id"))
+  trainer_id = db.Column(db.Integer, db.ForeignKey("trainers.id"))
   created_on = db.Column(db.DateTime, server_default=db.func.now())
   updated_on = db.Column(
         db.DateTime,
@@ -35,6 +36,11 @@ class WorkoutPlan(db.Model, UserMixin):
 
   client = db.relationship(
     "Client",
+    back_populates="workoutplans"
+  )
+
+  trainer = db.relationship(
+    "Trainer",
     back_populates="workoutplans"
   )
 
@@ -85,7 +91,8 @@ class WorkoutPlan(db.Model, UserMixin):
       "set8": self.set8,
       "time": self.time,
       "date": self.date,
-      "client_id": self.client_id
+      "client_id": self.client_id,
+      "trainer_id": self.trainer_id
 
     }
 
