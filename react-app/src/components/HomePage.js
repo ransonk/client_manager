@@ -41,6 +41,7 @@ const HomePage = ({ setAuthenticated }) => {
     // const [authenticated, setAuthenticated] = useState(false);
     const [loaded, setLoaded] = useState(false);
     const [name, setName] = useState();
+    // window.location.reload();
     let trainerId = useSelector(state => state.store.current_trainer.id)
 
     let date = new Date();

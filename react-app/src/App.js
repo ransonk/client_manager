@@ -39,20 +39,20 @@ function App() {
       setLoaded(true);
       dispatch(setCurrentUser(user))
       // interval(user.id)
-      const clients = await fetchClients(id);
+      const clients = await fetchClients(user.id);
       dispatch(setTrainerClients(clients))
 
-      const workouts = await fetchWorkouts(id);
+      const workouts = await fetchWorkouts(user.id);
       dispatch(setWorkouts(workouts))
 
-      const intensities = await fetchIntensities(id);
+      const intensities = await fetchIntensities(user.id);
       dispatch(setIntensities(intensities))
 
-      const todaysPlans = await fetchTodaysPlans(id)
+      const todaysPlans = await fetchTodaysPlans(user.id)
       dispatch(setTodaysPlans(todaysPlans))
 
     })();
-  }, []);
+  }, [authenticated]);
 
   if (!loaded) {
     return null;
@@ -74,12 +74,12 @@ function App() {
       <ProtectedRoute path="/create-client" exact={true} authenticated={authenticated}>
         <CreateClientForm />
       </ProtectedRoute>
-      <ProtectedRoute path="/home" exact={true} authenticated={authenticated}>
+      {/* <ProtectedRoute path="/home" exact={true} authenticated={authenticated}>
         <UsersList />
-      </ProtectedRoute>
-      <ProtectedRoute path="/users/:userId" exact={true} authenticated={authenticated}>
+      </ProtectedRoute> */}
+      {/* <ProtectedRoute path="/users/:userId" exact={true} authenticated={authenticated}>
         <User />
-      </ProtectedRoute>
+      </ProtectedRoute> */}
       <ProtectedRoute path="/" exact={true} authenticated={authenticated}>
         <HomePage setAuthenticated={setAuthenticated} />
       </ProtectedRoute>

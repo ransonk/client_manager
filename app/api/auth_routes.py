@@ -40,7 +40,8 @@ def login():
     form['csrf_token'].data = request.cookies['csrf_token']
     print('here')
     if form.validate_on_submit():
-        user = Trainer.query.filter(Trainer.email == form.data['email']).first() or Client.query.filter(Client.email == form.data['email']).first()
+        user = Trainer.query.filter(Trainer.email == form.data['email']).first()
+        # user = Trainer.query.filter(Trainer.email == form.data['email']).first() or Client.query.filter(Client.email == form.data['email']).first()
         login_user(user)
         return user.to_dict()
     return {'errors': validation_errors_to_error_messages(form.errors)}, 401

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
+import { useDispatch, useSelector } from "react-redux";
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
@@ -8,7 +9,7 @@ import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import { logout } from '../services/auth';
 import ClientDrawer from './ClientDrawer';
-import { setClearStore } from '../store/users';
+import { setUserLogout } from '../store/users';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -31,6 +32,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function ButtonAppBar({ setAuthenticated }) {
     const classes = useStyles();
+    const dispatch = useDispatch();
     // const [authenticated, setAuthenticated] = useState(false);
 
     const toHome = async (e) => {
@@ -38,10 +40,12 @@ export default function ButtonAppBar({ setAuthenticated }) {
     }
 
     const onLogout = async (e) => {
-        // setClearStore();
+        dispatch(setUserLogout());
         await logout();
         setAuthenticated(false);
+        // localStorage.clear();
     };
+
 
     return (
         <div className={classes.root}>
