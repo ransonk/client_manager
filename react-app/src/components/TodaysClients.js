@@ -57,6 +57,9 @@ const useStyles = makeStyles({
     secondaryTail: {
         backgroundColor: 'black',
     },
+    time: {
+        color: 'blue'
+    }
 });
 
 export default function TodaysClients() {
@@ -130,106 +133,69 @@ export default function TodaysClients() {
         }
     })
     console.log('today!: ', todayslist)
-    // // workoutPlanList.map(workout => console.log(workout.date))
 
-    // let tomorrowsWorkout = workoutPlanList.filter((workout) => {
-    //     let workoutMonth = workout.date.toString().split('/')[0]
-    //     let workoutDay = workout.date.toString().split('/')[1]
+    let sortedTodaysList = todayslist.map(item => item.time)
 
-    //     if (day2 == workoutDay && mms == workoutMonth) {
-    //         return workout
-    //     } else {
-    //         return
-    //     }
-    // })
+    sortedTodaysList.sort(function (a, b) {
+
+        return new Date('1970/01/01 ' + a) - new Date('1970/01/01 ' + b);
+    })
+    console.log('SORTED?: ', sortedTodaysList)
+    let finalList = [];
+    sortedTodaysList.forEach(time => {
+        todayslist.map(item => {
+            if (time === item.time) {
+                finalList.push(item)
+            }
+        })
+    })
+    console.log('final list?: ', finalList)
+
+    // let times = ['01:00 am', '06:00 pm', '12:00 pm', '03:00 am', '12:00 am'];
+
+    // times.sort(function (a, b) {
+    //     return new Date('1970/01/01 ' + a) - new Date('1970/01/01 ' + b);
+    // });
+    // console.log('sorted?', times);
 
 
     return (
 
-        <div className='workoutplans__container'>
+        <div className='today-plan-sched__container'>
 
-            <Timeline align="alternate">
+            {finalList.length ?
 
-                {todayslist.map(item => {
-                    return (
+                <Timeline align="alternate">
 
-                        <TimelineItem>
-                            <TimelineOppositeContent>
-                                <Typography variant="body2" color="textSecondary">
-                                    {item.time}
-                                </Typography>
-                            </TimelineOppositeContent>
-                            <TimelineSeparator>
-                                <TimelineDot>
-                                    <FitnessCenterIcon />
-                                </TimelineDot>
-                                <TimelineConnector />
-                            </TimelineSeparator>
-                            <TimelineContent>
-                                <Paper elevation={3} className={classes.paper}>
-                                    <Typography variant="h6" component="h1">
-                                        {item.clientFirstName + ' ' + item.clientLastName}
+                    {finalList.map(item => {
+                        return (
+
+                            <TimelineItem>
+                                <TimelineOppositeContent>
+                                    <Typography variant="body2" color="textSecondary" className={classes.time}>
+                                        {item.time}
                                     </Typography>
-                                    <Typography>{item.name}</Typography>
-                                </Paper>
-                            </TimelineContent>
-                        </TimelineItem>
-                    )
-                })
-                }
-            </Timeline>
-            {/* <TimelineItem>
-                    <TimelineOppositeContent>
-                        <Typography variant="body2" color="textSecondary">
-                            10:00 am
-          </Typography>
-                    </TimelineOppositeContent>
-                    <TimelineSeparator>
-                        <TimelineDot color="primary">
-                            <LaptopMacIcon />
-                        </TimelineDot>
-                        <TimelineConnector />
-                    </TimelineSeparator>
-                    <TimelineContent>
-                        <Paper elevation={3} className={classes.paper}>
-                            <Typography variant="h6" component="h1">
-                                Code
-            </Typography>
-                            <Typography>Because it&apos;s awesome!</Typography>
-                        </Paper>
-                    </TimelineContent>
-                </TimelineItem>
-                <TimelineItem>
-                    <TimelineSeparator>
-                        <TimelineDot color="primary" variant="outlined">
-                            <HotelIcon />
-                        </TimelineDot>
-                        <TimelineConnector className={classes.secondaryTail} />
-                    </TimelineSeparator>
-                    <TimelineContent>
-                        <Paper elevation={3} className={classes.paper}>
-                            <Typography variant="h6" component="h1">
-                                Sleep
-            </Typography>
-                            <Typography>Because you need rest</Typography>
-                        </Paper>
-                    </TimelineContent>
-                </TimelineItem>
-                <TimelineItem>
-                    <TimelineSeparator>
-                        <TimelineDot color="secondary">
-                            <RepeatIcon />
-                        </TimelineDot>
-                    </TimelineSeparator>
-                    <TimelineContent>
-                        <Paper elevation={3} className={classes.paper}>
-                            <Typography variant="h6" component="h1">
-                                Repeat
-            </Typography>
-                            <Typography>Because this is the life you love!</Typography>
-                        </Paper>
-                    </TimelineContent>
-                </TimelineItem> */}
+                                </TimelineOppositeContent>
+                                <TimelineSeparator>
+                                    <TimelineDot>
+                                        <FitnessCenterIcon />
+                                    </TimelineDot>
+                                    <TimelineConnector />
+                                </TimelineSeparator>
+                                <TimelineContent>
+                                    <Paper elevation={3} className={classes.paper}>
+                                        <Typography variant="h6" component="h1">
+                                            {item.clientFirstName + ' ' + item.clientLastName}
+                                        </Typography>
+                                        <Typography>{item.name}</Typography>
+                                    </Paper>
+                                </TimelineContent>
+                            </TimelineItem>
+                        )
+                    })
+                    }
+                </Timeline>
+                : <h1>No Workouts Scheduled</h1>}
 
         </div >
 

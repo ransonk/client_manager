@@ -62,20 +62,21 @@ html{
 }
 
 .addClient:hover{
-    box-shadow: -2px -2px 8px rgba(255, 255, 255, 1),
+    cursor: pointer;
+    /* box-shadow: -2px -2px 8px rgba(255, 255, 255, 1),
     -2px -2px 12px rgba(255, 255, 255, 0.5),
     inset 2px 2px 4px rgba(255, 255, 255, 0.1),
-    6px 6px 8px rgba(0, 0, 0, 0.15);
+    6px 6px 8px rgba(0, 0, 0, 0.15); */
     /* box-shadow: inset -2px -2px 8px rgba(255, 255, 255, 1),
     inset -2px -2px 12px rgba(255, 255, 255, 0.5),
     inset 2px 2px 4px rgba(255, 255, 255, 0.1),
     inset 2px 2px 8px rgba(0, 0, 0, 0.15); */
 }
 
-.addClient:hover span{
+/* .addClient:hover span{
     display: inline-block;
     transform: scale(0.98);
-}
+} */
 
 .addWorkoutPlan{
     font-size: 5rem;
@@ -209,11 +210,39 @@ body::-webkit-scrollbar {
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 120rem;
+    height: auto;
 }
 
 .editclient__btn{
     position: absolute;
+}
+
+.today-sched__container{
+    letter-spacing: 2px;
+    border-radius: 5px;
+    width: 65rem;
+    height: auto;
+    display: block;
+    padding-top: 1rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    align-content: center;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    padding-bottom: 2rem;
+    /* background-color: #c5dedd; */
+    background-color: #dbded5;
+    box-shadow:
+    inset -3px -3px 7px #ffffff73,
+    inset 3px 3px 5px #bdbfb8;
+    /* background-image: linear-gradient(to bottom right, #bdbfb8, white); */
+}
+
+.today-sched__title{
+    text-align: center;
+    font-family: Calibri;
+    font-weight: bold;
+    font-size: 2rem;
 }
 
 .title__container{
@@ -374,7 +403,7 @@ body::-webkit-scrollbar {
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 80rem;
+    height: auto;
 }
 
 .home-clients__container{
@@ -755,6 +784,13 @@ body::-webkit-scrollbar {
     margin-top: 3rem;
     overflow-x: hidden;
     margin-left: 3rem;
+}
+
+.today-plan-sched__container{
+    display: flex;
+    margin-top: 3rem;
+    overflow-x: hidden;
+    margin-left: 3rem;;
 }
 
 .workoutplans__container:hover{
