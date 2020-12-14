@@ -102,7 +102,6 @@ const LoginForm = ({ authenticated, setAuthenticated }) => {
       </div>
       <div className='login__container'>
         <div className='form__container'>
-
           <Container maxWidth="sm" className={classes.border}>
             <form className={classes.loginForm} onSubmit={onLogin}>
               <p className={classes.header1}>Trainer Hub</p>

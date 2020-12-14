@@ -164,8 +164,8 @@ body::-webkit-scrollbar {
     display: flex;
     justify-content: space-evenly;
     width: 100%;
-    height: 57rem;
-    border: 3px solid red;
+    height: auto;
+    /* border: 3px solid red; */
 
 
 }
@@ -243,7 +243,7 @@ body::-webkit-scrollbar {
     padding-right: 1rem;
     align-content: center;
     margin-top: 2rem;
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
     background-color: #dbded5;
     box-shadow:
     inset -3px -3px 7px #ffffff73,
@@ -254,6 +254,7 @@ body::-webkit-scrollbar {
     background-color: whitesmoke;
     position: relative;
     bottom: 3rem;
+    padding-bottom: 2.5rem;
 }
 
 .today-sched__title{
@@ -289,7 +290,7 @@ body::-webkit-scrollbar {
     height: 30rem;
     display: flex;
     padding-top: 1rem;
-    justify-content: space-around;
+    justify-content: center;
     align-content: center;
     margin-top: 2rem;
 }
@@ -312,6 +313,7 @@ body::-webkit-scrollbar {
     padding-left: 2rem;
     padding-right: 2rem;
     padding-bottom: 5rem;
+    margin-right: 0.5rem;
     color: black;
     background-color: #dbded5;
     box-shadow:
@@ -331,6 +333,7 @@ body::-webkit-scrollbar {
     height: 20rem;
     position: relative;
     top: 3rem;
+    margin-left: 0.5rem;
     border-radius: 5px;
     padding-left: 2rem;
     padding-right: 2rem;
