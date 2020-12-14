@@ -9,6 +9,7 @@ import { TextField, Button } from '@material-ui/core';
 import theme from '../../theme';
 import Logo from "../../images/logan-weaver-apyd8hWmIw0-unsplash\ \(1\).jpg"
 import { NavLink } from 'react-router-dom';
+import { demoTrainerLogin } from '../../services/auth';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -40,6 +41,16 @@ const useStyles = makeStyles((theme) => ({
     left: "4rem",
     width: "10rem",
     backgroundColor: '#0077b6',
+    color: 'white'
+    // alignContent: "center"
+    // textAlign: "center"
+  },
+  demoBtn: {
+    position: "absolute",
+    bottom: "27rem",
+    left: "29rem",
+    width: "10rem",
+    backgroundColor: '#e5989b',
     color: 'white'
     // alignContent: "center"
     // textAlign: "center"
@@ -76,6 +87,8 @@ const LoginForm = ({ authenticated, setAuthenticated }) => {
   const [errors, setErrors] = useState([]);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [demoEmail, setDemoEmail] = useState("");
+  const [demoPassword, setDemoPassword] = useState("");
 
   const onLogin = async (e) => {
     e.preventDefault();
@@ -86,6 +99,18 @@ const LoginForm = ({ authenticated, setAuthenticated }) => {
       setErrors(user.errors);
     }
   };
+
+  const demoLogin = async (e) => {
+    e.preventDefault();
+    setEmail('demo@aa.io')
+    setPassword('demo')
+    const user = await demoTrainerLogin(email, password);
+    if (!user.errors) {
+      setAuthenticated(true);
+    } else {
+      setErrors(user.errors);
+    }
+  }
 
   const updateEmail = (e) => {
     setEmail(e.target.value);
@@ -101,6 +126,8 @@ const LoginForm = ({ authenticated, setAuthenticated }) => {
     // fix this it needs to be like logging you in correctly.
     //when you log in it thinks ur the last user!!
   }
+
+
 
   return (
     <div className='login-page__container'>
@@ -141,6 +168,9 @@ const LoginForm = ({ authenticated, setAuthenticated }) => {
                 {/* <button type="submit">Login</button> */}
                 <Button variant="contained" color="secondary" type="submit" className={classes.loginBtn}>
                   Sign in
+            </Button>
+                <Button variant="contained" color="secondary" onClick={demoLogin} className={classes.demoBtn}>
+                  Demo
             </Button>
               </div>
               <NavLink to="/sign-up" exact={true} activeClassName="active" className={classes.signUp}>

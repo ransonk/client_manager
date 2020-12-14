@@ -1,6 +1,6 @@
 from flask import Blueprint, jsonify, session, request
 from app.models import Trainer, Client, db
-from app.forms import LoginForm
+from app.forms import LoginForm, DemoLoginForm
 from app.forms import SignUpForm, CreateClientForm
 from flask_login import current_user, login_user, logout_user, login_required
 
@@ -41,6 +41,25 @@ def login():
     print('here')
     if form.validate_on_submit():
         user = Trainer.query.filter(Trainer.email == form.data['email']).first()
+        # user = Trainer.query.filter(Trainer.email == form.data['email']).first() or Client.query.filter(Client.email == form.data['email']).first()
+        login_user(user)
+        return user.to_dict()
+    return {'errors': validation_errors_to_error_messages(form.errors)}, 401
+
+
+@auth_routes.route('/demo-login', methods=['POST'])
+def demo_login():
+    """
+    Logs a user in
+    """
+    form = DemoLoginForm()
+    print(request.get_json())
+    # Get the csrf_token from the request cookie and put it into the
+    # form manually to validate_on_submit can be used
+    form['csrf_token'].data = request.cookies['csrf_token']
+    print('here')
+    if form.validate_on_submit():
+        user = Trainer.query.filter(Trainer.email == 'demo@aa.io').first()
         # user = Trainer.query.filter(Trainer.email == form.data['email']).first() or Client.query.filter(Client.email == form.data['email']).first()
         login_user(user)
         return user.to_dict()
