@@ -23,23 +23,29 @@ const useStyles = makeStyles((theme) => ({
   },
   inputs: {
     alignContent: "center",
-    width: "50%"
+    width: "70%",
+    position: 'relative',
+    left: '1rem'
   },
   inputs2: {
     alignContent: "center",
-    width: "50%",
-    marginBottom: "0.5rem"
+    width: "70%",
+    marginBottom: "0.5rem",
+    position: 'relative',
+    left: '1rem'
   },
   loginBtn: {
     position: "relative",
-    top: "6rem",
-    right: "13rem",
-    width: "10rem"
+    top: "4rem",
+    left: "4rem",
+    width: "10rem",
+    backgroundColor: '#0077b6',
+    color: 'white'
     // alignContent: "center"
     // textAlign: "center"
   },
   header1: {
-    color: theme.palette.primary.main,
+    color: '#0077b6',
     fontFamily: 'Pacifico, cursive',
     fontSize: "3rem",
     position: "relative",
@@ -54,13 +60,14 @@ const useStyles = makeStyles((theme) => ({
   },
   loginForm: {
     position: "relative",
-    right: "2rem",
-    bottom: "10rem"
+    right: "4rem",
+    bottom: "5rem"
   },
   signUp: {
     position: "relative",
-    left: "14rem",
-  }
+    left: "12rem",
+    bottom: '1rem'
+  },
 }));
 
 const LoginForm = ({ authenticated, setAuthenticated }) => {

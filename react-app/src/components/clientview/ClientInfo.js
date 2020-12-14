@@ -59,15 +59,19 @@ const ClientInfo = () => {
                         <p className='card__header'>Contact</p>
                         <p className='card__contact'>Phone:</p>
                         {phone}
-
+                        <br />
+                        <br />
                         <p className='card__contact'>Email:</p>
                         {email}
                     </div>
                     <div className='clientinfo__info__contact'>
                         <p className='card__header'>Stats</p>
-                        <p>Age: {age}</p>
+                        <p>Age:</p>
+                        {age}
                         <br />
-                        <p>Weight: {weight}</p>
+                        <br />
+                        <p>Weight:</p>
+                        {weight}
                     </div>
                     <div className='clientinfo__info__contact'>
                         <p className='card__header'>Attendance</p>

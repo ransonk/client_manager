@@ -117,7 +117,7 @@ const HomePage = ({ setAuthenticated }) => {
                     </div>
                 </div>
                 <div className='home-clients__container'>
-                    <div className='home-clients__title'>Create Routines</div>
+                    <div className='home-clients__title'>Create a Routine</div>
                     <div className='workouts-and-intensities'>
                         <div className='home-clients__payment'>
                             <h1 className='home-clients__header2'>Available Workouts</h1>

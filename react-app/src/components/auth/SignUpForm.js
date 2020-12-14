@@ -19,18 +19,27 @@ const useStyles = makeStyles((theme) => ({
   },
   inputs: {
     alignContent: "center",
-    width: "50%"
+    width: "50%",
+    position: 'relative',
+    right: '4.4rem',
+    top: '4rem'
   },
   inputs2: {
     alignContent: "center",
     width: "50%",
-    marginBottom: "0.5rem"
+    marginBottom: "0.5rem",
+    position: 'relative',
+    right: '4.4rem',
+    top: '4rem'
   },
   signUpBtn: {
     position: "relative",
     top: "6rem",
-    right: "13rem",
-    width: "10rem"
+    right: "18rem",
+    width: "10rem",
+    backgroundColor: '#0077b6',
+    color: 'white',
+    top: '10rem'
     // alignContent: "center"
     // textAlign: "center"
   },
@@ -41,7 +50,9 @@ const useStyles = makeStyles((theme) => ({
     position: "relative",
     // right: "4rem",
     bottom: "1rem",
-    left: "1rem"
+    right: "5.5rem",
+    color: '#0077b6',
+    top: '3rem'
   },
   header2: {
     // color: theme.palette.primary.main,
@@ -56,7 +67,8 @@ const useStyles = makeStyles((theme) => ({
   },
   login: {
     position: "relative",
-    left: "10.5rem",
+    left: "6rem",
+    top: '4rem'
   }
 }));
 
@@ -111,7 +123,7 @@ const SignUpForm = ({ authenticated, setAuthenticated }) => {
       <div className='signup__container'>
         <Container maxWidth="sm" className={classes.border}>
           <form onSubmit={onSignUp}>
-            <p className={classes.header1}>Sign Up</p>
+            <p className={classes.header1}>Create Account</p>
             <div>
               {/* <label>First Name</label> */}
               <TextField
