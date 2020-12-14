@@ -1,6 +1,7 @@
 html{
     overflow: auto;
     background-color: #dbded5;
+    width: 110%;
 
 }
 
@@ -206,6 +207,12 @@ body::-webkit-scrollbar {
     #A3B1C6;
     padding: 0.3rem;
     color: white;
+    height: 8rem;
+}
+
+.overview-buttons{
+    position: relative;
+    left: 40rem;
 }
 
 .today-sched__container{
@@ -708,6 +715,14 @@ body::-webkit-scrollbar {
     margin-left: 3rem;;
 }
 
+.today-plan-sched__container-hidden{
+    visibility: hidden;
+    display: flex;
+    margin-top: 3rem;
+    overflow-x: hidden;
+    margin-left: 3rem;;
+}
+
 .workoutplans__container:hover{
     overflow-x: auto;
 }
@@ -725,3 +740,77 @@ body::-webkit-scrollbar {
     background-color: white;
     outline: none;
   }
+
+
+  .overview-button-today-on{
+    display: flex;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    height: 3rem;
+    position: relative;
+    width: 5rem;
+    left: 10.3rem;
+    bottom: 1.2rem;
+    padding-left: 1rem;
+    padding-bottom: 0.4rem;
+    box-shadow:
+    inset -3px -3px 7px #ffffff73,
+    inset 3px 3px 5px
+    rgba(94, 104, 121, .288);
+    padding-left: 1rem;
+    padding-right: 1rem;
+
+}
+
+.overview-button-today-off{
+    display: flex;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    height: 3rem;
+    position: relative;
+    bottom: 1.2rem;
+    width: 5rem;
+    left: 11.25rem;
+    padding-left: 1rem;
+    padding-bottom: 0.4rem;
+    box-shadow: -2px -2px 8px rgba(255, 255, 255, 1),
+    -2px -2px 12px rgba(255, 255, 255, 0.5),
+    inset 2px 2px 4px rgba(255, 255, 255, 0.1),
+    6px 6px 8px rgba(0, 0, 0, 0.15);
+}
+
+.overview-button-tomorrow-on{
+    display: flex;
+    background-color: #dbded5;
+    color: black;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    height: 3rem;
+    position: relative;
+    justify-content: center;
+    width: 5rem;
+    bottom: 4.6rem;
+    left: 17.4rem;
+    padding-bottom: 0.4rem;
+    box-shadow:
+    inset -3px -3px 7px #ffffff73,
+    inset 3px 3px 5px
+    rgba(94, 104, 121, .288);
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+.overview-button-tomorrow-off{
+    display: flex;
+    background-color: #dbded5;
+    color: black;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    height: 3rem;
+    position: relative;
+    justify-content: center;
+    width: 7rem;
+    bottom: 4.6rem;
+    left: 17.5rem;
+    padding-bottom: 0.4rem;
+    box-shadow: -2px -2px 8px rgba(255, 255, 255, 1),
+    -2px -2px 12px rgba(255, 255, 255, 0.5),
+    inset 2px 2px 4px rgba(255, 255, 255, 0.1),
+    6px 6px 8px rgba(0, 0, 0, 0.15);
+}
