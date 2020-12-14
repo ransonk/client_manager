@@ -1,8 +1,21 @@
+*{
+    margin: 0;
+	padding: 0;
+    border: 0;
+    box-sizing: border-box;
+}
+
 html{
     overflow: auto;
     background-color: #dbded5;
     width: 110%;
+    overflow-x: hidden;
 
+}
+
+body{
+    width: 100%;
+    height: 100%;
 }
 
 
@@ -18,6 +31,7 @@ html{
     letter-spacing: 2px;
     color: white;
     font-size: 18px;
+    margin-top: 3rem;
     box-shadow: -2px -2px 8px rgba(255, 255, 255, 1),
     -2px -2px 12px rgba(255, 255, 255, 0.5),
     inset 2px 2px 4px rgba(255, 255, 255, 0.1),
@@ -78,7 +92,7 @@ html{
 .editProfile{
     margin-top: 3rem;
     position: relative;
-    bottom: 5rem;
+    bottom: 3rem;
     left: 2rem;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     padding: 10px 30px;
@@ -149,23 +163,26 @@ body::-webkit-scrollbar {
 .login-page__container{
     display: flex;
     justify-content: space-evenly;
-
-}
-
-.login__container{
-    display: flex;
-    justify-content: center;
     width: 100%;
-    position: relative;
-    top: 20rem;
-    left: 10rem;
-    bottom: 10rem;
+    height: 57rem;
+    border: 3px solid red;
+
 
 }
 
 .login__graphic{
     width: 100%;
 }
+.login__container{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    position: relative;
+    top: 20rem;
+    /* left: 10rem;
+    bottom: 10rem; */
+}
+
 
 .signup-page__container{
     display: flex;
@@ -244,6 +261,8 @@ body::-webkit-scrollbar {
     font-family: Calibri;
     font-weight: bold;
     font-size: 2rem;
+    position: relative;
+    top: 2rem;
 }
 
 .title__container{
@@ -276,6 +295,8 @@ body::-webkit-scrollbar {
 }
 
 .clientinfo__header{
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
     text-align: center;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
@@ -285,6 +306,8 @@ body::-webkit-scrollbar {
     text-align: center;
     width: 35rem;
     height: 20rem;
+    position: relative;
+    top: 3rem;
     border-radius: 5px;
     padding-left: 2rem;
     padding-right: 2rem;
@@ -306,6 +329,8 @@ body::-webkit-scrollbar {
     text-align: center;
     width: 30rem;
     height: 20rem;
+    position: relative;
+    top: 3rem;
     border-radius: 5px;
     padding-left: 2rem;
     padding-right: 2rem;
@@ -328,6 +353,7 @@ body::-webkit-scrollbar {
     padding: 1rem;
     margin-right: 2rem;
     margin-left: 2rem;
+    padding-top: 2rem;
     padding-left: 2.5rem;
     color: black;
     background-color: white;
@@ -341,8 +367,9 @@ body::-webkit-scrollbar {
     display: flex;
     justify-content: space-evenly;
     padding: 1rem;
+    padding-top: 2rem;
     margin-left: 1rem;
-    padding-bottom: 6rem;
+    padding-bottom: 3rem;
     margin-right: 1rem;
     color: black;
     background-color: white;
@@ -433,9 +460,10 @@ body::-webkit-scrollbar {
     font-family: Calibri;
     font-weight: 800;
     width: 20rem;
-    height: 2rem;
+    height: 3.2rem;
     position: relative;
-    left: 23rem;
+    left: 22rem;
+    top: 1rem;
     margin-top: 0.5rem;
     background-color: #b0c9c2;
     box-shadow:
@@ -450,10 +478,12 @@ body::-webkit-scrollbar {
 
 
 .home-clients__header{
+    margin-top: 2rem;
     color: black;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;}
 
-.home-clients__header2{
+    .home-clients__header2{
+    margin-top: 1rem;
     color: black;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
@@ -523,6 +553,7 @@ body::-webkit-scrollbar {
     overflow-y: hidden;
     overflow-x: hidden;
     height: 15rem;
+    padding-top: 2rem;
 }
 
 .home-clients__workouts:hover{
@@ -589,7 +620,7 @@ body::-webkit-scrollbar {
     align-content: center;
     position: relative;
     width: 60rem;
-    height: 25rem;
+    height: 27rem;
     bottom: 10rem;
     border-radius: 20px;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
@@ -608,7 +639,7 @@ body::-webkit-scrollbar {
     height: 5rem;
     position: relative;
     width: 13rem;
-    left: 3rem;
+    left: 4rem;
     bottom: 10rem;
     padding-left: 1rem;
     box-shadow:
@@ -672,7 +703,7 @@ body::-webkit-scrollbar {
     justify-content: center;
     width: 10rem;
     bottom: 4.6rem;
-    left: 18rem;
+    left: 17.2rem;
     padding-bottom: 0.4rem;
     box-shadow:
     inset -3px -3px 7px #ffffff73,
@@ -692,7 +723,7 @@ body::-webkit-scrollbar {
     justify-content: center;
     width: 10rem;
     bottom: 4.6rem;
-    left: 18rem;
+    left: 17.2rem;
     padding-bottom: 0.4rem;
     box-shadow: -2px -2px 8px rgba(255, 255, 255, 1),
     -2px -2px 12px rgba(255, 255, 255, 0.5),
@@ -748,8 +779,9 @@ body::-webkit-scrollbar {
     height: 3rem;
     position: relative;
     width: 5rem;
-    left: 10.3rem;
-    bottom: 1.2rem;
+    left: 10.4rem;
+    top: 2.2rem;
+    padding-top: 1rem;
     padding-left: 1rem;
     padding-bottom: 0.4rem;
     box-shadow:
@@ -766,9 +798,10 @@ body::-webkit-scrollbar {
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     height: 3rem;
     position: relative;
-    bottom: 1.2rem;
+    top: 2.2rem;
     width: 5rem;
-    left: 11.25rem;
+    left: 10.47rem;
+    padding-top: 1rem;
     padding-left: 1rem;
     padding-bottom: 0.4rem;
     box-shadow: -2px -2px 8px rgba(255, 255, 255, 1),
@@ -785,9 +818,10 @@ body::-webkit-scrollbar {
     height: 3rem;
     position: relative;
     justify-content: center;
-    width: 5rem;
-    bottom: 4.6rem;
-    left: 17.4rem;
+    width: 7rem;
+    bottom: 0.8rem;
+    left: 15.5rem;
+    padding-top: 1rem;
     padding-bottom: 0.4rem;
     box-shadow:
     inset -3px -3px 7px #ffffff73,
@@ -806,8 +840,9 @@ body::-webkit-scrollbar {
     position: relative;
     justify-content: center;
     width: 7rem;
-    bottom: 4.6rem;
-    left: 17.5rem;
+    bottom: 0.8rem;
+    left: 15.5rem;
+    padding-top: 1rem;
     padding-bottom: 0.4rem;
     box-shadow: -2px -2px 8px rgba(255, 255, 255, 1),
     -2px -2px 12px rgba(255, 255, 255, 0.5),

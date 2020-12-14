@@ -101,46 +101,49 @@ const LoginForm = ({ authenticated, setAuthenticated }) => {
         <img src={Logo} width='100%'></img>
       </div>
       <div className='login__container'>
-        <Container maxWidth="sm" className={classes.border}>
-          <form className={classes.loginForm} onSubmit={onLogin}>
-            <p className={classes.header1}>Trainer Hub</p>
-            {/* <h2 className={classes.header2}>Welcome to Client Manager</h2> */}
-            <div>
-              {errors.map((error) => (
-                <div>{error}</div>
-              ))}
-            </div>
-            <div>
-              {/* <label htmlFor="email"></label> */}
-              <TextField
-                className={classes.inputs}
-                id="standard-basic"
-                label="Email"
-                value={email}
-                onChange={updateEmail}
-              />
-            </div>
-            <div>
-              {/* <label htmlFor="password"></label> */}
-              <TextField
-                className={classes.inputs2}
-                id="standard-basic"
-                label="Password"
-                type="password"
-                value={password}
-                onChange={updatePassword}
-              />
-              {/* <button type="submit">Login</button> */}
-              <Button variant="contained" color="secondary" type="submit" className={classes.loginBtn}>
-                Sign in
-            </Button>
-            </div>
-            <NavLink to="/sign-up" exact={true} activeClassName="active" className={classes.signUp}>
-              Sign Up
-          </NavLink>
-          </form>
+        <div className='form__container'>
 
-        </Container>
+          <Container maxWidth="sm" className={classes.border}>
+            <form className={classes.loginForm} onSubmit={onLogin}>
+              <p className={classes.header1}>Trainer Hub</p>
+              {/* <h2 className={classes.header2}>Welcome to Client Manager</h2> */}
+              <div>
+                {errors.map((error) => (
+                  <div>{error}</div>
+                ))}
+              </div>
+              <div>
+                {/* <label htmlFor="email"></label> */}
+                <TextField
+                  className={classes.inputs}
+                  id="standard-basic"
+                  label="Email"
+                  value={email}
+                  onChange={updateEmail}
+                />
+              </div>
+              <div>
+                {/* <label htmlFor="password"></label> */}
+                <TextField
+                  className={classes.inputs2}
+                  id="standard-basic"
+                  label="Password"
+                  type="password"
+                  value={password}
+                  onChange={updatePassword}
+                />
+                {/* <button type="submit">Login</button> */}
+                <Button variant="contained" color="secondary" type="submit" className={classes.loginBtn}>
+                  Sign in
+            </Button>
+              </div>
+              <NavLink to="/sign-up" exact={true} activeClassName="active" className={classes.signUp}>
+                Sign Up
+          </NavLink>
+            </form>
+
+          </Container>
+        </div>
       </div>
     </div>
   );
