@@ -35,7 +35,7 @@ const ClientView = ({ setAuthenticated }) => {
 
 
                     <div className={'client-buttons', (plans === false ? 'client-view__workout-sched-header-on' : 'client-view__workout-sched-header-off')} onClick={clickSchedule}>
-                        <h1>Calendar</h1>
+                        <h1>Today</h1>
                     </div>
                     <div className={'client-buttons', (plans === true ? 'client-view__workout-plans-header-on' : 'client-view__workout-plans-header-off')} onClick={clickWorkoutPlans}>
                         <h1>Workout Plans</h1>

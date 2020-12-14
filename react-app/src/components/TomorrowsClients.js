@@ -11,11 +11,6 @@ import TimelineDot from '@material-ui/lab/TimelineDot';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 import FitnessCenterIcon from '@material-ui/icons/FitnessCenter';
-import theme from '../theme';
-import Collapse from '@material-ui/core/Collapse';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import Switch from '@material-ui/core/Switch';
-import TomorrowsClients from './TomorrowsClients';
 
 
 const useStyles = makeStyles({
@@ -64,41 +59,11 @@ const useStyles = makeStyles({
     },
     time: {
         color: 'blue'
-    },
-    root2: {
-        height: '30rem',
-        width: '30rem'
-    },
-    wrapper: {
-        width: 100 + theme.spacing(2),
-    },
-    paper2: {
-        zIndex: 1,
-        position: 'relative',
-        margin: theme.spacing(1),
-    },
-    svg: {
-        width: 100,
-        height: 100,
-    },
-    polygon: {
-        fill: theme.palette.common.white,
-        stroke: theme.palette.divider,
-        strokeWidth: 1,
-    },
+    }
 });
 
-export default function TodaysClients() {
+export default function TomorrowsClients() {
     const classes = useStyles();
-    const [checked, setChecked] = React.useState(false);
-    const [tomorrowClients, setTomorrowClients] = useState(false)
-
-    const handleChange = () => {
-        setChecked((prev) => !prev);
-    };
-
-    // const [todayClients, setTodayClients] = useState(true)
-    // const [tomorrowClients, setTomorrowClients] = useState(false)
 
     let allPlansObj = useSelector(state => state.store.todaysPlans)
     let allPlans = Object.values(allPlansObj)
@@ -157,28 +122,27 @@ export default function TodaysClients() {
         console.log('month translator broken')
     }
 
-    let todayslist = allPlans.filter((plan) => {
+    let tomorrowslist = allPlans.filter((plan) => {
         let m1 = plan.date.toString().split('/')[0]
         let d1 = plan.date.toString().split('/')[1]
 
-        if (day1 == d1 && mms == m1) {
+        if (day2 == d1 && mms == m1) {
             return plan
         } else {
             return
         }
     })
-    console.log('today!: ', todayslist)
 
-    let sortedTodaysList = todayslist.map(item => item.time)
+    let sortedTomorrowsList = tomorrowslist.map(item => item.time)
 
-    sortedTodaysList.sort(function (a, b) {
+    sortedTomorrowsList.sort(function (a, b) {
 
         return new Date('1970/01/01 ' + a) - new Date('1970/01/01 ' + b);
     })
-    console.log('SORTED?: ', sortedTodaysList)
+
     let finalList = [];
-    sortedTodaysList.forEach(time => {
-        todayslist.map(item => {
+    sortedTomorrowsList.forEach(time => {
+        tomorrowslist.map(item => {
             if (time === item.time) {
                 finalList.push(item)
             }
@@ -186,13 +150,17 @@ export default function TodaysClients() {
     })
     console.log('final list?: ', finalList)
 
+    // let times = ['01:00 am', '06:00 pm', '12:00 pm', '03:00 am', '12:00 am'];
+
+    // times.sort(function (a, b) {
+    //     return new Date('1970/01/01 ' + a) - new Date('1970/01/01 ' + b);
+    // });
+    // console.log('sorted?', times);
 
 
     return (
 
-
-
-        <div className={(checked === false) ? 'today-plan-sched__container' : 'today-plan-sched__container-hidden'}>
+        <div className='today-plan-sched__container'>
 
             {finalList.length ?
 
@@ -225,13 +193,10 @@ export default function TodaysClients() {
                         )
                     })
                     }
-
                 </Timeline>
                 : <h1>No Workouts Scheduled</h1>}
 
         </div >
-
-
 
     )
 }

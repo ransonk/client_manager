@@ -12,6 +12,7 @@ import Intensities from './workouts/Intensities';
 import { setCurrentUser, setCurrentClient, fetchClients, setTrainerClients, fetchTodaysPlans, setTodaysPlans, fetchWorkouts, setWorkouts, fetchIntensities, setIntensities, fetchTodaysClients } from "../store/users";
 import ClientCalendar from './clientview/ClientCalendar';
 import TodaysClients from './TodaysClients';
+import TomorrowsClients from './TomorrowsClients';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -41,6 +42,7 @@ const HomePage = ({ setAuthenticated }) => {
     // const [authenticated, setAuthenticated] = useState(false);
     const [loaded, setLoaded] = useState(false);
     const [name, setName] = useState();
+    const [tomorrow, setTomorrow] = useState(false);
     // window.location.reload();
     let trainerId = useSelector(state => state.store.current_trainer.id)
 
@@ -82,6 +84,14 @@ const HomePage = ({ setAuthenticated }) => {
         return null;
     }
 
+    const grabTomorrow = () => {
+        setTomorrow(true)
+    }
+
+    const grabToday = () => {
+        setTomorrow(false)
+    }
+
 
     return (
         <>
@@ -90,11 +100,20 @@ const HomePage = ({ setAuthenticated }) => {
                 <div className='home-welcome__message'>Welcome Back, {name}</div>
                 <div className='today-sched__container'>
                     <div className='overview__container'>
-                        <p className='today-sched__title'>Today's Overview</p>
+                        <p className='today-sched__title'>{tomorrow ? "Tomorrow's Overview" : "Today's Overview"}</p>
+                        <div className='overview-buttons'>
+                            <div className={(tomorrow === false ? 'overview-button-today-on' : 'overview-button-today-off')} onClick={grabToday}>
+
+                                <p>Today</p>
+                            </div>
+                            <div className={(tomorrow === true ? 'overview-button-tomorrow-on' : 'overview-button-tomorrow-off')} onClick={grabTomorrow}>
+                                <p>Tomorrow</p>
+                            </div>
+                        </div>
                         {date1}
                     </div>
                     <div className='todaysclients__container'>
-                        <TodaysClients />
+                        {tomorrow ? <TomorrowsClients /> : <TodaysClients />}
                     </div>
                 </div>
                 <div className='home-clients__container'>
