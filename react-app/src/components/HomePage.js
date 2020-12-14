@@ -110,7 +110,7 @@ const HomePage = ({ setAuthenticated }) => {
                                 <p>Tomorrow</p>
                             </div>
                         </div>
-                        {date1}
+                        <p className='overview-date'>{date1}</p>
                     </div>
                     <div className='todaysclients__container'>
                         {tomorrow ? <TomorrowsClients /> : <TodaysClients />}

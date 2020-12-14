@@ -57,18 +57,24 @@ const ClientInfo = () => {
                 <div className='clientinfo__clientcard'>
                     <div className='clientinfo__info__contact'>
                         <p className='card__header'>Contact</p>
-                        <p>Phone: {phone}</p>
-                        <p>Email: {email}</p>
+                        <p className='card__contact'>Phone:</p>
+                        {phone}
+
+                        <p className='card__contact'>Email:</p>
+                        {email}
                     </div>
                     <div className='clientinfo__info__contact'>
                         <p className='card__header'>Stats</p>
                         <p>Age: {age}</p>
+                        <br />
                         <p>Weight: {weight}</p>
                     </div>
                     <div className='clientinfo__info__contact'>
                         <p className='card__header'>Attendance</p>
-                        <p>No Shows: {noshows}</p>
-                        <p className='cancellation'>Cancellations: {cancellations}</p>
+                        <p>No Shows:</p>
+                        {noshows}
+                        <p className='cancellation'>Cancellations:</p>
+                        {cancellations}
                     </div>
                 </div>
             </div>

@@ -227,6 +227,12 @@ body::-webkit-scrollbar {
     height: 8rem;
 }
 
+.overview-date{
+    position: relative;
+    bottom: 2.5rem;
+    width: 1rem;
+}
+
 .overview-buttons{
     position: relative;
     left: 40rem;
@@ -255,6 +261,7 @@ body::-webkit-scrollbar {
     position: relative;
     bottom: 3rem;
     padding-bottom: 2.5rem;
+    /* margin-top: 10rem; */
 }
 
 .today-sched__title{
@@ -352,12 +359,14 @@ body::-webkit-scrollbar {
 
 .clientinfo__clientcard{
     display: flex;
-    justify-content: space-evenly;
-    padding: 1rem;
-    margin-right: 2rem;
-    margin-left: 2rem;
-    padding-top: 2rem;
-    padding-left: 2.5rem;
+    justify-content: center;
+    /* padding: 1rem; */
+    /* margin-right: 2rem; */
+    /* margin-left: 1rem; */
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    /* padding-left: rem; */
+    width: 31rem;
     color: black;
     background-color: white;
     box-shadow:
@@ -370,7 +379,7 @@ body::-webkit-scrollbar {
     display: flex;
     justify-content: space-evenly;
     padding: 1rem;
-    padding-top: 2rem;
+    padding-top: 1rem;
     margin-left: 1rem;
     padding-bottom: 3rem;
     margin-right: 1rem;
@@ -394,8 +403,8 @@ body::-webkit-scrollbar {
     margin-top: 2.2rem;
 }
 
-.duedate{
-    margin-top: 2.6rem;
+.card__contact{
+    font-weight: 700;
 }
 
 .clientinfo__info__payment{
@@ -609,6 +618,7 @@ body::-webkit-scrollbar {
     font-weight: bold;
     font-size: 1.5rem;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    margin-bottom: 1rem;
 }
 
 .workout-and-calendar__container{
@@ -811,6 +821,12 @@ body::-webkit-scrollbar {
     -2px -2px 12px rgba(255, 255, 255, 0.5),
     inset 2px 2px 4px rgba(255, 255, 255, 0.1),
     6px 6px 8px rgba(0, 0, 0, 0.15);
+}
+
+.overview-button-today-off,
+.overview-button-tomorrow-off
+:hover{
+    cursor: pointer;
 }
 
 .overview-button-tomorrow-on{
