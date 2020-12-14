@@ -24,6 +24,22 @@ export const login = async (email, password) => {
   return res;
 }
 
+export const demoTrainerLogin = async (email, password) => {
+  const response = await fetch('/api/auth/demo-login', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      email, password
+    })
+  });
+  let res = await response.json();
+  console.log(res)
+  // console.log(await response.json())
+  return res;
+}
+
 export const logout = async () => {
   const response = await fetch("/api/auth/logout", {
     headers: {
