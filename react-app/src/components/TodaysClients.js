@@ -21,6 +21,7 @@ import TomorrowsClients from './TomorrowsClients';
 const useStyles = makeStyles({
     root: {
         minWidth: 275,
+        // width: 'auto',
         margin: '0.5rem',
         overflowX: 'hidden',
         overflowY: 'hidden',
@@ -58,6 +59,7 @@ const useStyles = makeStyles({
     },
     paper: {
         padding: '6px 16px',
+
     },
     secondaryTail: {
         backgroundColor: 'black',
