@@ -130,9 +130,12 @@ const HomePage = ({ setAuthenticated }) => {
                 </Grid>
                 <Grid item md={2}></Grid>
                 {/* <div className='home-clients__container'> */}
-                <Grid item xs={12} className='home-clients__title'>Create a Routine</Grid>
+                <Grid item md={3}></Grid>
+                <Grid item xs={12} md={6} className='home-clients__title'>Create a Routine</Grid>
+                <Grid item md={3}></Grid>
                 {/* <div className='workouts-and-intensities'> */}
-                <Grid item xs={12} md={6} className='home-clients__payment'>
+                <Grid item md={3}></Grid>
+                <Grid item xs={12} md={3} className='home-clients__payment'>
                     <h1 className='home-clients__header2'>Available Workouts</h1>
                     <div className='home-clients__workouts'>
                         <Workouts />
@@ -141,16 +144,19 @@ const HomePage = ({ setAuthenticated }) => {
 
 
                 </Grid>
-                <Grid item xs={12} md={6} className='home-clients__payment'>
+                {/* <Grid item xs={1}></Grid> */}
+                <Grid item xs={12} md={3} className='home-clients__payment'>
                     <h1 className='home-clients__header2'>Available Intensities</h1>
                     <div className='home-clients__workouts'>
                         <Intensities />
                     </div>
                     <CreateNewIntensity />
                 </Grid>
+                <Grid item md={3}></Grid>
                 {/* </div> */}
                 {/* </div> */}
             </Grid>
+            <Grid item xs={12} md={12} className='invisibar'></Grid>
             <Footer className={classes.footer} />
         </>
     );
