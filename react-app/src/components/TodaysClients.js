@@ -86,6 +86,12 @@ const useStyles = makeStyles({
         stroke: theme.palette.divider,
         strokeWidth: 1,
     },
+    noWorkouts: {
+        display: 'flex',
+        justifyContent: 'center',
+        paddingTop: '1rem',
+        width: '100%',
+    }
 });
 
 export default function TodaysClients() {
@@ -227,7 +233,7 @@ export default function TodaysClients() {
                     }
 
                 </Timeline>
-                : <h1>No Workouts Scheduled</h1>}
+                : <div className={classes.noWorkouts}><p>No Workouts Scheduled</p></div>}
 
         </div >
 

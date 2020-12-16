@@ -13,6 +13,7 @@ import { setCurrentUser, setCurrentClient, fetchClients, setTrainerClients, fetc
 import ClientCalendar from './clientview/ClientCalendar';
 import TodaysClients from './TodaysClients';
 import TomorrowsClients from './TomorrowsClients';
+import { Grid } from '@material-ui/core';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -95,49 +96,61 @@ const HomePage = ({ setAuthenticated }) => {
 
     return (
         <>
-            <ButtonAppBar setAuthenticated={setAuthenticated} />
-            <div className='home-page__container'>
-                <div className='home-welcome__message'>Welcome Back, {name}</div>
-                <div className='today-sched__container'>
-                    <div className='overview__container'>
-                        <p className='today-sched__title'>{tomorrow ? "Tomorrow's Overview" : "Today's Overview"}</p>
-                        <div className='overview-buttons'>
-                            <div className={(tomorrow === false ? 'overview-button-today-on' : 'overview-button-today-off')} onClick={grabToday}>
+            <Grid container>
+                <Grid item xs={12}>
+                    < ButtonAppBar setAuthenticated={setAuthenticated} />
+                </Grid>
+            </Grid>
+            <Grid container>
+                <Grid item xs={12} className='home-welcome__message'>Welcome Back, {name}</Grid>
+                <Grid item xs={2} md={2}></Grid>
+                <Grid item xs={8} className='today-sched__container'>
+                    <Grid item md={2}></Grid>
+                    {/* <Grid item md={12} className='overview-date'>
+                        <p>{date1}</p>
+                    </Grid> */}
+                    <Grid item md={12} className='overview__container'>
 
-                                <p>Today</p>
-                            </div>
-                            <div className={(tomorrow === true ? 'overview-button-tomorrow-on' : 'overview-button-tomorrow-off')} onClick={grabTomorrow}>
-                                <p>Tomorrow</p>
-                            </div>
+                        <p className='today-sched__title'>{tomorrow ? "Tomorrow's Overview" : "Today's Overview"}</p>
+                    </Grid>
+                    <Grid item md={2}></Grid>
+                    <Grid item xs={12} md={12} className='overview-buttons'>
+                        <div className={(tomorrow === false ? 'overview-button-today-on' : 'overview-button-today-off')} onClick={grabToday}>
+
+                            <p>Today</p>
                         </div>
-                        <p className='overview-date'>{date1}</p>
-                    </div>
+                        <div className={(tomorrow === true ? 'overview-button-tomorrow-on' : 'overview-button-tomorrow-off')} onClick={grabTomorrow}>
+                            <p>Tomorrow</p>
+                        </div>
+                    </Grid>
+
                     <div className='todaysclients__container'>
                         {tomorrow ? <TomorrowsClients /> : <TodaysClients />}
                     </div>
-                </div>
-                <div className='home-clients__container'>
-                    <div className='home-clients__title'>Create a Routine</div>
-                    <div className='workouts-and-intensities'>
-                        <div className='home-clients__payment'>
-                            <h1 className='home-clients__header2'>Available Workouts</h1>
-                            <div className='home-clients__workouts'>
-                                <Workouts />
-                            </div>
-                            <CreateNewWorkout />
-
-
-                        </div>
-                        <div className='home-clients__payment'>
-                            <h1 className='home-clients__header2'>Available Intensities</h1>
-                            <div className='home-clients__workouts'>
-                                <Intensities />
-                            </div>
-                            <CreateNewIntensity />
-                        </div>
+                </Grid>
+                <Grid item md={2}></Grid>
+                {/* <div className='home-clients__container'> */}
+                <Grid item xs={12} className='home-clients__title'>Create a Routine</Grid>
+                {/* <div className='workouts-and-intensities'> */}
+                <Grid item xs={12} md={6} className='home-clients__payment'>
+                    <h1 className='home-clients__header2'>Available Workouts</h1>
+                    <div className='home-clients__workouts'>
+                        <Workouts />
                     </div>
-                </div>
-            </div>
+                    <CreateNewWorkout />
+
+
+                </Grid>
+                <Grid item xs={12} md={6} className='home-clients__payment'>
+                    <h1 className='home-clients__header2'>Available Intensities</h1>
+                    <div className='home-clients__workouts'>
+                        <Intensities />
+                    </div>
+                    <CreateNewIntensity />
+                </Grid>
+                {/* </div> */}
+                {/* </div> */}
+            </Grid>
             <Footer className={classes.footer} />
         </>
     );

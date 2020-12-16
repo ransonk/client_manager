@@ -194,7 +194,7 @@ export default function TomorrowsClients() {
                     })
                     }
                 </Timeline>
-                : <h1>No Workouts Scheduled</h1>}
+                : <p>No Workouts Scheduled</p>}
 
         </div >
 
