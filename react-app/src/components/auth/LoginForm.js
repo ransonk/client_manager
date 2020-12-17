@@ -26,14 +26,16 @@ const useStyles = makeStyles((theme) => ({
     alignContent: "center",
     width: "70%",
     position: 'relative',
-    left: '1rem'
+    left: '1rem',
+    backgroundColor: 'white',
   },
   inputs2: {
     alignContent: "center",
     width: "70%",
     marginBottom: "0.5rem",
     position: 'relative',
-    left: '1rem'
+    left: '1rem',
+    backgroundColor: 'white'
   },
   loginBtn: {
     position: "relative",
@@ -46,9 +48,11 @@ const useStyles = makeStyles((theme) => ({
     // textAlign: "center"
   },
   demoBtn: {
-    position: "absolute",
-    bottom: "27rem",
-    left: "29rem",
+    position: "relative",
+    top: '7rem',
+    right: '6rem',
+    // bottom: "27rem",
+    // left: "29rem",
     width: "10rem",
     backgroundColor: '#e5989b',
     color: 'white'
@@ -56,7 +60,7 @@ const useStyles = makeStyles((theme) => ({
     // textAlign: "center"
   },
   header1: {
-    color: '#0077b6',
+    color: '#bde0fe',
     fontFamily: 'Pacifico, cursive',
     fontSize: "3rem",
     position: "relative",
@@ -168,10 +172,10 @@ const LoginForm = ({ authenticated, setAuthenticated }) => {
                 {/* <button type="submit">Login</button> */}
                 <Button variant="contained" color="secondary" type="submit" className={classes.loginBtn}>
                   Sign in
-            </Button>
+                </Button>
                 <Button variant="contained" color="secondary" onClick={demoLogin} className={classes.demoBtn}>
                   Demo
-            </Button>
+                </Button>
               </div>
               <NavLink to="/sign-up" exact={true} activeClassName="active" className={classes.signUp}>
                 Sign Up

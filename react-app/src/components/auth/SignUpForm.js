@@ -22,7 +22,8 @@ const useStyles = makeStyles((theme) => ({
     width: "50%",
     position: 'relative',
     right: '4.4rem',
-    top: '4rem'
+    top: '4rem',
+    backgroundColor: 'white'
   },
   inputs2: {
     alignContent: "center",
@@ -30,7 +31,8 @@ const useStyles = makeStyles((theme) => ({
     marginBottom: "0.5rem",
     position: 'relative',
     right: '4.4rem',
-    top: '4rem'
+    top: '4rem',
+    backgroundColor: 'white'
   },
   signUpBtn: {
     position: "relative",
