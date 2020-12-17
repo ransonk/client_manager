@@ -28,6 +28,8 @@ const useStyles = makeStyles((theme) => ({
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
+        backgroundColor: '#070d17',
+        color: 'white'
 
     },
     editHeading: {
@@ -115,6 +117,12 @@ const useStyles = makeStyles((theme) => ({
     paid: {
         display: 'flex',
         fontSize: '20px'
+    },
+    multilineColor: {
+        color: '#bde0fe'
+    },
+    input: {
+        color: 'white'
     }
 }));
 
@@ -286,18 +294,18 @@ const EditClientProfile = (props) => {
                             <Typography variant='h4' className={classes.editHeading}>
                                 Edit Client Profile
                             </Typography>
-                            <TextField id='standard-basic' value={firstName} onChange={updateFirstName} label='First Name' autoFocus />
-                            <TextField id='standard-basic' value={lastName} onChange={updateLastName} label='Last Name' />
-                            <TextField id='standard-basic' value={email} onChange={updateEmail} label='Email' />
-                            <TextField id='standard-basic' value={phone} onChange={updatePhone} label='Phone' />
-                            <TextField id='standard-basic' value={weight} onChange={updateWeight} label='Weight' />
-                            <TextField id='standard-basic' value={age} onChange={updateAge} label='Age' />
-                            <TextField id='standard-basic' value={duedate} onChange={updateDueDate} label='DueDate' />
-                            <TextField id='standard-basic' value={amount} onChange={updateAmount} label='Amount $' />
-                            <TextField id='standard-basic' value={noshows} onChange={updateNoShows} label='No Shows' />
-                            <TextField id='standard-basic' value={cancellations} onChange={updateCancellations} label='Cancellations' />
-                            <TextField id='standard-basic' type='password' onChange={updatePassword} label='Password' />
-                            <TextField id='standard-basic' type='password' onChange={updateRepeatPassword} label='Repeat Password' />
+                            <TextField id='standard-basic' InputProps={{ className: classes.multilineColor }} className={classes.root} defaultValue='white' color='secondary' value={firstName} onChange={updateFirstName} label='First Name' autoFocus />
+                            <TextField id='standard-basic' InputProps={{ className: classes.multilineColor }} className={classes.root} color='secondary' value={lastName} onChange={updateLastName} label='Last Name' />
+                            <TextField id='standard-basic' InputProps={{ className: classes.multilineColor }} className={classes.root} color='secondary' value={email} onChange={updateEmail} label='Email' />
+                            <TextField id='standard-basic' InputProps={{ className: classes.multilineColor }} className={classes.root} color='secondary' value={phone} onChange={updatePhone} label='Phone' />
+                            <TextField id='standard-basic' InputProps={{ className: classes.multilineColor }} className={classes.root} color='secondary' value={weight} onChange={updateWeight} label='Weight' />
+                            <TextField id='standard-basic' InputProps={{ className: classes.multilineColor }} className={classes.root} color='secondary' value={age} onChange={updateAge} label='Age' />
+                            <TextField id='standard-basic' InputProps={{ className: classes.multilineColor }} className={classes.root} color='secondary' value={duedate} onChange={updateDueDate} label='DueDate' />
+                            <TextField id='standard-basic' InputProps={{ className: classes.multilineColor }} className={classes.root} color='secondary' value={amount} onChange={updateAmount} label='Amount $' />
+                            <TextField id='standard-basic' InputProps={{ className: classes.multilineColor }} className={classes.root} color='secondary' value={noshows} onChange={updateNoShows} label='No Shows' />
+                            <TextField id='standard-basic' InputProps={{ className: classes.multilineColor }} className={classes.root} color='secondary' value={cancellations} onChange={updateCancellations} label='Cancellations' />
+                            <TextField id='standard-basic' InputProps={{ className: classes.multilineColor }} className={classes.root} color='secondary' type='password' onChange={updatePassword} label='Password' />
+                            <TextField id='standard-basic' InputProps={{ className: classes.multilineColor }} className={classes.root} color='secondary' type='password' onChange={updateRepeatPassword} label='Repeat Password' />
                             <div className={classes.paid}>
 
                                 <p>Paid</p>

@@ -27,6 +27,16 @@ const useStyles = makeStyles((theme) => ({
     title: {
         flexGrow: 1,
     },
+    navButton: {
+        color: 'white'
+    },
+    Logo: {
+        fontSize: '20px',
+        position: 'absolute',
+        top: '1rem',
+        left: '1rem',
+        fontFamily: 'Pacifico, cursive'
+    }
 }));
 
 
@@ -50,10 +60,11 @@ export default function ButtonAppBar({ setAuthenticated }) {
     return (
         <div className={classes.root}>
             <AppBar position="static">
+                <p className={classes.Logo}>Trainer Hub</p>
                 <Toolbar className={classes.nav}>
                     <ClientDrawer />
-                    <Button color="inherit" className='navButtons homebutton' onClick={toHome}>Home</Button>
-                    <Button color="inherit" className='navButtons' onClick={onLogout}>Logout</Button>
+                    <Button className={classes.navButton} onClick={toHome}>Home</Button>
+                    <Button className={classes.navButton} onClick={onLogout}>Logout</Button>
                     {/* <LogoutButton /> */}
                 </Toolbar>
             </AppBar>
