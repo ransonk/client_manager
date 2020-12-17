@@ -263,9 +263,9 @@ const EditClientProfile = (props) => {
 
         <div className='profile-edit__container'>
 
-            <a type="button" className='editProfile' onClick={handleOpenModal}>
+            <p className='editProfile' onClick={handleOpenModal}>
                 Edit Profile
-            </a>
+            </p>
             <Modal
                 aria-labelledby="transition-modal-title"
                 aria-describedby="transition-modal-description"
