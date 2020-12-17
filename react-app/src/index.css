@@ -164,6 +164,15 @@ body::-webkit-scrollbar {
     color: black !important;
 }
 
+.MuiTimelineItem-alignAlternate:nth-child(even), .MuiTimelineItem-content,
+.MuiPaper-rounded {
+    text-align: center;
+}
+
+#root > div:nth-child(2) > div.MuiGrid-root.today-sched__container.MuiGrid-item.MuiGrid-grid-xs-6 > div.todaysclients__container > div > ul > li > div.MuiTimelineOppositeContent-root.MuiTimelineItem-oppositeContent > p{
+    color: white !important;
+}
+
 .footer__container{
     display: flex;
     justify-content: space-around;
