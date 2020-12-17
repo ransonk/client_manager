@@ -153,11 +153,15 @@ body::-webkit-scrollbar {
 
 .MuiInputLabel-root{
     color: white !important;
-    /* background-color: white; */
+    background-color: white;
 }
 
 .MuiListItemText-primary{
     color: white !important;
+}
+
+.MuiFormLabel-root{
+    color: black !important;
 }
 
 .footer__container{
@@ -230,7 +234,7 @@ body::-webkit-scrollbar {
 
 .overview__container{
     display: flex;
-    background-color: #b0c9c2;
+    background-color: #24364e;
     position: relative;
     text-align: center;
     justify-content: center;
@@ -259,7 +263,7 @@ body::-webkit-scrollbar {
     right: 3rem; */
     display: flex;
     justify-content: flex-end;
-    background-color: #b0c9c2;
+    background-color: #24364e;
     /* box-shadow:
     inset -3px -3px 7px #ffffff73,
     inset 3px 3px 5px
@@ -301,7 +305,10 @@ body::-webkit-scrollbar {
     align-content: center;
     margin-top: 2rem;
     /* margin-bottom: 4rem; */
-    background-color: #e29578;
+    background-color: #0f1724;
+    border-left: 1px solid white;
+    border-top: 1px solid white;
+    border-right: 1px solid white;
     /* box-shadow:
     inset -3px -3px 7px #ffffff73,
     inset 3px 3px 5px #bdbfb8; */
@@ -326,10 +333,13 @@ body::-webkit-scrollbar {
 }
 
 .todaysclients__container{
-    background-color: whitesmoke;
+    background-color: #0f1724;
     position: relative;
     bottom: 3rem;
     padding-bottom: 2.5rem;
+    text-align: center;
+    /* border-left: 1px solid white;
+    border-right: 1px solid white; */
     /* margin-top: 10rem; */
 }
 
@@ -549,6 +559,7 @@ body::-webkit-scrollbar {
     padding-top: 1rem;
     padding-bottom: 1rem;
     text-align: center;
+    color: #bde0fe;
 
 }
 
@@ -567,7 +578,7 @@ body::-webkit-scrollbar {
     /* top: 1rem; */
     margin-top: 0.5rem;
     margin-bottom: 3rem;
-    background-color: #b0c9c2;
+    background-color: #212c3d;
     /* box-shadow:
     inset -3px -3px 7px #ffffff73,
     inset 3px 3px 5px
@@ -621,7 +632,7 @@ body::-webkit-scrollbar {
     /* height: 25rem; */
     margin-top: 3rem;
     /* border-radius: 5px; */
-    background-color: #a5bcb6;
+    background-color: #212c3d;
     margin-bottom: 3rem;
     /* box-shadow: -2px -2px 8px rgba(255, 255, 255, 1),
     -2px -2px 12px rgba(255, 255, 255, 0.5),
@@ -661,6 +672,16 @@ body::-webkit-scrollbar {
 
 .home-clients__workouts:hover{
     overflow-y: auto;
+}
+
+.home-clients__workouts::-webkit-scrollbar{
+    background-color: white;
+}
+.home-clients__workouts::-webkit-scrollbar-track{
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+.home-clients__workouts::-webkit-scrollbar-thumb{
+    background-color: #11ece5;
 }
 
 .home-clients__workouts{
@@ -792,7 +813,8 @@ body::-webkit-scrollbar {
 
 .client-view__workout-plans-header-on{
     display: flex;
-    background-image: linear-gradient(to right, #214b64, #24364e);    height: 4rem;
+    background-image: linear-gradient(to right, #214b64, #24364e);
+    height: 4rem;
     position: relative;
     color: white;
     width: 7rem;
@@ -801,16 +823,16 @@ body::-webkit-scrollbar {
     padding-left: 1rem;
     padding-bottom: 0.4rem;
     background-color: #24364e;
+    box-shadow: -2px -2px 8px rgba(255, 255, 255, 1),
+    -2px -2px 12px rgba(255, 255, 255, 0.5),
+    inset 2px 2px 4px rgba(255, 255, 255, 0.1),
+    6px 6px 8px rgba(0, 0, 0, 0.15);
     align-items: center;
     /* box-shadow:
     inset -3px -3px 7px #ffffff73,
     inset 3px 3px 5px
     rgba(94, 104, 121, .288); */
     padding-right: 1rem;
-    box-shadow: -2px -2px 8px rgba(255, 255, 255, 1),
-    -2px -2px 12px rgba(255, 255, 255, 0.5),
-    inset 2px 2px 4px rgba(255, 255, 255, 0.1),
-    6px 6px 8px rgba(0, 0, 0, 0.15);
 
 }
 
@@ -945,15 +967,15 @@ body::-webkit-scrollbar {
     width: 5rem;
     /* left: 10.4rem; */
     top: 1rem;
+    /* right: 2px; */
     padding-top: 1rem;
     padding-left: 1rem;
     padding-bottom: 0.4rem;
-    box-shadow:
-    inset -3px -3px 7px #ffffff73,
-    inset 3px 3px 5px
-    rgba(94, 104, 121, .288);
-    padding-left: 1rem;
-    padding-right: 1rem;
+    background-image: linear-gradient(to right, #214b64, #24364e);
+    box-shadow: -2px -2px 8px rgba(255, 255, 255, 1),
+    -2px -2px 12px rgba(255, 255, 255, 0.5),
+    inset 2px 2px 4px rgba(255, 255, 255, 0.1),
+    6px 6px 8px rgba(0, 0, 0, 0.15);
 
 }
 
@@ -968,10 +990,8 @@ body::-webkit-scrollbar {
     padding-top: 1rem;
     padding-left: 1rem;
     padding-bottom: 0.4rem;
-    box-shadow: -2px -2px 8px rgba(255, 255, 255, 1),
-    -2px -2px 12px rgba(255, 255, 255, 0.5),
-    inset 2px 2px 4px rgba(255, 255, 255, 0.1),
-    6px 6px 8px rgba(0, 0, 0, 0.15);
+    background-image: linear-gradient(to right, #214b64, #24364e);
+
 }
 
 .overview-button-today-off,
@@ -982,41 +1002,38 @@ body::-webkit-scrollbar {
 
 .overview-button-tomorrow-on{
     display: flex;
-    background-color: #dbded5;
-    color: black;
+    color: white;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     height: 3rem;
     position: relative;
     justify-content: center;
     width: 7rem;
     top: 1rem;
-    /* left: 3rem; */
     padding-top: 1rem;
     padding-bottom: 0.4rem;
-    box-shadow:
-    inset -3px -3px 7px #ffffff73,
-    inset 3px 3px 5px
-    rgba(94, 104, 121, .288);
+    background-image: linear-gradient(to right, #214b64, #24364e);
+    box-shadow: -2px -2px 8px rgba(255, 255, 255, 1),
+    -2px -2px 12px rgba(255, 255, 255, 0.5),
+    inset 2px 2px 4px rgba(255, 255, 255, 0.1),
+    6px 6px 8px rgba(0, 0, 0, 0.15);
     padding-left: 1rem;
     padding-right: 1rem;
 }
 
 .overview-button-tomorrow-off{
     display: flex;
-    background-color: #dbded5;
-    color: black;
+    color: white;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     height: 3rem;
     position: relative;
     justify-content: center;
+    /* left: px; */
     width: 7rem;
     top: 1rem;
     padding-top: 1rem;
     padding-bottom: 0.4rem;
-    box-shadow: -2px -2px 8px rgba(255, 255, 255, 1),
-    -2px -2px 12px rgba(255, 255, 255, 0.5),
-    inset 2px 2px 4px rgba(255, 255, 255, 0.1),
-    6px 6px 8px rgba(0, 0, 0, 0.15);
+    background-image: linear-gradient(to right, #214b64, #24364e);
+
 }
 
 

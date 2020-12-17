@@ -93,6 +93,9 @@ const useStyles = makeStyles({
         justifyContent: 'center',
         paddingTop: '1rem',
         width: '100%',
+    },
+    ptag: {
+        color: 'white',
     }
 });
 
@@ -235,7 +238,7 @@ export default function TodaysClients() {
                     }
 
                 </Timeline>
-                : <div className={classes.noWorkouts}><p>No Workouts Scheduled</p></div>}
+                : <div className={classes.ptag}><p>No Workouts Scheduled</p></div>}
 
         </div >
 
