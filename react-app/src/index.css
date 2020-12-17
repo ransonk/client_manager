@@ -8,7 +8,7 @@
 html{
     overflow: auto;
     background-color: #dbded5;
-    width: 110%;
+    /* width: 110%; */
     overflow-x: hidden;
 
 }
@@ -20,8 +20,9 @@ body{
 
 
 .addWorkout{
-    margin-top: 1.2rem;
+    margin-top: 1rem;
     position: relative;
+    bottom: 1rem;
     font-family: Calibri;
     display: inline-block;
     padding: 10px 30px;
@@ -90,10 +91,11 @@ body{
 }
 
 .editProfile{
-    margin-top: 3rem;
+    /* margin-top: 3rem; */
     position: relative;
-    bottom: 3rem;
-    left: 2rem;
+    text-align: center;
+    /* bottom: 3rem;
+    left: 2rem; */
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     padding: 10px 30px;
     text-decoration: none;
@@ -101,6 +103,7 @@ body{
     font-weight: 800;
     color: black;
     font-size: 18px;
+    width: 10rem;
     /* border-radius: 40px; */
     box-shadow: -2px -2px 8px rgba(255, 255, 255, 1),
     -2px -2px 12px rgba(255, 255, 255, 0.5),
@@ -217,43 +220,99 @@ body::-webkit-scrollbar {
 }
 
 .overview__container{
+    display: flex;
     background-color: #b0c9c2;
-    box-shadow:
-    inset -3px -3px 7px #ffffff73,
-    inset 3px 3px 5px
-    #A3B1C6;
-    padding: 0.3rem;
+    position: relative;
+    text-align: center;
+    justify-content: center;
     color: white;
-    height: 8rem;
+    height: 4rem;
 }
 
 .overview-date{
+    display: flex;
+    justify-content: flex-start;
+    background-color: #b0c9c2;
     position: relative;
-    bottom: 2.5rem;
-    width: 1rem;
+    /* top: 2rem; */
+    /* box-shadow:
+    inset -3px -3px 7px #ffffff73,
+    inset 3px 3px 5px
+    #A3B1C6; */
+    /* padding: 0.3rem; */
+    color: white;
+    /* height: 4rem; */
 }
 
 .overview-buttons{
+    /* position: relative;
+    top: 2.6rem;
+    right: 3rem; */
+    display: flex;
+    justify-content: flex-end;
+    background-color: #b0c9c2;
+    /* box-shadow:
+    inset -3px -3px 7px #ffffff73,
+    inset 3px 3px 5px
+    #A3B1C6; */
+    /* padding: 0.3rem; */
+    color: white;
+    height: 4rem;
+}
+
+.client-buttons{
+    /* position: relative;
+    top: 2.6rem;
+    right: 3rem; */
+    display: flex;
+    justify-content: flex-end;
+    background-color: #b0c9c2;
+    /* box-shadow:
+    inset -3px -3px 7px #ffffff73,
+    inset 3px 3px 5px
+    #A3B1C6; */
+    /* padding: 0.3rem; */
+    color: white;
+    height: 8rem;
     position: relative;
-    left: 40rem;
+    max-width: 960px;
+    /* top: 3rem; */
 }
 
 .today-sched__container{
     letter-spacing: 2px;
     border-radius: 5px;
-    width: 65rem;
+    /* width: 65rem; */
     height: auto;
     display: block;
-    padding-top: 1rem;
+    /* padding-top: 1rem;
     padding-left: 1rem;
-    padding-right: 1rem;
+    padding-right: 1rem; */
     align-content: center;
     margin-top: 2rem;
-    margin-bottom: 1rem;
+    /* margin-bottom: 4rem; */
     background-color: #dbded5;
-    box-shadow:
+    /* box-shadow:
     inset -3px -3px 7px #ffffff73,
-    inset 3px 3px 5px #bdbfb8;
+    inset 3px 3px 5px #bdbfb8; */
+}
+
+.today-workouts{
+    /* letter-spacing: 2px; */
+    border-radius: 5px;
+    /* width: 65rem; */
+    height: auto;
+    display: block;
+    /* padding-top: 1rem;
+    padding-left: 1rem;
+    padding-right: 1rem; */
+    align-content: center;
+    margin-top: 2rem;
+    /* margin-bottom: 4rem; */
+    background-color: #dbded5;
+    /* box-shadow:
+    inset -3px -3px 7px #ffffff73,
+    inset 3px 3px 5px #bdbfb8; */
 }
 
 .todaysclients__container{
@@ -268,7 +327,7 @@ body::-webkit-scrollbar {
     text-align: center;
     font-family: Calibri;
     font-weight: bold;
-    font-size: 2rem;
+    font-size: 1.3em;
     position: relative;
     top: 2rem;
 }
@@ -276,8 +335,8 @@ body::-webkit-scrollbar {
 .title__container{
     text-Align: center;
     position: relative;
-    left: 2rem;
-    font-size: 2rem;
+    /* left: 2rem; */
+    font-size: 1rem;
     font-family: Pacifico, cursive;
     margin-top: 3rem;
     border-radius: 3px;
@@ -291,15 +350,11 @@ body::-webkit-scrollbar {
 /* /manage-client section */
 
 .clientinfo__container{
-    letter-spacing: 2px;
+    /* display: flex; */
     border-radius: 3px;
-    width: 80rem;
-    height: 30rem;
-    display: flex;
     padding-top: 1rem;
-    justify-content: center;
-    align-content: center;
     margin-top: 2rem;
+    /* width: 30rem; */
 }
 
 .clientinfo__header{
@@ -312,15 +367,17 @@ body::-webkit-scrollbar {
 .clientinfo__info{
     display: block;
     text-align: center;
-    width: 35rem;
+    /* width: 35rem; */
     height: 20rem;
     position: relative;
+    /* left: 5rem; */
     top: 3rem;
     border-radius: 5px;
     padding-left: 2rem;
     padding-right: 2rem;
     padding-bottom: 5rem;
-    margin-right: 0.5rem;
+    /* width: 100%; */
+    /* margin-right: 0.5rem; */
     color: black;
     background-color: #dbded5;
     box-shadow:
@@ -336,11 +393,11 @@ body::-webkit-scrollbar {
 .clientinfo__payment{
     display: block;
     text-align: center;
-    width: 30rem;
+    /* width: 40rem; */
     height: 20rem;
     position: relative;
-    top: 3rem;
-    margin-left: 0.5rem;
+    /* top: 3rem; */
+    /* margin-left: -20rem; */
     border-radius: 5px;
     padding-left: 2rem;
     padding-right: 2rem;
@@ -360,29 +417,42 @@ body::-webkit-scrollbar {
 .clientinfo__clientcard{
     display: flex;
     justify-content: center;
+    overflow: auto;
     /* padding: 1rem; */
     /* margin-right: 2rem; */
     /* margin-left: 1rem; */
     padding-top: 1rem;
     padding-bottom: 1rem;
     /* padding-left: rem; */
-    width: 31rem;
+    /* width: 26rem; */
     color: black;
     background-color: white;
+    /* font-size: 1.2em; */
     box-shadow:
     inset -3px -3px 7px #ffffff73,
     inset 3px 3px 5px
     #A3B1C6
 }
 
+.title__header{
+    font-size: 3em;
+}
+
+@media only screen and (max-width: 1400px) {
+
+    .clientinfo__clientcard{
+        justify-content: flex-start;
+    }
+  }
+
 .clientinfo__paymentcard{
     display: flex;
     justify-content: space-evenly;
     padding: 1rem;
     padding-top: 1rem;
-    margin-left: 1rem;
+    /* margin-left: 1rem; */
     padding-bottom: 3rem;
-    margin-right: 1rem;
+    /* margin-right: 1rem; */
     color: black;
     background-color: white;
     box-shadow:
@@ -396,7 +466,8 @@ body::-webkit-scrollbar {
     border-radius: 3px;
     display: flex;
     flex-direction: column;
-    margin-right: 2rem;
+    margin-right: 0.5rem;
+    margin-left: 0.5rem;
 }
 
 .cancellation{
@@ -412,7 +483,7 @@ body::-webkit-scrollbar {
     border-radius: 3px;
     display: flex;
     flex-direction: column;
-    margin-right: 2rem;
+    /* margin-right: 2rem; */
     text-align: center;
 }
 
@@ -460,6 +531,9 @@ body::-webkit-scrollbar {
     font-size: 2rem;
     font-family: Pacifico, cursive;
     margin-top: 3rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    text-align: center;
 
 }
 
@@ -471,17 +545,18 @@ body::-webkit-scrollbar {
     font-size: 2rem;
     font-family: Calibri;
     font-weight: 800;
-    width: 20rem;
+    /* width: 10rem; */
     height: 3.2rem;
     position: relative;
-    left: 22rem;
-    top: 1rem;
+    /* left: 7rem; */
+    /* top: 1rem; */
     margin-top: 0.5rem;
+    margin-bottom: 3rem;
     background-color: #b0c9c2;
-    box-shadow:
+    /* box-shadow:
     inset -3px -3px 7px #ffffff73,
     inset 3px 3px 5px
-    rgba(94, 104, 121, .288)
+    rgba(94, 104, 121, .288) */
     /* box-shadow: -2px -2px 8px rgba(255, 255, 255, 1),
     -2px -2px 12px rgba(255, 255, 255, 0.5),
     inset 2px 2px 4px rgba(255, 255, 255, 0.1),
@@ -527,15 +602,16 @@ body::-webkit-scrollbar {
 .home-clients__payment{
     display: block;
     text-align: center;
-    width: 30rem;
-    height: 25rem;
+    /* width: 30rem; */
+    /* height: 25rem; */
     margin-top: 3rem;
-    border-radius: 5px;
+    /* border-radius: 5px; */
     background-color: #a5bcb6;
-    box-shadow: -2px -2px 8px rgba(255, 255, 255, 1),
+    margin-bottom: 3rem;
+    /* box-shadow: -2px -2px 8px rgba(255, 255, 255, 1),
     -2px -2px 12px rgba(255, 255, 255, 0.5),
     inset 2px 2px 4px rgba(255, 255, 255, 0.1),
-    6px 6px 8px rgba(0, 0, 0, 0.15);
+    6px 6px 8px rgba(0, 0, 0, 0.15); */
     /* box-shadow:
     inset -3px -3px 7px #A3B1C6,
     inset 3px 3px 5px
@@ -628,43 +704,93 @@ body::-webkit-scrollbar {
 
 .workout-and-calendar__container{
     display: flex;
-    margin-top: 3rem;
+    margin-top: 8rem;
     flex-direction: column;
+    align-items: center;
+}
+
+.client-activity-block{
+    display: block;
+    text-align: center;
 }
 
 .client-view__workout-plans{
     display: block;
-    text-align: center;
-    align-content: center;
+    /* text-align: center; */
+    /* align-content: center; */
     position: relative;
-    width: 60rem;
+    /* left: 30rem; */
+    /* width: auto; */
     height: 27rem;
-    bottom: 10rem;
-    border-radius: 20px;
+    /* bottom: 10rem; */
+    /* border-radius: 20px; */
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    background-color: #dbded5;
-    padding-bottom: 2rem;
+    background-color: #333333;
+    /* padding-bottom: 2rem; */
     padding-right: 3rem;
-    box-shadow: -2px -2px 8px rgba(255, 255, 255, 1),
+    border: 1px solid black;
+    overflow-x: auto;
+    /* box-shadow: -2px -2px 8px rgba(255, 255, 255, 1),
     -2px -2px 12px rgba(255, 255, 255, 0.5),
     inset 2px 2px 4px rgba(255, 255, 255, 0.1),
-    6px 6px 8px rgba(0, 0, 0, 0.15);
+    6px 6px 8px rgba(0, 0, 0, 0.15); */
 }
+
+@media only screen and (max-width: 960px) {
+
+    .client-view__workout-plans{
+        max-width: 940px;
+
+    }
+  }
+
+@media only screen and (max-width: 806px) {
+
+    .client-view__workout-plans{
+        max-width: 740px;
+
+    }
+  }
+@media only screen and (max-width: 700px) {
+
+    .client-view__workout-plans{
+        max-width: 640px;
+
+    }
+  }
+@media only screen and (max-width: 600px) {
+
+    .client-view__workout-plans{
+        max-width: 540px;
+
+    }
+  }
+@media only screen and (max-width: 450px) {
+
+    .client-view__workout-plans{
+        max-width: 390px;
+
+    }
+  }
+
 
 .client-view__workout-plans-header-on{
     display: flex;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    height: 5rem;
+    height: 4rem;
     position: relative;
-    width: 13rem;
-    left: 4rem;
-    bottom: 10rem;
+    color: black;
+    width: 7rem;
+    top: 4rem;
+    padding-top: 1rem;
     padding-left: 1rem;
+    padding-bottom: 0.4rem;
+    background-color: #dbded5;
+    align-items: center;
     box-shadow:
     inset -3px -3px 7px #ffffff73,
     inset 3px 3px 5px
     rgba(94, 104, 121, .288);
-    padding-left: 1rem;
     padding-right: 1rem;
 
 }
@@ -672,12 +798,17 @@ body::-webkit-scrollbar {
 .client-view__workout-plans-header-off{
     display: flex;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    height: 5rem;
+    height: 4rem;
     position: relative;
-    bottom: 10rem;
-    width: 13rem;
-    left: 4rem;
+    color: black;
+    width: 7rem;
+    top: 4rem;
+    align-items: center;
+    padding-top: 1rem;
     padding-left: 1rem;
+    padding-bottom: 0.4rem;
+    padding-right: 1rem;
+    background-color: #dbded5;
     box-shadow: -2px -2px 8px rgba(255, 255, 255, 1),
     -2px -2px 12px rgba(255, 255, 255, 0.5),
     inset 2px 2px 4px rgba(255, 255, 255, 0.1),
@@ -700,9 +831,9 @@ body::-webkit-scrollbar {
     height: 25rem;
     border-radius: 20px;
     position: relative;
-    bottom: 10rem;
+    /* bottom: 10rem; */
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    background-color: #dbded5;
+    background-color: #b0c9c2;
     padding-bottom: 2rem;
     padding-right: 3rem;
     box-shadow:
@@ -713,15 +844,15 @@ body::-webkit-scrollbar {
 
 .client-view__workout-sched-header-on{
     display: flex;
-    background-color: #dbded5;
-    color: black;
+    color: white;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    height: 5rem;
+    height: 4rem;
+    background-color: #b0c9c2;
     position: relative;
     justify-content: center;
-    width: 10rem;
-    bottom: 4.6rem;
-    left: 17.2rem;
+    width: 7rem;
+    top: 4rem;
+    padding-top: 1rem;
     padding-bottom: 0.4rem;
     box-shadow:
     inset -3px -3px 7px #ffffff73,
@@ -733,15 +864,15 @@ body::-webkit-scrollbar {
 
 .client-view__workout-sched-header-off{
     display: flex;
-    background-color: #dbded5;
-    color: black;
+    background-color: #b0c9c2;
+    color: white;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    height: 5rem;
+    height: 4rem;
     position: relative;
     justify-content: center;
-    width: 10rem;
-    bottom: 4.6rem;
-    left: 17.2rem;
+    width: 7rem;
+    top: 4rem;
+    padding-top: 1rem;
     padding-bottom: 0.4rem;
     box-shadow: -2px -2px 8px rgba(255, 255, 255, 1),
     -2px -2px 12px rgba(255, 255, 255, 0.5),
@@ -761,7 +892,7 @@ body::-webkit-scrollbar {
     display: flex;
     margin-top: 3rem;
     overflow-x: hidden;
-    margin-left: 3rem;;
+    /* margin-left: 3rem;; */
 }
 
 .today-plan-sched__container-hidden{
@@ -769,7 +900,7 @@ body::-webkit-scrollbar {
     display: flex;
     margin-top: 3rem;
     overflow-x: hidden;
-    margin-left: 3rem;;
+    /* margin-left: 3rem;; */
 }
 
 .workoutplans__container:hover{
@@ -797,8 +928,8 @@ body::-webkit-scrollbar {
     height: 3rem;
     position: relative;
     width: 5rem;
-    left: 10.4rem;
-    top: 2.2rem;
+    /* left: 10.4rem; */
+    top: 1rem;
     padding-top: 1rem;
     padding-left: 1rem;
     padding-bottom: 0.4rem;
@@ -816,9 +947,9 @@ body::-webkit-scrollbar {
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     height: 3rem;
     position: relative;
-    top: 2.2rem;
+    top: 1rem;
     width: 5rem;
-    left: 10.47rem;
+    /* left: 10.47rem; */
     padding-top: 1rem;
     padding-left: 1rem;
     padding-bottom: 0.4rem;
@@ -843,8 +974,8 @@ body::-webkit-scrollbar {
     position: relative;
     justify-content: center;
     width: 7rem;
-    bottom: 0.8rem;
-    left: 15.5rem;
+    top: 1rem;
+    /* left: 3rem; */
     padding-top: 1rem;
     padding-bottom: 0.4rem;
     box-shadow:
@@ -864,12 +995,42 @@ body::-webkit-scrollbar {
     position: relative;
     justify-content: center;
     width: 7rem;
-    bottom: 0.8rem;
-    left: 15.5rem;
+    top: 1rem;
     padding-top: 1rem;
     padding-bottom: 0.4rem;
     box-shadow: -2px -2px 8px rgba(255, 255, 255, 1),
     -2px -2px 12px rgba(255, 255, 255, 0.5),
     inset 2px 2px 4px rgba(255, 255, 255, 0.1),
     6px 6px 8px rgba(0, 0, 0, 0.15);
+}
+
+
+@media only screen and (max-width: 360px) {
+
+    .MuiTimelineContent-root {
+        flex: 1;
+        padding: 6px 16px;
+        max-width: fit-content;
+    }
+    .MuiTimelineItem-alignAlternate:nth-child(odd) {
+        flex-direction: row-reverse;
+    }
+  }
+
+
+
+.invisibar{
+    height: 3rem;
+    text-align: center;
+    position: relative;
+    /* bottom: 3rem; */
+}
+
+.marginTop{
+    margin-top: 2rem;
+}
+
+.profile-edit__container{
+    display: flex;
+    justify-content: center;
 }

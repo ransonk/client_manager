@@ -51,33 +51,25 @@ const ClientInfo = () => {
 
     return (
         <div className='clientinfo__container'>
-            <div className='clientinfo__info'>
-                <h1 className='clientinfo__header'>{firstName + ' ' + lastName}</h1>
-                <div className='clientinfo__clientcard'>
-                    <div className='clientinfo__info__contact'>
-                        <p className='card__header'>Contact</p>
-                        <p className='card__contact'>Phone:</p>
-                        {phone}
-                        <br />
-                        <br />
-                        <p className='card__contact'>Email:</p>
-                        {email}
-                    </div>
-                    <div className='clientinfo__info__contact'>
-                        <p className='card__header'>Stats</p>
-                        <p>Age:</p>
-                        {age}
-                        <br />
-                        <br />
-                        <p>Weight:</p>
-                        {weight}
-                    </div>
-                    <div className='clientinfo__info__contact'>
-                        <p className='card__header'>Attendance</p>
-                        <p>No Shows:</p>
-                        {noshows}
-                        <p className='cancellation'>Cancellations:</p>
-                        {cancellations}
+            <div className='clientinfo__container'>
+                <div className='clientinfo__payment'>
+                    <h1 className='clientinfo__header'>Payment</h1>
+                    <div className='clientinfo__paymentcard'>
+
+                        <div className='clientinfo__info__payment'>
+                            <p className='card__header'>Due</p>
+                            <p>{'$' + amount}</p>
+                        </div>
+                        <div className='clientinfo__info__payment'>
+                            <p className='card__header'>Paid</p>
+                            <p>
+                                {paid === true ? 'Yes' : 'No'}
+                            </p>
+                        </div>
+                        <div className='clientinfo__info__payment__duedate'>
+                            <p className='card__header'>Next Due Date</p>
+                            <p className='duedate'>{duedate}</p>
+                        </div>
                     </div>
                 </div>
             </div>
