@@ -22,14 +22,14 @@ import { createClient } from '../services/auth';
 const useStyles = makeStyles({
     list: {
         width: 250,
-        backgroundColor: '#b0c9c2'
+        backgroundColor: '#24364e',
     },
     fullList: {
         width: 'auto',
-        backgroundColor: '#b0c9c2'
+        backgroundColor: '#24364e'
     },
     paperAnchorLeft: {
-        backgroundColor: '#b0c9c2',
+        backgroundColor: '#24364e',
         color: "blue"
 
     },
@@ -126,6 +126,7 @@ const useStyles = makeStyles({
         },
         'input:hover ~ &': {
             backgroundColor: '#106ba3',
+
         },
     },
     paid: {

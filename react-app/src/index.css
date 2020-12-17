@@ -7,7 +7,7 @@
 
 html{
     overflow: auto;
-    background-color: #dbded5;
+    background-color: #0f1724;
     /* width: 110%; */
     overflow-x: hidden;
 
@@ -101,7 +101,7 @@ body{
     text-decoration: none;
     text-transform: uppercase;
     font-weight: 800;
-    color: black;
+    color: white;
     font-size: 18px;
     width: 10rem;
     /* border-radius: 40px; */
@@ -139,7 +139,7 @@ body::-webkit-scrollbar {
   }
 
 .MuiDrawer-paper{
-    background-color: #b0c9c2 !important
+    background-color: #24364e !important
 }
 
 .Mui-expanded{
@@ -149,6 +149,19 @@ body::-webkit-scrollbar {
 .MuiToolbar-root {
     display: flex;
     justify-content: space- !important;
+}
+
+.MuiInputLabel-root{
+    color: white !important;
+    background-color: white;
+}
+
+.MuiListItemText-primary{
+    color: white !important;
+}
+
+.MuiFormLabel-root{
+    color: black !important;
 }
 
 .footer__container{
@@ -221,7 +234,7 @@ body::-webkit-scrollbar {
 
 .overview__container{
     display: flex;
-    background-color: #b0c9c2;
+    background-color: #24364e;
     position: relative;
     text-align: center;
     justify-content: center;
@@ -250,7 +263,7 @@ body::-webkit-scrollbar {
     right: 3rem; */
     display: flex;
     justify-content: flex-end;
-    background-color: #b0c9c2;
+    background-color: #24364e;
     /* box-shadow:
     inset -3px -3px 7px #ffffff73,
     inset 3px 3px 5px
@@ -266,7 +279,7 @@ body::-webkit-scrollbar {
     right: 3rem; */
     display: flex;
     justify-content: flex-end;
-    background-color: #b0c9c2;
+    background-color: #070d17;
     /* box-shadow:
     inset -3px -3px 7px #ffffff73,
     inset 3px 3px 5px
@@ -275,6 +288,7 @@ body::-webkit-scrollbar {
     color: white;
     height: 8rem;
     position: relative;
+    bottom: 3rem;
     max-width: 960px;
     /* top: 3rem; */
 }
@@ -291,7 +305,10 @@ body::-webkit-scrollbar {
     align-content: center;
     margin-top: 2rem;
     /* margin-bottom: 4rem; */
-    background-color: #dbded5;
+    background-color: #0f1724;
+    border-left: 1px solid white;
+    border-top: 1px solid white;
+    border-right: 1px solid white;
     /* box-shadow:
     inset -3px -3px 7px #ffffff73,
     inset 3px 3px 5px #bdbfb8; */
@@ -309,17 +326,20 @@ body::-webkit-scrollbar {
     align-content: center;
     margin-top: 2rem;
     /* margin-bottom: 4rem; */
-    background-color: #dbded5;
+    background-color: #24364e;
     /* box-shadow:
     inset -3px -3px 7px #ffffff73,
     inset 3px 3px 5px #bdbfb8; */
 }
 
 .todaysclients__container{
-    background-color: whitesmoke;
+    background-color: #0f1724;
     position: relative;
     bottom: 3rem;
     padding-bottom: 2.5rem;
+    text-align: center;
+    /* border-left: 1px solid white;
+    border-right: 1px solid white; */
     /* margin-top: 10rem; */
 }
 
@@ -338,12 +358,13 @@ body::-webkit-scrollbar {
     /* left: 2rem; */
     font-size: 1rem;
     font-family: Pacifico, cursive;
-    margin-top: 3rem;
+    /* background-image: linear-gradient(to right, #c59283, white, #c59283); */
+    /* margin-top: 3rem; */
     border-radius: 3px;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    margin-top: 1rem;
+    /* margin-top: 1rem; */
     margin-bottom: 1rem;
 }
 
@@ -371,15 +392,16 @@ body::-webkit-scrollbar {
     height: 20rem;
     position: relative;
     /* left: 5rem; */
-    top: 3rem;
-    border-radius: 5px;
+    /* top: 3rem; */
+    /* border-radius: 5px; */
     padding-left: 2rem;
     padding-right: 2rem;
     padding-bottom: 5rem;
     /* width: 100%; */
     /* margin-right: 0.5rem; */
-    color: black;
-    background-color: #dbded5;
+    color: #bde0fe;
+    background-color: #1a2230;
+    /* background-color: #fcd5ce; */
     box-shadow:
     inset -3px -3px 7px #ffffff73,
     inset 3px 3px 5px
@@ -398,12 +420,13 @@ body::-webkit-scrollbar {
     position: relative;
     /* top: 3rem; */
     /* margin-left: -20rem; */
-    border-radius: 5px;
+    bottom: 3rem;
+    /* border-radius: 5px; */
     padding-left: 2rem;
     padding-right: 2rem;
     padding-bottom: 5rem;
-    color: black;
-    background-color: #dbded5;
+    color: #bde0fe;
+    background-color: #1a2230;
     box-shadow:
     inset -3px -3px 7px #ffffff73,
     inset 3px 3px 5px
@@ -425,8 +448,8 @@ body::-webkit-scrollbar {
     padding-bottom: 1rem;
     /* padding-left: rem; */
     /* width: 26rem; */
-    color: black;
-    background-color: white;
+    color: white;
+    background-color: black;
     /* font-size: 1.2em; */
     box-shadow:
     inset -3px -3px 7px #ffffff73,
@@ -436,6 +459,8 @@ body::-webkit-scrollbar {
 
 .title__header{
     font-size: 3em;
+    color: #bde0fe;
+    /* background-color: #1a2230; */
 }
 
 @media only screen and (max-width: 1400px) {
@@ -453,8 +478,8 @@ body::-webkit-scrollbar {
     /* margin-left: 1rem; */
     padding-bottom: 3rem;
     /* margin-right: 1rem; */
-    color: black;
-    background-color: white;
+    color: white;
+    background-color: black;
     box-shadow:
     inset -3px -3px 7px #ffffff73,
     inset 3px 3px 5px
@@ -463,7 +488,7 @@ body::-webkit-scrollbar {
 
 .clientinfo__info__contact{
     border: 1px solid transparent;
-    border-radius: 3px;
+    /* border-radius: 3px; */
     display: flex;
     flex-direction: column;
     margin-right: 0.5rem;
@@ -480,7 +505,7 @@ body::-webkit-scrollbar {
 
 .clientinfo__info__payment{
     border: 1px solid transparent;
-    border-radius: 3px;
+    /* border-radius: 3px; */
     display: flex;
     flex-direction: column;
     /* margin-right: 2rem; */
@@ -534,6 +559,7 @@ body::-webkit-scrollbar {
     padding-top: 1rem;
     padding-bottom: 1rem;
     text-align: center;
+    color: #bde0fe;
 
 }
 
@@ -552,7 +578,7 @@ body::-webkit-scrollbar {
     /* top: 1rem; */
     margin-top: 0.5rem;
     margin-bottom: 3rem;
-    background-color: #b0c9c2;
+    background-color: #212c3d;
     /* box-shadow:
     inset -3px -3px 7px #ffffff73,
     inset 3px 3px 5px
@@ -606,7 +632,7 @@ body::-webkit-scrollbar {
     /* height: 25rem; */
     margin-top: 3rem;
     /* border-radius: 5px; */
-    background-color: #a5bcb6;
+    background-color: #212c3d;
     margin-bottom: 3rem;
     /* box-shadow: -2px -2px 8px rgba(255, 255, 255, 1),
     -2px -2px 12px rgba(255, 255, 255, 0.5),
@@ -646,6 +672,16 @@ body::-webkit-scrollbar {
 
 .home-clients__workouts:hover{
     overflow-y: auto;
+}
+
+.home-clients__workouts::-webkit-scrollbar{
+    background-color: white;
+}
+.home-clients__workouts::-webkit-scrollbar-track{
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+.home-clients__workouts::-webkit-scrollbar-thumb{
+    background-color: #11ece5;
 }
 
 .home-clients__workouts{
@@ -719,16 +755,17 @@ body::-webkit-scrollbar {
     /* text-align: center; */
     /* align-content: center; */
     position: relative;
+    bottom: 3rem;
     /* left: 30rem; */
     /* width: auto; */
     height: 27rem;
     /* bottom: 10rem; */
     /* border-radius: 20px; */
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    background-color: #333333;
+    background-color: #24364e;
     /* padding-bottom: 2rem; */
     padding-right: 3rem;
-    border: 1px solid black;
+    border-bottom: 1px solid black;
     overflow-x: auto;
     /* box-shadow: -2px -2px 8px rgba(255, 255, 255, 1),
     -2px -2px 12px rgba(255, 255, 255, 0.5),
@@ -776,31 +813,34 @@ body::-webkit-scrollbar {
 
 .client-view__workout-plans-header-on{
     display: flex;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    background-image: linear-gradient(to right, #214b64, #24364e);
     height: 4rem;
     position: relative;
-    color: black;
+    color: white;
     width: 7rem;
     top: 4rem;
     padding-top: 1rem;
     padding-left: 1rem;
     padding-bottom: 0.4rem;
-    background-color: #dbded5;
+    background-color: #24364e;
+    box-shadow: -2px -2px 8px rgba(255, 255, 255, 1),
+    -2px -2px 12px rgba(255, 255, 255, 0.5),
+    inset 2px 2px 4px rgba(255, 255, 255, 0.1),
+    6px 6px 8px rgba(0, 0, 0, 0.15);
     align-items: center;
-    box-shadow:
+    /* box-shadow:
     inset -3px -3px 7px #ffffff73,
     inset 3px 3px 5px
-    rgba(94, 104, 121, .288);
+    rgba(94, 104, 121, .288); */
     padding-right: 1rem;
 
 }
 
 .client-view__workout-plans-header-off{
     display: flex;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    height: 4rem;
+    background-image: linear-gradient(to right, #214b64, #24364e);    height: 4rem;
     position: relative;
-    color: black;
+    color: white;
     width: 7rem;
     top: 4rem;
     align-items: center;
@@ -809,10 +849,6 @@ body::-webkit-scrollbar {
     padding-bottom: 0.4rem;
     padding-right: 1rem;
     background-color: #dbded5;
-    box-shadow: -2px -2px 8px rgba(255, 255, 255, 1),
-    -2px -2px 12px rgba(255, 255, 255, 0.5),
-    inset 2px 2px 4px rgba(255, 255, 255, 0.1),
-    6px 6px 8px rgba(0, 0, 0, 0.15);
 }
 
 .client-view__workout-plans-header-off:hover{
@@ -847,37 +883,38 @@ body::-webkit-scrollbar {
     color: white;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     height: 4rem;
-    background-color: #b0c9c2;
+    background-image: linear-gradient(to right, #214b64, #24364e);
     position: relative;
     justify-content: center;
     width: 7rem;
     top: 4rem;
     padding-top: 1rem;
     padding-bottom: 0.4rem;
-    box-shadow:
+    /* box-shadow:
     inset -3px -3px 7px #ffffff73,
     inset 3px 3px 5px
-    rgba(94, 104, 121, .288);
+    rgba(94, 104, 121, .288); */
     padding-left: 1rem;
     padding-right: 1rem;
+    box-shadow: -2px -2px 8px rgba(255, 255, 255, 1),
+    -2px -2px 12px rgba(255, 255, 255, 0.5),
+    inset 2px 2px 4px rgba(255, 255, 255, 0.1),
+    6px 6px 8px rgba(0, 0, 0, 0.15);
 }
 
 .client-view__workout-sched-header-off{
     display: flex;
     background-color: #b0c9c2;
     color: white;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    height: 4rem;
+    background-image: linear-gradient(to right, #214b64, #24364e);    height: 4rem;
     position: relative;
     justify-content: center;
     width: 7rem;
     top: 4rem;
     padding-top: 1rem;
     padding-bottom: 0.4rem;
-    box-shadow: -2px -2px 8px rgba(255, 255, 255, 1),
-    -2px -2px 12px rgba(255, 255, 255, 0.5),
-    inset 2px 2px 4px rgba(255, 255, 255, 0.1),
-    6px 6px 8px rgba(0, 0, 0, 0.15);
+    padding-left: 1rem;
+    padding-right: 1rem;
 }
 
 
@@ -930,15 +967,15 @@ body::-webkit-scrollbar {
     width: 5rem;
     /* left: 10.4rem; */
     top: 1rem;
+    /* right: 2px; */
     padding-top: 1rem;
     padding-left: 1rem;
     padding-bottom: 0.4rem;
-    box-shadow:
-    inset -3px -3px 7px #ffffff73,
-    inset 3px 3px 5px
-    rgba(94, 104, 121, .288);
-    padding-left: 1rem;
-    padding-right: 1rem;
+    background-image: linear-gradient(to right, #214b64, #24364e);
+    box-shadow: -2px -2px 8px rgba(255, 255, 255, 1),
+    -2px -2px 12px rgba(255, 255, 255, 0.5),
+    inset 2px 2px 4px rgba(255, 255, 255, 0.1),
+    6px 6px 8px rgba(0, 0, 0, 0.15);
 
 }
 
@@ -953,10 +990,8 @@ body::-webkit-scrollbar {
     padding-top: 1rem;
     padding-left: 1rem;
     padding-bottom: 0.4rem;
-    box-shadow: -2px -2px 8px rgba(255, 255, 255, 1),
-    -2px -2px 12px rgba(255, 255, 255, 0.5),
-    inset 2px 2px 4px rgba(255, 255, 255, 0.1),
-    6px 6px 8px rgba(0, 0, 0, 0.15);
+    background-image: linear-gradient(to right, #214b64, #24364e);
+
 }
 
 .overview-button-today-off,
@@ -967,41 +1002,38 @@ body::-webkit-scrollbar {
 
 .overview-button-tomorrow-on{
     display: flex;
-    background-color: #dbded5;
-    color: black;
+    color: white;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     height: 3rem;
     position: relative;
     justify-content: center;
     width: 7rem;
     top: 1rem;
-    /* left: 3rem; */
     padding-top: 1rem;
     padding-bottom: 0.4rem;
-    box-shadow:
-    inset -3px -3px 7px #ffffff73,
-    inset 3px 3px 5px
-    rgba(94, 104, 121, .288);
+    background-image: linear-gradient(to right, #214b64, #24364e);
+    box-shadow: -2px -2px 8px rgba(255, 255, 255, 1),
+    -2px -2px 12px rgba(255, 255, 255, 0.5),
+    inset 2px 2px 4px rgba(255, 255, 255, 0.1),
+    6px 6px 8px rgba(0, 0, 0, 0.15);
     padding-left: 1rem;
     padding-right: 1rem;
 }
 
 .overview-button-tomorrow-off{
     display: flex;
-    background-color: #dbded5;
-    color: black;
+    color: white;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     height: 3rem;
     position: relative;
     justify-content: center;
+    /* left: px; */
     width: 7rem;
     top: 1rem;
     padding-top: 1rem;
     padding-bottom: 0.4rem;
-    box-shadow: -2px -2px 8px rgba(255, 255, 255, 1),
-    -2px -2px 12px rgba(255, 255, 255, 0.5),
-    inset 2px 2px 4px rgba(255, 255, 255, 0.1),
-    6px 6px 8px rgba(0, 0, 0, 0.15);
+    background-image: linear-gradient(to right, #214b64, #24364e);
+
 }
 
 

@@ -59,6 +59,9 @@ const useStyles = makeStyles({
     },
     time: {
         color: 'blue'
+    },
+    ptag: {
+        color: 'white',
     }
 });
 
@@ -194,7 +197,7 @@ export default function TomorrowsClients() {
                     })
                     }
                 </Timeline>
-                : <p>No Workouts Scheduled</p>}
+                : <p className={classes.ptag}>No Workouts Scheduled</p>}
 
         </div >
 
