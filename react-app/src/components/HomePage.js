@@ -103,9 +103,9 @@ const HomePage = ({ setAuthenticated }) => {
             </Grid>
             <Grid container>
                 <Grid item xs={12} className='home-welcome__message'>Welcome Back, {name}</Grid>
-                <Grid item xs={2} md={2}></Grid>
-                <Grid item xs={8} className='today-sched__container'>
-                    <Grid item md={2}></Grid>
+                <Grid item xs={2} md={3}></Grid>
+                <Grid item xs={6} className='today-sched__container'>
+                    <Grid item md={3}></Grid>
 
                     {/* <Grid item md={12} className='overview-date'>
                         <p>{date1}</p>

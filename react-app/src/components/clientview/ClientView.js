@@ -57,15 +57,14 @@ const ClientView = ({ setAuthenticated }) => {
                 </Grid>
                 <Grid item md={3}></Grid>
             </Grid>
-            <Grid item xs={12} md={12} className='invisibar'></Grid>
-            <Grid item xs={12} md={12} className='invisibar'></Grid>
-            <Grid item xs={12} md={12} className='invisibar'></Grid>
-            <Grid container>
+            {/* <Grid item xs={12} md={12} className='invisibar'></Grid> */}
+            {/* <Grid item xs={12} md={12} className='invisibar'></Grid> */}
+            <Grid container xs={6} md={12} className='client-activity-block'>
 
                 <Grid item md={3}></Grid>
                 <Grid item md={6} className='today-workouts'>
 
-                    <Grid item xs={12} md={12} className='overview-buttons'>
+                    <Grid item xs={12} md={12} className='client-buttons'>
 
                         {/* <div className='workout-and-calendar__container'> */}
                         <div className={'client-buttons', (plans === false ? 'client-view__workout-sched-header-on' : 'client-view__workout-sched-header-off')} onClick={clickSchedule}>
@@ -84,9 +83,10 @@ const ClientView = ({ setAuthenticated }) => {
                     </Grid>
 
                 </Grid>
-                <Grid item md={3}></Grid>
+                <Grid item md={4}></Grid>
             </Grid>
 
+            <Grid item xs={12} md={12} className='invisibar'></Grid>
             <Footer />
         </>
     );
