@@ -6,6 +6,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import { TextField, Button } from '@material-ui/core';
 import Logo from "../../images/logan-weaver-apyd8hWmIw0-unsplash\ \(1\).jpg"
 import { NavLink } from 'react-router-dom';
+import { Grid } from '@material-ui/core';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -36,25 +37,17 @@ const useStyles = makeStyles((theme) => ({
   },
   signUpBtn: {
     position: "relative",
-    top: "6rem",
-    right: "18rem",
-    width: "10rem",
     backgroundColor: '#0077b6',
-    color: 'white',
-    top: '10rem'
-    // alignContent: "center"
-    // textAlign: "center"
+    color: 'white'
   },
   header1: {
     color: theme.palette.primary.main,
     fontFamily: 'Pacifico, cursive',
-    fontSize: "3rem",
+    fontSize: "180%",
     position: "relative",
     // right: "4rem",
     bottom: "1rem",
-    right: "5.5rem",
     color: '#0077b6',
-    top: '3rem'
   },
   header2: {
     // color: theme.palette.primary.main,
@@ -69,9 +62,14 @@ const useStyles = makeStyles((theme) => ({
   },
   login: {
     position: "relative",
-    left: "6rem",
+    // left: "6rem",
     top: '4rem'
-  }
+  },
+  buttons: {
+    display: 'flex',
+    justifyContent: 'center',
+    marginTop: '2rem',
+  },
 }));
 
 const SignUpForm = ({ authenticated, setAuthenticated }) => {
@@ -118,12 +116,13 @@ const SignUpForm = ({ authenticated, setAuthenticated }) => {
   }
 
   return (
-    <div className='signup-page__container'>
-      <div className='signup__graphic'>
-        <img src={Logo} width='100%'></img>
-      </div>
-      <div className='signup__container'>
-        <Container maxWidth="sm" className={classes.border}>
+    <Grid container xs={12} md={12} className='login-page__container'>
+      <Grid xs={4} md={6} className='login__graphic'></Grid>
+      <Grid container xs={12} md={6} className='login__container'>
+        <Grid xs={12} md={12} className='login-page__filler'></Grid>
+        <Grid xs={2} md={2} className='login-page__filler'></Grid>
+        <Grid xs={8} md={8} className='login-page__form'>
+
           <form onSubmit={onSignUp}>
             <p className={classes.header1}>Create Account</p>
             <div>
@@ -131,7 +130,7 @@ const SignUpForm = ({ authenticated, setAuthenticated }) => {
               <TextField
                 id="standard-basic"
                 label="First Name"
-                className={classes.inputs}
+                className='form-inputs'
                 type="text"
                 name="firstName"
                 onChange={updateFirstName}
@@ -143,7 +142,7 @@ const SignUpForm = ({ authenticated, setAuthenticated }) => {
               <TextField
                 id="standard-basic"
                 label="Last Name"
-                className={classes.inputs}
+                className='form-inputs'
                 type="text"
                 name="lastName"
                 onChange={updateLastName}
@@ -155,7 +154,7 @@ const SignUpForm = ({ authenticated, setAuthenticated }) => {
               <TextField
                 id="standard-basic"
                 label="Email"
-                className={classes.inputs}
+                className='form-inputs'
                 type="text"
                 name="email"
                 onChange={updateEmail}
@@ -167,7 +166,7 @@ const SignUpForm = ({ authenticated, setAuthenticated }) => {
               <TextField
                 id="standard-basic"
                 label="Password"
-                className={classes.inputs}
+                className='form-inputs'
                 type="password"
                 onChange={updatePassword}
                 value={password}
@@ -178,23 +177,30 @@ const SignUpForm = ({ authenticated, setAuthenticated }) => {
               <TextField
                 id="standard-basic"
                 label="Confirm Password"
-                className={classes.inputs2}
+                className='form-inputs'
                 type="password"
                 onChange={updateRepeatPassword}
                 value={repeatPassword}
                 required={true}
               />
-              <Button variant="contained" color="secondary" type="submit" className={classes.signUpBtn}>
-                Sign Up
+            </div>
+            <div className={classes.buttons}>
+              <Grid xs={2} md={2}></Grid>
+              <Grid xs={8} md={8}>
+                <Button variant="contained" color="secondary" type="submit" className={classes.signUpBtn}>
+                  Sign Up
             </Button>
+              </Grid>
+              <Grid xs={2} md={2}></Grid>
             </div>
             <NavLink to="/login" exact={true} activeClassName="active" className={classes.login}>
               Return to Login
           </NavLink>
           </form>
-        </Container >
-      </div >
-    </div>
+        </Grid>
+        <Grid xs={2} md={2} className='login-page__filler'></Grid>
+      </Grid>
+    </Grid>
   );
 };
 

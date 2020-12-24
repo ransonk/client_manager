@@ -1,8 +1,8 @@
 """empty message
 
-Revision ID: 7173161bcddd
+Revision ID: ce3904a5e97e
 Revises: 
-Create Date: 2020-12-09 18:02:46.590420
+Create Date: 2020-12-17 17:10:45.108265
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = '7173161bcddd'
+revision = 'ce3904a5e97e'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -63,27 +63,42 @@ def upgrade():
     op.create_table('workouts',
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('name', sa.String(length=255), nullable=False),
-    sa.Column('description', sa.Text(), nullable=True),
+    sa.Column('type', sa.String(length=40), nullable=True),
     sa.Column('trainer_id', sa.Integer(), nullable=True),
     sa.Column('created_on', sa.DateTime(), server_default=sa.text('now()'), nullable=True),
     sa.Column('updated_on', sa.DateTime(), server_default=sa.text('now()'), nullable=True),
     sa.ForeignKeyConstraint(['trainer_id'], ['trainers.id'], ),
-    sa.PrimaryKeyConstraint('id'),
-    sa.UniqueConstraint('name')
+    sa.PrimaryKeyConstraint('id')
     )
     op.create_table('workoutplans',
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('name', sa.String(length=255), nullable=False),
-    sa.Column('description', sa.Text(), nullable=True),
-    sa.Column('rating', sa.Integer(), nullable=True),
+    sa.Column('workout1', sa.String(length=500), nullable=True),
+    sa.Column('set1', sa.String(length=500), nullable=True),
+    sa.Column('workout2', sa.String(length=500), nullable=True),
+    sa.Column('set2', sa.String(length=500), nullable=True),
+    sa.Column('workout3', sa.String(length=500), nullable=True),
+    sa.Column('set3', sa.String(length=500), nullable=True),
+    sa.Column('workout4', sa.String(length=500), nullable=True),
+    sa.Column('set4', sa.String(length=500), nullable=True),
+    sa.Column('workout5', sa.String(length=500), nullable=True),
+    sa.Column('set5', sa.String(length=500), nullable=True),
+    sa.Column('workout6', sa.String(length=500), nullable=True),
+    sa.Column('set6', sa.String(length=500), nullable=True),
+    sa.Column('workout7', sa.String(length=500), nullable=True),
+    sa.Column('set7', sa.String(length=500), nullable=True),
+    sa.Column('workout8', sa.String(length=500), nullable=True),
+    sa.Column('set8', sa.String(length=500), nullable=True),
     sa.Column('time', sa.String(length=255), nullable=False),
     sa.Column('date', sa.String(length=255), nullable=False),
-    sa.Column('pull', sa.Boolean(), nullable=True),
-    sa.Column('push', sa.Boolean(), nullable=True),
+    sa.Column('clientFirstName', sa.String(length=255), nullable=False),
+    sa.Column('clientLastName', sa.String(length=255), nullable=False),
     sa.Column('client_id', sa.Integer(), nullable=True),
+    sa.Column('trainer_id', sa.Integer(), nullable=True),
     sa.Column('created_on', sa.DateTime(), server_default=sa.text('now()'), nullable=True),
     sa.Column('updated_on', sa.DateTime(), server_default=sa.text('now()'), nullable=True),
     sa.ForeignKeyConstraint(['client_id'], ['clients.id'], ),
+    sa.ForeignKeyConstraint(['trainer_id'], ['trainers.id'], ),
     sa.PrimaryKeyConstraint('id')
     )
     op.create_table('reviews',
