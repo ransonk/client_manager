@@ -13,7 +13,7 @@ import { setUserLogout } from '../store/users';
 
 const useStyles = makeStyles((theme) => ({
     root: {
-        flexGrow: 1,
+        // flexGrow: 1,
     },
     nav: {
         display: "flex",
@@ -58,10 +58,10 @@ export default function ButtonAppBar({ setAuthenticated }) {
 
 
     return (
-        <div className={classes.root}>
+        <div className='navigation'>
             <AppBar position="static">
                 <p className={classes.Logo}>Trainer Hub</p>
-                <Toolbar className={classes.nav}>
+                <Toolbar className='nav' >
                     <ClientDrawer />
                     <Button className='navButton' onClick={toHome}>Home</Button>
                     <Button className='navButton' onClick={onLogout}>Logout</Button>

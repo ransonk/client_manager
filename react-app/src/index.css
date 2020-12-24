@@ -1092,6 +1092,20 @@ body::-webkit-scrollbar {
     }
   }
 
+  .nav{
+      display: flex;
+      justify-content: center !important;
+      color: white;
+  }
+
+@media only screen and (max-width: 460px) {
+
+    .nav{
+        display: flex;
+        justify-content: flex-end !important;
+    }
+  }
+
 
 
 .invisibar{
