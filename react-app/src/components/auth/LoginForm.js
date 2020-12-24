@@ -14,35 +14,13 @@ import { demoTrainerLogin } from '../../services/auth';
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    // backgroundColor: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)',
-    // border: '3px solid black',
-    // borderRadius: 3,
-    // boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
-    // color: 'blue',
-    // height: 48,
-    // padding: '0 30px',
-  },
-  inputs: {
-    alignContent: "center",
-    width: "70%",
-    position: 'relative',
-    left: '1rem',
-    backgroundColor: 'white',
-  },
-  inputs2: {
-    alignContent: "center",
-    width: "70%",
-    marginBottom: "0.5rem",
-    position: 'relative',
-    left: '1rem',
-    backgroundColor: 'white'
+
   },
   loginBtn: {
     position: "relative",
-    top: "4rem",
-    right: "4rem",
-    width: "30%",
-    minWidth: "30%",
+    // top: "1rem",
+    // right: "4rem",
+    // width: "10rem",
     backgroundColor: '#0077b6',
     color: 'white'
     // alignContent: "center"
@@ -50,11 +28,11 @@ const useStyles = makeStyles((theme) => ({
   },
   demoBtn: {
     position: "relative",
-    top: '7rem',
-    right: '6rem',
+    // top: '7rem',
+    // right: '6rem',
     // bottom: "27rem",
     // left: "29rem",
-    width: "10rem",
+    // width: "10rem",
     backgroundColor: '#e5989b',
     color: 'white'
     // alignContent: "center"
@@ -63,7 +41,7 @@ const useStyles = makeStyles((theme) => ({
   header1: {
     color: '#bde0fe',
     fontFamily: 'Pacifico, cursive',
-    fontSize: "50%",
+    fontSize: "180%",
     position: "relative",
     // right: "4rem",
     bottom: "1rem"
@@ -75,15 +53,25 @@ const useStyles = makeStyles((theme) => ({
     bottom: "5rem"
   },
   loginForm: {
-    position: "relative",
-    right: "4rem",
-    bottom: "5rem"
+    display: 'block',
+    position: 'relative',
+    textAlign: 'center'
+    // marginBottom: '3rem'
   },
   signUp: {
-    position: "relative",
-    left: "12rem",
-    bottom: '1rem'
+    marginTop: '1rem',
+    position: 'relative',
+    top: '1rem'
   },
+  buttons: {
+    display: 'flex',
+    justifyContent: 'center',
+    marginTop: '2rem',
+  },
+  buttons2: {
+    display: 'flex',
+    justifyContent: 'center',
+  }
 }));
 
 const LoginForm = ({ authenticated, setAuthenticated }) => {
@@ -136,55 +124,69 @@ const LoginForm = ({ authenticated, setAuthenticated }) => {
 
   return (
     <Grid container xs={12} md={12} className='login-page__container'>
-      <Grid xs={6} md={6} className='login__graphic'>
-        {/* <img src={Logo} width='100%'></img> */}
-      </Grid>
-      <Grid xs={6} md={6} className='login__container'>
-        <div className='form__container'>
-          <Container maxWidth="sm" className={classes.border}>
-            <form className={classes.loginForm} onSubmit={onLogin}>
-              <p className={classes.header1}>Trainer Hub</p>
-              {/* <h2 className={classes.header2}>Welcome to Client Manager</h2> */}
-              <div>
-                {errors.map((error) => (
-                  <div>{error}</div>
-                ))}
-              </div>
-              <div>
-                {/* <label htmlFor="email"></label> */}
-                <TextField
-                  className={classes.inputs}
-                  id="standard-basic"
-                  label="Email"
-                  value={email}
-                  onChange={updateEmail}
-                />
-              </div>
-              <div>
-                {/* <label htmlFor="password"></label> */}
-                <TextField
-                  className={classes.inputs2}
-                  id="standard-basic"
-                  label="Password"
-                  type="password"
-                  value={password}
-                  onChange={updatePassword}
-                />
-                {/* <button type="submit">Login</button> */}
+      <Grid xs={4} md={6} className='login__graphic'></Grid>
+      <Grid container xs={12} md={6} className='login__container'>
+        {/* <Container maxWidth="sm" className={classes.border}> */}
+        <Grid xs={12} md={12} className='login-page__filler'></Grid>
+        <Grid xs={2} md={2} className='login-page__filler'></Grid>
+        <Grid xs={8} md={8} className='login-page__form'>
+
+          <form className={classes.loginForm} onSubmit={onLogin}>
+            <p className={classes.header1}>Trainer Hub</p>
+            {/* <h2 className={classes.header2}>Welcome to Client Manager</h2> */}
+            <div>
+              {errors.map((error) => (
+                <div>{error}</div>
+              ))}
+            </div>
+            <div>
+              <TextField
+                className='form-inputs'
+                id="standard-basic"
+                label="Email"
+                value={email}
+                onChange={updateEmail}
+              />
+            </div>
+            <div>
+              <TextField
+                className='form-inputs'
+                id="standard-basic"
+                label="Password"
+                type="password"
+                value={password}
+                onChange={updatePassword}
+              />
+            </div>
+            <div className={classes.buttons}>
+              <Grid xs={2} md={2}></Grid>
+              <Grid xs={8} md={8}>
                 <Button variant="contained" color="secondary" type="submit" className={classes.loginBtn}>
                   Sign in
                 </Button>
+              </Grid>
+              <Grid xs={2} md={2}></Grid>
+            </div>
+            <div className={classes.buttons2}>
+              <Grid xs={2} md={2}></Grid>
+              <Grid xs={8} md={8}>
                 <Button variant="contained" color="secondary" onClick={demoLogin} className={classes.demoBtn}>
                   Demo
                 </Button>
-              </div>
+              </Grid>
+              <Grid xs={2} md={2}></Grid>
+            </div>
+
+            <div>
+
               <NavLink to="/sign-up" exact={true} activeClassName="active" className={classes.signUp}>
                 Sign Up
           </NavLink>
-            </form>
+            </div>
+          </form>
 
-          </Container>
-        </div>
+        </Grid>
+        <Grid xs={2} md={2} className='login-page__filler'></Grid>
       </Grid>
     </Grid>
   );
