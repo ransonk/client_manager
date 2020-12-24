@@ -213,6 +213,10 @@ body::-webkit-scrollbar {
    background-color: white;
 }
 
+.login-page__form{
+    text-align: center;
+}
+
 @media only screen and (min-width: 1617px) {
 
     .form-inputs{
