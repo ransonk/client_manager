@@ -331,6 +331,7 @@ body::-webkit-scrollbar {
     border-left: 1px solid white;
     border-top: 1px solid white;
     border-right: 1px solid white;
+    border-bottom: 1px solid white;
     /* box-shadow:
     inset -3px -3px 7px #ffffff73,
     inset 3px 3px 5px #bdbfb8; */
@@ -596,6 +597,7 @@ body::-webkit-scrollbar {
     /* width: 10rem; */
     height: 3.2rem;
     position: relative;
+    top: 1rem;
     /* left: 7rem; */
     /* top: 1rem; */
     margin-top: 0.5rem;

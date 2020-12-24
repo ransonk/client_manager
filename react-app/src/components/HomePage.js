@@ -103,8 +103,8 @@ const HomePage = ({ setAuthenticated }) => {
             </Grid>
             <Grid container>
                 <Grid item xs={12} className='home-welcome__message'>Welcome Back, {name}</Grid>
-                <Grid item xs={2} md={3}></Grid>
-                <Grid item xs={6} className='today-sched__container'>
+                <Grid item xs={1} md={3}></Grid>
+                <Grid item xs={10} md={6} className='today-sched__container'>
                     <Grid item md={3}></Grid>
 
                     {/* <Grid item md={12} className='overview-date'>
@@ -128,14 +128,15 @@ const HomePage = ({ setAuthenticated }) => {
                     <div className='todaysclients__container'>
                         {tomorrow ? <TomorrowsClients /> : <TodaysClients />}
                     </div>
+                    <Grid item md={3}></Grid>
                 </Grid>
-                <Grid item md={2}></Grid>
+                <Grid item xs={1} md={2}></Grid>
                 {/* <div className='home-clients__container'> */}
-                <Grid item md={3}></Grid>
+                <Grid item xs={1} md={3}></Grid>
                 <Grid item xs={12} md={6} className='home-clients__title'>Create a Routine</Grid>
-                <Grid item md={3}></Grid>
+                <Grid item xs={1} md={3}></Grid>
                 {/* <div className='workouts-and-intensities'> */}
-                <Grid item md={3}></Grid>
+                <Grid item xs={1} md={3}></Grid>
                 <Grid item xs={12} md={3} className='home-clients__payment'>
                     <h1 className='home-clients__header2'>Available Workouts</h1>
                     <div className='home-clients__workouts'>
@@ -145,7 +146,7 @@ const HomePage = ({ setAuthenticated }) => {
 
 
                 </Grid>
-                {/* <Grid item xs={1}></Grid> */}
+
                 <Grid item xs={12} md={3} className='home-clients__payment'>
                     <h1 className='home-clients__header2'>Available Intensities</h1>
                     <div className='home-clients__workouts'>
@@ -153,7 +154,7 @@ const HomePage = ({ setAuthenticated }) => {
                     </div>
                     <CreateNewIntensity />
                 </Grid>
-                <Grid item md={3}></Grid>
+                <Grid item xs={1} md={3}></Grid>
                 {/* </div> */}
                 {/* </div> */}
             </Grid>
