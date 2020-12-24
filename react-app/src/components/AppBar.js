@@ -63,8 +63,8 @@ export default function ButtonAppBar({ setAuthenticated }) {
                 <p className={classes.Logo}>Trainer Hub</p>
                 <Toolbar className={classes.nav}>
                     <ClientDrawer />
-                    <Button className={classes.navButton} onClick={toHome}>Home</Button>
-                    <Button className={classes.navButton} onClick={onLogout}>Logout</Button>
+                    <Button className='navButton' onClick={toHome}>Home</Button>
+                    <Button className='navButton' onClick={onLogout}>Logout</Button>
                     {/* <LogoutButton /> */}
                 </Toolbar>
             </AppBar>

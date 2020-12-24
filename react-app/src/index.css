@@ -158,6 +158,17 @@ body::-webkit-scrollbar {
     background-color: white;
 }
 
+.MuiButtonBase-root{
+    display: flex;
+    justify-content: center !important;
+}
+
+.navButton{
+    color: white !important;
+    width: auto !important;
+
+}
+
 .MuiListItemText-primary{
     color: white !important;
 }

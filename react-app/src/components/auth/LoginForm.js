@@ -18,13 +18,9 @@ const useStyles = makeStyles((theme) => ({
   },
   loginBtn: {
     position: "relative",
-    // top: "1rem",
-    // right: "4rem",
-    // width: "10rem",
     backgroundColor: '#0077b6',
     color: 'white'
-    // alignContent: "center"
-    // textAlign: "center"
+
   },
   demoBtn: {
     position: "relative",
