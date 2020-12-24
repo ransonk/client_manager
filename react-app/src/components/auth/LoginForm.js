@@ -5,7 +5,7 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
 import { makeStyles } from '@material-ui/core/styles';
-import { TextField, Button } from '@material-ui/core';
+import { TextField, Button, Grid } from '@material-ui/core';
 import theme from '../../theme';
 import Logo from "../../images/logan-weaver-apyd8hWmIw0-unsplash\ \(1\).jpg"
 import { NavLink } from 'react-router-dom';
@@ -40,8 +40,9 @@ const useStyles = makeStyles((theme) => ({
   loginBtn: {
     position: "relative",
     top: "4rem",
-    left: "4rem",
-    width: "10rem",
+    right: "4rem",
+    width: "30%",
+    minWidth: "30%",
     backgroundColor: '#0077b6',
     color: 'white'
     // alignContent: "center"
@@ -62,7 +63,7 @@ const useStyles = makeStyles((theme) => ({
   header1: {
     color: '#bde0fe',
     fontFamily: 'Pacifico, cursive',
-    fontSize: "3rem",
+    fontSize: "50%",
     position: "relative",
     // right: "4rem",
     bottom: "1rem"
@@ -134,11 +135,11 @@ const LoginForm = ({ authenticated, setAuthenticated }) => {
 
 
   return (
-    <div className='login-page__container'>
-      <div className='login__graphic'>
-        <img src={Logo} width='100%'></img>
-      </div>
-      <div className='login__container'>
+    <Grid container xs={12} md={12} className='login-page__container'>
+      <Grid xs={6} md={6} className='login__graphic'>
+        {/* <img src={Logo} width='100%'></img> */}
+      </Grid>
+      <Grid xs={6} md={6} className='login__container'>
         <div className='form__container'>
           <Container maxWidth="sm" className={classes.border}>
             <form className={classes.loginForm} onSubmit={onLogin}>
@@ -184,8 +185,8 @@ const LoginForm = ({ authenticated, setAuthenticated }) => {
 
           </Container>
         </div>
-      </div>
-    </div>
+      </Grid>
+    </Grid>
   );
 };
 
