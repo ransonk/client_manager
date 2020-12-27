@@ -113,7 +113,7 @@ export default function TodaysClients() {
 
     let allPlansObj = useSelector(state => state.store.todaysPlans)
     let allPlans = Object.values(allPlansObj)
-    console.log('hola', allPlans)
+    // console.log('hola', allPlans)
 
 
 
@@ -165,7 +165,7 @@ export default function TodaysClients() {
     } else if (month.startsWith('Dec')) {
         mms = 12;
     } else {
-        console.log('month translator broken')
+        // console.log('month translator broken')
     }
 
     let todayslist = allPlans.filter((plan) => {
@@ -178,7 +178,7 @@ export default function TodaysClients() {
             return
         }
     })
-    console.log('today!: ', todayslist)
+    // console.log('today!: ', todayslist)
 
     let sortedTodaysList = todayslist.map(item => item.time)
 
@@ -186,7 +186,7 @@ export default function TodaysClients() {
 
         return new Date('1970/01/01 ' + a) - new Date('1970/01/01 ' + b);
     })
-    console.log('SORTED?: ', sortedTodaysList)
+    // console.log('SORTED?: ', sortedTodaysList)
     let finalList = [];
     sortedTodaysList.forEach(time => {
         todayslist.map(item => {
@@ -195,7 +195,7 @@ export default function TodaysClients() {
             }
         })
     })
-    console.log('final list?: ', finalList)
+    // console.log('final list?: ', finalList)
 
 
 
@@ -238,7 +238,73 @@ export default function TodaysClients() {
                     }
 
                 </Timeline>
-                : <div className={classes.ptag}><p>No Workouts Scheduled</p></div>}
+                : <Timeline align="alternate">
+
+                    <TimelineItem>
+                        <TimelineOppositeContent>
+                            <Typography variant="body2" color="textSecondary" className={classes.time}>
+                                8:00 am
+                                </Typography>
+                        </TimelineOppositeContent>
+                        <TimelineSeparator>
+                            <TimelineDot>
+                                <FitnessCenterIcon />
+                            </TimelineDot>
+                            <TimelineConnector />
+                        </TimelineSeparator>
+                        <TimelineContent>
+                            <Paper elevation={3} className={classes.paper}>
+                                <Typography variant="h6" component="h1">
+                                    John Martinez
+                                    </Typography>
+                                <Typography>Upper Body Workout</Typography>
+                            </Paper>
+                        </TimelineContent>
+                    </TimelineItem>
+                    <TimelineItem>
+                        <TimelineOppositeContent>
+                            <Typography variant="body2" color="textSecondary" className={classes.time}>
+                                10:00 am
+                                </Typography>
+                        </TimelineOppositeContent>
+                        <TimelineSeparator>
+                            <TimelineDot>
+                                <FitnessCenterIcon />
+                            </TimelineDot>
+                            <TimelineConnector />
+                        </TimelineSeparator>
+                        <TimelineContent>
+                            <Paper elevation={3} className={classes.paper}>
+                                <Typography variant="h6" component="h1">
+                                    Eliza Reynolds
+                                    </Typography>
+                                <Typography>Leg Day</Typography>
+                            </Paper>
+                        </TimelineContent>
+                    </TimelineItem>
+                    <TimelineItem>
+                        <TimelineOppositeContent>
+                            <Typography variant="body2" color="textSecondary" className={classes.time}>
+                                3:00 pm
+                                </Typography>
+                        </TimelineOppositeContent>
+                        <TimelineSeparator>
+                            <TimelineDot>
+                                <FitnessCenterIcon />
+                            </TimelineDot>
+                            <TimelineConnector />
+                        </TimelineSeparator>
+                        <TimelineContent>
+                            <Paper elevation={3} className={classes.paper}>
+                                <Typography variant="h6" component="h1">
+                                    Daniel Lee
+                                    </Typography>
+                                <Typography>Pull Day (Back)</Typography>
+                            </Paper>
+                        </TimelineContent>
+                    </TimelineItem>
+
+                </Timeline>}
 
         </div >
 

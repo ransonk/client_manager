@@ -51,7 +51,7 @@ export default function ClientCalendar() {
     const workoutPlans = useSelector((state) => state.store.workoutplans)
     // console.log('workoutplans', workoutPlans)
     let workoutPlanList = Object.values(workoutPlans)
-    console.log(workoutPlanList)
+    // console.log(workoutPlanList)
 
     const today = new Date()
     let month = today.toString().split(' ')[1]
@@ -89,7 +89,7 @@ export default function ClientCalendar() {
     } else if (month.startsWith('Dec')) {
         mms = 12;
     } else {
-        console.log('month translator broken')
+        // console.log('month translator broken')
     }
 
     let todaysWorkout = workoutPlanList.filter((workout) => {
