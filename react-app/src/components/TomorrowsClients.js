@@ -70,7 +70,7 @@ export default function TomorrowsClients() {
 
     let allPlansObj = useSelector(state => state.store.todaysPlans)
     let allPlans = Object.values(allPlansObj)
-    console.log('hola', allPlans)
+    // console.log('hola', allPlans)
 
 
 
@@ -122,7 +122,7 @@ export default function TomorrowsClients() {
     } else if (month.startsWith('Dec')) {
         mms = 12;
     } else {
-        console.log('month translator broken')
+        // console.log('month translator broken')
     }
 
     let tomorrowslist = allPlans.filter((plan) => {
@@ -151,7 +151,7 @@ export default function TomorrowsClients() {
             }
         })
     })
-    console.log('final list?: ', finalList)
+    // console.log('final list?: ', finalList)
 
     // let times = ['01:00 am', '06:00 pm', '12:00 pm', '03:00 am', '12:00 am'];
 
@@ -197,7 +197,73 @@ export default function TomorrowsClients() {
                     })
                     }
                 </Timeline>
-                : <p className={classes.ptag}>No Workouts Scheduled</p>}
+                : <Timeline align="alternate">
+
+                    <TimelineItem>
+                        <TimelineOppositeContent>
+                            <Typography variant="body2" color="textSecondary" className={classes.time}>
+                                9:30 am
+                            </Typography>
+                        </TimelineOppositeContent>
+                        <TimelineSeparator>
+                            <TimelineDot>
+                                <FitnessCenterIcon />
+                            </TimelineDot>
+                            <TimelineConnector />
+                        </TimelineSeparator>
+                        <TimelineContent>
+                            <Paper elevation={3} className={classes.paper}>
+                                <Typography variant="h6" component="h1">
+                                    Jade Williams
+                                </Typography>
+                                <Typography>Full Body</Typography>
+                            </Paper>
+                        </TimelineContent>
+                    </TimelineItem>
+                    <TimelineItem>
+                        <TimelineOppositeContent>
+                            <Typography variant="body2" color="textSecondary" className={classes.time}>
+                                2:00 pm
+                            </Typography>
+                        </TimelineOppositeContent>
+                        <TimelineSeparator>
+                            <TimelineDot>
+                                <FitnessCenterIcon />
+                            </TimelineDot>
+                            <TimelineConnector />
+                        </TimelineSeparator>
+                        <TimelineContent>
+                            <Paper elevation={3} className={classes.paper}>
+                                <Typography variant="h6" component="h1">
+                                    Alex Knorr
+                                </Typography>
+                                <Typography>Cardio Training</Typography>
+                            </Paper>
+                        </TimelineContent>
+                    </TimelineItem>
+                    <TimelineItem>
+                        <TimelineOppositeContent>
+                            <Typography variant="body2" color="textSecondary" className={classes.time}>
+                                3:00 pm
+                            </Typography>
+                        </TimelineOppositeContent>
+                        <TimelineSeparator>
+                            <TimelineDot>
+                                <FitnessCenterIcon />
+                            </TimelineDot>
+                            <TimelineConnector />
+                        </TimelineSeparator>
+                        <TimelineContent>
+                            <Paper elevation={3} className={classes.paper}>
+                                <Typography variant="h6" component="h1">
+                                    Jimmy Han
+                                </Typography>
+                                <Typography>Squat Routine</Typography>
+                            </Paper>
+                        </TimelineContent>
+                    </TimelineItem>
+
+                </Timeline>}
 
         </div >
 

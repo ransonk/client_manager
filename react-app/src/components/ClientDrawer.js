@@ -266,7 +266,7 @@ export default function ClientDrawer({ authenticated, setAuthenticated, props })
         let currentClientList = clientsArray.filter(client => {
             if (client.id === id) return client;
         })
-        console.log(currentClientList['0'])
+        // console.log(currentClientList['0'])
         let currentClient = currentClientList[0]
         localStorage.setItem('CURRENT_CLIENT', JSON.stringify(currentClient))
         window.location.href = '/manage-client'
