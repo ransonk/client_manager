@@ -20,6 +20,15 @@ body{
     height: 100%;
 }
 
+.logo{
+    font-size: 20px;
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    font-family: Pacifico, cursive;
+    z-index: 2;
+}
+
 
 .addWorkout{
     margin-top: 1rem;

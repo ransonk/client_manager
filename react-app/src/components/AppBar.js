@@ -61,7 +61,7 @@ export default function ButtonAppBar({ setAuthenticated }) {
     return (
         <div className='navigation'>
             <AppBar position="static">
-                <p className={classes.Logo}>Trainer Hub</p>
+                <p className='logo'>Trainer Hub</p>
                 <Toolbar className='nav' >
                     <ClientDrawer />
                     <Button className='navButton' onClick={toHome}>Home</Button>
