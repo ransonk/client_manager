@@ -178,7 +178,7 @@ body::-webkit-scrollbar {
 
 }
 
-.MuiListItemText-primary{
+.MuiListItemText-primary, .makeStyles-time-37, .makeStyles-time-90{
     color: white !important;
 }
 
