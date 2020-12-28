@@ -105,6 +105,7 @@ export default function SimpleCard() {
                                 </Typography>
                                 <br />
                                 <Divider />
+                                <br />
                                 {/* <Typography className={classes.pos} color="textSecondary"> */}
                                 <div>
                                     <p className={classes.bold}>{workout.workout1}</p>

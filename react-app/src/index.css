@@ -504,6 +504,20 @@ body::-webkit-scrollbar {
     #A3B1C6
 }
 
+.clientinfo__clientcard::-webkit-scrollbar {
+
+    background-color: #dbded5;
+}
+
+.clientinfo__clientcard::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+
+.clientinfo__clientcard::-webkit-scrollbar-thumb {
+    background-color: white;
+    outline: none;
+  }
+
 .title__header{
     font-size: 3em;
     color: #bde0fe;

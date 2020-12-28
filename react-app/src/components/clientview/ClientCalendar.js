@@ -138,21 +138,22 @@ export default function ClientCalendar() {
 
                         <Card className={classes.root}>
                             <CardContent>
-                                <Typography variant="h5" component="h2" gutterBottom className={classes.cardHeader}>
+                                {/* <Typography variant="h5" component="h2" gutterBottom className={classes.cardHeader}>
                                     Today
                                 </Typography>
-                                <Divider />
+                                <Divider /> */}
                                 <Typography variant="h5" component="h2" gutterBottom>
                                     {workout.name}
                                 </Typography>
                                 <Typography>
-                                    <span className={classes.title}>{workout.date}</span>
+                                    Date: <span className={classes.title}>{workout.date}</span>
                                 </Typography>
                                 <Typography>
                                     Time: <span className={classes.title}>{workout.time}</span>
                                 </Typography>
                                 <br />
                                 <Divider />
+                                <br />
                                 {/* <Typography className={classes.pos} color="textSecondary"> */}
                                 <div>
                                     <p className={classes.bold}>{workout.workout1}</p>
