@@ -11,6 +11,7 @@ import WorkoutPlans from './workoutplans/WorkoutPlans';
 import AddWorkoutPlan from './workoutplans/AddWorkoutPlan';
 import ClientCalendar from './ClientCalendar';
 import { Grid } from '@material-ui/core';
+import GraphProgress from './GraphProgress';
 
 
 const ClientView = ({ setAuthenticated }) => {
@@ -57,8 +58,16 @@ const ClientView = ({ setAuthenticated }) => {
                 </Grid>
                 <Grid item md={3}></Grid>
             </Grid>
-            {/* <Grid item xs={12} md={12} className='invisibar'></Grid> */}
-            {/* <Grid item xs={12} md={12} className='invisibar'></Grid> */}
+
+            <Grid container>
+                <Grid item md={3}></Grid>
+                <Grid item xs={12} md={6}>
+                    <GraphProgress />
+                </Grid>
+                <Grid item md={3}></Grid>
+            </Grid>
+            <br />
+
             <Grid container xs={6} md={12} className='client-activity-block'>
 
                 <Grid item md={3}></Grid>

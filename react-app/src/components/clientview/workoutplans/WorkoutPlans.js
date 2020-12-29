@@ -88,7 +88,7 @@ export default function SimpleCard() {
                     </CardContent>
                 </Card>
                 {workoutPlanList.map((workout, i) => {
-                    // console.log(workout.routinelist[0].name)
+                    // console.log(workout.routinelist[0].name)comment
 
                     return (
 

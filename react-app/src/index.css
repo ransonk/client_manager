@@ -325,7 +325,7 @@ body::-webkit-scrollbar {
     right: 3rem; */
     display: flex;
     justify-content: flex-end;
-    background-color: #070d17;
+    /* background-color: #070d17; */
     /* box-shadow:
     inset -3px -3px 7px #ffffff73,
     inset 3px 3px 5px
