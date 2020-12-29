@@ -13,6 +13,7 @@ export const ADD_ROUTINE_LIST = "ADD_ROUTINE_LIST";
 export const SET_ROUTINES = "SET_ROUTINES";
 export const ADD_ROUTINE = "ADD_ROUTINE";
 export const USER_LOGOUT = "USER_LOGOUT";
+export const UPDATE_PROGRESS = "UPDATE_PROGRESS";
 
 export const setCurrentUser = (trainer) => {
     return { type: SET_CURRENT_TRAINER, trainer };
@@ -23,6 +24,14 @@ export const setCurrentClient = (client) => {
     return {
         type: SET_CURRENT_CLIENT,
         client,
+    };
+};
+
+export const updateProgress = (progress) => {
+    // console.log(classroom)
+    return {
+        type: UPDATE_PROGRESS,
+        progress,
     };
 };
 
@@ -178,6 +187,7 @@ export const fetchIntensities = async (trainerId) => {
 const initialState = {
     current_trainer: {},
     current_client: {},
+    client_progress: {},
     clients: {},
     workouts: {},
     intensities: {},
@@ -216,8 +226,8 @@ export default function reducer(state = initialState, action) {
             newState.todaysPlans = { ...action.workoutplans }
             return newState;
         }
-        case SET_ROUTINE_LISTS: {
-            newState.routinelists = { ...action.routinelists }
+        case UPDATE_PROGRESS: {
+            newState.client_progress = { ...action.progress }
             return newState;
         }
         case USER_LOGOUT: {

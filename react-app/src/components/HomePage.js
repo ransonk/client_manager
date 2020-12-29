@@ -9,7 +9,7 @@ import CreateNewIntensity from './workouts/CreateNewIntensity';
 import { Button } from '@material-ui/core';
 import { authenticate } from "../services/auth";
 import Intensities from './workouts/Intensities';
-import { setCurrentUser, setCurrentClient, fetchClients, setTrainerClients, fetchTodaysPlans, setTodaysPlans, fetchWorkouts, setWorkouts, fetchIntensities, setIntensities, fetchTodaysClients } from "../store/users";
+import { setCurrentUser, setCurrentClient, fetchClients, setTrainerClients, fetchTodaysPlans, setTodaysPlans, fetchWorkouts, setWorkouts, fetchIntensities, setIntensities, fetchTodaysClients, updateProgress } from "../store/users";
 import ClientCalendar from './clientview/ClientCalendar';
 import TodaysClients from './TodaysClients';
 import TomorrowsClients from './TomorrowsClients';
@@ -77,6 +77,7 @@ const HomePage = ({ setAuthenticated }) => {
 
             const intensities = await fetchIntensities(trainerId);
             dispatch(setIntensities(intensities))
+
 
         })();
     }, []);
