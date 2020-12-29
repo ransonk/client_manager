@@ -21,13 +21,15 @@ function GraphProgress() {
 
         })();
     }, []);
+
     const historicalDataRaw = useSelector((state) => state.store.client_progress)
     const historicalData = Object.values(historicalDataRaw)
-    console.log(historicalData)
+    console.log('his', historicalData)
+    const sortedData = historicalData.sort((a, b) => new Date(a.date) - new Date(b.date))
+    console.log('sort', sortedData)
 
     const data = {
-        //add dates of each workout plan + pull & push data to
-        //constantly update graph
+
         labels: ['January', 'February', 'March',
             'April', 'May'],
         datasets: [
@@ -57,7 +59,11 @@ function GraphProgress() {
     return (
         <div>
             <Line
-                data={data}
+                data={
+                    historicalData.map(history => {
+
+                    })
+                }
                 options={{
                     title: {
                         display: true,

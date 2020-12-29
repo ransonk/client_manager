@@ -259,6 +259,7 @@ def create_workout_history(id):
             pullCount=form.data['pullCount'],
             pushScore=form.data['pushScore'],
             pullScore=form.data['pullScore'],
+            date=form.data['date'],
             client_id=id,
         )
         db.session.add(workouthistory)

@@ -12,4 +12,5 @@ class CreateWorkoutHistoryForm(FlaskForm):
     pullCount = StringField('pullCount')
     pushScore = StringField('pushScore')
     pullScore = StringField('pullScore')
+    date = StringField('date')
     client_id = StringField('client_id')

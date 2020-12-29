@@ -11,6 +11,7 @@ class History(db.Model, UserMixin):
   pullCount= db.Column(db.String(40), nullable=False)
   pushScore= db.Column(db.String(40), nullable=False)
   pullScore= db.Column(db.String(40), nullable=False)
+  date= db.Column(db.String(40), nullable=False)
   client_id = db.Column(db.Integer, db.ForeignKey("clients.id"))
   created_on = db.Column(db.DateTime, server_default=db.func.now())
   updated_on = db.Column(
@@ -33,5 +34,6 @@ class History(db.Model, UserMixin):
       "pullCount": self.pullCount,
       "pushScore": self.pushScore,
       "pullScore": self.pullScore,
+      "date": self.date,
       "client_id": self.client_id
     }
