@@ -64,6 +64,11 @@ class Client(db.Model, UserMixin):
       "workoutplans": [workoutplan.to_dict() for workoutplan in self.workoutplans]
     }
 
+  def return_workouthistory(self):
+    return {
+      "history": [his.to_dict() for his in self.history]
+    }
+
   def to_dict(self):
     return {
       "id": self.id,

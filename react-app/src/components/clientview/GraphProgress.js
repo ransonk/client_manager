@@ -2,14 +2,28 @@ import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import { Line } from 'react-chartjs-2';
+import { fetchWorkoutHistory, updateProgress } from "../../store/users";
 
 
 function GraphProgress() {
-    const workoutPlans = useSelector((state) => state.store.workoutplans)
-    let workoutPlanList = Object.values(workoutPlans)
-    // console.log('mapppp here', workoutPlanList)
-    // console.log(Number(workoutPlanList[0].workout1) * Number(workoutPlanList[0].set1) * 100)
+    const dispatch = useDispatch();
+    const client = JSON.parse(localStorage.getItem('CURRENT_CLIENT'))
+    let id = client.id
+    let workoutHistory;
 
+    useEffect(() => {
+        (async () => {
+
+
+            workoutHistory = await fetchWorkoutHistory(id)
+            dispatch(updateProgress(workoutHistory))
+
+
+        })();
+    }, []);
+    const historicalDataRaw = useSelector((state) => state.store.client_progress)
+    const historicalData = Object.values(historicalDataRaw)
+    console.log(historicalData)
 
     const data = {
         //add dates of each workout plan + pull & push data to

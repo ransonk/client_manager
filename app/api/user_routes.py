@@ -131,17 +131,17 @@ def workout_plans(id):
     return {"workoutplans": plansObj}
 
 
-# @trainer_routes.route('/client/<int:id>/create-workout-plan')
-# # @login_required
-# def create_workout_plan(id):
-#     client = Client.query.get(id)
-#     workoutplans = client.return_workoutplans()
-#     plansObj = workoutplans['workoutplans']
-#     # for i in clientObj:
-#     #     for k,v in i.items():
-#     #         if k == "email" or k == "phone" or k == "amount" or k == "duedate" or k == "weight" or k == "age":
-#     #             i[k] = 'Null'
-#     return {"workoutplans": plansObj}
+@trainer_routes.route('/client/<int:id>/workout-history')
+# @login_required
+def workout_history(id):
+    client = Client.query.get(id)
+    workouthistory = client.return_workouthistory()
+    #  = History.query.filter(History.client_id == id).all()
+    # print(workouthistory)
+    plansObj = workouthistory['history']
+
+    return {"workouthistory": plansObj}
+
 
 @trainer_routes.route('/workout-plans/<int:id>/routinelist')
 # @login_required
@@ -149,21 +149,7 @@ def routine_lists(id):
     workoutplan = WorkoutPlan.query.get(id)
     routinelists = workoutplan.return_routinelist()
     listsObj = routinelists['routinelist']
-    # for i in clientObj:
-    #     for k,v in i.items():
-    #         if k == "email" or k == "phone" or k == "amount" or k == "duedate" or k == "weight" or k == "age":
-    #             i[k] = 'Null'
     return {"routinelists": listsObj}
-
-
-# @trainer_routes.route('/<int:id>/clients')
-# # @login_required
-# def clients(id):
-#     trainer = Trainer.query.get(id)
-#     clients = trainer.to_dict()
-#     print(clients['clients'])
-
-#     return {"clients": clients['clients']}
 
 
 
