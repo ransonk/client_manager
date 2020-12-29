@@ -103,6 +103,19 @@ export const createWorkout = async (name, type, trainer_id) => {
   return await response.json();
 }
 
+export const createHistory = async (name, pushCount, pullCount, pushScore, pullScore, client_id) => {
+  const response = await fetch(`/api/trainers/client/${client_id}/create-workout-history`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      name, pushCount, pullCount, pushScore, pullScore, client_id
+    }),
+  });
+  return await response.json();
+}
+
 export const createWorkoutPlan = async (
   name,
   workout1,

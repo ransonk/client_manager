@@ -8,3 +8,4 @@ from .workoutintensity import WorkoutIntensity
 from .workoutplan import WorkoutPlan
 from .routinelist import RoutineList
 from .routine import Routine
+from .history import History

@@ -1,8 +1,8 @@
 from flask import Blueprint, jsonify, request
 from flask_login import login_required, current_user
 
-from app.forms import SignUpForm, CreateClientForm, CreateWorkoutForm, CreateIntensityForm, CreateWorkoutPlanForm
-from app.models import Trainer, Client, Workout, WorkoutIntensity, WorkoutPlan, db
+from app.forms import SignUpForm, CreateClientForm, CreateWorkoutForm, CreateIntensityForm, CreateWorkoutPlanForm, CreateWorkoutHistoryForm
+from app.models import Trainer, Client, History, Workout, WorkoutIntensity, WorkoutPlan, db
 from werkzeug.security import generate_password_hash
 
 trainer_routes = Blueprint('trainers', __name__)
@@ -250,6 +250,34 @@ def create_workout_plan(id):
         db.session.add(workoutplan)
         db.session.commit()
         return workoutplan.to_dict()
+
+    print('outsideee')
+    return {'errors': validation_errors_to_error_messages(form.errors)}
+
+
+@trainer_routes.route('/client/<int:id>/create-workout-history', methods=["POST"])
+#this one ->>>>>>>>>>>
+# @login_required
+def create_workout_history(id):
+    """
+    Creates a new client account
+    """
+    form = CreateWorkoutHistoryForm()
+    form['csrf_token'].data = request.cookies['csrf_token']
+    if form.validate_on_submit():
+        print('hereeeeeeeeee')
+            # req_data = request.get_json()
+        workouthistory = History(
+            name=form.data['name'],
+            pushCount=form.data['pushCount'],
+            pullCount=form.data['pullCount'],
+            pushScore=form.data['pushScore'],
+            pullScore=form.data['pullScore'],
+            client_id=id,
+        )
+        db.session.add(workouthistory)
+        db.session.commit()
+        return workouthistory.to_dict()
 
     print('outsideee')
     return {'errors': validation_errors_to_error_messages(form.errors)}

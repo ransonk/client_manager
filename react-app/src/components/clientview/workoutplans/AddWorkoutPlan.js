@@ -9,7 +9,7 @@ import MenuItem from '@material-ui/core/MenuItem';
 import ListSubheader from '@material-ui/core/ListSubheader';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
-import { createWorkoutPlan } from '../../../services/auth';
+import { createHistory, createWorkoutPlan } from '../../../services/auth';
 import { fetchClient, updateProgress } from '../../../store/users';
 
 
@@ -110,7 +110,7 @@ const AddWorkoutPlan = (props) => {
     let client_id = client.id
     let trainer_id = useSelector(state => state.store.current_trainer.id)
 
-    // console.log(client_id)
+    // console.log('wow')
 
     const workouts = useSelector((state) => state.store.workouts)
     const sortedWorkouts = Object.values(workouts)
@@ -125,6 +125,9 @@ const AddWorkoutPlan = (props) => {
         if (workout.type === 'pull') return workout
     })
 
+    console.log('pushWorkouts', pushWorkouts)
+    const pushNames = pushWorkouts.map(push => push.name)
+    console.log('pushNames', pushNames)
 
     useEffect(() => {
         (async () => {
@@ -143,156 +146,181 @@ const AddWorkoutPlan = (props) => {
         let pullCount = 0;
         let pushScore = 0;
         let pullScore = 0;
+        console.log('workout1', workout1)
 
-        if (pushWorkouts.includes(workout1)) {
-            pushCount++;
-            let setRepArray = set1.split(' ')
-            if (weight1) {
-                pushScore += setRepArray[1] * setRepArray[3] * weight1
+        if (workout1) {
+
+            if (pushNames.includes(workout1)) {
+                pushCount++;
+                let setRepArray = set1.split(' ')
+                if (weight1) {
+                    pushScore += setRepArray[1] * setRepArray[3] * weight1
+                } else {
+                    pushScore += setRepArray[1] * setRepArray[3]
+                }
             } else {
-                pushScore += setRepArray[1] * setRepArray[3]
-            }
-        } else {
-            pullCount++;
-            let setRepArray = set1.split(' ')
-            if (weight1) {
-                pullScore += setRepArray[1] * setRepArray[3] * weight1
-            } else {
-                pullScore += setRepArray[1] * setRepArray[3]
-            }
-        }
-        if (pushWorkouts.includes(workout2)) {
-            pushCount++;
-            let setRepArray = set2.split(' ')
-            if (weight2) {
-                pushScore += setRepArray[1] * setRepArray[3] * weight2
-            } else {
-                pushScore += setRepArray[1] * setRepArray[3]
-            }
-        } else {
-            pullCount++;
-            let setRepArray = set2.split(' ')
-            if (weight2) {
-                pullScore += setRepArray[1] * setRepArray[3] * weight2
-            } else {
-                pullScore += setRepArray[1] * setRepArray[3]
+                pullCount++;
+                let setRepArray = set1.split(' ')
+                if (weight1) {
+                    pullScore += setRepArray[1] * setRepArray[3] * weight1
+                } else {
+                    pullScore += setRepArray[1] * setRepArray[3]
+                }
             }
         }
-        if (pushWorkouts.includes(workout3)) {
-            pushCount++;
-            let setRepArray = set3.split(' ')
-            if (weight3) {
-                pushScore += setRepArray[1] * setRepArray[3] * weight3
+        if (workout2) {
+
+            if (pushNames.includes(workout2)) {
+                pushCount++;
+                let setRepArray = set2.split(' ')
+                if (weight2) {
+                    pushScore += setRepArray[1] * setRepArray[3] * weight2
+                } else {
+                    pushScore += setRepArray[1] * setRepArray[3]
+                }
             } else {
-                pushScore += setRepArray[1] * setRepArray[3]
-            }
-        } else {
-            pullCount++;
-            let setRepArray = set3.split(' ')
-            if (weight3) {
-                pullScore += setRepArray[1] * setRepArray[3] * weight3
-            } else {
-                pullScore += setRepArray[1] * setRepArray[3]
-            }
-        }
-        if (pushWorkouts.includes(workout4)) {
-            pushCount++;
-            let setRepArray = set4.split(' ')
-            if (weight4) {
-                pushScore += setRepArray[1] * setRepArray[3] * weight4
-            } else {
-                pushScore += setRepArray[1] * setRepArray[3]
-            }
-        } else {
-            pullCount++;
-            let setRepArray = set4.split(' ')
-            if (weight4) {
-                pullScore += setRepArray[1] * setRepArray[3] * weight4
-            } else {
-                pullScore += setRepArray[1] * setRepArray[3]
+                pullCount++;
+                let setRepArray = set2.split(' ')
+                if (weight2) {
+                    pullScore += setRepArray[1] * setRepArray[3] * weight2
+                } else {
+                    pullScore += setRepArray[1] * setRepArray[3]
+                }
             }
         }
-        if (pushWorkouts.includes(workout5)) {
-            pushCount++;
-            let setRepArray = set5.split(' ')
-            if (weight5) {
-                pushScore += setRepArray[1] * setRepArray[3] * weight5
+        if (workout3) {
+
+            if (pushNames.includes(workout3)) {
+                pushCount++;
+                let setRepArray = set3.split(' ')
+                if (weight3) {
+                    pushScore += setRepArray[1] * setRepArray[3] * weight3
+                } else {
+                    pushScore += setRepArray[1] * setRepArray[3]
+                }
             } else {
-                pushScore += setRepArray[1] * setRepArray[3]
-            }
-        } else {
-            pullCount++;
-            let setRepArray = set5.split(' ')
-            if (weight5) {
-                pullScore += setRepArray[1] * setRepArray[3] * weight5
-            } else {
-                pullScore += setRepArray[1] * setRepArray[3]
-            }
-        }
-        if (pushWorkouts.includes(workout6)) {
-            pushCount++;
-            let setRepArray = set6.split(' ')
-            if (weight6) {
-                pushScore += setRepArray[1] * setRepArray[3] * weight6
-            } else {
-                pushScore += setRepArray[1] * setRepArray[3]
-            }
-        } else {
-            pullCount++;
-            let setRepArray = set6.split(' ')
-            if (weight6) {
-                pullScore += setRepArray[1] * setRepArray[3] * weight6
-            } else {
-                pullScore += setRepArray[1] * setRepArray[3]
+                pullCount++;
+                let setRepArray = set3.split(' ')
+                if (weight3) {
+                    pullScore += setRepArray[1] * setRepArray[3] * weight3
+                } else {
+                    pullScore += setRepArray[1] * setRepArray[3]
+                }
             }
         }
-        if (pushWorkouts.includes(workout7)) {
-            pushCount++;
-            let setRepArray = set7.split(' ')
-            if (weight7) {
-                pushScore += setRepArray[1] * setRepArray[3] * weight7
+        if (workout4) {
+
+            if (pushNames.includes(workout4)) {
+                pushCount++;
+                let setRepArray = set4.split(' ')
+                if (weight4) {
+                    pushScore += setRepArray[1] * setRepArray[3] * weight4
+                } else {
+                    pushScore += setRepArray[1] * setRepArray[3]
+                }
             } else {
-                pushScore += setRepArray[1] * setRepArray[3]
-            }
-        } else {
-            pullCount++;
-            let setRepArray = set7.split(' ')
-            if (weight7) {
-                pullScore += setRepArray[1] * setRepArray[3] * weight7
-            } else {
-                pullScore += setRepArray[1] * setRepArray[3]
+                pullCount++;
+                let setRepArray = set4.split(' ')
+                if (weight4) {
+                    pullScore += setRepArray[1] * setRepArray[3] * weight4
+                } else {
+                    pullScore += setRepArray[1] * setRepArray[3]
+                }
             }
         }
-        if (pushWorkouts.includes(workout8)) {
-            pushCount++;
-            let setRepArray = set8.split(' ')
-            if (weight8) {
-                pushScore += setRepArray[1] * setRepArray[3] * weight8
+        if (workout5) {
+
+            if (pushNames.includes(workout5)) {
+                pushCount++;
+                let setRepArray = set5.split(' ')
+                if (weight5) {
+                    pushScore += setRepArray[1] * setRepArray[3] * weight5
+                } else {
+                    pushScore += setRepArray[1] * setRepArray[3]
+                }
             } else {
-                pushScore += setRepArray[1] * setRepArray[3]
+                pullCount++;
+                let setRepArray = set5.split(' ')
+                if (weight5) {
+                    pullScore += setRepArray[1] * setRepArray[3] * weight5
+                } else {
+                    pullScore += setRepArray[1] * setRepArray[3]
+                }
             }
-        } else {
-            pullCount++;
-            let setRepArray = set8.split(' ')
-            if (weight8) {
-                pullScore += setRepArray[1] * setRepArray[3] * weight8
+        }
+        if (workout6) {
+
+            if (pushNames.includes(workout6)) {
+                pushCount++;
+                let setRepArray = set6.split(' ')
+                if (weight6) {
+                    pushScore += setRepArray[1] * setRepArray[3] * weight6
+                } else {
+                    pushScore += setRepArray[1] * setRepArray[3]
+                }
             } else {
-                pullScore += setRepArray[1] * setRepArray[3]
+                pullCount++;
+                let setRepArray = set6.split(' ')
+                if (weight6) {
+                    pullScore += setRepArray[1] * setRepArray[3] * weight6
+                } else {
+                    pullScore += setRepArray[1] * setRepArray[3]
+                }
+            }
+        }
+        if (workout7) {
+
+            if (pushNames.includes(workout7)) {
+                pushCount++;
+                let setRepArray = set7.split(' ')
+                if (weight7) {
+                    pushScore += setRepArray[1] * setRepArray[3] * weight7
+                } else {
+                    pushScore += setRepArray[1] * setRepArray[3]
+                }
+            } else {
+                pullCount++;
+                let setRepArray = set7.split(' ')
+                if (weight7) {
+                    pullScore += setRepArray[1] * setRepArray[3] * weight7
+                } else {
+                    pullScore += setRepArray[1] * setRepArray[3]
+                }
+            }
+        }
+        if (workout8) {
+
+            if (pushNames.includes(workout8)) {
+                pushCount++;
+                let setRepArray = set8.split(' ')
+                if (weight8) {
+                    pushScore += setRepArray[1] * setRepArray[3] * weight8
+                } else {
+                    pushScore += setRepArray[1] * setRepArray[3]
+                }
+            } else {
+                pullCount++;
+                let setRepArray = set8.split(' ')
+                if (weight8) {
+                    pullScore += setRepArray[1] * setRepArray[3] * weight8
+                } else {
+                    pullScore += setRepArray[1] * setRepArray[3]
+                }
             }
         }
 
-        let progress = {
-            'name': name,
-
-        }
-        // let progress = {
-        //     'name': name,
-        //     'pushCount': pushCount,
-        //     'pullCount': pullCount,
-        //     'pushScore': pushScore,
-        //     'pullScore': pullScore
-        // }
-        dispatch(updateProgress(progress))
+        console.log('pushCount', pushCount)
+        console.log('pullCount', pullCount)
+        console.log('pushScore', pushScore)
+        console.log('pullScore', pullScore)
+        const workoutHistory = await createHistory(
+            name,
+            pushCount,
+            pullCount,
+            pushScore,
+            pullScore,
+            client_id
+        )
         console.log('after dispatch')
         const workoutPlan = await createWorkoutPlan(
             name,

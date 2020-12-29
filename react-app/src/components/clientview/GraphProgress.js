@@ -7,7 +7,7 @@ import { Line } from 'react-chartjs-2';
 function GraphProgress() {
     const workoutPlans = useSelector((state) => state.store.workoutplans)
     let workoutPlanList = Object.values(workoutPlans)
-    console.log('mapppp here', workoutPlanList)
+    // console.log('mapppp here', workoutPlanList)
     // console.log(Number(workoutPlanList[0].workout1) * Number(workoutPlanList[0].set1) * 100)
 
 

@@ -42,6 +42,7 @@ const ClientInfo = () => {
             // dispatch(setCurrentClient(secureClient))
             const workoutplans = await fetchWorkoutPlans(id);
             dispatch(setWorkoutPlans(workoutplans))
+            //dispatch push/pull score for graph here ><><L><><><><
 
         })();
 
