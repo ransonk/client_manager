@@ -30,6 +30,11 @@ class Client(db.Model, UserMixin):
     "Trainer",
     back_populates="clients"
   )
+
+  history = db.relationship(
+    "History",
+    back_populates="client"
+  )
   reviews = db.relationship(
     "Review",
     back_populates="client"

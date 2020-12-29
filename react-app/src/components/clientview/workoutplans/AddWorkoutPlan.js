@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { Typography, Button, Modal, TextField } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import Backdrop from '@material-ui/core/Backdrop';
@@ -9,8 +9,8 @@ import MenuItem from '@material-ui/core/MenuItem';
 import ListSubheader from '@material-ui/core/ListSubheader';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
-import { createWorkoutPlan } from '../../../services/auth';
-import { fetchClient } from '../../../store/users';
+import { createHistory, createWorkoutPlan } from '../../../services/auth';
+import { fetchClient, updateProgress } from '../../../store/users';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -73,6 +73,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const AddWorkoutPlan = (props) => {
+    const dispatch = useDispatch();
     const classes = useStyles();
     const [openModal, setOpenModal] = React.useState(false);
     const [name, setName] = useState("");
@@ -109,7 +110,7 @@ const AddWorkoutPlan = (props) => {
     let client_id = client.id
     let trainer_id = useSelector(state => state.store.current_trainer.id)
 
-    // console.log(client_id)
+    // console.log('wow')
 
     const workouts = useSelector((state) => state.store.workouts)
     const sortedWorkouts = Object.values(workouts)
@@ -124,19 +125,203 @@ const AddWorkoutPlan = (props) => {
         if (workout.type === 'pull') return workout
     })
 
+    console.log('pushWorkouts', pushWorkouts)
+    const pushNames = pushWorkouts.map(push => push.name)
+    console.log('pushNames', pushNames)
 
     useEffect(() => {
         (async () => {
             const client = await fetchClient(client_id)
             setClientFirstName(client.firstName)
             setClientLastName(client.lastName)
-
+            const progress = { 'wow': 'working' }
+            dispatch(updateProgress({ 'wow': 'working' }))
         })();
     }, []);
 
 
     const createThisWorkoutPlan = async (e) => {
         e.preventDefault();
+        let pushCount = 0;
+        let pullCount = 0;
+        let pushScore = 0;
+        let pullScore = 0;
+        console.log('workout1', workout1)
+
+        if (workout1) {
+
+            if (pushNames.includes(workout1)) {
+                pushCount++;
+                let setRepArray = set1.split(' ')
+                if (weight1) {
+                    pushScore += setRepArray[1] * setRepArray[3] * weight1
+                } else {
+                    pushScore += setRepArray[1] * setRepArray[3]
+                }
+            } else {
+                pullCount++;
+                let setRepArray = set1.split(' ')
+                if (weight1) {
+                    pullScore += setRepArray[1] * setRepArray[3] * weight1
+                } else {
+                    pullScore += setRepArray[1] * setRepArray[3]
+                }
+            }
+        }
+        if (workout2) {
+
+            if (pushNames.includes(workout2)) {
+                pushCount++;
+                let setRepArray = set2.split(' ')
+                if (weight2) {
+                    pushScore += setRepArray[1] * setRepArray[3] * weight2
+                } else {
+                    pushScore += setRepArray[1] * setRepArray[3]
+                }
+            } else {
+                pullCount++;
+                let setRepArray = set2.split(' ')
+                if (weight2) {
+                    pullScore += setRepArray[1] * setRepArray[3] * weight2
+                } else {
+                    pullScore += setRepArray[1] * setRepArray[3]
+                }
+            }
+        }
+        if (workout3) {
+
+            if (pushNames.includes(workout3)) {
+                pushCount++;
+                let setRepArray = set3.split(' ')
+                if (weight3) {
+                    pushScore += setRepArray[1] * setRepArray[3] * weight3
+                } else {
+                    pushScore += setRepArray[1] * setRepArray[3]
+                }
+            } else {
+                pullCount++;
+                let setRepArray = set3.split(' ')
+                if (weight3) {
+                    pullScore += setRepArray[1] * setRepArray[3] * weight3
+                } else {
+                    pullScore += setRepArray[1] * setRepArray[3]
+                }
+            }
+        }
+        if (workout4) {
+
+            if (pushNames.includes(workout4)) {
+                pushCount++;
+                let setRepArray = set4.split(' ')
+                if (weight4) {
+                    pushScore += setRepArray[1] * setRepArray[3] * weight4
+                } else {
+                    pushScore += setRepArray[1] * setRepArray[3]
+                }
+            } else {
+                pullCount++;
+                let setRepArray = set4.split(' ')
+                if (weight4) {
+                    pullScore += setRepArray[1] * setRepArray[3] * weight4
+                } else {
+                    pullScore += setRepArray[1] * setRepArray[3]
+                }
+            }
+        }
+        if (workout5) {
+
+            if (pushNames.includes(workout5)) {
+                pushCount++;
+                let setRepArray = set5.split(' ')
+                if (weight5) {
+                    pushScore += setRepArray[1] * setRepArray[3] * weight5
+                } else {
+                    pushScore += setRepArray[1] * setRepArray[3]
+                }
+            } else {
+                pullCount++;
+                let setRepArray = set5.split(' ')
+                if (weight5) {
+                    pullScore += setRepArray[1] * setRepArray[3] * weight5
+                } else {
+                    pullScore += setRepArray[1] * setRepArray[3]
+                }
+            }
+        }
+        if (workout6) {
+
+            if (pushNames.includes(workout6)) {
+                pushCount++;
+                let setRepArray = set6.split(' ')
+                if (weight6) {
+                    pushScore += setRepArray[1] * setRepArray[3] * weight6
+                } else {
+                    pushScore += setRepArray[1] * setRepArray[3]
+                }
+            } else {
+                pullCount++;
+                let setRepArray = set6.split(' ')
+                if (weight6) {
+                    pullScore += setRepArray[1] * setRepArray[3] * weight6
+                } else {
+                    pullScore += setRepArray[1] * setRepArray[3]
+                }
+            }
+        }
+        if (workout7) {
+
+            if (pushNames.includes(workout7)) {
+                pushCount++;
+                let setRepArray = set7.split(' ')
+                if (weight7) {
+                    pushScore += setRepArray[1] * setRepArray[3] * weight7
+                } else {
+                    pushScore += setRepArray[1] * setRepArray[3]
+                }
+            } else {
+                pullCount++;
+                let setRepArray = set7.split(' ')
+                if (weight7) {
+                    pullScore += setRepArray[1] * setRepArray[3] * weight7
+                } else {
+                    pullScore += setRepArray[1] * setRepArray[3]
+                }
+            }
+        }
+        if (workout8) {
+
+            if (pushNames.includes(workout8)) {
+                pushCount++;
+                let setRepArray = set8.split(' ')
+                if (weight8) {
+                    pushScore += setRepArray[1] * setRepArray[3] * weight8
+                } else {
+                    pushScore += setRepArray[1] * setRepArray[3]
+                }
+            } else {
+                pullCount++;
+                let setRepArray = set8.split(' ')
+                if (weight8) {
+                    pullScore += setRepArray[1] * setRepArray[3] * weight8
+                } else {
+                    pullScore += setRepArray[1] * setRepArray[3]
+                }
+            }
+        }
+
+        console.log('pushCount', pushCount)
+        console.log('pullCount', pullCount)
+        console.log('pushScore', pushScore)
+        console.log('pullScore', pullScore)
+        const workoutHistory = await createHistory(
+            name,
+            pushCount,
+            pullCount,
+            pushScore,
+            pullScore,
+            client_id
+        )
+        console.log('after dispatch')
         const workoutPlan = await createWorkoutPlan(
             name,
             workout1,
@@ -351,7 +536,7 @@ const AddWorkoutPlan = (props) => {
                                         {
                                             sortedIntensities.map((intensity, i) => {
                                                 return (
-                                                    <MenuItem value={'Sets: ' + intensity.sets + ' ' + 'Reps: ' + intensity.reps}>Sets: {intensity.sets}, Reps: {intensity.reps} </MenuItem>
+                                                    <MenuItem value={'Sets: ' + intensity.sets + ' ' + 'Reps: ' + intensity.reps}>Sets: {intensity.sets} Reps: {intensity.reps} </MenuItem>
                                                 )
                                             })
                                         }
@@ -390,7 +575,7 @@ const AddWorkoutPlan = (props) => {
                                         {
                                             sortedIntensities.map((intensity, i) => {
                                                 return (
-                                                    <MenuItem value={'Sets: ' + intensity.sets + ' ' + 'Reps: ' + intensity.reps}>Sets: {intensity.sets}, Reps: {intensity.reps} </MenuItem>
+                                                    <MenuItem value={'Sets: ' + intensity.sets + ' ' + 'Reps: ' + intensity.reps}>Sets: {intensity.sets} Reps: {intensity.reps} </MenuItem>
                                                 )
                                             })
                                         }
@@ -429,7 +614,7 @@ const AddWorkoutPlan = (props) => {
                                         {
                                             sortedIntensities.map((intensity, i) => {
                                                 return (
-                                                    <MenuItem value={'Sets: ' + intensity.sets + ' ' + 'Reps: ' + intensity.reps}>Sets: {intensity.sets}, Reps: {intensity.reps} </MenuItem>
+                                                    <MenuItem value={'Sets: ' + intensity.sets + ' ' + 'Reps: ' + intensity.reps}>Sets: {intensity.sets} Reps: {intensity.reps} </MenuItem>
                                                 )
                                             })
                                         }
@@ -468,7 +653,7 @@ const AddWorkoutPlan = (props) => {
                                         {
                                             sortedIntensities.map((intensity, i) => {
                                                 return (
-                                                    <MenuItem value={'Sets: ' + intensity.sets + ' ' + 'Reps: ' + intensity.reps}>Sets: {intensity.sets}, Reps: {intensity.reps} </MenuItem>
+                                                    <MenuItem value={'Sets: ' + intensity.sets + ' ' + 'Reps: ' + intensity.reps}>Sets: {intensity.sets} Reps: {intensity.reps} </MenuItem>
                                                 )
                                             })
                                         }
@@ -507,7 +692,7 @@ const AddWorkoutPlan = (props) => {
                                         {
                                             sortedIntensities.map((intensity, i) => {
                                                 return (
-                                                    <MenuItem value={'Sets: ' + intensity.sets + ' ' + 'Reps: ' + intensity.reps}>Sets: {intensity.sets}, Reps: {intensity.reps} </MenuItem>
+                                                    <MenuItem value={'Sets: ' + intensity.sets + ' ' + 'Reps: ' + intensity.reps}>Sets: {intensity.sets} Reps: {intensity.reps} </MenuItem>
                                                 )
                                             })
                                         }
@@ -546,7 +731,7 @@ const AddWorkoutPlan = (props) => {
                                         {
                                             sortedIntensities.map((intensity, i) => {
                                                 return (
-                                                    <MenuItem value={'Sets: ' + intensity.sets + ' ' + 'Reps: ' + intensity.reps}>Sets: {intensity.sets}, Reps: {intensity.reps} </MenuItem>
+                                                    <MenuItem value={'Sets: ' + intensity.sets + ' ' + 'Reps: ' + intensity.reps}>Sets: {intensity.sets} Reps: {intensity.reps} </MenuItem>
                                                 )
                                             })
                                         }
@@ -585,7 +770,7 @@ const AddWorkoutPlan = (props) => {
                                         {
                                             sortedIntensities.map((intensity, i) => {
                                                 return (
-                                                    <MenuItem value={'Sets: ' + intensity.sets + ' ' + 'Reps: ' + intensity.reps}>Sets: {intensity.sets}, Reps: {intensity.reps} </MenuItem>
+                                                    <MenuItem value={'Sets: ' + intensity.sets + ' ' + 'Reps: ' + intensity.reps}>Sets: {intensity.sets} Reps: {intensity.reps} </MenuItem>
                                                 )
                                             })
                                         }
@@ -624,7 +809,7 @@ const AddWorkoutPlan = (props) => {
                                         {
                                             sortedIntensities.map((intensity, i) => {
                                                 return (
-                                                    <MenuItem value={'Sets: ' + intensity.sets + ' ' + 'Reps: ' + intensity.reps}>Sets: {intensity.sets}, Reps: {intensity.reps} </MenuItem>
+                                                    <MenuItem value={'Sets: ' + intensity.sets + ' ' + 'Reps: ' + intensity.reps}>Sets: {intensity.sets} Reps: {intensity.reps} </MenuItem>
                                                 )
                                             })
                                         }
