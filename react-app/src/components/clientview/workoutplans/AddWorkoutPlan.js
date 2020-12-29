@@ -80,20 +80,28 @@ const AddWorkoutPlan = (props) => {
     const [date, setDate] = useState("");
     const [workout1, setWorkout1] = useState("false");
     const [set1, setSet1] = useState("");
+    const [weight1, setWeight1] = useState("")
     const [workout2, setWorkout2] = useState("");
     const [set2, setSet2] = useState("");
+    const [weight2, setWeight2] = useState("")
     const [workout3, setWorkout3] = useState("");
     const [set3, setSet3] = useState("");
+    const [weight3, setWeight3] = useState("")
     const [workout4, setWorkout4] = useState("");
     const [set4, setSet4] = useState("");
+    const [weight4, setWeight4] = useState("")
     const [workout5, setWorkout5] = useState("");
     const [set5, setSet5] = useState("");
+    const [weight5, setWeight5] = useState("")
     const [workout6, setWorkout6] = useState("");
     const [set6, setSet6] = useState("");
+    const [weight6, setWeight6] = useState("")
     const [workout7, setWorkout7] = useState("");
     const [set7, setSet7] = useState("");
+    const [weight7, setWeight7] = useState("")
     const [workout8, setWorkout8] = useState("");
     const [set8, setSet8] = useState("");
+    const [weight8, setWeight8] = useState("")
     const [clientFirstName, setClientFirstName] = useState("");
     const [clientLastName, setClientLastName] = useState("");
 
@@ -133,20 +141,28 @@ const AddWorkoutPlan = (props) => {
             name,
             workout1,
             set1,
+            weight1,
             workout2,
             set2,
+            weight2,
             workout3,
             set3,
+            weight3,
             workout4,
             set4,
+            weight4,
             workout5,
             set5,
+            weight5,
             workout6,
             set6,
+            weight6,
             workout7,
             set7,
+            weight7,
             workout8,
             set8,
+            weight8,
             time,
             date,
             clientFirstName,
@@ -183,6 +199,10 @@ const AddWorkoutPlan = (props) => {
         setSet1(e.target.value);
     };
 
+    const updateWeight1 = (e) => {
+        setWeight1(e.target.value);
+    }
+
     const updateWorkout2 = (e) => {
         setWorkout2(e.target.value);
     };
@@ -190,6 +210,10 @@ const AddWorkoutPlan = (props) => {
     const updateSet2 = (e) => {
         setSet2(e.target.value);
     };
+
+    const updateWeight2 = (e) => {
+        setWeight2(e.target.value);
+    }
 
     const updateWorkout3 = (e) => {
         setWorkout3(e.target.value);
@@ -199,6 +223,10 @@ const AddWorkoutPlan = (props) => {
         setSet3(e.target.value);
     };
 
+    const updateWeight3 = (e) => {
+        setWeight3(e.target.value);
+    }
+
     const updateWorkout4 = (e) => {
         setWorkout4(e.target.value);
     };
@@ -206,6 +234,10 @@ const AddWorkoutPlan = (props) => {
     const updateSet4 = (e) => {
         setSet4(e.target.value);
     };
+
+    const updateWeight4 = (e) => {
+        setWeight4(e.target.value);
+    }
 
     const updateWorkout5 = (e) => {
         setWorkout5(e.target.value);
@@ -215,6 +247,10 @@ const AddWorkoutPlan = (props) => {
         setSet5(e.target.value);
     };
 
+    const updateWeight5 = (e) => {
+        setWeight5(e.target.value);
+    }
+
     const updateWorkout6 = (e) => {
         setWorkout6(e.target.value);
     };
@@ -222,6 +258,10 @@ const AddWorkoutPlan = (props) => {
     const updateSet6 = (e) => {
         setSet6(e.target.value);
     };
+
+    const updateWeight6 = (e) => {
+        setWeight6(e.target.value);
+    }
 
     const updateWorkout7 = (e) => {
         setWorkout7(e.target.value);
@@ -231,6 +271,10 @@ const AddWorkoutPlan = (props) => {
         setSet7(e.target.value);
     };
 
+    const updateWeight7 = (e) => {
+        setWeight7(e.target.value);
+    }
+
     const updateWorkout8 = (e) => {
         setWorkout8(e.target.value);
     };
@@ -238,6 +282,10 @@ const AddWorkoutPlan = (props) => {
     const updateSet8 = (e) => {
         setSet8(e.target.value);
     };
+
+    const updateWeight8 = (e) => {
+        setWeight8(e.target.value);
+    }
 
 
 
@@ -309,6 +357,7 @@ const AddWorkoutPlan = (props) => {
                                         }
                                     </Select>
                                 </FormControl>
+                                <TextField id='standard-basic' className={classes.inputs} value={weight1} onChange={updateWeight1} label='Weight (lbs)' autoFocus />
                                 <br />
                                 <FormControl className={classes.formControl}>
                                     <InputLabel htmlFor="grouped-native-select">Workouts</InputLabel>
@@ -347,6 +396,7 @@ const AddWorkoutPlan = (props) => {
                                         }
                                     </Select>
                                 </FormControl>
+                                <TextField id='standard-basic' className={classes.inputs} value={weight2} onChange={updateWeight2} label='Weight (lbs)' autoFocus />
                                 <br />
                                 <FormControl className={classes.formControl}>
                                     <InputLabel htmlFor="grouped-native-select">Workouts</InputLabel>
@@ -385,6 +435,7 @@ const AddWorkoutPlan = (props) => {
                                         }
                                     </Select>
                                 </FormControl>
+                                <TextField id='standard-basic' className={classes.inputs} value={weight3} onChange={updateWeight3} label='Weight (lbs)' autoFocus />
                                 <br />
                                 <FormControl className={classes.formControl}>
                                     <InputLabel htmlFor="grouped-native-select">Workouts</InputLabel>
@@ -423,6 +474,7 @@ const AddWorkoutPlan = (props) => {
                                         }
                                     </Select>
                                 </FormControl>
+                                <TextField id='standard-basic' className={classes.inputs} value={weight4} onChange={updateWeight4} label='Weight (lbs)' autoFocus />
                                 <br />
                                 <FormControl className={classes.formControl}>
                                     <InputLabel htmlFor="grouped-native-select">Workouts</InputLabel>
@@ -461,6 +513,7 @@ const AddWorkoutPlan = (props) => {
                                         }
                                     </Select>
                                 </FormControl>
+                                <TextField id='standard-basic' className={classes.inputs} value={weight5} onChange={updateWeight5} label='Weight (lbs)' autoFocus />
                                 <br />
                                 <FormControl className={classes.formControl}>
                                     <InputLabel htmlFor="grouped-native-select">Workouts</InputLabel>
@@ -499,6 +552,7 @@ const AddWorkoutPlan = (props) => {
                                         }
                                     </Select>
                                 </FormControl>
+                                <TextField id='standard-basic' className={classes.inputs} value={weight6} onChange={updateWeight6} label='Weight (lbs)' autoFocus />
                                 <br />
                                 <FormControl className={classes.formControl}>
                                     <InputLabel htmlFor="grouped-native-select">Workouts</InputLabel>
@@ -537,6 +591,7 @@ const AddWorkoutPlan = (props) => {
                                         }
                                     </Select>
                                 </FormControl>
+                                <TextField id='standard-basic' className={classes.inputs} value={weight7} onChange={updateWeight7} label='Weight (lbs)' autoFocus />
                                 <br />
                                 <FormControl className={classes.formControl}>
                                     <InputLabel htmlFor="grouped-native-select">Workouts</InputLabel>
@@ -575,6 +630,7 @@ const AddWorkoutPlan = (props) => {
                                         }
                                     </Select>
                                 </FormControl>
+                                <TextField id='standard-basic' className={classes.inputs} value={weight8} onChange={updateWeight8} label='Weight (lbs)' autoFocus />
                             </div>
                             <Button variant='contained' color='primary' className={classes.button} type='submit'>Submit</Button>
                         </form>

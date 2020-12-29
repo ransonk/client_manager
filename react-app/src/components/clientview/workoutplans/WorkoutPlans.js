@@ -108,21 +108,21 @@ export default function SimpleCard() {
                                 <br />
                                 {/* <Typography className={classes.pos} color="textSecondary"> */}
                                 <div>
-                                    <p className={classes.bold}>{workout.workout1}</p>
+                                    <p className={classes.bold}>{workout.weight1 ? workout.workout1 + ' ( ' + workout.weight1 + ' lbs)' : workout.workout1}</p>
                                     {workout.set1}
-                                    <p className={classes.bold}>{workout.workout2}</p>
+                                    <p className={classes.bold}>{workout.weight2 ? workout.workout2 + ' ( ' + workout.weight2 + ' lbs)' : workout.workout2}</p>
                                     {workout.set2}
-                                    <p className={classes.bold}>{workout.workout3}</p>
+                                    <p className={classes.bold}>{workout.weight3 ? workout.workout3 + ' ( ' + workout.weight3 + ' lbs)' : workout.workout3}</p>
                                     {workout.set3}
-                                    <p className={classes.bold}>{workout.workout4}</p>
+                                    <p className={classes.bold}>{workout.weight4 ? workout.workout4 + ' ( ' + workout.weight4 + ' lbs)' : workout.workout4}</p>
                                     {workout.set4}
-                                    <p className={classes.bold}>{workout.workout5}</p>
+                                    <p className={classes.bold}>{workout.weight5 ? workout.workout5 + ' ( ' + workout.weight5 + ' lbs)' : workout.workout5}</p>
                                     {workout.set5}
-                                    <p className={classes.bold}>{workout.workout6}</p>
+                                    <p className={classes.bold}>{workout.weight6 ? workout.workout6 + ' ( ' + workout.weight6 + ' lbs)' : workout.workout6}</p>
                                     {workout.set6}
-                                    <p className={classes.bold}>{workout.workout7}</p>
+                                    <p className={classes.bold}>{workout.weight7 ? workout.workout7 + ' ( ' + workout.weight7 + ' lbs)' : workout.workout7}</p>
                                     {workout.set7}
-                                    <p className={classes.bold}>{workout.workout8}</p>
+                                    <p className={classes.bold}>{workout.weight8 ? workout.workout8 + ' ( ' + workout.weight8 + ' lbs)' : workout.workout8}</p>
                                     {workout.set8}
                                 </div>
                                 {/* </Typography> */}
