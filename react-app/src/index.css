@@ -221,7 +221,7 @@ body::-webkit-scrollbar {
     width: 100%;
     position: relative;
     background-color: white;
-    opacity: 90%;
+    opacity: .9;
 }
 
 .MuiButton-root{
