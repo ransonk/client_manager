@@ -27,11 +27,18 @@ function GraphProgress() {
     console.log('his', historicalData)
     const sortedData = historicalData.sort((a, b) => new Date(a.date) - new Date(b.date))
     console.log('sort', sortedData)
+    const dates = sortedData.map(history => history.date)
+    console.log('dates', dates)
+    //DATES ARE NOW SORTED, YAY! MAP THROUGH THIS DATA BELOW FOR GRAPHICAL REPRESENTATION
+
+    let pushScore = sortedData.map(history => history.pushScore)
+    let pullScore = sortedData.map(history => history.pullScore)
 
     const data = {
 
-        labels: ['January', 'February', 'March',
-            'April', 'May'],
+        labels: dates,
+        // labels: ['January', 'February', 'March',
+        //     'April', 'May'],
         datasets: [
             {
                 label: 'Pull Exercises',
@@ -41,7 +48,8 @@ function GraphProgress() {
                 borderColor: '#99c1de',
                 borderWidth: 2,
                 color: 'white',
-                data: [65, 59, 80, 81, 90]
+                // data: [65, 59, 80, 81, 90]
+                data: pullScore
             },
             {
                 label: 'Push Exercises',
@@ -51,7 +59,8 @@ function GraphProgress() {
                 borderColor: '#f28482',
                 borderWidth: 2,
                 color: 'white',
-                data: [68, 69, 83, 83, 89]
+                // data: [68, 69, 83, 83, 89]
+                data: pushScore
             },
         ]
     }
@@ -59,11 +68,7 @@ function GraphProgress() {
     return (
         <div>
             <Line
-                data={
-                    historicalData.map(history => {
-
-                    })
-                }
+                data={data}
                 options={{
                     title: {
                         display: true,
