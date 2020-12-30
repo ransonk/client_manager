@@ -124,6 +124,21 @@ export const fetchWorkoutPlans = async (clientId) => {
     return workoutplans
 }
 
+export const fetchWorkoutHistory = async (clientId) => {
+    const response = await fetch(`/api/trainers/client/${clientId}/workout-history`, {
+        headers: {
+            "Content-Type": "application/json",
+        },
+    });
+    const result = await response.json();
+    const workouthistory = {}
+    // console.log('clients', result)
+    result.workouthistory.forEach(history => {
+        workouthistory[history.id] = history
+    })
+    return workouthistory
+}
+
 export const fetchTodaysPlans = async (trainer_id) => {
     const response = await fetch(`/api/trainers/${trainer_id}/todays-clients`, {
         headers: {

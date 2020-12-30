@@ -2,20 +2,43 @@ import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import { Line } from 'react-chartjs-2';
+import { fetchWorkoutHistory, updateProgress } from "../../store/users";
 
 
 function GraphProgress() {
-    const workoutPlans = useSelector((state) => state.store.workoutplans)
-    let workoutPlanList = Object.values(workoutPlans)
-    // console.log('mapppp here', workoutPlanList)
-    // console.log(Number(workoutPlanList[0].workout1) * Number(workoutPlanList[0].set1) * 100)
+    const dispatch = useDispatch();
+    const client = JSON.parse(localStorage.getItem('CURRENT_CLIENT'))
+    let id = client.id
+    let workoutHistory;
 
+    useEffect(() => {
+        (async () => {
+
+
+            workoutHistory = await fetchWorkoutHistory(id)
+            dispatch(updateProgress(workoutHistory))
+
+
+        })();
+    }, []);
+
+    const historicalDataRaw = useSelector((state) => state.store.client_progress)
+    const historicalData = Object.values(historicalDataRaw)
+    console.log('his', historicalData)
+    const sortedData = historicalData.sort((a, b) => new Date(a.date) - new Date(b.date))
+    console.log('sort', sortedData)
+    const dates = sortedData.map(history => history.date)
+    console.log('dates', dates)
+    //DATES ARE NOW SORTED, YAY! MAP THROUGH THIS DATA BELOW FOR GRAPHICAL REPRESENTATION
+
+    let pushScore = sortedData.map(history => history.pushScore)
+    let pullScore = sortedData.map(history => history.pullScore)
 
     const data = {
-        //add dates of each workout plan + pull & push data to
-        //constantly update graph
-        labels: ['January', 'February', 'March',
-            'April', 'May'],
+
+        labels: dates,
+        // labels: ['January', 'February', 'March',
+        //     'April', 'May'],
         datasets: [
             {
                 label: 'Pull Exercises',
@@ -25,7 +48,8 @@ function GraphProgress() {
                 borderColor: '#99c1de',
                 borderWidth: 2,
                 color: 'white',
-                data: [65, 59, 80, 81, 90]
+                // data: [65, 59, 80, 81, 90]
+                data: pullScore
             },
             {
                 label: 'Push Exercises',
@@ -35,7 +59,8 @@ function GraphProgress() {
                 borderColor: '#f28482',
                 borderWidth: 2,
                 color: 'white',
-                data: [68, 69, 83, 83, 89]
+                // data: [68, 69, 83, 83, 89]
+                data: pushScore
             },
         ]
     }

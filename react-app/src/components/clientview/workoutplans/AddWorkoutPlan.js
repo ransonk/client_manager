@@ -319,6 +319,7 @@ const AddWorkoutPlan = (props) => {
             pullCount,
             pushScore,
             pullScore,
+            date,
             client_id
         )
         console.log('after dispatch')
