@@ -12,6 +12,7 @@ import AddWorkoutPlan from './workoutplans/AddWorkoutPlan';
 import ClientCalendar from './ClientCalendar';
 import { Grid } from '@material-ui/core';
 import GraphProgress from './GraphProgress';
+import FrequencyPie from './FrequencyPie';
 
 
 const ClientView = ({ setAuthenticated }) => {
@@ -20,7 +21,7 @@ const ClientView = ({ setAuthenticated }) => {
     const [sched, setSched] = useState(true);
 
     const clickWorkoutPlans = (e) => {
-        // window.alert('hi')
+        // e.preventDefault();
         setPlans(true);
         setSched(false);
     }
@@ -66,6 +67,18 @@ const ClientView = ({ setAuthenticated }) => {
                 </Grid>
                 <Grid item md={3}></Grid>
             </Grid>
+            <br />
+            <br />
+            <br />
+            <Grid container>
+                <Grid item md={3}></Grid>
+                <Grid item xs={12} md={6}>
+                    <FrequencyPie />
+                </Grid>
+                <Grid item md={3}></Grid>
+            </Grid>
+            <br />
+            <br />
             <br />
 
             <Grid container xs={6} md={12} className='client-activity-block'>
