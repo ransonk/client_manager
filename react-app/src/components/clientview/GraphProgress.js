@@ -45,6 +45,8 @@ function GraphProgress() {
                 fill: false,
                 lineTension: 0.2,
                 backgroundColor: 'white',
+                hoverBorderColor: 'orange',
+                pointBorderColor: 'white',
                 borderColor: '#99c1de',
                 borderWidth: 2,
                 color: 'white',
@@ -56,6 +58,8 @@ function GraphProgress() {
                 fill: false,
                 lineTension: 0.2,
                 backgroundColor: 'white',
+                hoverBorderColor: 'orange',
+                pointBorderColor: 'white',
                 borderColor: '#f28482',
                 borderWidth: 2,
                 color: 'white',
@@ -70,9 +74,28 @@ function GraphProgress() {
             <Line
                 data={data}
                 options={{
+                    scales: {
+                        xAxes: [{
+                            gridLines: {
+                                display: true,
+                            },
+                            ticks: {
+                                fontColor: "white", // this here
+                            },
+                        }],
+                        yAxes: [{
+                            display: true,
+                            gridLines: {
+                                display: true,
+                            },
+                            ticks: {
+                                fontColor: "white", // this here
+                            },
+                        }],
+                    },
                     title: {
                         display: true,
-                        text: 'Fitness Progression',
+                        text: 'Lifetime Fitness Progression',
                         fontSize: 20,
                         fontColor: 'white',
 

@@ -134,8 +134,6 @@ const AddWorkoutPlan = (props) => {
             const client = await fetchClient(client_id)
             setClientFirstName(client.firstName)
             setClientLastName(client.lastName)
-            const progress = { 'wow': 'working' }
-            dispatch(updateProgress({ 'wow': 'working' }))
         })();
     }, []);
 
