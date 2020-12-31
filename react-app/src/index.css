@@ -150,7 +150,7 @@ body::-webkit-scrollbar {
   }
 
 .MuiTableContainer-root, .MuiTable-root{
-    /* width: 80% !important; */
+    /* max-width: 90% !important; */
     overflow-x: auto !important;
 }
 
@@ -994,7 +994,7 @@ body::-webkit-scrollbar {
     margin-top: 3rem;
     overflow-x: hidden;
     margin-left: 3rem;
-    padding-left: 3rem;
+    /* padding-left: 3rem; */
 }
 
 .today-plan-sched__container{

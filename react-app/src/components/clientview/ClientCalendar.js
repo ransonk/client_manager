@@ -152,7 +152,7 @@ export default function ClientCalendar() {
                 <Table className={classes.table} aria-label="simple table">
                     <TableHead>
                         <TableRow>
-                            <StyledTableCell>Today at {time}</StyledTableCell>
+                            <StyledTableCell>Today {time}</StyledTableCell>
                             <StyledTableCell align="right">Sets</StyledTableCell>
                             <StyledTableCell align="right">Reps</StyledTableCell>
                             <StyledTableCell align="right">Weight (lbs)</StyledTableCell>
