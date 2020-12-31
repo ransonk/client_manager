@@ -6,7 +6,7 @@ import { fetchTrainerWorkoutHistory, fetchWorkoutHistory, updateProgress } from 
 
 
 function ClientFrequency() {
-    const [workoutPlans, setWorkoutPlans] = useState('')
+    let [workoutPlans, setWorkoutPlans] = useState('')
 
 
     const clients = useSelector((state) => state.store.clients)
@@ -28,14 +28,28 @@ function ClientFrequency() {
     console.log(clientsArray)
     let clientList = clientsArray.map(client => (client.firstName + ' ' + client.lastName))
     console.log('client list', clientList)
+    workoutPlans = Object.values(workoutPlans)
     console.log('plans', workoutPlans)
 
+    let historyTracker = {}
+    workoutPlans.map(history => {
+        if (!historyTracker[history.client_id]) {
+            historyTracker[history.client_id] = 1
+        } else {
+            historyTracker[history.client_id] = historyTracker[history.client_id] + 1
+        }
+    })
+    console.log('historyTracker ', historyTracker)
+    let trackerData = Object.values(historyTracker)
+    const randomColor = Math.floor(Math.random() * 16777215).toString(16);
+    const clientColors = trackerData.map(tracker => randomColor)
+    console.log('random', clientColors)
 
     const data = {
 
         datasets: [{
-            data: [1, 2, 3, 4],
-            backgroundColor: ['#f28482', '#99c1de', '#f28482', '#99c1de'],
+            data: trackerData,
+            backgroundColor: clientColors,
             border: 'none'
         }],
         labels: clientList
