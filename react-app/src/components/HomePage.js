@@ -14,6 +14,7 @@ import ClientCalendar from './clientview/ClientCalendar';
 import TodaysClients from './TodaysClients';
 import TomorrowsClients from './TomorrowsClients';
 import { Grid } from '@material-ui/core';
+import ClientFrequency from './clientview/ClientFrequency'
 
 
 const useStyles = makeStyles((theme) => ({
@@ -133,6 +134,19 @@ const HomePage = ({ setAuthenticated }) => {
                 </Grid>
                 <Grid item xs={1} md={2}></Grid>
                 {/* <div className='home-clients__container'> */}
+                <br />
+                <br />
+                <br />
+                <Grid container>
+                    <Grid item md={3}></Grid>
+                    <Grid item xs={12} md={6}>
+                        <ClientFrequency />
+                    </Grid>
+                    <Grid item md={3}></Grid>
+                </Grid>
+                <br />
+                <br />
+                <br />
                 <Grid item xs={1} md={3}></Grid>
                 <Grid item xs={12} md={6} className='home-clients__title'>Create a Routine</Grid>
                 <Grid item xs={1} md={3}></Grid>
