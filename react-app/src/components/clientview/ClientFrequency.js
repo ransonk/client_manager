@@ -45,7 +45,7 @@ function ClientFrequency() {
     let numClients = trackerData.length;
     let clientColors = [];
     for (let i = 0; i < trackerData.length; i++) {
-        clientColors.push(`#e76f51`)
+        clientColors.push(`#bde0fe`)
     }
     // const clientColors = trackerData.map(tracker => `#${randomColor}`)
     console.log('random', clientColors)
@@ -90,7 +90,7 @@ function ClientFrequency() {
                     },
                     title: {
                         display: true,
-                        text: 'Client Workout Sessions',
+                        text: 'Total Client Sessions',
                         fontSize: 20,
                         fontColor: 'white',
 

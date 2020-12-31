@@ -148,6 +148,8 @@ export default function ClientCalendar() {
     return (
 
         <div className='workoutplans__container'>
+
+
             <TableContainer component={Paper}>
                 <Table className={classes.table} aria-label="simple table">
                     <TableHead>
@@ -260,40 +262,3 @@ export default function ClientCalendar() {
 
     )
 }
-
-// <Card className={classes.root}>
-//     <CardContent>
-
-//         <Typography variant="h5" component="h2" gutterBottom>
-//             {workout.name}
-//         </Typography>
-//         <Typography>
-//             Date: <span className={classes.title}>{workout.date}</span>
-//         </Typography>
-//         <Typography>
-//             Time: <span className={classes.title}>{workout.time}</span>
-//         </Typography>
-//         <br />
-//         <Divider />
-//         <br />
-
-//         <div>
-//             <p className={classes.bold}>{workout.workout1}</p>
-//             {workout.set1}
-//             <p className={classes.bold}>{workout.workout2}</p>
-//             {workout.set2}
-//             <p className={classes.bold}>{workout.workout3}</p>
-//             {workout.set3}
-//             <p className={classes.bold}>{workout.workout4}</p>
-//             {workout.set4}
-//             <p className={classes.bold}>{workout.workout5}</p>
-//             {workout.set5}
-//             <p className={classes.bold}>{workout.workout6}</p>
-//             {workout.set6}
-//             <p className={classes.bold}>{workout.workout7}</p>
-//             {workout.set7}
-//             <p className={classes.bold}>{workout.workout8}</p>
-//             {workout.set8}
-//         </div>
-//     </CardContent>
-// </Card>
