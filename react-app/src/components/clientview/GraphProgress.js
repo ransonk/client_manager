@@ -43,7 +43,7 @@ function GraphProgress() {
             {
                 label: 'Pull Exercises',
                 fill: false,
-                lineTension: 0.2,
+                lineTension: 0.1,
                 backgroundColor: 'white',
                 hoverBorderColor: 'orange',
                 pointBorderColor: 'white',
@@ -56,7 +56,7 @@ function GraphProgress() {
             {
                 label: 'Push Exercises',
                 fill: false,
-                lineTension: 0.2,
+                lineTension: 0.1,
                 backgroundColor: 'white',
                 hoverBorderColor: 'orange',
                 pointBorderColor: 'white',

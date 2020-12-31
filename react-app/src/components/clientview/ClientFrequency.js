@@ -42,7 +42,12 @@ function ClientFrequency() {
     console.log('historyTracker ', historyTracker)
     let trackerData = Object.values(historyTracker)
     const randomColor = Math.floor(Math.random() * 16777215).toString(16);
-    const clientColors = trackerData.map(tracker => randomColor)
+    let numClients = trackerData.length;
+    let clientColors = [];
+    for (let i = 0; i < trackerData.length; i++) {
+        clientColors.push(`#e76f51`)
+    }
+    // const clientColors = trackerData.map(tracker => `#${randomColor}`)
     console.log('random', clientColors)
 
     const data = {
@@ -50,7 +55,8 @@ function ClientFrequency() {
         datasets: [{
             data: trackerData,
             backgroundColor: clientColors,
-            border: 'none'
+            border: 'none',
+            opacity: 0.5
         }],
         labels: clientList
     }
@@ -61,12 +67,26 @@ function ClientFrequency() {
                 data={data}
                 options={{
                     scales: {
+                        xAxes: [{
+                            gridLines: {
+                                display: true,
+                                color: 'gray',
+                            },
+                            ticks: {
+                                fontColor: "white", // this here
+                            },
+                        }],
                         yAxes: [{
                             gridLines: {
+                                color: 'gray',
                                 offsetGridLines: true
                             },
                             offset: true,
-                        }]
+                            ticks: {
+                                fontColor: 'white',
+                            }
+                        }],
+
                     },
                     title: {
                         display: true,

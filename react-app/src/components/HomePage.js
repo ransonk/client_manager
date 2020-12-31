@@ -137,6 +137,7 @@ const HomePage = ({ setAuthenticated }) => {
                 <br />
                 <br />
                 <br />
+                <Grid item xs={12} md={12} className='invisibar'></Grid>
                 <Grid container>
                     <Grid item md={3}></Grid>
                     <Grid item xs={12} md={6}>
@@ -144,6 +145,7 @@ const HomePage = ({ setAuthenticated }) => {
                     </Grid>
                     <Grid item md={3}></Grid>
                 </Grid>
+                <Grid item xs={12} md={12} className='invisibar'></Grid>
                 <br />
                 <br />
                 <br />
