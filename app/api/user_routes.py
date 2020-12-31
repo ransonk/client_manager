@@ -130,6 +130,20 @@ def workout_plans(id):
     #             i[k] = 'Null'
     return {"workoutplans": plansObj}
 
+# Grab trainer specific workout history
+@trainer_routes.route('/<int:id>/workout-history')
+#this one ->>>>>>>>>>>
+# @login_required
+def trainer_workout_plans(id):
+    trainer = Trainer.query.get(id)
+    workouthistory = trainer.return_workouthistory()
+    plansObj = workouthistory['history']
+    # for i in clientObj:
+    #     for k,v in i.items():
+    #         if k == "email" or k == "phone" or k == "amount" or k == "duedate" or k == "weight" or k == "age":
+    #             i[k] = 'Null'
+    return {"workouthistory": plansObj}
+
 
 @trainer_routes.route('/client/<int:id>/workout-history')
 # @login_required

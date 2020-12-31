@@ -149,6 +149,11 @@ body::-webkit-scrollbar {
     outline: 1px solid #99c1de;
   }
 
+.MuiTableContainer-root, .MuiTable-root{
+    /* width: 80% !important; */
+    overflow-x: auto !important;
+}
+
 .MuiDrawer-paper{
     background-color: #24364e !important
 }
@@ -989,6 +994,7 @@ body::-webkit-scrollbar {
     margin-top: 3rem;
     overflow-x: hidden;
     margin-left: 3rem;
+    padding-left: 3rem;
 }
 
 .today-plan-sched__container{

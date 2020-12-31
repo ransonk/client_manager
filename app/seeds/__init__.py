@@ -1,5 +1,5 @@
 from flask.cli import AppGroup
-from .users import seed_trainers, seed_clients, seed_workouts, seed_workoutintensities, seed_workoutplans, seed_routinelist, seed_routine, undo_trainers
+from .users import seed_trainers, seed_clients, seed_history, seed_workouts, seed_workoutintensities, seed_workoutplans, seed_routinelist, seed_routine, undo_trainers
 # from .users import seed_users, undo_users
 
 # Creates a seed group to hold our commands
@@ -11,6 +11,7 @@ seed_commands = AppGroup('seed')
 def seed():
     seed_trainers()
     seed_clients()
+    seed_history()
     seed_workouts()
     seed_workoutintensities()
     seed_workoutplans()

@@ -24,11 +24,11 @@ function GraphProgress() {
 
     const historicalDataRaw = useSelector((state) => state.store.client_progress)
     const historicalData = Object.values(historicalDataRaw)
-    console.log('his', historicalData)
+    // console.log('his', historicalData)
     const sortedData = historicalData.sort((a, b) => new Date(a.date) - new Date(b.date))
-    console.log('sort', sortedData)
+    // console.log('sort', sortedData)
     const dates = sortedData.map(history => history.date)
-    console.log('dates', dates)
+    // console.log('dates', dates)
     //DATES ARE NOW SORTED, YAY! MAP THROUGH THIS DATA BELOW FOR GRAPHICAL REPRESENTATION
 
     let pushScore = sortedData.map(history => history.pushScore)
@@ -43,7 +43,7 @@ function GraphProgress() {
             {
                 label: 'Pull Exercises',
                 fill: false,
-                lineTension: 0.2,
+                lineTension: 0.1,
                 backgroundColor: 'white',
                 hoverBorderColor: 'orange',
                 pointBorderColor: 'white',
@@ -56,7 +56,7 @@ function GraphProgress() {
             {
                 label: 'Push Exercises',
                 fill: false,
-                lineTension: 0.2,
+                lineTension: 0.1,
                 backgroundColor: 'white',
                 hoverBorderColor: 'orange',
                 pointBorderColor: 'white',
@@ -107,6 +107,7 @@ function GraphProgress() {
                             fontColor: 'white'
                         }
                     },
+
                 }}
             />
         </div>

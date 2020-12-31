@@ -24,18 +24,18 @@ function FrequencyPie() {
 
     const historicalDataRaw = useSelector((state) => state.store.client_progress)
     const historicalData = Object.values(historicalDataRaw)
-    console.log('his', historicalData)
+    // console.log('his', historicalData)
     const sortedData = historicalData.sort((a, b) => new Date(a.date) - new Date(b.date))
-    console.log('sort', sortedData)
+    // console.log('sort', sortedData)
     const dates = sortedData.map(history => history.date)
-    console.log('dates', dates)
+    // console.log('dates', dates)
     //DATES ARE NOW SORTED, YAY! MAP THROUGH THIS DATA BELOW FOR GRAPHICAL REPRESENTATION
 
     let pushCount = sortedData.map(history => Number(history.pushCount))
     let pullCount = sortedData.map(history => Number(history.pullCount))
     pushCount = pushCount.reduce((a, b) => a + b, 0)
     pullCount = pullCount.reduce((a, b) => a + b, 0)
-    console.log('Push freq ', pushCount, 'Pull freq ', pullCount)
+    // console.log('Push freq ', pushCount, 'Pull freq ', pullCount)
 
 
     const data = {
@@ -70,6 +70,9 @@ function FrequencyPie() {
                             fontColor: 'white'
                         }
                     },
+                    animation: {
+                        duration: 4000
+                    }
                 }}
             />
         </div>
