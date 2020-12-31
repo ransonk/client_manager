@@ -49,6 +49,7 @@ function ClientFrequency() {
     }
     // const clientColors = trackerData.map(tracker => `#${randomColor}`)
     console.log('random', clientColors)
+    console.log('tracker', trackerData)
 
     const data = {
 
