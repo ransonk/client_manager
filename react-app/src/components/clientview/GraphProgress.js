@@ -107,6 +107,7 @@ function GraphProgress() {
                             fontColor: 'white'
                         }
                     },
+
                 }}
             />
         </div>

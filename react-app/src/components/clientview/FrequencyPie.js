@@ -70,6 +70,9 @@ function FrequencyPie() {
                             fontColor: 'white'
                         }
                     },
+                    animation: {
+                        duration: 3000
+                    }
                 }}
             />
         </div>

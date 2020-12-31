@@ -63,7 +63,7 @@ const ClientView = ({ setAuthenticated }) => {
             <Grid container>
                 <Grid item md={3}></Grid>
                 <Grid item xs={12} md={6}>
-                    <GraphProgress />
+                    <FrequencyPie />
                 </Grid>
                 <Grid item md={3}></Grid>
             </Grid>
@@ -73,13 +73,14 @@ const ClientView = ({ setAuthenticated }) => {
             <Grid container>
                 <Grid item md={3}></Grid>
                 <Grid item xs={12} md={6}>
-                    <FrequencyPie />
+                    <GraphProgress />
                 </Grid>
                 <Grid item md={3}></Grid>
             </Grid>
             <br />
             <br />
             <br />
+
 
             <Grid container xs={6} md={12} className='client-activity-block'>
 
