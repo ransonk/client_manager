@@ -2,17 +2,33 @@ import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import { Bar } from 'react-chartjs-2';
-import { fetchWorkoutHistory, updateProgress } from "../../store/users";
+import { fetchTrainerWorkoutHistory, fetchWorkoutHistory, updateProgress } from "../../store/users";
 
 
 function ClientFrequency() {
-    const clients = useSelector((state) => state.store.clients)
-    if (!clients) return null;
+    const [workoutPlans, setWorkoutPlans] = useState('')
 
+
+    const clients = useSelector((state) => state.store.clients)
+
+    const trainer = useSelector((state) => state.store.current_trainer)
+    const trainerId = trainer.id
+
+
+    useEffect(() => {
+        (async () => {
+            const rawWorkoutHistory = await fetchTrainerWorkoutHistory(trainerId)
+            setWorkoutPlans(rawWorkoutHistory)
+        })();
+    }, []);
+
+
+    if (!clients) return null;
     let clientsArray = Object.values(clients)
     console.log(clientsArray)
     let clientList = clientsArray.map(client => (client.firstName + ' ' + client.lastName))
     console.log('client list', clientList)
+    console.log('plans', workoutPlans)
 
 
     const data = {

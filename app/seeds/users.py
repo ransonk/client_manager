@@ -1,6 +1,6 @@
 from werkzeug.security import generate_password_hash
 # from app.models import db, User
-from app.models import db, Trainer, Client, Workout, WorkoutPlan, WorkoutIntensity, RoutineList, Routine
+from app.models import db, Trainer, Client, History, Workout, WorkoutPlan, WorkoutIntensity, RoutineList, Routine
 
 # Adds a demo user, you can add other users here if you want
 def seed_trainers():
@@ -76,6 +76,141 @@ def seed_clients():
     db.session.add(demo1)
     db.session.add(demo2)
     db.session.add(demo3)
+
+    db.session.commit()
+
+def seed_history():
+
+    demo = History(name="dun",
+    pushCount='2',
+    pullCount='4',
+    pushScore='3000',
+    pullScore='3500',
+    date='12/28/2020',
+    client_id=1,
+    trainer_id=1)
+
+    demo1 = History(name="dun1",
+    pushCount='3',
+    pullCount='3',
+    pushScore='3500',
+    pullScore='4000',
+    date='12/29/2020',
+    client_id=1,
+    trainer_id=1)
+
+    demo2 = History(name="dun2",
+    pushCount='4',
+    pullCount='5',
+    pushScore='4000',
+    pullScore='4500',
+    date='12/30/2020',
+    client_id=1,
+    trainer_id=1)
+
+    demo3 = History(name="dun3",
+    pushCount='6',
+    pullCount='7',
+    pushScore='4500',
+    pullScore='5000',
+    date='12/31/2020',
+    client_id=1,
+    trainer_id=1)
+
+    demo4 = History(name="dun4",
+    pushCount='2',
+    pullCount='4',
+    pushScore='3000',
+    pullScore='3500',
+    date='12/28/2020',
+    client_id=2,
+    trainer_id=1)
+
+    demo5 = History(name="dun5",
+    pushCount='3',
+    pullCount='3',
+    pushScore='3500',
+    pullScore='4000',
+    date='12/29/2020',
+    client_id=2,
+    trainer_id=1)
+
+    demo6 = History(name="dun6",
+    pushCount='4',
+    pullCount='5',
+    pushScore='4000',
+    pullScore='4500',
+    date='12/30/2020',
+    client_id=3,
+    trainer_id=1)
+
+    demo7 = History(name="dun7",
+    pushCount='6',
+    pullCount='7',
+    pushScore='4500',
+    pullScore='5000',
+    date='12/31/2020',
+    client_id=3,
+    trainer_id=1)
+
+    demo8 = History(name="dun8",
+    pushCount='4',
+    pullCount='5',
+    pushScore='4000',
+    pullScore='4500',
+    date='01/01/2020',
+    client_id=3,
+    trainer_id=1)
+
+    demo9 = History(name="dun9",
+    pushCount='6',
+    pullCount='7',
+    pushScore='4500',
+    pullScore='5000',
+    date='01/02/2020',
+    client_id=3,
+    trainer_id=1)
+
+    demo10 = History(name="dun10",
+    pushCount='4',
+    pullCount='5',
+    pushScore='4000',
+    pullScore='4500',
+    date='01/03/2020',
+    client_id=3,
+    trainer_id=1)
+
+    demo11 = History(name="dun11",
+    pushCount='6',
+    pullCount='7',
+    pushScore='4500',
+    pullScore='5000',
+    date='01/04/2020',
+    client_id=3,
+    trainer_id=1)
+
+    demo12 = History(name="dun12",
+    pushCount='6',
+    pullCount='7',
+    pushScore='4500',
+    pullScore='5000',
+    date='01/05/2020',
+    client_id=4,
+    trainer_id=1)
+
+    db.session.add(demo)
+    db.session.add(demo1)
+    db.session.add(demo2)
+    db.session.add(demo3)
+    db.session.add(demo4)
+    db.session.add(demo5)
+    db.session.add(demo6)
+    db.session.add(demo7)
+    db.session.add(demo8)
+    db.session.add(demo9)
+    db.session.add(demo10)
+    db.session.add(demo11)
+    db.session.add(demo12)
 
     db.session.commit()
 

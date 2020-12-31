@@ -22,6 +22,11 @@ class Trainer(db.Model, UserMixin):
       back_populates="trainer"
   )
 
+  history = db.relationship(
+    "History",
+    back_populates="trainer"
+  )
+
   workouts = db.relationship(
     "Workout",
     back_populates="trainer"
@@ -68,6 +73,11 @@ class Trainer(db.Model, UserMixin):
   def return_workoutplans(self):
     return {
       "workoutplans": [workoutplan.to_dict() for workoutplan in self.workoutplans]
+    }
+
+  def return_workouthistory(self):
+    return {
+      "history": [his.to_dict() for his in self.history]
     }
 
 
