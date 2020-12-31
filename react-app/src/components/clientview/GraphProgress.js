@@ -95,7 +95,7 @@ function GraphProgress() {
                     },
                     title: {
                         display: true,
-                        text: 'Lifetime Fitness Progression',
+                        text: 'Total Fitness Progression',
                         fontSize: 20,
                         fontColor: 'white',
 

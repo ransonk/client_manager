@@ -58,7 +58,7 @@ function FrequencyPie() {
                 options={{
                     title: {
                         display: true,
-                        text: 'Lifetime Workout Frequency',
+                        text: 'Total Workout Frequency',
                         fontSize: 20,
                         fontColor: 'white',
 
