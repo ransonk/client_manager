@@ -318,7 +318,8 @@ const AddWorkoutPlan = (props) => {
             pushScore,
             pullScore,
             date,
-            client_id
+            client_id,
+            trainer_id
         )
         console.log('after dispatch')
         const workoutPlan = await createWorkoutPlan(
