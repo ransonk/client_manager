@@ -75,20 +75,20 @@ const HomePage = ({ setAuthenticated }) => {
             dispatch(setCurrentUser(user))
             setName(user.firstName)
 
-            // const clients = await fetchClients(trainerId);
-            // dispatch(setTrainerClients('wow'))
+            const clients = await fetchClients(trainerId);
+            dispatch(setTrainerClients('wow'))
 
-            // const workoutPlans = await fetchAllWorkoutPlans(trainerId);
-            // dispatch(setAllWorkoutPlans(workoutPlans))
+            const workoutPlans = await fetchAllWorkoutPlans(trainerId);
+            dispatch(setAllWorkoutPlans(workoutPlans))
 
-            // const todaysPlans = await fetchTodaysPlans(trainerId)
-            // dispatch(setTodaysPlans(todaysPlans))
+            const todaysPlans = await fetchTodaysPlans(trainerId)
+            dispatch(setTodaysPlans(todaysPlans))
 
-            // const workouts = await fetchWorkouts(trainerId);
-            // dispatch(setWorkouts(workouts))
+            const workouts = await fetchWorkouts(trainerId);
+            dispatch(setWorkouts(workouts))
 
-            // const intensities = await fetchIntensities(trainerId);
-            // dispatch(setIntensities(intensities))
+            const intensities = await fetchIntensities(trainerId);
+            dispatch(setIntensities(intensities))
 
 
         })();
@@ -168,7 +168,25 @@ const HomePage = ({ setAuthenticated }) => {
                         <Calendar
                             onChange={onChange}
                             value={value}
-                            tileContent={({ date, view }) => view === 'month' && date.getDate() === 12 && date.getMonth() + 1 === 1 ? <p>It's Today!</p> : null}
+                            tileContent={({ date, view }) => {
+                                allWorkoutPlans.forEach(plan => {
+                                    let targetDate = plan.date.split('/')
+                                    let tMonth = targetDate[0]
+                                    let tDay = targetDate[1]
+                                    let tYear = targetDate[2]
+                                    console.log('tMonth', tMonth)
+                                    console.log('tDay', tDay)
+                                    console.log('tYear', tYear)
+                                    if (view === 'month' && date.getDate() === tDay && date.getMonth() + 1 === tMonth && date.getFullYear() === tYear) {
+                                        return plan.time
+                                    } else {
+
+                                        return null
+                                    }
+                                })
+
+                            }
+                            }
                         // tileContent={({ date, view }) => view === 'month' && date.getDay() === 1 ? <p>It's Monday!</p> : null}
                         />
                     </Grid>
