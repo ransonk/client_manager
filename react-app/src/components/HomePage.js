@@ -50,6 +50,9 @@ const HomePage = ({ setAuthenticated }) => {
     const [tomorrow, setTomorrow] = useState(false);
     // window.location.reload();
     let trainerId = useSelector(state => state.store.current_trainer.id)
+    let allWorkoutPlans = useSelector(state => state.store.allWorkoutPlans)
+    allWorkoutPlans = Object.values(allWorkoutPlans)
+    console.log('all the plans ', allWorkoutPlans)
 
     let date = new Date();
     let dd = date.getDate();
@@ -59,6 +62,8 @@ const HomePage = ({ setAuthenticated }) => {
     if (dd < 10) { dd = '0' + dd }
     if (mm < 10) { mm = '0' + mm }
     let date1 = mm + '/' + dd + '/' + yyyy;
+    // console.log('year?????', yyyy)
+    // console.log('date?????', date1)
 
     useEffect(() => {
         (async () => {
@@ -163,7 +168,7 @@ const HomePage = ({ setAuthenticated }) => {
                         <Calendar
                             onChange={onChange}
                             value={value}
-                            tileContent={({ date, view }) => view === 'month' && date.getDate() === 12 ? <p>It's Today!</p> : null}
+                            tileContent={({ date, view }) => view === 'month' && date.getDate() === 12 && date.getMonth() + 1 === 1 ? <p>It's Today!</p> : null}
                         // tileContent={({ date, view }) => view === 'month' && date.getDay() === 1 ? <p>It's Monday!</p> : null}
                         />
                     </Grid>
