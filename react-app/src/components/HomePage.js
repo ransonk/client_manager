@@ -9,7 +9,7 @@ import CreateNewIntensity from './workouts/CreateNewIntensity';
 import { Button } from '@material-ui/core';
 import { authenticate } from "../services/auth";
 import Intensities from './workouts/Intensities';
-import { setCurrentUser, setCurrentClient, fetchClients, setTrainerClients, fetchTodaysPlans, setTodaysPlans, fetchWorkouts, setWorkouts, fetchIntensities, setIntensities, fetchTodaysClients, updateProgress } from "../store/users";
+import { setCurrentUser, setCurrentClient, fetchClients, setTrainerClients, fetchTodaysPlans, setTodaysPlans, fetchWorkouts, setWorkouts, fetchIntensities, setIntensities, fetchTodaysClients, updateProgress, fetchAllWorkoutPlans, setAllWorkoutPlans } from "../store/users";
 import ClientCalendar from './clientview/ClientCalendar';
 import TodaysClients from './TodaysClients';
 import TomorrowsClients from './TomorrowsClients';
@@ -70,21 +70,25 @@ const HomePage = ({ setAuthenticated }) => {
             dispatch(setCurrentUser(user))
             setName(user.firstName)
 
-            const clients = await fetchClients(trainerId);
-            dispatch(setTrainerClients(clients))
+            // const clients = await fetchClients(trainerId);
+            // dispatch(setTrainerClients('wow'))
 
-            const todaysPlans = await fetchTodaysPlans(trainerId)
-            dispatch(setTodaysPlans(todaysPlans))
+            // const workoutPlans = await fetchAllWorkoutPlans(trainerId);
+            // dispatch(setAllWorkoutPlans(workoutPlans))
 
-            const workouts = await fetchWorkouts(trainerId);
-            dispatch(setWorkouts(workouts))
+            // const todaysPlans = await fetchTodaysPlans(trainerId)
+            // dispatch(setTodaysPlans(todaysPlans))
 
-            const intensities = await fetchIntensities(trainerId);
-            dispatch(setIntensities(intensities))
+            // const workouts = await fetchWorkouts(trainerId);
+            // dispatch(setWorkouts(workouts))
+
+            // const intensities = await fetchIntensities(trainerId);
+            // dispatch(setIntensities(intensities))
 
 
         })();
     }, []);
+
 
     if (!loaded) {
         return null;
@@ -159,7 +163,8 @@ const HomePage = ({ setAuthenticated }) => {
                         <Calendar
                             onChange={onChange}
                             value={value}
-                            tileContent={({ date, view }) => view === 'month' && date.getDay() === 1 ? <p>It's Monday!</p> : null}
+                            tileContent={({ date, view }) => view === 'month' && date.getDate() === 12 ? <p>It's Today!</p> : null}
+                        // tileContent={({ date, view }) => view === 'month' && date.getDay() === 1 ? <p>It's Monday!</p> : null}
                         />
                     </Grid>
                     <Grid item md={3}></Grid>

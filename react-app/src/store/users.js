@@ -14,6 +14,7 @@ export const SET_ROUTINES = "SET_ROUTINES";
 export const ADD_ROUTINE = "ADD_ROUTINE";
 export const USER_LOGOUT = "USER_LOGOUT";
 export const UPDATE_PROGRESS = "UPDATE_PROGRESS";
+export const SET_ALL_WORKOUT_PLANS = "SET_ALL_WORKOUT_PLANS";
 
 export const setCurrentUser = (trainer) => {
     return { type: SET_CURRENT_TRAINER, trainer };
@@ -59,6 +60,13 @@ export const setIntensities = (intensities) => {
 export const setWorkoutPlans = (workoutplans) => {
     return {
         type: SET_WORKOUT_PLANS,
+        workoutplans
+    }
+}
+
+export const setAllWorkoutPlans = (workoutplans) => {
+    return {
+        type: SET_ALL_WORKOUT_PLANS,
         workoutplans
     }
 }
@@ -122,6 +130,21 @@ export const fetchWorkoutPlans = async (clientId) => {
         workoutplans[workoutplan.id] = workoutplan
     })
     return workoutplans
+}
+
+export const fetchAllWorkoutPlans = async (trainerId) => {
+    const response = await fetch(`/api/trainers/${trainerId}/workout-plans`, {
+        headers: {
+            "Content-Type": "application/json",
+        },
+    });
+    const result = await response.json();
+    const allworkoutplans = {}
+    // console.log('clients', result)
+    result.allworkoutplans.forEach(workoutplan => {
+        allworkoutplans[workoutplan.id] = workoutplan
+    })
+    return allworkoutplans
 }
 
 // export const fetchTrainerWorkoutPlans = async (trainerId) => {
@@ -236,7 +259,8 @@ const initialState = {
     clients: {},
     workouts: {},
     intensities: {},
-    workoutplans: {},
+    workoutPlans: {},
+    allWorkoutPlans: {},
     todaysPlans: {}
 }
 
@@ -264,7 +288,11 @@ export default function reducer(state = initialState, action) {
             return newState;
         }
         case SET_WORKOUT_PLANS: {
-            newState.workoutplans = { ...action.workoutplans }
+            newState.workoutPlans = { ...action.workoutplans }
+            return newState;
+        }
+        case SET_ALL_WORKOUT_PLANS: {
+            newState.allWorkoutPlans = { ...action.workoutplans }
             return newState;
         }
         case SET_TODAYS_PLANS: {
