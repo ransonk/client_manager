@@ -15,6 +15,7 @@ import TodaysClients from './TodaysClients';
 import TomorrowsClients from './TomorrowsClients';
 import { Grid } from '@material-ui/core';
 import ClientFrequency from './clientview/ClientFrequency'
+import Calendar from 'react-calendar';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -42,6 +43,7 @@ const HomePage = ({ setAuthenticated }) => {
     const classes = useStyles();
     const dispatch = useDispatch();
     // const [authenticated, setAuthenticated] = useState(false);
+    const [value, onChange] = useState(new Date());
     const [loaded, setLoaded] = useState(false);
     const [name, setName] = useState();
     const [tomorrow, setTomorrow] = useState(false);
@@ -142,6 +144,20 @@ const HomePage = ({ setAuthenticated }) => {
                     <Grid item md={3}></Grid>
                     <Grid item xs={12} md={6}>
                         <ClientFrequency />
+                    </Grid>
+                    <Grid item md={3}></Grid>
+                </Grid>
+                <Grid item xs={12} md={12} className='invisibar'></Grid>
+                <br />
+                <br />
+                <br />
+                <Grid item xs={12} md={12} className='invisibar'></Grid>
+                <Grid container>
+                    <Grid item md={3}></Grid>
+                    <Grid item xs={12} md={6}>
+                        <Calendar
+                            onChange={onChange}
+                            value={value} />
                     </Grid>
                     <Grid item md={3}></Grid>
                 </Grid>
