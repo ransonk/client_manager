@@ -76,7 +76,7 @@ const HomePage = ({ setAuthenticated }) => {
             setName(user.firstName)
 
             const clients = await fetchClients(trainerId);
-            dispatch(setTrainerClients('wow'))
+            dispatch(setTrainerClients(clients))
 
             const workoutPlans = await fetchAllWorkoutPlans(trainerId);
             dispatch(setAllWorkoutPlans(workoutPlans))
