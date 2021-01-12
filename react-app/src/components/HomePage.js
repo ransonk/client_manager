@@ -16,6 +16,7 @@ import TomorrowsClients from './TomorrowsClients';
 import { Grid } from '@material-ui/core';
 import ClientFrequency from './clientview/ClientFrequency'
 import Calendar from 'react-calendar';
+import 'react-calendar/dist/Calendar.css';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -157,7 +158,9 @@ const HomePage = ({ setAuthenticated }) => {
                     <Grid item xs={12} md={6}>
                         <Calendar
                             onChange={onChange}
-                            value={value} />
+                            value={value}
+                            tileContent={({ date, view }) => view === 'month' && date.getDay() === 1 ? <p>It's Monday!</p> : null}
+                        />
                     </Grid>
                     <Grid item md={3}></Grid>
                 </Grid>
