@@ -1110,6 +1110,7 @@ body::-webkit-scrollbar {
 
 .rbc-day-bg, .rbc-btn-group, .rbc-header, .rbc-toolbar{
    background-color: white !important;
+   font-family: calibri !important;
 }
 
 /* .rbc-day-bg{
