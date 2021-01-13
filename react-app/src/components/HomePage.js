@@ -6,7 +6,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Workouts from './workouts/Workouts';
 import CreateNewWorkout from './workouts/CreateNewWorkout';
 import CreateNewIntensity from './workouts/CreateNewIntensity';
-import { Button } from '@material-ui/core';
+import { Button, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle } from '@material-ui/core';
 import { authenticate } from "../services/auth";
 import Intensities from './workouts/Intensities';
 import { setCurrentUser, setCurrentClient, fetchClients, setTrainerClients, fetchTodaysPlans, setTodaysPlans, fetchWorkouts, setWorkouts, fetchIntensities, setIntensities, fetchTodaysClients, updateProgress, fetchAllWorkoutPlans, setAllWorkoutPlans } from "../store/users";
@@ -45,6 +45,8 @@ const HomePage = ({ setAuthenticated }) => {
     const classes = useStyles();
     const dispatch = useDispatch();
     // const [authenticated, setAuthenticated] = useState(false);
+    const [open, setOpen] = React.useState(false);
+    const [info, setInfo] = useState('')
     const [value, onChange] = useState(new Date());
     const [loaded, setLoaded] = useState(false);
     const [name, setName] = useState();
@@ -54,6 +56,8 @@ const HomePage = ({ setAuthenticated }) => {
     let allWorkoutPlans = useSelector(state => state.store.allWorkoutPlans)
     allWorkoutPlans = Object.values(allWorkoutPlans)
     console.log('all the plans ', allWorkoutPlans)
+
+
 
 
     //SORT BY TIME BELOW!
@@ -85,29 +89,15 @@ const HomePage = ({ setAuthenticated }) => {
 
         return {
             title: plan.time,
+            name: plan.clientFirstName + ' ' + plan.clientLastName,
+            time: plan.time,
+            workout: plan.name,
             start: new Date(tYear, tMonth, tDay),
             end: new Date(tYear, tMonth, tDay),
-            AllDay: true
+            AllDay: true,
         }
 
     })
-
-    console.log('events???', Event)
-
-    // const Event = [
-    //     {
-    //         title: 'today',
-    //         start: new Date(2021, 1, 12),
-    //         end: new Date(2021, 1, 13),
-    //         AllDay: true
-    //     },
-    //     {
-    //         title: 'tomorrow',
-    //         start: new Date(2021, 1, 14),
-    //         end: new Date(2021, 1, 15),
-    //         AllDay: false
-    //     },
-    // ]
 
     let date = new Date();
     let dd = date.getDate();
@@ -117,8 +107,6 @@ const HomePage = ({ setAuthenticated }) => {
     if (dd < 10) { dd = '0' + dd }
     if (mm < 10) { mm = '0' + mm }
     let date1 = mm + '/' + dd + '/' + yyyy;
-    // console.log('year?????', yyyy)
-    // console.log('date?????', date1)
 
     useEffect(() => {
         (async () => {
@@ -162,22 +150,24 @@ const HomePage = ({ setAuthenticated }) => {
         setTomorrow(false)
     }
 
+    const handleClickOpen = (e) => {
+        setInfo({
+            name: e.name,
+            workout: e.workout,
+            time: e.time,
+        })
+        setOpen(true);
+    };
+
+    const handleClose = () => {
+        setOpen(false);
+    };
+
     const localizer = momentLocalizer(moment)
 
-    // const Event = [
-    //     {
-    //         title: 'today',
-    //         start: new Date(2021, 1, 12),
-    //         end: new Date(2021, 1, 13),
-    //         AllDay: true
-    //     },
-    //     {
-    //         title: 'tomorrow',
-    //         start: new Date(2021, 1, 14),
-    //         end: new Date(2021, 1, 15),
-    //         AllDay: false
-    //     },
-    // ]
+    const namer = {
+        wow: 'wow'
+    }
 
     return (
         <>
@@ -191,10 +181,6 @@ const HomePage = ({ setAuthenticated }) => {
                 <Grid item xs={1} md={3}></Grid>
                 <Grid item xs={10} md={6} className='today-sched__container'>
                     <Grid item md={3}></Grid>
-
-                    {/* <Grid item md={12} className='overview-date'>
-                        <p>{date1}</p>
-                    </Grid> */}
                     <Grid item md={12} className='overview__container'>
 
                         <p className='today-sched__title'>{tomorrow ? "Tomorrow's Overview" : "Today's Overview"}</p>
@@ -216,7 +202,6 @@ const HomePage = ({ setAuthenticated }) => {
                     <Grid item md={3}></Grid>
                 </Grid>
                 <Grid item xs={1} md={2}></Grid>
-                {/* <div className='home-clients__container'> */}
                 <br />
                 <br />
                 <br />
@@ -236,6 +221,9 @@ const HomePage = ({ setAuthenticated }) => {
                 <Grid container>
                     <Grid item md={3}></Grid>
                     <Grid item xs={12} md={6}>
+
+                        {/* CALENDAR CODE BELOW */}
+
                         <Calendar
                             localizer={localizer}
                             views={['month']}
@@ -243,6 +231,8 @@ const HomePage = ({ setAuthenticated }) => {
                             startAccessor="start"
                             endAccessor="end"
                             style={{ height: 500 }}
+                            // onSelectEvent={(e) => alert(e.title)}
+                            onSelectEvent={(e) => handleClickOpen(e)}
 
                         />
                     </Grid>
@@ -255,7 +245,7 @@ const HomePage = ({ setAuthenticated }) => {
                 <Grid item xs={1} md={3}></Grid>
                 <Grid item xs={12} md={6} className='home-clients__title'>Create a Routine</Grid>
                 <Grid item xs={1} md={3}></Grid>
-                {/* <div className='workouts-and-intensities'> */}
+
                 <Grid item xs={1} md={3}></Grid>
                 <Grid item xs={12} md={3} className='home-clients__payment'>
                     <h1 className='home-clients__header2'>Available Workouts</h1>
@@ -275,11 +265,28 @@ const HomePage = ({ setAuthenticated }) => {
                     <CreateNewIntensity />
                 </Grid>
                 <Grid item xs={1} md={3}></Grid>
-                {/* </div> */}
-                {/* </div> */}
             </Grid>
             <Grid item xs={12} md={12} className='invisibar'></Grid>
             <Footer className={classes.footer} />
+
+
+
+
+            {/* DIALOG CODE BELOW */}
+            <Dialog
+                open={open}
+                onClose={handleClose}
+                aria-labelledby="alert-dialog-title"
+                aria-describedby="alert-dialog-description"
+            >
+                <DialogTitle id="alert-dialog-title">Client: {info.name}</DialogTitle>
+                <DialogContent>
+                    <DialogContentText id="alert-dialog-description">
+                        Time: {info.time} <br></br>
+                        Workout: {info.workout}
+                    </DialogContentText>
+                </DialogContent>
+            </Dialog>
         </>
     );
 }
