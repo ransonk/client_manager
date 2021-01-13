@@ -1113,8 +1113,16 @@ body::-webkit-scrollbar {
    font-family: calibri !important;
 }
 
+.rbc-show-more, .rbc-row-segment, .rbc-row{
+    overflow-y: auto !important;
+}
+
 .rbc-today{
     background-color: #eaf6ff !important;
+}
+
+.rbc-off-range-bg{
+    background-color: rgb(231, 231, 231) !important;
 }
 
 

@@ -165,9 +165,11 @@ const HomePage = ({ setAuthenticated }) => {
 
     const localizer = momentLocalizer(moment)
 
-    const namer = {
-        wow: 'wow'
-    }
+    //     const showMore = (slot, e) => {
+    //         e.preventDefault()
+    //         this.props.onShowMore(slot)
+    //     }
+    // }
 
     return (
         <>
@@ -233,6 +235,7 @@ const HomePage = ({ setAuthenticated }) => {
                             style={{ height: 500 }}
                             // onSelectEvent={(e) => alert(e.title)}
                             onSelectEvent={(e) => handleClickOpen(e)}
+                            onShowMore={true}
 
                         />
                     </Grid>
