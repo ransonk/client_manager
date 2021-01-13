@@ -57,7 +57,7 @@ const HomePage = ({ setAuthenticated }) => {
     let Event = allWorkoutPlans.map(plan => {
         let targetDate = plan.date.split('/')
         console.log('TARGET DATE???', targetDate)
-        let tMonth = targetDate[0] + 1
+        let tMonth = targetDate[0] - 1
         let tDay = targetDate[1]
         let tYear = targetDate[2]
         console.log('tMonth', tMonth)
@@ -65,7 +65,7 @@ const HomePage = ({ setAuthenticated }) => {
         console.log('tYear', tYear)
 
         return {
-            title: plan.date,
+            title: plan.time,
             start: new Date(tYear, tMonth, tDay),
             end: new Date(tYear, tMonth, tDay),
             AllDay: true
