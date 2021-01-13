@@ -9,14 +9,15 @@ import CreateNewIntensity from './workouts/CreateNewIntensity';
 import { Button } from '@material-ui/core';
 import { authenticate } from "../services/auth";
 import Intensities from './workouts/Intensities';
-import { setCurrentUser, setCurrentClient, fetchClients, setTrainerClients, fetchTodaysPlans, setTodaysPlans, fetchWorkouts, setWorkouts, fetchIntensities, setIntensities, fetchTodaysClients, updateProgress } from "../store/users";
+import { setCurrentUser, setCurrentClient, fetchClients, setTrainerClients, fetchTodaysPlans, setTodaysPlans, fetchWorkouts, setWorkouts, fetchIntensities, setIntensities, fetchTodaysClients, updateProgress, fetchAllWorkoutPlans, setAllWorkoutPlans } from "../store/users";
 import ClientCalendar from './clientview/ClientCalendar';
 import TodaysClients from './TodaysClients';
 import TomorrowsClients from './TomorrowsClients';
 import { Grid } from '@material-ui/core';
 import ClientFrequency from './clientview/ClientFrequency'
-import Calendar from 'react-calendar';
-import 'react-calendar/dist/Calendar.css';
+import { Calendar, momentLocalizer } from 'react-big-calendar'
+import moment from 'moment'
+import 'react-big-calendar/lib/css/react-big-calendar.css';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -50,6 +51,47 @@ const HomePage = ({ setAuthenticated }) => {
     const [tomorrow, setTomorrow] = useState(false);
     // window.location.reload();
     let trainerId = useSelector(state => state.store.current_trainer.id)
+    let allWorkoutPlans = useSelector(state => state.store.allWorkoutPlans)
+    allWorkoutPlans = Object.values(allWorkoutPlans)
+    console.log('all the plans ', allWorkoutPlans)
+
+
+    //SORT BY TIME BELOW!
+    let Event = allWorkoutPlans.map(plan => {
+        let targetDate = plan.date.split('/')
+        console.log('TARGET DATE???', targetDate)
+        let tMonth = targetDate[0] - 1
+        let tDay = targetDate[1]
+        let tYear = targetDate[2]
+        console.log('tMonth', tMonth)
+        console.log('tDay', tDay)
+        console.log('tYear', tYear)
+
+        return {
+            title: plan.time,
+            start: new Date(tYear, tMonth, tDay),
+            end: new Date(tYear, tMonth, tDay),
+            AllDay: true
+        }
+
+    })
+
+    console.log('events???', Event)
+
+    // const Event = [
+    //     {
+    //         title: 'today',
+    //         start: new Date(2021, 1, 12),
+    //         end: new Date(2021, 1, 13),
+    //         AllDay: true
+    //     },
+    //     {
+    //         title: 'tomorrow',
+    //         start: new Date(2021, 1, 14),
+    //         end: new Date(2021, 1, 15),
+    //         AllDay: false
+    //     },
+    // ]
 
     let date = new Date();
     let dd = date.getDate();
@@ -59,6 +101,8 @@ const HomePage = ({ setAuthenticated }) => {
     if (dd < 10) { dd = '0' + dd }
     if (mm < 10) { mm = '0' + mm }
     let date1 = mm + '/' + dd + '/' + yyyy;
+    // console.log('year?????', yyyy)
+    // console.log('date?????', date1)
 
     useEffect(() => {
         (async () => {
@@ -73,6 +117,9 @@ const HomePage = ({ setAuthenticated }) => {
             const clients = await fetchClients(trainerId);
             dispatch(setTrainerClients(clients))
 
+            const workoutPlans = await fetchAllWorkoutPlans(trainerId);
+            dispatch(setAllWorkoutPlans(workoutPlans))
+
             const todaysPlans = await fetchTodaysPlans(trainerId)
             dispatch(setTodaysPlans(todaysPlans))
 
@@ -86,6 +133,7 @@ const HomePage = ({ setAuthenticated }) => {
         })();
     }, []);
 
+
     if (!loaded) {
         return null;
     }
@@ -98,6 +146,22 @@ const HomePage = ({ setAuthenticated }) => {
         setTomorrow(false)
     }
 
+    const localizer = momentLocalizer(moment)
+
+    // const Event = [
+    //     {
+    //         title: 'today',
+    //         start: new Date(2021, 1, 12),
+    //         end: new Date(2021, 1, 13),
+    //         AllDay: true
+    //     },
+    //     {
+    //         title: 'tomorrow',
+    //         start: new Date(2021, 1, 14),
+    //         end: new Date(2021, 1, 15),
+    //         AllDay: false
+    //     },
+    // ]
 
     return (
         <>
@@ -157,9 +221,13 @@ const HomePage = ({ setAuthenticated }) => {
                     <Grid item md={3}></Grid>
                     <Grid item xs={12} md={6}>
                         <Calendar
-                            onChange={onChange}
-                            value={value}
-                            tileContent={({ date, view }) => view === 'month' && date.getDay() === 1 ? <p>It's Monday!</p> : null}
+                            localizer={localizer}
+                            views={['month']}
+                            events={Event}
+                            startAccessor="start"
+                            endAccessor="end"
+                            style={{ height: 500 }}
+
                         />
                     </Grid>
                     <Grid item md={3}></Grid>

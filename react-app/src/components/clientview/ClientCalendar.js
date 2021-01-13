@@ -67,7 +67,7 @@ const useStyles = makeStyles({
 
 export default function ClientCalendar() {
     const classes = useStyles();
-    const workoutPlans = useSelector((state) => state.store.workoutplans)
+    const workoutPlans = useSelector((state) => state.store.workoutPlans)
     // console.log('workoutplans', workoutPlans)
     let workoutPlanList = Object.values(workoutPlans)
 

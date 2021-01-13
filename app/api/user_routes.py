@@ -116,23 +116,29 @@ def intensities(id):
     return {"intensities": intensitiesObj}
 
 
-# Grab client specific workouts
+# Grab client specific workout plans
 @trainer_routes.route('/client/<int:id>/workout-plans')
-#this one ->>>>>>>>>>>
 # @login_required
 def workout_plans(id):
     client = Client.query.get(id)
     workoutplans = client.return_workoutplans()
     plansObj = workoutplans['workoutplans']
-    # for i in clientObj:
-    #     for k,v in i.items():
-    #         if k == "email" or k == "phone" or k == "amount" or k == "duedate" or k == "weight" or k == "age":
-    #             i[k] = 'Null'
+
     return {"workoutplans": plansObj}
+
+
+# Grab all workout plans
+@trainer_routes.route('/<int:id>/workout-plans')
+# @login_required
+def all_workout_plans(id):
+    trainer = Trainer.query.get(id)
+    workoutplans = trainer.return_workoutplans()
+    plansObj = workoutplans['workoutplans']
+
+    return {"allworkoutplans": plansObj}
 
 # Grab trainer specific workout history
 @trainer_routes.route('/<int:id>/workout-history')
-#this one ->>>>>>>>>>>
 # @login_required
 def trainer_workout_plans(id):
     trainer = Trainer.query.get(id)
