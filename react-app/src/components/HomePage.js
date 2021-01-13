@@ -15,8 +15,9 @@ import TodaysClients from './TodaysClients';
 import TomorrowsClients from './TomorrowsClients';
 import { Grid } from '@material-ui/core';
 import ClientFrequency from './clientview/ClientFrequency'
-import Calendar from 'react-calendar';
-import 'react-calendar/dist/Calendar.css';
+import { Calendar, momentLocalizer } from 'react-big-calendar'
+import moment from 'moment'
+import 'react-big-calendar/lib/css/react-big-calendar.css';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -53,6 +54,41 @@ const HomePage = ({ setAuthenticated }) => {
     let allWorkoutPlans = useSelector(state => state.store.allWorkoutPlans)
     allWorkoutPlans = Object.values(allWorkoutPlans)
     console.log('all the plans ', allWorkoutPlans)
+    let Event = allWorkoutPlans.map(plan => {
+        let targetDate = plan.date.split('/')
+        console.log('TARGET DATE???', targetDate)
+        let tMonth = targetDate[0] + 1
+        let tDay = targetDate[1]
+        let tYear = targetDate[2]
+        console.log('tMonth', tMonth)
+        console.log('tDay', tDay)
+        console.log('tYear', tYear)
+
+        return {
+            title: plan.date,
+            start: new Date(tYear, tMonth, tDay),
+            end: new Date(tYear, tMonth, tDay),
+            AllDay: true
+        }
+
+    })
+
+    console.log('events???', Event)
+
+    // const Event = [
+    //     {
+    //         title: 'today',
+    //         start: new Date(2021, 1, 12),
+    //         end: new Date(2021, 1, 13),
+    //         AllDay: true
+    //     },
+    //     {
+    //         title: 'tomorrow',
+    //         start: new Date(2021, 1, 14),
+    //         end: new Date(2021, 1, 15),
+    //         AllDay: false
+    //     },
+    // ]
 
     let date = new Date();
     let dd = date.getDate();
@@ -107,6 +143,22 @@ const HomePage = ({ setAuthenticated }) => {
         setTomorrow(false)
     }
 
+    const localizer = momentLocalizer(moment)
+
+    // const Event = [
+    //     {
+    //         title: 'today',
+    //         start: new Date(2021, 1, 12),
+    //         end: new Date(2021, 1, 13),
+    //         AllDay: true
+    //     },
+    //     {
+    //         title: 'tomorrow',
+    //         start: new Date(2021, 1, 14),
+    //         end: new Date(2021, 1, 15),
+    //         AllDay: false
+    //     },
+    // ]
 
     return (
         <>
@@ -166,28 +218,13 @@ const HomePage = ({ setAuthenticated }) => {
                     <Grid item md={3}></Grid>
                     <Grid item xs={12} md={6}>
                         <Calendar
-                            onChange={onChange}
-                            value={value}
-                            tileContent={({ date, view }) => {
-                                allWorkoutPlans.forEach(plan => {
-                                    let targetDate = plan.date.split('/')
-                                    let tMonth = targetDate[0]
-                                    let tDay = targetDate[1]
-                                    let tYear = targetDate[2]
-                                    console.log('tMonth', tMonth)
-                                    console.log('tDay', tDay)
-                                    console.log('tYear', tYear)
-                                    if (view === 'month' && date.getDate() === tDay && date.getMonth() + 1 === tMonth && date.getFullYear() === tYear) {
-                                        return plan.time
-                                    } else {
+                            localizer={localizer}
+                            views={['month']}
+                            events={Event}
+                            startAccessor="start"
+                            endAccessor="end"
+                            style={{ height: 500 }}
 
-                                        return null
-                                    }
-                                })
-
-                            }
-                            }
-                        // tileContent={({ date, view }) => view === 'month' && date.getDay() === 1 ? <p>It's Monday!</p> : null}
                         />
                     </Grid>
                     <Grid item md={3}></Grid>

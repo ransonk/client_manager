@@ -1108,13 +1108,8 @@ body::-webkit-scrollbar {
 
 }
 
-.react-calendar{
-    width: auto !important;
-    max-width: 100%;
-    background: white;
-    border: 1px solid #a0a096;
-    font-family: Arial, Helvetica, sans-serif;
-    line-height: 1.125em;
+.rbc-day-bg{
+   background-color: white !important;
 }
 
 

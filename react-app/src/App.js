@@ -48,6 +48,9 @@ function App() {
       const workoutPlans = await fetchWorkoutPlans(user.id)
       dispatch(setWorkoutPlans(workoutPlans))
 
+      const allWorkoutPlans = await fetchAllWorkoutPlans(user.id)
+      dispatch(setAllWorkoutPlans(allWorkoutPlans))
+
       const intensities = await fetchIntensities(user.id);
       dispatch(setIntensities(intensities))
 
