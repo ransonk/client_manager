@@ -57,7 +57,23 @@ const HomePage = ({ setAuthenticated }) => {
 
 
     //SORT BY TIME BELOW!
-    let Event = allWorkoutPlans.map(plan => {
+    //possibly coordinate color of total client session bars with timeslots in schedule
+
+    let sortedByTimeList = allWorkoutPlans.map(item => item.time)
+    sortedByTimeList.sort(function (a, b) {
+        return new Date('1970/01/01 ' + a) - new Date('1970/01/01 ' + b);
+    })
+
+    let finalWorkoutPlanList = [];
+    sortedByTimeList.forEach(time => {
+        allWorkoutPlans.map(item => {
+            if (time === item.time) {
+                finalWorkoutPlanList.push(item)
+            }
+        })
+    })
+
+    let Event = finalWorkoutPlanList.map(plan => {
         let targetDate = plan.date.split('/')
         console.log('TARGET DATE???', targetDate)
         let tMonth = targetDate[0] - 1
