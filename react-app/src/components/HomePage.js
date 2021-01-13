@@ -54,6 +54,9 @@ const HomePage = ({ setAuthenticated }) => {
     let allWorkoutPlans = useSelector(state => state.store.allWorkoutPlans)
     allWorkoutPlans = Object.values(allWorkoutPlans)
     console.log('all the plans ', allWorkoutPlans)
+
+
+    //SORT BY TIME BELOW!
     let Event = allWorkoutPlans.map(plan => {
         let targetDate = plan.date.split('/')
         console.log('TARGET DATE???', targetDate)

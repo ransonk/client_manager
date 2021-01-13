@@ -1112,6 +1112,10 @@ body::-webkit-scrollbar {
    background-color: white !important;
 }
 
+/* .rbc-day-bg{
+    padding: !important;
+} */
+
 
 @media only screen and (max-width: 360px) {
 
