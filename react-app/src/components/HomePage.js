@@ -282,11 +282,11 @@ const HomePage = ({ setAuthenticated }) => {
                 aria-labelledby="alert-dialog-title"
                 aria-describedby="alert-dialog-description"
             >
-                <DialogTitle id="alert-dialog-title">Client: {info.name}</DialogTitle>
+                <DialogTitle id="alert-dialog-title">{info.name}</DialogTitle>
                 <DialogContent>
                     <DialogContentText id="alert-dialog-description">
                         Time: {info.time} <br></br>
-                        Workout: {info.workout}
+                        {info.workout}
                     </DialogContentText>
                 </DialogContent>
             </Dialog>

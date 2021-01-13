@@ -1126,6 +1126,17 @@ body::-webkit-scrollbar {
 }
 
 
+/* modals */
+#alert-dialog-title{
+    color:
+    #3174ad !important;
+}
+
+#alert-dialog-description{
+    color: black !important;
+}
+
+
 @media only screen and (max-width: 360px) {
 
     .MuiTimelineContent-root {
