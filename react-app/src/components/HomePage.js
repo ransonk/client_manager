@@ -235,7 +235,7 @@ const HomePage = ({ setAuthenticated }) => {
                             style={{ height: 500 }}
                             // onSelectEvent={(e) => alert(e.title)}
                             onSelectEvent={(e) => handleClickOpen(e)}
-                            onShowMore={true}
+                            popup
 
                         />
                     </Grid>
