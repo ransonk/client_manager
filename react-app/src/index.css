@@ -1113,9 +1113,9 @@ body::-webkit-scrollbar {
    font-family: calibri !important;
 }
 
-/* .rbc-day-bg{
-    padding: !important;
-} */
+.rbc-today{
+    background-color: #eaf6ff !important;
+}
 
 
 @media only screen and (max-width: 360px) {
