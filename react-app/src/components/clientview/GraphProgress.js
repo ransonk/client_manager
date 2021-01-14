@@ -24,12 +24,82 @@ function GraphProgress() {
 
     const historicalDataRaw = useSelector((state) => state.store.client_progress)
     const historicalData = Object.values(historicalDataRaw)
-    // console.log('his', historicalData)
+    let workoutList = useSelector((state) => state.store.workouts)
+    workoutList = Object.values(workoutList)
+    console.log('workoutList ', workoutList)
+    let exerciseRecord = {};
+
+
+    workoutList.map(exercise => {
+        if (!exerciseRecord[exercise.name]) {
+            exerciseRecord[exercise.name] = []
+        } else {
+            exerciseRecord[exercise.name] = exerciseRecord[exercise.name] + 1
+        }
+    })
+
+    console.log('exerciseRecord ', exerciseRecord)
+
     const sortedData = historicalData.sort((a, b) => new Date(a.date) - new Date(b.date))
-    // console.log('sort', sortedData)
+    console.log('sort', sortedData)
+
+    sortedData.forEach(record => {
+        if (!exerciseRecord[record.workout1]) {
+            exerciseRecord[record.workout1] = [record.date, record.workout1Score];
+        } else {
+            exerciseRecord[record.workout1] = [...exerciseRecord[record.workout1], record.date, record.workout1Score];
+        }
+
+        if (!exerciseRecord[record.workout2]) {
+            exerciseRecord[record.workout2] = [record.date, record.workout2Score];
+        } else {
+            exerciseRecord[record.workout2] = [...exerciseRecord[record.workout2], record.date, record.workout2Score];
+        }
+
+        if (!exerciseRecord[record.workout3]) {
+            exerciseRecord[record.workout3] = [record.date, record.workout3Score];
+        } else {
+            exerciseRecord[record.workout3] = [...exerciseRecord[record.workout3], record.date, record.workout3Score];
+        }
+
+        if (!exerciseRecord[record.workout4]) {
+            exerciseRecord[record.workout4] = [record.date, record.workout4Score];
+        } else {
+            exerciseRecord[record.workout4] = [...exerciseRecord[record.workout4], record.date, record.workout4Score];
+        }
+
+        if (!exerciseRecord[record.workout5]) {
+            exerciseRecord[record.workout5] = [record.date, record.workout5Score];
+        } else {
+            exerciseRecord[record.workout5] = [...exerciseRecord[record.workout5], record.date, record.workout5Score];
+        }
+
+        if (!exerciseRecord[record.workout6]) {
+            exerciseRecord[record.workout6] = [record.date, record.workout6Score];
+        } else {
+            exerciseRecord[record.workout6] = [...exerciseRecord[record.workout6], record.date, record.workout6Score];
+        }
+
+        if (!exerciseRecord[record.workout7]) {
+            exerciseRecord[record.workout7] = [record.date, record.workout7Score];
+        } else {
+            exerciseRecord[record.workout7] = [...exerciseRecord[record.workout7], record.date, record.workout7Score];
+        }
+
+        if (!exerciseRecord[record.workout8]) {
+            exerciseRecord[record.workout8] = [record.date, record.workout8Score];
+        } else {
+            exerciseRecord[record.workout8] = [...exerciseRecord[record.workout8], record.date, record.workout8Score];
+        }
+
+    })
+
+    console.log('updated exerciseRecord ', exerciseRecord)
+
+
     const dates = sortedData.map(history => history.date)
-    // console.log('dates', dates)
-    //DATES ARE NOW SORTED, YAY! MAP THROUGH THIS DATA BELOW FOR GRAPHICAL REPRESENTATION
+    console.log('dates', dates)
+
 
     let pushScore = sortedData.map(history => history.pushScore)
     let pullScore = sortedData.map(history => history.pullScore)
