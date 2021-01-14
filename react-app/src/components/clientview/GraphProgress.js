@@ -26,7 +26,7 @@ function GraphProgress() {
     const historicalData = Object.values(historicalDataRaw)
     let workoutList = useSelector((state) => state.store.workouts)
     workoutList = Object.values(workoutList)
-    console.log('workoutList ', workoutList)
+
     let exerciseRecord = {};
 
 
@@ -38,10 +38,10 @@ function GraphProgress() {
         }
     })
 
-    console.log('exerciseRecord ', exerciseRecord)
+
 
     const sortedData = historicalData.sort((a, b) => new Date(a.date) - new Date(b.date))
-    console.log('sort', sortedData)
+
 
     sortedData.forEach(record => {
         if (!exerciseRecord[record.workout1]) {
@@ -94,16 +94,14 @@ function GraphProgress() {
 
     })
 
-    console.log('updated exerciseRecord ', exerciseRecord)
-    console.log('splitttted ', exerciseRecord['Rows'])
-    console.log('wow entries?', Object.entries(exerciseRecord))
 
     let exerciseRecordList = Object.entries(exerciseRecord)
 
     let datasetRecords = []
+    let borderColors = ['#ffadad', '#ffd6a5', '#fdffb6', '#caffbf', '#9bf6ff', "#a0c4ff", "#bdb2ff", "#ffc6ff", "#fffffc"]
 
 
-    exerciseRecordList.map(item => {
+    exerciseRecordList.map((item, i) => {
         let scoreList = [];
         item[1].forEach(num => {
             if (typeof (num) == 'number') {
@@ -120,7 +118,7 @@ function GraphProgress() {
                 backgroundColor: 'white',
                 hoverBorderColor: 'orange',
                 pointBorderColor: 'white',
-                borderColor: '#99c1de',
+                borderColor: borderColors[i],
                 borderWidth: 2,
                 color: 'white',
                 data: scoreList
@@ -136,42 +134,11 @@ function GraphProgress() {
     console.log('data set records????', datasetRecords)
 
 
-    let pushScore = sortedData.map(history => history.pushScore)
-    let pullScore = sortedData.map(history => history.pullScore)
-
     const data = {
 
         labels: dates,
-        // labels: ['January', 'February', 'March',
-        //     'April', 'May'],
         datasets: datasetRecords,
-        // [
-        //     {
-        //         label: 'Pull Exercises',
-        //         fill: false,
-        //         lineTension: 0.1,
-        //         backgroundColor: 'white',
-        //         hoverBorderColor: 'orange',
-        //         pointBorderColor: 'white',
-        //         borderColor: '#99c1de',
-        //         borderWidth: 2,
-        //         color: 'white',
-        //         data: pullScore
-        //     },
-        //     {
-        //         label: 'Push Exercises',
-        //         fill: false,
-        //         lineTension: 0.1,
-        //         backgroundColor: 'white',
-        //         hoverBorderColor: 'orange',
-        //         pointBorderColor: 'white',
-        //         borderColor: '#f28482',
-        //         borderWidth: 2,
-        //         color: 'white',
-        //         // data: [68, 69, 83, 83, 89]
-        //         data: pushScore
-        //     },
-        // ]
+
     }
 
     return (
@@ -200,7 +167,7 @@ function GraphProgress() {
                     },
                     title: {
                         display: true,
-                        text: 'Total Fitness Progression',
+                        text: 'Targeted Exercise Progression',
                         fontSize: 20,
                         fontColor: 'white',
 
