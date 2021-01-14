@@ -45,51 +45,51 @@ function GraphProgress() {
 
     sortedData.forEach(record => {
         if (!exerciseRecord[record.workout1]) {
-            exerciseRecord[record.workout1] = [record.date, record.workout1Score, 's'];
+            exerciseRecord[record.workout1] = [record.date, record.workout1Score];
         } else {
-            exerciseRecord[record.workout1] = [...exerciseRecord[record.workout1], record.date, record.workout1Score, 's'];
+            exerciseRecord[record.workout1] = [...exerciseRecord[record.workout1], record.date, record.workout1Score];
         }
 
         if (!exerciseRecord[record.workout2]) {
-            exerciseRecord[record.workout2] = [record.date, record.workout2Score, 's'];
+            exerciseRecord[record.workout2] = [record.date, record.workout2Score];
         } else {
-            exerciseRecord[record.workout2] = [...exerciseRecord[record.workout2], record.date, record.workout2Score, 's'];
+            exerciseRecord[record.workout2] = [...exerciseRecord[record.workout2], record.date, record.workout2Score];
         }
 
         if (!exerciseRecord[record.workout3]) {
-            exerciseRecord[record.workout3] = [record.date, record.workout3Score, 's'];
+            exerciseRecord[record.workout3] = [record.date, record.workout3Score];
         } else {
-            exerciseRecord[record.workout3] = [...exerciseRecord[record.workout3], record.date, record.workout3Score, 's'];
+            exerciseRecord[record.workout3] = [...exerciseRecord[record.workout3], record.date, record.workout3Score];
         }
 
         if (!exerciseRecord[record.workout4]) {
-            exerciseRecord[record.workout4] = [record.date, record.workout4Score, 's'];
+            exerciseRecord[record.workout4] = [record.date, record.workout4Score];
         } else {
-            exerciseRecord[record.workout4] = [...exerciseRecord[record.workout4], record.date, record.workout4Score, 's'];
+            exerciseRecord[record.workout4] = [...exerciseRecord[record.workout4], record.date, record.workout4Score];
         }
 
         if (!exerciseRecord[record.workout5]) {
-            exerciseRecord[record.workout5] = [record.date, record.workout5Score, 's'];
+            exerciseRecord[record.workout5] = [record.date, record.workout5Score];
         } else {
-            exerciseRecord[record.workout5] = [...exerciseRecord[record.workout5], record.date, record.workout5Score, 's'];
+            exerciseRecord[record.workout5] = [...exerciseRecord[record.workout5], record.date, record.workout5Score];
         }
 
         if (!exerciseRecord[record.workout6]) {
-            exerciseRecord[record.workout6] = [record.date, record.workout6Score, 's'];
+            exerciseRecord[record.workout6] = [record.date, record.workout6Score];
         } else {
-            exerciseRecord[record.workout6] = [...exerciseRecord[record.workout6], record.date, record.workout6Score, 's'];
+            exerciseRecord[record.workout6] = [...exerciseRecord[record.workout6], record.date, record.workout6Score];
         }
 
         if (!exerciseRecord[record.workout7]) {
-            exerciseRecord[record.workout7] = [record.date, record.workout7Score, 's'];
+            exerciseRecord[record.workout7] = [record.date, record.workout7Score];
         } else {
-            exerciseRecord[record.workout7] = [...exerciseRecord[record.workout7], record.date, record.workout7Score, 's'];
+            exerciseRecord[record.workout7] = [...exerciseRecord[record.workout7], record.date, record.workout7Score];
         }
 
         if (!exerciseRecord[record.workout8]) {
-            exerciseRecord[record.workout8] = [record.date, record.workout8Score, 's'];
+            exerciseRecord[record.workout8] = [record.date, record.workout8Score];
         } else {
-            exerciseRecord[record.workout8] = [...exerciseRecord[record.workout8], record.date, record.workout8Score, 's'];
+            exerciseRecord[record.workout8] = [...exerciseRecord[record.workout8], record.date, record.workout8Score];
         }
 
     })
@@ -102,22 +102,6 @@ function GraphProgress() {
 
     let datasetRecords = []
 
-    // sortedData.map(record => {
-    //     return {
-    //         label: record.
-    //     }
-    // })
-
-    // for (let key of sortedData) {
-    //     // console.log(sortedData[key])
-    //     let needsSorting = sortedData[key];
-    //     if (!needsSorting) return null;
-    //     needsSorting.filter(item => {
-    //         if (typeof (item) === 'number') {
-    //             return scoreList.push(item)
-    //         }
-    //     })
-    //     console.log('score list??? ', scoreList)
 
     exerciseRecordList.map(item => {
         let scoreList = [];
@@ -160,33 +144,34 @@ function GraphProgress() {
         labels: dates,
         // labels: ['January', 'February', 'March',
         //     'April', 'May'],
-        datasets: [
-            {
-                label: 'Pull Exercises',
-                fill: false,
-                lineTension: 0.1,
-                backgroundColor: 'white',
-                hoverBorderColor: 'orange',
-                pointBorderColor: 'white',
-                borderColor: '#99c1de',
-                borderWidth: 2,
-                color: 'white',
-                data: pullScore
-            },
-            {
-                label: 'Push Exercises',
-                fill: false,
-                lineTension: 0.1,
-                backgroundColor: 'white',
-                hoverBorderColor: 'orange',
-                pointBorderColor: 'white',
-                borderColor: '#f28482',
-                borderWidth: 2,
-                color: 'white',
-                // data: [68, 69, 83, 83, 89]
-                data: pushScore
-            },
-        ]
+        datasets: datasetRecords,
+        // [
+        //     {
+        //         label: 'Pull Exercises',
+        //         fill: false,
+        //         lineTension: 0.1,
+        //         backgroundColor: 'white',
+        //         hoverBorderColor: 'orange',
+        //         pointBorderColor: 'white',
+        //         borderColor: '#99c1de',
+        //         borderWidth: 2,
+        //         color: 'white',
+        //         data: pullScore
+        //     },
+        //     {
+        //         label: 'Push Exercises',
+        //         fill: false,
+        //         lineTension: 0.1,
+        //         backgroundColor: 'white',
+        //         hoverBorderColor: 'orange',
+        //         pointBorderColor: 'white',
+        //         borderColor: '#f28482',
+        //         borderWidth: 2,
+        //         color: 'white',
+        //         // data: [68, 69, 83, 83, 89]
+        //         data: pushScore
+        //     },
+        // ]
     }
 
     return (
