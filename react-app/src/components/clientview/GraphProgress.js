@@ -45,56 +45,57 @@ function GraphProgress() {
 
     sortedData.forEach(record => {
         if (!exerciseRecord[record.workout1]) {
-            exerciseRecord[record.workout1] = [record.date, record.workout1Score];
+            exerciseRecord[record.workout1] = [record.date, record.workout1Score, 's'];
         } else {
-            exerciseRecord[record.workout1] = [...exerciseRecord[record.workout1], record.date, record.workout1Score];
+            exerciseRecord[record.workout1] = [...exerciseRecord[record.workout1], record.date, record.workout1Score, 's'];
         }
 
         if (!exerciseRecord[record.workout2]) {
-            exerciseRecord[record.workout2] = [record.date, record.workout2Score];
+            exerciseRecord[record.workout2] = [record.date, record.workout2Score, 's'];
         } else {
-            exerciseRecord[record.workout2] = [...exerciseRecord[record.workout2], record.date, record.workout2Score];
+            exerciseRecord[record.workout2] = [...exerciseRecord[record.workout2], record.date, record.workout2Score, 's'];
         }
 
         if (!exerciseRecord[record.workout3]) {
-            exerciseRecord[record.workout3] = [record.date, record.workout3Score];
+            exerciseRecord[record.workout3] = [record.date, record.workout3Score, 's'];
         } else {
-            exerciseRecord[record.workout3] = [...exerciseRecord[record.workout3], record.date, record.workout3Score];
+            exerciseRecord[record.workout3] = [...exerciseRecord[record.workout3], record.date, record.workout3Score, 's'];
         }
 
         if (!exerciseRecord[record.workout4]) {
-            exerciseRecord[record.workout4] = [record.date, record.workout4Score];
+            exerciseRecord[record.workout4] = [record.date, record.workout4Score, 's'];
         } else {
-            exerciseRecord[record.workout4] = [...exerciseRecord[record.workout4], record.date, record.workout4Score];
+            exerciseRecord[record.workout4] = [...exerciseRecord[record.workout4], record.date, record.workout4Score, 's'];
         }
 
         if (!exerciseRecord[record.workout5]) {
-            exerciseRecord[record.workout5] = [record.date, record.workout5Score];
+            exerciseRecord[record.workout5] = [record.date, record.workout5Score, 's'];
         } else {
-            exerciseRecord[record.workout5] = [...exerciseRecord[record.workout5], record.date, record.workout5Score];
+            exerciseRecord[record.workout5] = [...exerciseRecord[record.workout5], record.date, record.workout5Score, 's'];
         }
 
         if (!exerciseRecord[record.workout6]) {
-            exerciseRecord[record.workout6] = [record.date, record.workout6Score];
+            exerciseRecord[record.workout6] = [record.date, record.workout6Score, 's'];
         } else {
-            exerciseRecord[record.workout6] = [...exerciseRecord[record.workout6], record.date, record.workout6Score];
+            exerciseRecord[record.workout6] = [...exerciseRecord[record.workout6], record.date, record.workout6Score, 's'];
         }
 
         if (!exerciseRecord[record.workout7]) {
-            exerciseRecord[record.workout7] = [record.date, record.workout7Score];
+            exerciseRecord[record.workout7] = [record.date, record.workout7Score, 's'];
         } else {
-            exerciseRecord[record.workout7] = [...exerciseRecord[record.workout7], record.date, record.workout7Score];
+            exerciseRecord[record.workout7] = [...exerciseRecord[record.workout7], record.date, record.workout7Score, 's'];
         }
 
         if (!exerciseRecord[record.workout8]) {
-            exerciseRecord[record.workout8] = [record.date, record.workout8Score];
+            exerciseRecord[record.workout8] = [record.date, record.workout8Score, 's'];
         } else {
-            exerciseRecord[record.workout8] = [...exerciseRecord[record.workout8], record.date, record.workout8Score];
+            exerciseRecord[record.workout8] = [...exerciseRecord[record.workout8], record.date, record.workout8Score, 's'];
         }
 
     })
 
     console.log('updated exerciseRecord ', exerciseRecord)
+    console.log('splitttted ', exerciseRecord['Rows'])
 
 
     const dates = sortedData.map(history => history.date)
