@@ -4,6 +4,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { Line } from 'react-chartjs-2';
 import { fetchWorkoutHistory, updateProgress } from "../../store/users";
 
+//CHECK ON ACCURACY OF HISTORICAL DATA MATCHING PROGRESSION GRAPH,
+//SEEMS THAT NEW WORKOUTS AUTOMATICALLY MAKE THEIR WAY TO THE CHART
 
 function GraphProgress() {
     const dispatch = useDispatch();
@@ -30,13 +32,13 @@ function GraphProgress() {
     let exerciseRecord = {};
 
 
-    workoutList.map(exercise => {
-        if (!exerciseRecord[exercise.name]) {
-            exerciseRecord[exercise.name] = []
-        } else {
-            exerciseRecord[exercise.name] = exerciseRecord[exercise.name] + 1
-        }
-    })
+    // workoutList.map(exercise => {
+    //     if (!exerciseRecord[exercise.name]) {
+    //         exerciseRecord[exercise.name] = []
+    //     } else {
+    //         exerciseRecord[exercise.name] = exerciseRecord[exercise.name] + 1
+    //     }
+    // })
 
 
 
