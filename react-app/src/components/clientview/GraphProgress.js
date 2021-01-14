@@ -96,10 +96,60 @@ function GraphProgress() {
 
     console.log('updated exerciseRecord ', exerciseRecord)
     console.log('splitttted ', exerciseRecord['Rows'])
+    console.log('wow entries?', Object.entries(exerciseRecord))
+
+    let exerciseRecordList = Object.entries(exerciseRecord)
+
+    let datasetRecords = []
+
+    // sortedData.map(record => {
+    //     return {
+    //         label: record.
+    //     }
+    // })
+
+    // for (let key of sortedData) {
+    //     // console.log(sortedData[key])
+    //     let needsSorting = sortedData[key];
+    //     if (!needsSorting) return null;
+    //     needsSorting.filter(item => {
+    //         if (typeof (item) === 'number') {
+    //             return scoreList.push(item)
+    //         }
+    //     })
+    //     console.log('score list??? ', scoreList)
+
+    exerciseRecordList.map(item => {
+        let scoreList = [];
+        item[1].forEach(num => {
+            if (typeof (num) == 'number') {
+                scoreList.push(num)
+            }
+        })
+        datasetRecords.push(
+
+            {
+
+                label: item[0],
+                fill: false,
+                lineTension: 0.1,
+                backgroundColor: 'white',
+                hoverBorderColor: 'orange',
+                pointBorderColor: 'white',
+                borderColor: '#99c1de',
+                borderWidth: 2,
+                color: 'white',
+                data: scoreList
+            }
+
+        )
+    })
+
 
 
     const dates = sortedData.map(history => history.date)
     console.log('dates', dates)
+    console.log('data set records????', datasetRecords)
 
 
     let pushScore = sortedData.map(history => history.pushScore)
@@ -121,7 +171,6 @@ function GraphProgress() {
                 borderColor: '#99c1de',
                 borderWidth: 2,
                 color: 'white',
-                // data: [65, 59, 80, 81, 90]
                 data: pullScore
             },
             {
