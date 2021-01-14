@@ -46,51 +46,51 @@ function GraphProgress() {
 
 
     sortedData.forEach(record => {
-        if (!exerciseRecord[record.workout1]) {
+        if (!exerciseRecord[record.workout1] && record.workout1 != ' ' && record.workout1 != '') {
             exerciseRecord[record.workout1] = [record.date, record.workout1Score];
-        } else {
+        } else if (exerciseRecord[record.workout1] && record.workout1 != ' ' && record.workout1 != '') {
             exerciseRecord[record.workout1] = [...exerciseRecord[record.workout1], record.date, record.workout1Score];
         }
 
-        if (!exerciseRecord[record.workout2]) {
+        if (!exerciseRecord[record.workout2] && record.workout2 != ' ' && record.workout2 != '') {
             exerciseRecord[record.workout2] = [record.date, record.workout2Score];
-        } else {
+        } else if (exerciseRecord[record.workout2] && record.workout2 != ' ' && record.workout2 != '') {
             exerciseRecord[record.workout2] = [...exerciseRecord[record.workout2], record.date, record.workout2Score];
         }
 
-        if (!exerciseRecord[record.workout3]) {
+        if (!exerciseRecord[record.workout3] && record.workout3 != ' ' && record.workout3 != '') {
             exerciseRecord[record.workout3] = [record.date, record.workout3Score];
-        } else {
+        } else if (exerciseRecord[record.workout3] && record.workout3 != ' ' && record.workout3 != '') {
             exerciseRecord[record.workout3] = [...exerciseRecord[record.workout3], record.date, record.workout3Score];
         }
 
-        if (!exerciseRecord[record.workout4]) {
+        if (!exerciseRecord[record.workout4] && record.workout4 != ' ' && record.workout4 != '') {
             exerciseRecord[record.workout4] = [record.date, record.workout4Score];
-        } else {
+        } else if (exerciseRecord[record.workout4] && record.workout4 != ' ' && record.workout4 != '') {
             exerciseRecord[record.workout4] = [...exerciseRecord[record.workout4], record.date, record.workout4Score];
         }
 
-        if (!exerciseRecord[record.workout5]) {
+        if (!exerciseRecord[record.workout5] && record.workout5 != ' ' && record.workout5 != '') {
             exerciseRecord[record.workout5] = [record.date, record.workout5Score];
-        } else {
+        } else if (exerciseRecord[record.workout5] && record.workout5 != ' ' && record.workout5 != '') {
             exerciseRecord[record.workout5] = [...exerciseRecord[record.workout5], record.date, record.workout5Score];
         }
 
-        if (!exerciseRecord[record.workout6]) {
+        if (!exerciseRecord[record.workout6] && record.workout6 != ' ' && record.workout6 != '') {
             exerciseRecord[record.workout6] = [record.date, record.workout6Score];
-        } else {
+        } else if (exerciseRecord[record.workout6] && record.workout6 != ' ' && record.workout6 != '') {
             exerciseRecord[record.workout6] = [...exerciseRecord[record.workout6], record.date, record.workout6Score];
         }
 
-        if (!exerciseRecord[record.workout7]) {
+        if (!exerciseRecord[record.workout7] && record.workout7 != ' ' && record.workout7 != '') {
             exerciseRecord[record.workout7] = [record.date, record.workout7Score];
-        } else {
+        } else if (exerciseRecord[record.workout7] && record.workout7 != ' ' && record.workout7 != '') {
             exerciseRecord[record.workout7] = [...exerciseRecord[record.workout7], record.date, record.workout7Score];
         }
 
-        if (!exerciseRecord[record.workout8]) {
+        if (!exerciseRecord[record.workout8] && record.workout8 != ' ' && record.workout8 != '') {
             exerciseRecord[record.workout8] = [record.date, record.workout8Score];
-        } else {
+        } else if (exerciseRecord[record.workout8] && record.workout8 != ' ' && record.workout8 != '') {
             exerciseRecord[record.workout8] = [...exerciseRecord[record.workout8], record.date, record.workout8Score];
         }
 

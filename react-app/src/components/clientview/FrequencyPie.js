@@ -37,51 +37,51 @@ function FrequencyPie() {
     let exerciseCounter = {};
 
     historicalData.forEach(record => {
-        if (!exerciseCounter[record.workout1]) {
+        if (!exerciseCounter[record.workout1] && record.workout1 != ' ' && record.workout1 != '') {
             exerciseCounter[record.workout1] = 1
-        } else {
+        } else if (exerciseCounter[record.workout1] && record.workout1 != ' ' && record.workout1 != '') {
             exerciseCounter[record.workout1] = exerciseCounter[record.workout1] + 1;
         }
 
-        if (!exerciseCounter[record.workout2]) {
+        if (!exerciseCounter[record.workout2] && record.workout2 != ' ' && record.workout2 != '') {
             exerciseCounter[record.workout2] = 1
-        } else {
+        } else if (exerciseCounter[record.workout2] && record.workout2 != ' ' && record.workout2 != '') {
             exerciseCounter[record.workout2] = exerciseCounter[record.workout2] + 1;
         }
 
-        if (!exerciseCounter[record.workout3]) {
+        if (!exerciseCounter[record.workout3] && record.workout3 != ' ' && record.workout3 != '') {
             exerciseCounter[record.workout3] = 1
-        } else {
+        } else if (exerciseCounter[record.workout3] && record.workout3 != ' ' && record.workout3 != '') {
             exerciseCounter[record.workout3] = exerciseCounter[record.workout3] + 1;
         }
 
-        if (!exerciseCounter[record.workout4]) {
+        if (!exerciseCounter[record.workout4] && record.workout4 != ' ' && record.workout4 != '') {
             exerciseCounter[record.workout4] = 1
-        } else {
+        } else if (exerciseCounter[record.workout4] && record.workout4 != ' ' && record.workout4 != '') {
             exerciseCounter[record.workout4] = exerciseCounter[record.workout4] + 1;
         }
 
-        if (!exerciseCounter[record.workout5]) {
+        if (!exerciseCounter[record.workout5] && record.workout5 != ' ' && record.workout5 != '') {
             exerciseCounter[record.workout5] = 1
-        } else {
+        } else if (exerciseCounter[record.workout5] && record.workout5 != ' ' && record.workout5 != '') {
             exerciseCounter[record.workout5] = exerciseCounter[record.workout5] + 1;
         }
 
-        if (!exerciseCounter[record.workout6]) {
+        if (!exerciseCounter[record.workout6] && record.workout6 != ' ' && record.workout6 != '') {
             exerciseCounter[record.workout6] = 1
-        } else {
+        } else if (exerciseCounter[record.workout6] && record.workout6 != ' ' && record.workout6 != '') {
             exerciseCounter[record.workout6] = exerciseCounter[record.workout6] + 1;
         }
 
-        if (!exerciseCounter[record.workout7]) {
+        if (!exerciseCounter[record.workout7] && record.workout7 != ' ' && record.workout7 != '') {
             exerciseCounter[record.workout7] = 1
-        } else {
+        } else if (exerciseCounter[record.workout7] && record.workout7 != ' ' && record.workout7 != '') {
             exerciseCounter[record.workout7] = exerciseCounter[record.workout7] + 1;
         }
 
-        if (!exerciseCounter[record.workout8]) {
+        if (!exerciseCounter[record.workout8] && record.workout8 != ' ' && record.workout8 != '') {
             exerciseCounter[record.workout8] = 1
-        } else {
+        } else if (exerciseCounter[record.workout8] && record.workout8 != ' ' && record.workout8 != '') {
             exerciseCounter[record.workout8] = exerciseCounter[record.workout8] + 1;
         }
     })
