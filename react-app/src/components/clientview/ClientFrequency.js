@@ -29,7 +29,7 @@ function ClientFrequency() {
     let clientList = clientsArray.map(client => (client.firstName + ' ' + client.lastName))
     // console.log('client list', clientList)
     workoutPlans = Object.values(workoutPlans)
-    // console.log('plans', workoutPlans)
+    console.log('plans', workoutPlans)
 
     let historyTracker = {}
     workoutPlans.map(history => {
