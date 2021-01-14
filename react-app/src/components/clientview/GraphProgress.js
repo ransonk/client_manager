@@ -98,7 +98,7 @@ function GraphProgress() {
     let exerciseRecordList = Object.entries(exerciseRecord)
 
     let datasetRecords = []
-    let borderColors = ['#ffadad', '#ffd6a5', '#fdffb6', '#caffbf', '#9bf6ff', "#a0c4ff", "#bdb2ff", "#ffc6ff", "#fffffc"]
+    let borderColors = ['#f94144', '#f3722c', '#f8961e', '#f9c74f', '#90be6d', "#43aa8b", "#577590", "#0081a7", "#fed9b7", '#f07167', "#00f5d4", "#d0f4de", "#c8553d", "#b09e99"]
 
 
     exerciseRecordList.map((item, i) => {
