@@ -55,7 +55,7 @@ const HomePage = ({ setAuthenticated }) => {
     let trainerId = useSelector(state => state.store.current_trainer.id)
     let allWorkoutPlans = useSelector(state => state.store.allWorkoutPlans)
     allWorkoutPlans = Object.values(allWorkoutPlans)
-    console.log('all the plans ', allWorkoutPlans)
+    // console.log('all the plans ', allWorkoutPlans)
 
 
 
@@ -79,13 +79,13 @@ const HomePage = ({ setAuthenticated }) => {
 
     let Event = finalWorkoutPlanList.map(plan => {
         let targetDate = plan.date.split('/')
-        console.log('TARGET DATE???', targetDate)
+        // console.log('TARGET DATE???', targetDate)
         let tMonth = targetDate[0] - 1
         let tDay = targetDate[1]
         let tYear = targetDate[2]
-        console.log('tMonth', tMonth)
-        console.log('tDay', tDay)
-        console.log('tYear', tYear)
+        // console.log('tMonth', tMonth)
+        // console.log('tDay', tDay)
+        // console.log('tYear', tYear)
 
         return {
             title: plan.time,

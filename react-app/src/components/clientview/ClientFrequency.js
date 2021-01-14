@@ -25,11 +25,11 @@ function ClientFrequency() {
 
     if (!clients) return null;
     let clientsArray = Object.values(clients)
-    console.log(clientsArray)
+    // console.log(clientsArray)
     let clientList = clientsArray.map(client => (client.firstName + ' ' + client.lastName))
-    console.log('client list', clientList)
+    // console.log('client list', clientList)
     workoutPlans = Object.values(workoutPlans)
-    console.log('plans', workoutPlans)
+    // console.log('plans', workoutPlans)
 
     let historyTracker = {}
     workoutPlans.map(history => {
@@ -39,7 +39,7 @@ function ClientFrequency() {
             historyTracker[history.client_id] = historyTracker[history.client_id] + 1
         }
     })
-    console.log('historyTracker ', historyTracker)
+    // console.log('historyTracker ', historyTracker)
     let trackerData = Object.values(historyTracker)
     const randomColor = Math.floor(Math.random() * 16777215).toString(16);
     let numClients = trackerData.length;
@@ -48,8 +48,8 @@ function ClientFrequency() {
         clientColors.push(`#bde0fe`)
     }
     // const clientColors = trackerData.map(tracker => `#${randomColor}`)
-    console.log('random', clientColors)
-    console.log('tracker', trackerData)
+    // console.log('random', clientColors)
+    // console.log('tracker', trackerData)
 
     const data = {
 

@@ -105,6 +105,7 @@ const AddWorkoutPlan = (props) => {
     const [weight8, setWeight8] = useState("")
     const [clientFirstName, setClientFirstName] = useState("");
     const [clientLastName, setClientLastName] = useState("");
+    const [exerciseHistory, setExerciseHistory] = useState("");
 
     const client = JSON.parse(localStorage.getItem('CURRENT_CLIENT'))
     let client_id = client.id
@@ -114,9 +115,11 @@ const AddWorkoutPlan = (props) => {
 
     const workouts = useSelector((state) => state.store.workouts)
     const sortedWorkouts = Object.values(workouts)
+    // console.log('SORTEDWORKOUTS ', sortedWorkouts)
     const intensities = useSelector((state) => state.store.intensities)
     const sortedIntensities = Object.values(intensities)
 
+    //CREATE exerciseHistory object that records points related to line 108
 
     const pushWorkouts = sortedWorkouts.filter(workout => {
         if (workout.type === 'push') return workout
@@ -125,9 +128,9 @@ const AddWorkoutPlan = (props) => {
         if (workout.type === 'pull') return workout
     })
 
-    console.log('pushWorkouts', pushWorkouts)
+    // console.log('pushWorkouts', pushWorkouts)
     const pushNames = pushWorkouts.map(push => push.name)
-    console.log('pushNames', pushNames)
+    // console.log('pushNames', pushNames)
 
     useEffect(() => {
         (async () => {
@@ -140,188 +143,124 @@ const AddWorkoutPlan = (props) => {
 
     const createThisWorkoutPlan = async (e) => {
         e.preventDefault();
-        let pushCount = 0;
-        let pullCount = 0;
-        let pushScore = 0;
-        let pullScore = 0;
-        console.log('workout1', workout1)
+        let workout1Score = 0;
+        let workout2Score = 0;
+        let workout3Score = 0;
+        let workout4Score = 0;
+        let workout5Score = 0;
+        let workout6Score = 0;
+        let workout7Score = 0;
+        let workout8Score = 0;
+        // console.log('workout1', workout1)
 
         if (workout1) {
 
-            if (pushNames.includes(workout1)) {
-                pushCount++;
-                let setRepArray = set1.split(' ')
-                if (weight1) {
-                    pushScore += setRepArray[1] * setRepArray[3] * weight1
-                } else {
-                    pushScore += setRepArray[1] * setRepArray[3]
-                }
+            let setRepArray = set1.split(' ')
+            if (weight1) {
+                workout1Score += setRepArray[1] * setRepArray[3] * weight1
             } else {
-                pullCount++;
-                let setRepArray = set1.split(' ')
-                if (weight1) {
-                    pullScore += setRepArray[1] * setRepArray[3] * weight1
-                } else {
-                    pullScore += setRepArray[1] * setRepArray[3]
-                }
+                workout1Score += setRepArray[1] * setRepArray[3]
             }
         }
+
         if (workout2) {
 
-            if (pushNames.includes(workout2)) {
-                pushCount++;
-                let setRepArray = set2.split(' ')
-                if (weight2) {
-                    pushScore += setRepArray[1] * setRepArray[3] * weight2
-                } else {
-                    pushScore += setRepArray[1] * setRepArray[3]
-                }
+            let setRepArray = set2.split(' ')
+            if (weight2) {
+                workout2Score += setRepArray[1] * setRepArray[3] * weight2
             } else {
-                pullCount++;
-                let setRepArray = set2.split(' ')
-                if (weight2) {
-                    pullScore += setRepArray[1] * setRepArray[3] * weight2
-                } else {
-                    pullScore += setRepArray[1] * setRepArray[3]
-                }
+                workout2Score += setRepArray[1] * setRepArray[3]
             }
         }
+
         if (workout3) {
 
-            if (pushNames.includes(workout3)) {
-                pushCount++;
-                let setRepArray = set3.split(' ')
-                if (weight3) {
-                    pushScore += setRepArray[1] * setRepArray[3] * weight3
-                } else {
-                    pushScore += setRepArray[1] * setRepArray[3]
-                }
+            let setRepArray = set3.split(' ')
+            if (weight3) {
+                workout3Score += setRepArray[1] * setRepArray[3] * weight3
             } else {
-                pullCount++;
-                let setRepArray = set3.split(' ')
-                if (weight3) {
-                    pullScore += setRepArray[1] * setRepArray[3] * weight3
-                } else {
-                    pullScore += setRepArray[1] * setRepArray[3]
-                }
+                workout3Score += setRepArray[1] * setRepArray[3]
             }
         }
+
         if (workout4) {
 
-            if (pushNames.includes(workout4)) {
-                pushCount++;
-                let setRepArray = set4.split(' ')
-                if (weight4) {
-                    pushScore += setRepArray[1] * setRepArray[3] * weight4
-                } else {
-                    pushScore += setRepArray[1] * setRepArray[3]
-                }
+            let setRepArray = set4.split(' ')
+            if (weight4) {
+                workout4Score += setRepArray[1] * setRepArray[3] * weight4
             } else {
-                pullCount++;
-                let setRepArray = set4.split(' ')
-                if (weight4) {
-                    pullScore += setRepArray[1] * setRepArray[3] * weight4
-                } else {
-                    pullScore += setRepArray[1] * setRepArray[3]
-                }
+                workout4Score += setRepArray[1] * setRepArray[3]
             }
         }
+
         if (workout5) {
 
-            if (pushNames.includes(workout5)) {
-                pushCount++;
-                let setRepArray = set5.split(' ')
-                if (weight5) {
-                    pushScore += setRepArray[1] * setRepArray[3] * weight5
-                } else {
-                    pushScore += setRepArray[1] * setRepArray[3]
-                }
+            let setRepArray = set5.split(' ')
+            if (weight5) {
+                workout5Score += setRepArray[1] * setRepArray[3] * weight5
             } else {
-                pullCount++;
-                let setRepArray = set5.split(' ')
-                if (weight5) {
-                    pullScore += setRepArray[1] * setRepArray[3] * weight5
-                } else {
-                    pullScore += setRepArray[1] * setRepArray[3]
-                }
+                workout5Score += setRepArray[1] * setRepArray[3]
             }
         }
+
         if (workout6) {
 
-            if (pushNames.includes(workout6)) {
-                pushCount++;
-                let setRepArray = set6.split(' ')
-                if (weight6) {
-                    pushScore += setRepArray[1] * setRepArray[3] * weight6
-                } else {
-                    pushScore += setRepArray[1] * setRepArray[3]
-                }
+            let setRepArray = set6.split(' ')
+            if (weight6) {
+                workout6Score += setRepArray[1] * setRepArray[3] * weight6
             } else {
-                pullCount++;
-                let setRepArray = set6.split(' ')
-                if (weight6) {
-                    pullScore += setRepArray[1] * setRepArray[3] * weight6
-                } else {
-                    pullScore += setRepArray[1] * setRepArray[3]
-                }
+                workout6Score += setRepArray[1] * setRepArray[3]
             }
         }
+
         if (workout7) {
 
-            if (pushNames.includes(workout7)) {
-                pushCount++;
-                let setRepArray = set7.split(' ')
-                if (weight7) {
-                    pushScore += setRepArray[1] * setRepArray[3] * weight7
-                } else {
-                    pushScore += setRepArray[1] * setRepArray[3]
-                }
+            let setRepArray = set7.split(' ')
+            if (weight7) {
+                workout7Score += setRepArray[1] * setRepArray[3] * weight7
             } else {
-                pullCount++;
-                let setRepArray = set7.split(' ')
-                if (weight7) {
-                    pullScore += setRepArray[1] * setRepArray[3] * weight7
-                } else {
-                    pullScore += setRepArray[1] * setRepArray[3]
-                }
+                workout7Score += setRepArray[1] * setRepArray[3]
             }
         }
+
         if (workout8) {
 
-            if (pushNames.includes(workout8)) {
-                pushCount++;
-                let setRepArray = set8.split(' ')
-                if (weight8) {
-                    pushScore += setRepArray[1] * setRepArray[3] * weight8
-                } else {
-                    pushScore += setRepArray[1] * setRepArray[3]
-                }
+            let setRepArray = set8.split(' ')
+            if (weight8) {
+                workout8Score += setRepArray[1] * setRepArray[3] * weight8
             } else {
-                pullCount++;
-                let setRepArray = set8.split(' ')
-                if (weight8) {
-                    pullScore += setRepArray[1] * setRepArray[3] * weight8
-                } else {
-                    pullScore += setRepArray[1] * setRepArray[3]
-                }
+                workout8Score += setRepArray[1] * setRepArray[3]
             }
         }
 
-        console.log('pushCount', pushCount)
-        console.log('pullCount', pullCount)
-        console.log('pushScore', pushScore)
-        console.log('pullScore', pullScore)
+
+        // console.log('pushCount', pushCount)
+        // console.log('pullCount', pullCount)
+        // console.log('pushScore', pushScore)
+        // console.log('pullScore', pullScore)
         const workoutHistory = await createHistory(
             name,
-            pushCount,
-            pullCount,
-            pushScore,
-            pullScore,
+            workout1,
+            workout1Score,
+            workout2,
+            workout2Score,
+            workout3,
+            workout3Score,
+            workout4,
+            workout4Score,
+            workout5,
+            workout5Score,
+            workout6,
+            workout6Score,
+            workout7,
+            workout7Score,
+            workout8,
+            workout8Score,
             date,
             client_id,
             trainer_id
         )
-        console.log('after dispatch')
+        // console.log('after dispatch')
         const workoutPlan = await createWorkoutPlan(
             name,
             workout1,

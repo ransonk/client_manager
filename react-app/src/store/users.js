@@ -15,6 +15,7 @@ export const ADD_ROUTINE = "ADD_ROUTINE";
 export const USER_LOGOUT = "USER_LOGOUT";
 export const UPDATE_PROGRESS = "UPDATE_PROGRESS";
 export const SET_ALL_WORKOUT_PLANS = "SET_ALL_WORKOUT_PLANS";
+export const UPDATE_EXERCISE_HISTORY = "UPDATE_EXERCISE_HISTORY";
 
 export const setCurrentUser = (trainer) => {
     return { type: SET_CURRENT_TRAINER, trainer };
@@ -47,6 +48,13 @@ export const setWorkouts = (workouts) => {
     return {
         type: SET_WORKOUTS,
         workouts
+    }
+}
+
+export const updateExerciseHistory = (exercises) => {
+    return {
+        type: UPDATE_EXERCISE_HISTORY,
+        exercises
     }
 }
 
@@ -261,7 +269,8 @@ const initialState = {
     intensities: {},
     workoutPlans: {},
     allWorkoutPlans: {},
-    todaysPlans: {}
+    todaysPlans: {},
+    exerciseHistory: {},
 }
 
 export default function reducer(state = initialState, action) {
@@ -301,6 +310,10 @@ export default function reducer(state = initialState, action) {
         }
         case UPDATE_PROGRESS: {
             newState.client_progress = { ...action.progress }
+            return newState;
+        }
+        case UPDATE_EXERCISE_HISTORY: {
+            newState.exerciseHistory = { ...action.exercises }
             return newState;
         }
         case USER_LOGOUT: {
