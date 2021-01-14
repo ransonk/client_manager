@@ -107,7 +107,7 @@ function FrequencyPie() {
                 options={{
                     title: {
                         display: true,
-                        text: 'Total Workout Frequency',
+                        text: 'Targeted Exercise Frequency',
                         fontSize: 20,
                         fontColor: 'white',
 
