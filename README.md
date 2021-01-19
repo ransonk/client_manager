@@ -188,5 +188,5 @@ Users can schedule client workouts, view progress of targeted exercises and mana
 
 
 
-
-[linkedin-url-ranson]:https://github.com/ransonk
+[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
+[linkedin-url-ranson]:https://www.linkedin.com/in/ranson-knorr-b132391b7/
