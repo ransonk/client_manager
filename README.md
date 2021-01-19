@@ -1,4 +1,4 @@
-[![Ranson Knorr][linkedin-shield]][linkedin-url-ranson] Ranson Knorr
+![Ranson Knorr][linkedin-shield][linkedin-url-ranson] Ranson Knorr
 
 [Live Site](https://trainer-hub.herokuapp.com/)
 
