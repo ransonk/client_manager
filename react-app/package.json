@@ -13,6 +13,7 @@
     "datejs": "^1.0.0-rc3",
     "http-proxy-middleware": "^1.0.5",
     "react": "^16.13.1",
+    "react-big-calendar": "^0.30.0",
     "react-calendar": "^3.3.0",
     "react-chartjs-2": "^2.11.1",
     "react-dom": "^16.13.1",
