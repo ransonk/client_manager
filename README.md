@@ -1,4 +1,12 @@
-![Ranson Knorr][linkedin-shield][linkedin-url-ranson] Ranson Knorr
+[![Wren McPherson][linkedin-shield]][linkedin-url-wren] Wren McPherson
+<br>
+[![Peter Kang][linkedin-shield]][linkedin-url-peter] Peter Kang
+<br>
+[![Ranson Knorr][linkedin-shield]][linkedin-url-ranson] Ranson Knorr
+<br>
+[![Ryan Young][linkedin-shield]][linkedin-url-ryan] Ryan Young
+<br>
+![Akmal Anvarov][linkedin-shield] Akmal Anvarov
 
 [Live Site](https://trainer-hub.herokuapp.com/)
 
