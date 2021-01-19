@@ -58,6 +58,9 @@
 *User can view monthly schedule for easy planning.
 ![business](readmeImages/trainer-sched.png)
 
+*User can create custom exercises and intensities.
+![business](readmeImages/trainer-create-routine.png)
+
 *User can view client contact and payment information.
 ![review](readmeImages/trainer-client-info.png)
 
