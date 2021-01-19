@@ -3,7 +3,7 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import UserMixin
 
 class RoutineList(db.Model, UserMixin):
-  __tablename__ = 'routinelists'
+  __tablename__ = "routinelists"
 
   id = db.Column(db.Integer, primary_key = True)
   name = db.Column(db.String(20))

@@ -3,7 +3,7 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import UserMixin
 
 class History(db.Model, UserMixin):
-  __tablename__ = 'histories'
+  __tablename__ = "histories"
 
   id = db.Column(db.Integer, primary_key = True)
   name= db.Column(db.String(255), nullable=False)
