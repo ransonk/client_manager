@@ -8,7 +8,7 @@
 html{
     overflow: auto;
 
-    background-color: #22223b;
+    background-color: white;
     /* width: 110%; */
     overflow-x: hidden;
     width: 100%;
@@ -215,7 +215,7 @@ body::-webkit-scrollbar {
 .login-page__container{
     display: flex;
     justify-content: space-evenly;
-    background-image: url('./images/logan-weaver-apyd8hWmIw0-unsplash\ \(1\).jpg');
+    background-image: url('./images/alvaro-pinot-czDvRp5V2b0-unsplash.jpg');
     background-size: cover;
 }
 
@@ -285,7 +285,7 @@ body::-webkit-scrollbar {
 
 .overview__container{
     display: flex;
-    background-color: #24364e;
+    background-color: #2a4747;
     position: relative;
     text-align: center;
     justify-content: center;
@@ -314,7 +314,7 @@ body::-webkit-scrollbar {
     right: 3rem; */
     display: flex;
     justify-content: flex-end;
-    background-color: #24364e;
+    background-color: #2a4747;
     /* box-shadow:
     inset -3px -3px 7px #ffffff73,
     inset 3px 3px 5px
@@ -356,11 +356,11 @@ body::-webkit-scrollbar {
     align-content: center;
     margin-top: 2rem;
     /* margin-bottom: 4rem; */
-    background-color: #0f1724;
-    border-left: 1px solid white;
+    /* background-color: #0f1724; */
+    /* border-left: 1px solid white;
     border-top: 1px solid white;
     border-right: 1px solid white;
-    border-bottom: 1px solid white;
+    border-bottom: 1px solid white; */
     /* box-shadow:
     inset -3px -3px 7px #ffffff73,
     inset 3px 3px 5px #bdbfb8; */
@@ -378,18 +378,20 @@ body::-webkit-scrollbar {
     align-content: center;
     margin-top: 2rem;
     /* margin-bottom: 4rem; */
-    background-color: #24364e;
+    background-color: #2a4747;
     /* box-shadow:
     inset -3px -3px 7px #ffffff73,
     inset 3px 3px 5px #bdbfb8; */
 }
 
 .todaysclients__container{
-    background-color: #0f1724;
+    background-color: black;
     position: relative;
     bottom: 3rem;
     padding-bottom: 2.5rem;
     text-align: center;
+    width: 50%;
+    /* opacity: 0.9; */
     /* border-left: 1px solid white;
     border-right: 1px solid white; */
     /* margin-top: 10rem; */
@@ -645,7 +647,7 @@ body::-webkit-scrollbar {
     /* top: 1rem; */
     margin-top: 0.5rem;
     margin-bottom: 3rem;
-    background-color: #212c3d;
+    background-color: #2a4747;
     border-bottom: 1px solid black;
     /* box-shadow:
     inset -3px -3px 7px #ffffff73,
@@ -700,7 +702,7 @@ body::-webkit-scrollbar {
     /* height: 25rem; */
     margin-top: 3rem;
     /* border-radius: 5px; */
-    background-color: #212c3d;
+    background-color: #2a4747;
     margin-bottom: 3rem;
     /* box-shadow: -2px -2px 8px rgba(255, 255, 255, 1),
     -2px -2px 12px rgba(255, 255, 255, 0.5),
@@ -833,7 +835,7 @@ body::-webkit-scrollbar {
     /* bottom: 10rem; */
     /* border-radius: 20px; */
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    background-color: #24364e;
+    background-color: #2a4747;
     /* padding-bottom: 2rem; */
     padding-right: 3rem;
     border-bottom: 1px solid black;
@@ -893,7 +895,7 @@ body::-webkit-scrollbar {
     padding-top: 1rem;
     padding-left: 1rem;
     padding-bottom: 0.4rem;
-    background-color: #24364e;
+    background-color: #2a4747;
     box-shadow: -2px -2px 8px rgba(255, 255, 255, 1),
     -2px -2px 12px rgba(255, 255, 255, 0.5),
     inset 2px 2px 4px rgba(255, 255, 255, 0.1),
