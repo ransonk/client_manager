@@ -22,14 +22,14 @@ import { createClient } from '../services/auth';
 const useStyles = makeStyles({
     list: {
         width: 250,
-        backgroundColor: '#24364e',
+        backgroundColor: '#2f223b',
     },
     fullList: {
         width: 'auto',
-        backgroundColor: '#24364e'
+        backgroundColor: '#2f223b'
     },
     paperAnchorLeft: {
-        backgroundColor: '#24364e',
+        backgroundColor: '#2f223b',
         color: "blue"
 
     },

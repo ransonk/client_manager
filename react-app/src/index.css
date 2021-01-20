@@ -8,7 +8,7 @@
 html{
     overflow: auto;
 
-    background-color: #0f1724;
+    background-color: #22223b;
     /* width: 110%; */
     overflow-x: hidden;
     width: 100%;
@@ -155,7 +155,7 @@ body::-webkit-scrollbar {
 }
 
 .MuiDrawer-paper{
-    background-color: #24364e !important
+    background-color: #2f223b !important
 }
 
 .Mui-expanded{
