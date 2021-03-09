@@ -99,6 +99,8 @@ body{
 
 .selection__buttons:hover {
     cursor: pointer;
+    text-decoration: underline wavy red;
+    transition-duration: 1s;
 }
 
 .side__bar{
