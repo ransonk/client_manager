@@ -175,50 +175,46 @@ const HomePage = ({ setAuthenticated }) => {
         <>
             <Grid container>
                 <Grid item xs={12}>
-                    < ButtonAppBar setAuthenticated={setAuthenticated} />
+                    {/* < ButtonAppBar setAuthenticated={setAuthenticated} /> */}
                 </Grid>
             </Grid>
-            <Grid container>
-                <Grid item xs={12} className='home-welcome__message'>Welcome Back, {name}</Grid>
+            <Grid container className='content__container'>
+                <Grid item xs={12} className='content__top-margin'></Grid>
+
+                {/* start */}
                 <Grid item xs={1} md={3}></Grid>
-                <Grid item xs={10} md={6} className='today-sched__container'>
-                    <Grid item md={3}></Grid>
-                    <Grid item md={12} className='overview__container'>
+                <Grid item xs={10} md={6} >
+                    <Grid item md={3} className='side__margin'></Grid>
+                    <Grid item md={12} className='content__title-bar'>
 
-                        <p className='today-sched__title'>{tomorrow ? "Tomorrow's Overview" : "Today's Overview"}</p>
-                    </Grid>
-                    <Grid item md={2}></Grid>
-                    <Grid item xs={12} md={12} className='overview-buttons'>
-                        <div className={(tomorrow === false ? 'overview-button-today-on' : 'overview-button-today-off')} onClick={grabToday}>
-
-                            <p>Today</p>
-                        </div>
-                        <div className={(tomorrow === true ? 'overview-button-tomorrow-on' : 'overview-button-tomorrow-off')} onClick={grabTomorrow}>
-                            <p>Tomorrow</p>
-                        </div>
+                        <p className='content__title-text'>Trainer / Client</p>
                     </Grid>
 
-                    <div className='todaysclients__container'>
-                        {tomorrow ? <TomorrowsClients /> : <TodaysClients />}
-                    </div>
+                    <Grid item md={3} className='side__margin'></Grid>
+
+
                     <Grid item md={3}></Grid>
                 </Grid>
-                <Grid item xs={1} md={2}></Grid>
-                <br />
-                <br />
-                <br />
-                <Grid item xs={12} md={12} className='invisibar'></Grid>
-                <Grid container>
+                <Grid item xs={1} md={3}></Grid>
+                {/* end */}
+
+                {/* start */}
+                <Grid item xs={1} md={3}></Grid>
+                <Grid item xs={1} md={2} className='side__bar'></Grid>
+                <Grid item xs={12} md={4} className='selection__title-bar'> Stats Calendar Plan</Grid>
+                <Grid item xs={1} md={3}></Grid>
+                <Grid item xs={12} className='content__top-margin'></Grid>
+                {/* end */}
+
+                {/* <Grid container> */}
                     <Grid item md={3}></Grid>
                     <Grid item xs={12} md={6}>
                         <ClientFrequency />
                     </Grid>
                     <Grid item md={3}></Grid>
-                </Grid>
+                {/* </Grid> */}
                 <Grid item xs={12} md={12} className='invisibar'></Grid>
-                <br />
-                <br />
-                <br />
+
                 <Grid item xs={12} md={12} className='invisibar'></Grid>
                 <Grid container>
                     <Grid item md={3}></Grid>

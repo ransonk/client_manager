@@ -23,7 +23,7 @@ html{
     overflow: auto;
 
     /* background-color: red; */
-    background-image: url('./images/andrew-neel-cckf4TsHAuw-unsplash.jpg');
+    background-image: url('./images/gradienta-bKESVqfxass-unsplash.jpg');
     background-size: contain;
     overflow-x: hidden;
     width: 100%;
@@ -44,6 +44,67 @@ body{
     z-index: 2;
 }
 
+.content__container {
+    letter-spacing: 2px;
+    border-radius: 5px;
+    height: auto;
+    display: block;
+    align-content: center;
+    margin-top: 2rem;
+}
+
+.content__top-margin{
+    font-size: 1rem;
+    font-family: Pacifico, cursive;
+    margin-top: 3rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    text-align: center;
+    color: #bde0fe;
+}
+
+.content__title-text{
+    text-align: center;
+    font-family: Calibri;
+    font-weight: bold;
+    font-size: 1.3em;
+    position: relative;
+    top: 1rem;
+}
+
+.content__title-bar{
+    display: flex;
+    background-color: rgba(0, 0, 0, 0.2);
+    position: relative;
+    text-align: center;
+    justify-content: center;
+    color: white;
+    height: 4rem;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.466);
+}
+
+.selection__title-bar{
+    display: flex;
+    background-color: rgba(0, 0, 0, 0.2);
+    position: relative;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    height: 4rem;
+    /* border-radius: 20px; */
+}
+
+.side__bar{
+    background-color: rgba(0, 0, 0, 0.2);
+    position: relative;
+    text-align: center;
+    color: white;
+    height: 80vh;
+    border-right: 1px solid rgba(255, 255, 255, 0.466);
+}
 
 .addWorkout{
     margin-top: 1rem;
@@ -298,15 +359,6 @@ body::-webkit-scrollbar {
     position: absolute;
 }
 
-.overview__container{
-    display: flex;
-    background-color: #24364e;
-    position: relative;
-    text-align: center;
-    justify-content: center;
-    color: white;
-    height: 4rem;
-}
 
 .overview-date{
     display: flex;
@@ -410,14 +462,7 @@ body::-webkit-scrollbar {
     /* margin-top: 10rem; */
 }
 
-.today-sched__title{
-    text-align: center;
-    font-family: Calibri;
-    font-weight: bold;
-    font-size: 1.3em;
-    position: relative;
-    top: 2rem;
-}
+
 
 .title__container{
     text-Align: center;
@@ -1194,4 +1239,9 @@ body::-webkit-scrollbar {
 .profile-edit__container{
     display: flex;
     justify-content: center;
+}
+
+p {
+    color: white;
+    opacity: 1;
 }
