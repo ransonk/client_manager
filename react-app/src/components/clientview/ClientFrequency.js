@@ -63,7 +63,7 @@ function ClientFrequency() {
     }
 
     return (
-        <div>
+        <div className="chart-container">
             <Bar
                 data={data}
                 options={{

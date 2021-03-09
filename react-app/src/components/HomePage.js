@@ -179,7 +179,10 @@ const HomePage = ({ setAuthenticated }) => {
                 </Grid>
             </Grid>
             <Grid container className='content__container'>
+
+                {/* space */}
                 <Grid item xs={12} className='content__top-margin'></Grid>
+                {/* space */}
 
                 {/* start */}
                 <Grid item xs={1} md={3}></Grid>
@@ -200,18 +203,26 @@ const HomePage = ({ setAuthenticated }) => {
 
                 {/* start */}
                 <Grid item xs={1} md={3}></Grid>
-                <Grid item xs={1} md={2} className='side__bar'></Grid>
-                <Grid item xs={12} md={4} className='selection__title-bar'> Stats Calendar Plan</Grid>
+                <Grid item xs={1} md={1} className='side__bar'></Grid>
+                <Grid item xs={12} md={5} className='selection__title-bar'> Stats Calendar Plan</Grid>
                 <Grid item xs={1} md={3}></Grid>
-                <Grid item xs={12} className='content__top-margin'></Grid>
                 {/* end */}
 
+                {/* start */}
+                <Grid item xs={1} md={3}></Grid>
+                <Grid item xs={1} md={1} className='side__bar'></Grid>
+                <Grid item xs={12} md={5} className='main__content'>
+                <ClientFrequency />
+                </Grid>
+                <Grid item xs={1} md={3}></Grid>
+                {/* end */}
+
+                {/* space */}
+                <Grid item xs={12} className='content__top-margin'></Grid>
+                {/* space */}
+
                 {/* <Grid container> */}
-                    <Grid item md={3}></Grid>
-                    <Grid item xs={12} md={6}>
-                        <ClientFrequency />
-                    </Grid>
-                    <Grid item md={3}></Grid>
+
                 {/* </Grid> */}
                 <Grid item xs={12} md={12} className='invisibar'></Grid>
 

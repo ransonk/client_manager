@@ -94,7 +94,7 @@ body{
     align-items: center;
     color: white;
     height: 4rem;
-    /* border-radius: 20px; */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.466);
 }
 
 .side__bar{
@@ -102,9 +102,30 @@ body{
     position: relative;
     text-align: center;
     color: white;
-    height: 80vh;
+    /* height: 80vh; */
     border-right: 1px solid rgba(255, 255, 255, 0.466);
 }
+
+.main__content{
+    display: flex;
+    background-color: rgba(0, 0, 0, 0.2);
+    position: relative;
+    text-align: center;
+    justify-content: center;
+    color: white;
+    height: 80vh;
+}
+
+.chart-container{
+    position: relative;
+    height: 30vh;
+    width: 30vw;
+}
+
+
+
+
+
 
 .addWorkout{
     margin-top: 1rem;
