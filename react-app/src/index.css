@@ -5,12 +5,26 @@
     box-sizing: border-box;
 }
 
+/* :root {
+    --v1: #be91c6;
+    --v2: #8a65cc;
+    --v3: #5e30d9;
+    --transparentv3: #5e30d900;
+    --v4: #3b1895;
+    --s1: #fea798;
+    --s2: #ff846e;
+    --cloud: #fea798;
+
+     background-image: linear-gradient(var(--v1), var(--s1), var(--v1));
+  } */
+
+
 html{
     overflow: auto;
 
-    /* background-color: white; */
-    background-color: #0f1724;
-    /* width: 110%; */
+    /* background-color: red; */
+    background-image: url('./images/andrew-neel-cckf4TsHAuw-unsplash.jpg');
+    background-size: contain;
     overflow-x: hidden;
     width: 100%;
 
