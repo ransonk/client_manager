@@ -50,7 +50,9 @@ const HomePage = ({ setAuthenticated }) => {
     const [value, onChange] = useState(new Date());
     const [loaded, setLoaded] = useState(false);
     const [name, setName] = useState();
-    const [tomorrow, setTomorrow] = useState(false);
+    const [calendar, setCalendar] = useState(true);
+    const [stats, setStats] = useState(false);
+    const [plan, setPlan] = useState(false);
     // window.location.reload();
     let trainerId = useSelector(state => state.store.current_trainer.id)
     let allWorkoutPlans = useSelector(state => state.store.allWorkoutPlans)
@@ -142,13 +144,27 @@ const HomePage = ({ setAuthenticated }) => {
         return null;
     }
 
-    const grabTomorrow = () => {
-        setTomorrow(true)
+    const grabStats = () => {
+        setStats(true)
+        setCalendar(false)
+        setPlan(false)
     }
 
-    const grabToday = () => {
-        setTomorrow(false)
+    const grabCalendar = () => {
+        setStats(false)
+        setCalendar(true)
+        setPlan(false)
     }
+
+    const grabPlan = () => {
+        setStats(false)
+        setCalendar(false)
+        setPlan(true)
+    }
+
+    // const grabToday = () => {
+    //     setTomorrow(false)
+    // }
 
     const handleClickOpen = (e) => {
         setInfo({
@@ -204,7 +220,11 @@ const HomePage = ({ setAuthenticated }) => {
                 {/* start */}
                 <Grid item xs={1} md={3}></Grid>
                 <Grid item xs={1} md={1} className='side__bar'></Grid>
-                <Grid item xs={12} md={5} className='selection__title-bar'> Stats Calendar Plan</Grid>
+                <Grid item xs={12} md={5} className='selection__title-bar'>
+                <a className={"selection__buttons"} onClick={grabCalendar}>Calendar</a>
+                <a className={"selection__buttons"} onClick={grabStats}>Stats</a>
+                <a className={"selection__buttons"} onClick={grabPlan}>Plan</a>
+                </Grid>
                 <Grid item xs={1} md={3}></Grid>
                 {/* end */}
 
@@ -212,7 +232,28 @@ const HomePage = ({ setAuthenticated }) => {
                 <Grid item xs={1} md={3}></Grid>
                 <Grid item xs={1} md={1} className='side__bar'></Grid>
                 <Grid item xs={12} md={5} className='main__content'>
+                    {stats ?
                 <ClientFrequency />
+                :
+                calendar ?
+                <Calendar
+                            localizer={localizer}
+                            views={['month']}
+                            events={Event}
+                            startAccessor="start"
+                            endAccessor="end"
+                            style={{ height: 500 }}
+                            // onSelectEvent={(e) => alert(e.title)}
+                            onSelectEvent={(e) => handleClickOpen(e)}
+                            popup
+
+                        />
+                :
+                plan ?
+                'placeholder'
+                :
+                'nothing'
+            }
                 </Grid>
                 <Grid item xs={1} md={3}></Grid>
                 {/* end */}

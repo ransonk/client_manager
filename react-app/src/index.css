@@ -90,11 +90,15 @@ body{
     background-color: rgba(0, 0, 0, 0.2);
     position: relative;
     text-align: center;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: center;
     color: white;
     height: 4rem;
     border-bottom: 1px solid rgba(255, 255, 255, 0.466);
+}
+
+.selection__buttons:hover {
+    cursor: pointer;
 }
 
 .side__bar{
@@ -120,6 +124,12 @@ body{
     position: relative;
     height: 30vh;
     width: 30vw;
+}
+
+.rbc-calendar{
+    margin-top: 1rem;
+    width: 700px;
+    color: black;
 }
 
 
