@@ -23,7 +23,7 @@ html{
     overflow: auto;
 
     /* background-color: red; */
-    background-image: url('./images/gradienta-bKESVqfxass-unsplash.jpg');
+    background-image: url('./images/meghan-holmes-buWcS7G1_28-unsplash.jpg');
     background-size: contain;
     overflow-x: hidden;
     width: 100%;
@@ -50,7 +50,7 @@ body{
     height: auto;
     display: block;
     align-content: center;
-    margin-top: 2rem;
+    margin-top: 0.2rem;
 }
 
 .content__top-margin{
@@ -74,7 +74,7 @@ body{
 
 .content__title-bar{
     display: flex;
-    background-color: rgba(0, 0, 0, 0.2);
+    background-color: rgba(0, 0, 0, 0.4);
     position: relative;
     text-align: center;
     justify-content: center;
@@ -87,7 +87,7 @@ body{
 
 .selection__title-bar{
     display: flex;
-    background-color: rgba(0, 0, 0, 0.2);
+    background-color: rgba(0, 0, 0, 0.4);
     position: relative;
     text-align: center;
     justify-content: space-evenly;
@@ -102,7 +102,7 @@ body{
 }
 
 .side__bar{
-    background-color: rgba(0, 0, 0, 0.2);
+    background-color: rgba(124,168,133, 0.6);
     position: relative;
     text-align: center;
     color: white;
@@ -112,7 +112,7 @@ body{
 
 .main__content{
     display: flex;
-    background-color: rgba(0, 0, 0, 0.2);
+    background-color: rgba(0, 0, 0, 0.8);
     position: relative;
     text-align: center;
     justify-content: center;
@@ -122,12 +122,13 @@ body{
 
 .chart-container{
     position: relative;
+    margin-top: 2rem;
     height: 30vh;
     width: 30vw;
 }
 
 .rbc-calendar{
-    margin-top: 1rem;
+    margin-top: 2rem;
     width: 700px;
     color: black;
 }
