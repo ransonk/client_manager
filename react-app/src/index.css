@@ -794,12 +794,12 @@ body::-webkit-scrollbar {
 .home-clients__payment{
     display: block;
     text-align: center;
-    /* width: 30rem; */
+    width: 30rem;
     /* height: 25rem; */
-    margin-top: 3rem;
+    /* margin-top: 3rem; */
     /* border-radius: 5px; */
     /* background-color: #212c3d; */
-    margin-bottom: 3rem;
+    /* margin-bottom: 3rem; */
     /* color: black; */
     /* box-shadow: -2px -2px 8px rgba(255, 255, 255, 1),
     -2px -2px 12px rgba(255, 255, 255, 0.5),
@@ -833,7 +833,7 @@ body::-webkit-scrollbar {
 
     overflow-y: hidden;
     overflow-x: hidden;
-    height: 15rem;
+    width: auto;
     padding-top: 2rem;
 }
 

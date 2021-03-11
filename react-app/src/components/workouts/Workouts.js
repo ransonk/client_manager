@@ -52,7 +52,7 @@ const useStyles = makeStyles((theme) => ({
         width: '70%',
     },
     table: {
-        minWidth: 700,
+        // minWidth: 700,
       },
     heading: {
         fontSize: theme.typography.pxToRem(15),
@@ -112,7 +112,7 @@ export default function Workouts() {
             if(pullExercises[i]) {
                   combinedExerciseList.push(createData(pushExercises[i], pullExercises[i]))
                 } else {
-                  combinedExerciseList.push(createData(pushExercises[i], 'placeholder'))
+                  combinedExerciseList.push(createData(pushExercises[i], ''))
               }
         }
     } else {
@@ -120,7 +120,7 @@ export default function Workouts() {
             if(pushExercises[i]) {
                 combinedExerciseList.push(createData(pushExercises[i], pullExercises[i]))
             } else {
-                combinedExerciseList.push(createData('placeholder', pullExercises[i]))
+                combinedExerciseList.push(createData('', pullExercises[i]))
             }
         }
     }

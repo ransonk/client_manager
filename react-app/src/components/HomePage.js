@@ -252,7 +252,7 @@ const HomePage = ({ setAuthenticated }) => {
                 :
                 plan ?
                 <Grid container>
-                <Grid item xs={1} md={3}></Grid>
+                {/* <Grid item xs={1} md={3}></Grid> */}
                 <Grid item xs={12} md={6} className='home-clients__payment'>
                     <h1 className='home-clients__header2'>Available Workouts</h1>
                     <div className='home-clients__workouts'>
@@ -260,11 +260,11 @@ const HomePage = ({ setAuthenticated }) => {
                     </div>
                     <CreateNewWorkout />
                 </Grid>
-                <Grid item xs={1} md={3}></Grid>
+                {/* <Grid item xs={1} md={3}></Grid> */}
 
 
 
-                <Grid item xs={1} md={3}></Grid>
+                {/* <Grid item xs={1} md={3}></Grid> */}
                 <Grid item xs={12} md={6} className='home-clients__payment'>
                     <h1 className='home-clients__header2'>Available Intensities</h1>
                     <div className='home-clients__workouts'>
@@ -272,7 +272,7 @@ const HomePage = ({ setAuthenticated }) => {
                     </div>
                     <CreateNewIntensity />
                 </Grid>
-                <Grid item xs={1} md={3}></Grid>
+                {/* <Grid item xs={1} md={3}></Grid> */}
                 </Grid>
                 :
                 'nothing'
