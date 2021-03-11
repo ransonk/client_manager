@@ -53,6 +53,7 @@ const useStyles = makeStyles((theme) => ({
     },
     table: {
         // minWidth: 700,
+        // maxHeight: 100,
       },
     heading: {
         fontSize: theme.typography.pxToRem(15),
@@ -69,7 +70,7 @@ const useStyles = makeStyles((theme) => ({
     delete: {
         position: 'relative',
         color: '#e63946',
-        left: '7rem',
+        left: '0.5rem',
         fontWeight: 'bold',
         "&:hover": {
             cursor: 'pointer'
@@ -94,9 +95,9 @@ export default function Workouts() {
 
     workoutList.map(exercise => {
         if (exercise.type === "push") {
-            pushExercises.push(exercise.name)
+            pushExercises.push([exercise.name, exercise.id])
         } else {
-            pullExercises.push(exercise.name)
+            pullExercises.push([exercise.name, exercise.id])
         }
     });
     console.log('wowww')
@@ -145,9 +146,25 @@ export default function Workouts() {
                     {combinedExerciseList.map((exercise) => (
                         <StyledTableRow key={exercise.push}>
                         <StyledTableCell component="th" scope="row">
-                            {exercise.push}
+                            {exercise.push[0]}
+                            {
+                                exercise.push[0] ?
+                            <span className={classes.delete} onClick={() => handleDeleteWorkout(exercise.push[1])}>
+                                    x
+                                </span>
+                                : ""
+                            }
                         </StyledTableCell>
-                        <StyledTableCell align="right">{exercise.pull}</StyledTableCell>
+                        <StyledTableCell align="right">{exercise.pull[0]}
+                                {
+                                    exercise.pull[0] ?
+                        <span className={classes.delete} onClick={() => handleDeleteWorkout(exercise.pull[1])}>
+                                    x
+
+                                </span>
+                                : ""
+                                }
+                                </StyledTableCell>
                         </StyledTableRow>
                     ))}
                     </TableBody>

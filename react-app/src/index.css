@@ -287,6 +287,29 @@ body::-webkit-scrollbar {
     justify-content: center !important;
 }
 
+.makeStyles-root-11 {
+    width: 70%;
+    height: 400px;
+    overflow-y: scroll;
+}
+
+.makeStyles-root-11::-webkit-scrollbar {
+    width: 1.5em;
+  }
+
+  .makeStyles-root-11::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  }
+
+  .makeStyles-root-11::-webkit-scrollbar-thumb {
+    background-color: black;
+    /* outline: 1px solid #99c1de; */
+  }
+
+  .MuiPaper-rounded {
+    border-radius: 0px !important;
+}
+
 .navButton{
     color: white !important;
     width: auto !important;
