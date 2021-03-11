@@ -51,8 +51,8 @@ const HomePage = ({ setAuthenticated }) => {
     const [value, onChange] = useState(new Date());
     const [loaded, setLoaded] = useState(false);
     const [name, setName] = useState();
-    const [calendar, setCalendar] = useState(true);
-    const [stats, setStats] = useState(false);
+    const [calendar, setCalendar] = useState(false);
+    const [stats, setStats] = useState(true);
     const [plan, setPlan] = useState(false);
     // window.location.reload();
     let trainerId = useSelector(state => state.store.current_trainer.id)
@@ -251,7 +251,29 @@ const HomePage = ({ setAuthenticated }) => {
                         />
                 :
                 plan ?
-                'placeholder'
+                <Grid container>
+                <Grid item xs={1} md={3}></Grid>
+                <Grid item xs={12} md={6} className='home-clients__payment'>
+                    <h1 className='home-clients__header2'>Available Workouts</h1>
+                    <div className='home-clients__workouts'>
+                        <Workouts />
+                    </div>
+                    <CreateNewWorkout />
+                </Grid>
+                <Grid item xs={1} md={3}></Grid>
+
+
+
+                <Grid item xs={1} md={3}></Grid>
+                <Grid item xs={12} md={6} className='home-clients__payment'>
+                    <h1 className='home-clients__header2'>Available Intensities</h1>
+                    <div className='home-clients__workouts'>
+                        <Intensities />
+                    </div>
+                    <CreateNewIntensity />
+                </Grid>
+                <Grid item xs={1} md={3}></Grid>
+                </Grid>
                 :
                 'nothing'
             }
@@ -269,54 +291,9 @@ const HomePage = ({ setAuthenticated }) => {
                 <Grid item xs={12} md={12} className='invisibar'></Grid>
 
                 <Grid item xs={12} md={12} className='invisibar'></Grid>
-                <Grid container>
-                    <Grid item md={3}></Grid>
-                    <Grid item xs={12} md={6}>
-
-                        {/* CALENDAR CODE BELOW */}
-
-                        <Calendar
-                            localizer={localizer}
-                            views={['month']}
-                            events={Event}
-                            startAccessor="start"
-                            endAccessor="end"
-                            style={{ height: 500 }}
-                            // onSelectEvent={(e) => alert(e.title)}
-                            onSelectEvent={(e) => handleClickOpen(e)}
-                            popup
-
-                        />
-                    </Grid>
-                    <Grid item md={3}></Grid>
-                </Grid>
-                <Grid item xs={12} md={12} className='invisibar'></Grid>
-                <br />
-                <br />
-                <br />
-                <Grid item xs={1} md={3}></Grid>
-                <Grid item xs={12} md={6} className='home-clients__title'>Create a Routine</Grid>
-                <Grid item xs={1} md={3}></Grid>
-
-                <Grid item xs={1} md={3}></Grid>
-                <Grid item xs={12} md={3} className='home-clients__payment'>
-                    <h1 className='home-clients__header2'>Available Workouts</h1>
-                    <div className='home-clients__workouts'>
-                        <Workouts />
-                    </div>
-                    <CreateNewWorkout />
 
 
-                </Grid>
 
-                <Grid item xs={12} md={3} className='home-clients__payment'>
-                    <h1 className='home-clients__header2'>Available Intensities</h1>
-                    <div className='home-clients__workouts'>
-                        <Intensities />
-                    </div>
-                    <CreateNewIntensity />
-                </Grid>
-                <Grid item xs={1} md={3}></Grid>
             </Grid>
             <Grid item xs={12} md={12} className='invisibar'></Grid>
             <Footer className={classes.footer} />

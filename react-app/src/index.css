@@ -310,6 +310,10 @@ body::-webkit-scrollbar {
     color: white !important;
 }
 
+.MuiPaper-root{
+    color: black;
+}
+
 .footer__container{
     display: flex;
     justify-content: space-around;
@@ -794,8 +798,9 @@ body::-webkit-scrollbar {
     /* height: 25rem; */
     margin-top: 3rem;
     /* border-radius: 5px; */
-    background-color: #212c3d;
+    /* background-color: #212c3d; */
     margin-bottom: 3rem;
+    /* color: black; */
     /* box-shadow: -2px -2px 8px rgba(255, 255, 255, 1),
     -2px -2px 12px rgba(255, 255, 255, 0.5),
     inset 2px 2px 4px rgba(255, 255, 255, 0.1),
