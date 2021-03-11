@@ -290,7 +290,7 @@ body::-webkit-scrollbar {
 .makeStyles-root-11 {
     width: 70%;
     height: 400px;
-    overflow-y: scroll;
+    overflow-y: auto;
 }
 
 .makeStyles-root-11::-webkit-scrollbar {
@@ -781,12 +781,12 @@ body::-webkit-scrollbar {
 
 .home-clients__header{
     margin-top: 2rem;
-    color: #bde0fe;
+    color: rgb(255, 101, 66);
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;}
 
     .home-clients__header2{
     margin-top: 1rem;
-    color: #bde0fe;
+    color: rgb(255, 101, 66);
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
