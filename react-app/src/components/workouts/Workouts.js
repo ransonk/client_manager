@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { makeStyles } from '@material-ui/core/styles';
+import { withStyles, makeStyles } from '@material-ui/core/styles';
 import { useDispatch, useSelector } from "react-redux";
 import Accordion from '@material-ui/core/Accordion';
 import AccordionSummary from '@material-ui/core/AccordionSummary';
@@ -9,12 +9,51 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import { Button } from '@material-ui/core';
 import { fetchWorkouts, setWorkouts } from '../../store/users';
 import { deleteWorkout } from '../../services/auth';
+import Table from '@material-ui/core/Table';
+import TableBody from '@material-ui/core/TableBody';
+import TableCell from '@material-ui/core/TableCell';
+import TableContainer from '@material-ui/core/TableContainer';
+import TableHead from '@material-ui/core/TableHead';
+import TableRow from '@material-ui/core/TableRow';
+import Paper from '@material-ui/core/Paper';
 
+const StyledTableCell = withStyles((theme) => ({
+    head: {
+      backgroundColor: theme.palette.common.black,
+      color: theme.palette.common.white,
+    },
+    body: {
+      fontSize: 14,
+    },
+  }))(TableCell);
+
+  const StyledTableRow = withStyles((theme) => ({
+    root: {
+      '&:nth-of-type(odd)': {
+        backgroundColor: theme.palette.action.hover,
+      },
+    },
+  }))(TableRow);
+
+  function createData(push, pull) {
+    return { push, pull };
+  }
+
+  const rows = [
+    createData('Frozen yoghurt', 159, 6.0, 24, 4.0),
+    createData('Ice cream sandwich', 237, 9.0, 37, 4.3),
+    createData('Eclair', 262, 16.0, 24, 6.0),
+    createData('Cupcake', 305, 3.7, 67, 4.3),
+    createData('Gingerbread', 356, 16.0, 49, 3.9),
+  ];
 
 const useStyles = makeStyles((theme) => ({
     root: {
         width: '70%',
     },
+    table: {
+        minWidth: 700,
+      },
     heading: {
         fontSize: theme.typography.pxToRem(15),
         fontWeight: theme.typography.fontWeightRegular,
@@ -49,14 +88,78 @@ export default function Workouts() {
     // console.log('workoutsss', workouts)
     let workoutList = Object.values(workouts)
     console.log('list', workoutList)
+    let pushExercises = [];
+    let pullExercises = [];
+    let combinedExerciseList = [];
+
+    workoutList.map(exercise => {
+        if (exercise.type === "push") {
+            pushExercises.push(exercise.name)
+        } else {
+            pullExercises.push(exercise.name)
+        }
+    });
+    console.log('wowww')
+    console.log('pushhhhhhhhhhh', pushExercises)
+    console.log('pullllllllllll', pullExercises)
 
     const handleDeleteWorkout = async (id) => {
         const deleted = await deleteWorkout(id)
     }
 
+    if (pushExercises.length > pullExercises.length) {
+        for (let i = 0; i < pushExercises.length; i++) {
+            if(pullExercises[i]) {
+                  combinedExerciseList.push(createData(pushExercises[i], pullExercises[i]))
+                } else {
+                  combinedExerciseList.push(createData(pushExercises[i], 'placeholder'))
+              }
+        }
+    } else {
+        for (let i = 0; i < pullExercises.length; i++) {
+            if(pushExercises[i]) {
+                combinedExerciseList.push(createData(pushExercises[i], pullExercises[i]))
+            } else {
+                combinedExerciseList.push(createData('placeholder', pullExercises[i]))
+            }
+        }
+    }
+
+
+
+    console.log('combined???', combinedExerciseList)
+
+
     return (
         <div className={classes.root}>
-            {
+
+            <TableContainer component={Paper}>
+                <Table className={classes.table} aria-label="customized table">
+                    <TableHead>
+                    <TableRow>
+                        <StyledTableCell>Push</StyledTableCell>
+                        <StyledTableCell align="right">Pull</StyledTableCell>
+                    </TableRow>
+                    </TableHead>
+                    <TableBody>
+                    {combinedExerciseList.map((exercise) => (
+                        <StyledTableRow key={exercise.push}>
+                        <StyledTableCell component="th" scope="row">
+                            {exercise.push}
+                        </StyledTableCell>
+                        <StyledTableCell align="right">{exercise.pull}</StyledTableCell>
+                        </StyledTableRow>
+                    ))}
+                    </TableBody>
+                </Table>
+                </TableContainer>
+
+
+
+
+
+
+            {/* {
                 workoutList.map((workout, i) => {
                     let panelContent = `panel${i}a-content`
                     let panelHeader = `panel${i}a-header`
@@ -66,8 +169,6 @@ export default function Workouts() {
                                 expandIcon={<ExpandMoreIcon />}
                                 aria-controls={panelContent}
                                 id={panelHeader}
-                            // aria-controls='panel1a-content'
-                            // id="panel1a-header"
                             >
                                 <Typography className={classes.heading}>{workout.name}</Typography>
                             </AccordionSummary>
@@ -75,18 +176,16 @@ export default function Workouts() {
                                 <Typography className={classes.type}>
                                     (Type: {workout.type})
                                 </Typography>
-                                {/* <Button size='large' variant='contained' onClick={() => handleDeleteWorkout(workout.id)} className={classes.exitBtn} variant='outlined'>x</Button> */}
                             </AccordionDetails>
                             <AccordionDetails>
                                 <Typography className={classes.delete} onClick={() => handleDeleteWorkout(workout.id)}>
                                     Delete
                                 </Typography>
-                                {/* <Button size='large' variant='contained' onClick={() => handleDeleteWorkout(workout.id)} className={classes.exitBtn} variant='outlined'>x</Button> */}
                             </AccordionDetails>
                         </Accordion>
                     )
                 })
-            }
+            } */}
         </div>
     );
 }
