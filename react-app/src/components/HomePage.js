@@ -18,6 +18,7 @@ import ClientFrequency from './clientview/ClientFrequency'
 import { Calendar, momentLocalizer } from 'react-big-calendar'
 import moment from 'moment'
 import 'react-big-calendar/lib/css/react-big-calendar.css';
+import TopThree from './TopThree';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -50,7 +51,9 @@ const HomePage = ({ setAuthenticated }) => {
     const [value, onChange] = useState(new Date());
     const [loaded, setLoaded] = useState(false);
     const [name, setName] = useState();
-    const [tomorrow, setTomorrow] = useState(false);
+    const [calendar, setCalendar] = useState(false);
+    const [stats, setStats] = useState(true);
+    const [plan, setPlan] = useState(false);
     // window.location.reload();
     let trainerId = useSelector(state => state.store.current_trainer.id)
     let allWorkoutPlans = useSelector(state => state.store.allWorkoutPlans)
@@ -142,13 +145,27 @@ const HomePage = ({ setAuthenticated }) => {
         return null;
     }
 
-    const grabTomorrow = () => {
-        setTomorrow(true)
+    const grabStats = () => {
+        setStats(true)
+        setCalendar(false)
+        setPlan(false)
     }
 
-    const grabToday = () => {
-        setTomorrow(false)
+    const grabCalendar = () => {
+        setStats(false)
+        setCalendar(true)
+        setPlan(false)
     }
+
+    const grabPlan = () => {
+        setStats(false)
+        setCalendar(false)
+        setPlan(true)
+    }
+
+    // const grabToday = () => {
+    //     setTomorrow(false)
+    // }
 
     const handleClickOpen = (e) => {
         setInfo({
@@ -175,58 +192,52 @@ const HomePage = ({ setAuthenticated }) => {
         <>
             <Grid container>
                 <Grid item xs={12}>
-                    < ButtonAppBar setAuthenticated={setAuthenticated} />
+                    {/* < ButtonAppBar setAuthenticated={setAuthenticated} /> */}
                 </Grid>
             </Grid>
-            <Grid container>
-                <Grid item xs={12} className='home-welcome__message'>Welcome Back, {name}</Grid>
+            <Grid container className='content__container'>
+
+                {/* space */}
+                <Grid item xs={12} className='content__top-margin'></Grid>
+                {/* space */}
+
+                {/* start */}
                 <Grid item xs={1} md={3}></Grid>
-                <Grid item xs={10} md={6} className='today-sched__container'>
-                    <Grid item md={3}></Grid>
-                    <Grid item md={12} className='overview__container'>
+                <Grid item xs={10} md={6} >
+                    <Grid item md={3} className='side__margin'></Grid>
+                    <Grid item md={12} className='content__title-bar'>
 
-                        <p className='today-sched__title'>{tomorrow ? "Tomorrow's Overview" : "Today's Overview"}</p>
-                    </Grid>
-                    <Grid item md={2}></Grid>
-                    <Grid item xs={12} md={12} className='overview-buttons'>
-                        <div className={(tomorrow === false ? 'overview-button-today-on' : 'overview-button-today-off')} onClick={grabToday}>
-
-                            <p>Today</p>
-                        </div>
-                        <div className={(tomorrow === true ? 'overview-button-tomorrow-on' : 'overview-button-tomorrow-off')} onClick={grabTomorrow}>
-                            <p>Tomorrow</p>
-                        </div>
+                        <p className='content__title-text'>Trainer / Client</p>
                     </Grid>
 
-                    <div className='todaysclients__container'>
-                        {tomorrow ? <TomorrowsClients /> : <TodaysClients />}
-                    </div>
+                    <Grid item md={3} className='side__margin'></Grid>
+
+
                     <Grid item md={3}></Grid>
                 </Grid>
-                <Grid item xs={1} md={2}></Grid>
-                <br />
-                <br />
-                <br />
-                <Grid item xs={12} md={12} className='invisibar'></Grid>
-                <Grid container>
-                    <Grid item md={3}></Grid>
-                    <Grid item xs={12} md={6}>
-                        <ClientFrequency />
-                    </Grid>
-                    <Grid item md={3}></Grid>
+                <Grid item xs={1} md={3}></Grid>
+                {/* end */}
+
+                {/* start */}
+                <Grid item xs={1} md={3}></Grid>
+                <Grid item xs={1} md={1} className='side__bar'></Grid>
+                <Grid item xs={12} md={5} className='selection__title-bar'>
+                <a className={"selection__buttons"} onClick={grabCalendar}>Calendar</a>
+                <a className={"selection__buttons"} onClick={grabStats}>Stats</a>
+                <a className={"selection__buttons"} onClick={grabPlan}>Plan</a>
                 </Grid>
-                <Grid item xs={12} md={12} className='invisibar'></Grid>
-                <br />
-                <br />
-                <br />
-                <Grid item xs={12} md={12} className='invisibar'></Grid>
-                <Grid container>
-                    <Grid item md={3}></Grid>
-                    <Grid item xs={12} md={6}>
+                <Grid item xs={1} md={3}></Grid>
+                {/* end */}
 
-                        {/* CALENDAR CODE BELOW */}
-
-                        <Calendar
+                {/* start */}
+                <Grid item xs={1} md={3}></Grid>
+                <Grid item xs={1} md={1} className='side__bar'><TopThree /></Grid>
+                <Grid item xs={12} md={5} className='main__content'>
+                    {stats ?
+                <ClientFrequency />
+                :
+                calendar ?
+                <Calendar
                             localizer={localizer}
                             views={['month']}
                             events={Event}
@@ -238,36 +249,51 @@ const HomePage = ({ setAuthenticated }) => {
                             popup
 
                         />
-                    </Grid>
-                    <Grid item md={3}></Grid>
-                </Grid>
-                <Grid item xs={12} md={12} className='invisibar'></Grid>
-                <br />
-                <br />
-                <br />
-                <Grid item xs={1} md={3}></Grid>
-                <Grid item xs={12} md={6} className='home-clients__title'>Create a Routine</Grid>
-                <Grid item xs={1} md={3}></Grid>
-
-                <Grid item xs={1} md={3}></Grid>
-                <Grid item xs={12} md={3} className='home-clients__payment'>
-                    <h1 className='home-clients__header2'>Available Workouts</h1>
+                :
+                plan ?
+                <Grid container>
+                {/* <Grid item xs={1} md={3}></Grid> */}
+                <Grid item xs={12} md={6} className='home-clients__payment'>
+                    <h1 className='home-clients__header2'>Available Exercises</h1>
                     <div className='home-clients__workouts'>
                         <Workouts />
                     </div>
                     <CreateNewWorkout />
-
-
                 </Grid>
+                {/* <Grid item xs={1} md={3}></Grid> */}
 
-                <Grid item xs={12} md={3} className='home-clients__payment'>
+
+
+                {/* <Grid item xs={1} md={3}></Grid> */}
+                <Grid item xs={12} md={6} className='home-clients__payment'>
                     <h1 className='home-clients__header2'>Available Intensities</h1>
                     <div className='home-clients__workouts'>
                         <Intensities />
                     </div>
                     <CreateNewIntensity />
                 </Grid>
+                {/* <Grid item xs={1} md={3}></Grid> */}
+                </Grid>
+                :
+                'nothing'
+            }
+                </Grid>
                 <Grid item xs={1} md={3}></Grid>
+                {/* end */}
+
+                {/* space */}
+                <Grid item xs={12} className='content__top-margin'></Grid>
+                {/* space */}
+
+                {/* <Grid container> */}
+
+                {/* </Grid> */}
+                <Grid item xs={12} md={12} className='invisibar'></Grid>
+
+                <Grid item xs={12} md={12} className='invisibar'></Grid>
+
+
+
             </Grid>
             <Grid item xs={12} md={12} className='invisibar'></Grid>
             <Footer className={classes.footer} />

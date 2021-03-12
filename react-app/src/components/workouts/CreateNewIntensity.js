@@ -149,7 +149,7 @@ const CreateNewIntensity = (props) => {
         <div className='profile-edit__container'>
 
             <a className='addWorkout' onClick={handleOpenModal}>
-                Add Sets and Reps
+                Create Sets and Reps
             </a>
             <Modal
                 aria-labelledby="transition-modal-title"
@@ -168,7 +168,7 @@ const CreateNewIntensity = (props) => {
                         <form className={classes.paper} noValidate autoComplete='off' onSubmit={createThisIntensity}>
                             <Button size='large' variant='contained' onClick={handleCloseModal} className={classes.exitBtn} variant='outlined'>x</Button>
                             <Typography variant='h4' className={classes.editHeading}>
-                                Create an Intensity
+                                Add an Intensity
                             </Typography>
                             <TextField id='standard-basic' value={sets} onChange={updateSets} label='Number of Sets' autoFocus />
                             <TextField id='standard-basic' value={reps} onChange={updateReps} label='Number of Reps' />

@@ -153,7 +153,7 @@ const CreateNewWorkout = (props) => {
         <div className='profile-edit__container'>
 
             <a className='addWorkout' onClick={handleOpenModal}>
-                Add Workout
+                Create Workout
             </a>
             <Modal
                 aria-labelledby="transition-modal-title"
@@ -172,7 +172,7 @@ const CreateNewWorkout = (props) => {
                         <form className={classes.paper} noValidate autoComplete='off' onSubmit={createThisWorkout}>
                             <Button size='large' variant='contained' onClick={handleCloseModal} className={classes.exitBtn} variant='outlined'>x</Button>
                             <Typography variant='h4' className={classes.editHeading}>
-                                Create a Workout
+                                Add a Workout
                             </Typography>
                             <TextField id='standard-basic' value={name} onChange={updateName} label='Name of Exercise' autoFocus />
                             <FormControl component="fieldset" className={classes.radio}>

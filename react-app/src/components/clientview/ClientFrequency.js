@@ -49,7 +49,27 @@ function ClientFrequency() {
     }
     // const clientColors = trackerData.map(tracker => `#${randomColor}`)
     // console.log('random', clientColors)
-    // console.log('tracker', trackerData)
+    console.log('tracker', trackerData)
+    console.log('historytracker', workoutPlans)
+    let GreatestToLeast = trackerData.map(num => num)
+    console.log('greatest to least', GreatestToLeast )
+    console.log('client list', clientList)
+
+    let topClientsObj = {};
+    for (let i = 0; i < GreatestToLeast.length; i++) {
+        topClientsObj[GreatestToLeast[i]] = clientList[i]
+    }
+    GreatestToLeast.sort((a, b) => b-a)
+    console.log('top Clients Obj', topClientsObj);
+
+    let finalTopClientList = [];
+    for (let i = 0; i < 3; i++) {
+        finalTopClientList.push(topClientsObj[GreatestToLeast[i]])
+    };
+
+    console.log('final list', finalTopClientList)
+
+    localStorage.setItem('asd9f0393y8fgkls233fxxh', finalTopClientList)
 
     const data = {
 
@@ -63,7 +83,7 @@ function ClientFrequency() {
     }
 
     return (
-        <div>
+        <div className="chart-container">
             <Bar
                 data={data}
                 options={{

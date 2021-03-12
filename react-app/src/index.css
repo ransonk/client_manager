@@ -5,12 +5,26 @@
     box-sizing: border-box;
 }
 
+/* :root {
+    --v1: #be91c6;
+    --v2: #8a65cc;
+    --v3: #5e30d9;
+    --transparentv3: #5e30d900;
+    --v4: #3b1895;
+    --s1: #fea798;
+    --s2: #ff846e;
+    --cloud: #fea798;
+
+     background-image: linear-gradient(var(--v1), var(--s1), var(--v1));
+  } */
+
+
 html{
     overflow: auto;
 
-    /* background-color: white; */
-    background-color: #0f1724;
-    /* width: 110%; */
+    /* background-color: red; */
+    background-image: url('./images/meghan-holmes-buWcS7G1_28-unsplash.jpg');
+    background-size: contain;
     overflow-x: hidden;
     width: 100%;
 
@@ -30,6 +44,101 @@ body{
     z-index: 2;
 }
 
+.content__container {
+    letter-spacing: 2px;
+    border-radius: 5px;
+    height: auto;
+    display: block;
+    align-content: center;
+    margin-top: 0.2rem;
+}
+
+.content__top-margin{
+    font-size: 1rem;
+    font-family: Pacifico, cursive;
+    margin-top: 3rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    text-align: center;
+    color: #bde0fe;
+}
+
+.content__title-text{
+    text-align: center;
+    font-family: Calibri;
+    font-weight: bold;
+    font-size: 1.3em;
+    position: relative;
+    top: 1rem;
+}
+
+.content__title-bar{
+    display: flex;
+    background-color: rgba(0, 0, 0, 0.4);
+    position: relative;
+    text-align: center;
+    justify-content: center;
+    color: white;
+    height: 4rem;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.466);
+}
+
+.selection__title-bar{
+    display: flex;
+    background-color: rgba(0, 0, 0, 0.4);
+    position: relative;
+    text-align: center;
+    justify-content: space-evenly;
+    align-items: center;
+    color: white;
+    height: 4rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.466);
+}
+
+.selection__buttons:hover {
+    cursor: pointer;
+    text-decoration: underline wavy red;
+    transition-duration: 1s;
+}
+
+.side__bar{
+    background-color: rgba(124,168,133, 0.6);
+    position: relative;
+    text-align: center;
+    color: white;
+    /* height: 80vh; */
+    border-right: 1px solid rgba(255, 255, 255, 0.466);
+}
+
+.main__content{
+    display: flex;
+    background-color: rgba(0, 0, 0, 0.8);
+    position: relative;
+    text-align: center;
+    justify-content: center;
+    color: white;
+    height: 80vh;
+}
+
+.chart-container{
+    position: relative;
+    margin-top: 2rem;
+    height: 30vh;
+    width: 30vw;
+}
+
+.rbc-calendar{
+    margin-top: 2rem;
+    width: 700px;
+    color: black;
+}
+
+
+
+
+
 
 .addWorkout{
     margin-top: 1rem;
@@ -39,25 +148,23 @@ body{
     display: inline-block;
     padding: 10px 30px;
     text-decoration: none;
+    background-color: red;
     /* text-transform: uppercase; */
     font-weight: 500;
     letter-spacing: 2px;
     color: white;
     font-size: 18px;
     margin-top: 3rem;
-    box-shadow: -2px -2px 8px rgba(255, 255, 255, 1),
+    border-radius: 5px;
+    /* box-shadow: -2px -2px 8px rgba(255, 255, 255, 1),
     -2px -2px 12px rgba(255, 255, 255, 0.5),
     inset 2px 2px 4px rgba(255, 255, 255, 0.1),
-    2px 2px 8px rgba(0, 0, 0, 0.15);
+    2px 2px 8px rgba(0, 0, 0, 0.15); */
 }
 
 .addWorkout:hover{
-
-    box-shadow:
-    inset -2px -2px 12px rgba(255, 255, 255, 0.5),
-    inset -2px -2px 4px rgba(255, 255, 255, 1),
-    inset 2px 2px 8px rgba(0, 0, 0, 0.15);
     cursor: pointer;
+    background-color: rgb(151, 1, 1);
 }
 
 .addWorkout:hover span{
@@ -178,6 +285,29 @@ body::-webkit-scrollbar {
     justify-content: center !important;
 }
 
+.makeStyles-root-11 {
+    width: 70%;
+    height: 400px;
+    overflow-y: auto;
+}
+
+.makeStyles-root-11::-webkit-scrollbar {
+    width: 1.5em;
+  }
+
+  .makeStyles-root-11::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  }
+
+  .makeStyles-root-11::-webkit-scrollbar-thumb {
+    background-color: black;
+    /* outline: 1px solid #99c1de; */
+  }
+
+  .MuiPaper-rounded {
+    border-radius: 0px !important;
+}
+
 .navButton{
     color: white !important;
     width: auto !important;
@@ -199,6 +329,10 @@ body::-webkit-scrollbar {
 
 #root > div:nth-child(2) > div.MuiGrid-root.today-sched__container.MuiGrid-item.MuiGrid-grid-xs-6 > div.todaysclients__container > div > ul > li > div.MuiTimelineOppositeContent-root.MuiTimelineItem-oppositeContent > p{
     color: white !important;
+}
+
+.MuiPaper-root{
+    color: black;
 }
 
 .footer__container{
@@ -284,15 +418,6 @@ body::-webkit-scrollbar {
     position: absolute;
 }
 
-.overview__container{
-    display: flex;
-    background-color: #24364e;
-    position: relative;
-    text-align: center;
-    justify-content: center;
-    color: white;
-    height: 4rem;
-}
 
 .overview-date{
     display: flex;
@@ -396,14 +521,7 @@ body::-webkit-scrollbar {
     /* margin-top: 10rem; */
 }
 
-.today-sched__title{
-    text-align: center;
-    font-family: Calibri;
-    font-weight: bold;
-    font-size: 1.3em;
-    position: relative;
-    top: 2rem;
-}
+
 
 .title__container{
     text-Align: center;
@@ -661,12 +779,12 @@ body::-webkit-scrollbar {
 
 .home-clients__header{
     margin-top: 2rem;
-    color: #bde0fe;
+    color: rgb(255, 101, 66);
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;}
 
     .home-clients__header2{
     margin-top: 1rem;
-    color: #bde0fe;
+    color: rgb(255, 101, 66);
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
@@ -697,12 +815,13 @@ body::-webkit-scrollbar {
 .home-clients__payment{
     display: block;
     text-align: center;
-    /* width: 30rem; */
+    width: 30rem;
     /* height: 25rem; */
-    margin-top: 3rem;
+    /* margin-top: 3rem; */
     /* border-radius: 5px; */
-    background-color: #212c3d;
-    margin-bottom: 3rem;
+    /* background-color: #212c3d; */
+    /* margin-bottom: 3rem; */
+    /* color: black; */
     /* box-shadow: -2px -2px 8px rgba(255, 255, 255, 1),
     -2px -2px 12px rgba(255, 255, 255, 0.5),
     inset 2px 2px 4px rgba(255, 255, 255, 0.1),
@@ -735,7 +854,7 @@ body::-webkit-scrollbar {
 
     overflow-y: hidden;
     overflow-x: hidden;
-    height: 15rem;
+    width: auto;
     padding-top: 2rem;
 }
 
@@ -1180,4 +1299,9 @@ body::-webkit-scrollbar {
 .profile-edit__container{
     display: flex;
     justify-content: center;
+}
+
+p {
+    color: white;
+    opacity: 1;
 }
