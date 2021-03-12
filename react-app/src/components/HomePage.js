@@ -231,7 +231,7 @@ const HomePage = ({ setAuthenticated }) => {
 
                 {/* start */}
                 <Grid item xs={1} md={3}></Grid>
-                <Grid item xs={1} md={1} className='side__bar'><TopThree /></Grid>
+                <Grid item xs={1} md={1} className='side__bar'><TopThree /><TopThree /></Grid>
                 <Grid item xs={12} md={5} className='main__content'>
                     {stats ?
                 <ClientFrequency />
