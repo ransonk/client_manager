@@ -6,7 +6,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Workouts from './workouts/Workouts';
 import CreateNewWorkout from './workouts/CreateNewWorkout';
 import CreateNewIntensity from './workouts/CreateNewIntensity';
-import { Button, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle } from '@material-ui/core';
+import { Button, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, Divider } from '@material-ui/core';
 import { authenticate } from "../services/auth";
 import Intensities from './workouts/Intensities';
 import { setCurrentUser, setCurrentClient, fetchClients, setTrainerClients, fetchTodaysPlans, setTodaysPlans, fetchWorkouts, setWorkouts, fetchIntensities, setIntensities, fetchTodaysClients, updateProgress, fetchAllWorkoutPlans, setAllWorkoutPlans } from "../store/users";
@@ -19,6 +19,7 @@ import { Calendar, momentLocalizer } from 'react-big-calendar'
 import moment from 'moment'
 import 'react-big-calendar/lib/css/react-big-calendar.css';
 import TopThree from './TopThree';
+import ClientDrawer from './ClientDrawer';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -207,7 +208,7 @@ const HomePage = ({ setAuthenticated }) => {
                     <Grid item md={3} className='side__margin'></Grid>
                     <Grid item md={12} className='content__title-bar'>
 
-                        <p className='content__title-text'>Trainer / Client</p>
+                        <p className='content__title-text'>Train</p>
                     </Grid>
 
                     <Grid item md={3} className='side__margin'></Grid>
@@ -231,7 +232,11 @@ const HomePage = ({ setAuthenticated }) => {
 
                 {/* start */}
                 <Grid item xs={1} md={3}></Grid>
-                <Grid item xs={1} md={1} className='side__bar'><TopThree /><TopThree /></Grid>
+                <Grid item xs={1} md={1} className='side__bar'>
+                    <TopThree />
+                    <br />
+                    <ClientDrawer />
+                </Grid>
                 <Grid item xs={12} md={5} className='main__content'>
                     {stats ?
                 <ClientFrequency />

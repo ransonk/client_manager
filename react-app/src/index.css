@@ -314,6 +314,19 @@ body::-webkit-scrollbar {
 
 }
 
+.MuiListItem-root {
+    background-color: transparent !important;
+}
+
+.makeStyles-root-8{
+    background-color: transparent !important;
+}
+
+.MuiListSubheader-sticky{
+    background-color: white !important;
+
+}
+
 .MuiListItemText-primary, .MuiTypography-body2{
     color: white !important;
 }

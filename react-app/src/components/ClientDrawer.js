@@ -16,14 +16,32 @@ import { Typography, Modal, TextField } from '@material-ui/core';
 import Backdrop from '@material-ui/core/Backdrop';
 import Fade from '@material-ui/core/Fade';
 import Checkbox from '@material-ui/core/Checkbox';
+import ListSubheader from '@material-ui/core/ListSubheader';
+import Collapse from '@material-ui/core/Collapse';
+import InboxIcon from '@material-ui/icons/MoveToInbox';
+import DraftsIcon from '@material-ui/icons/Drafts';
+import SendIcon from '@material-ui/icons/Send';
+import ExpandLess from '@material-ui/icons/ExpandLess';
+import ExpandMore from '@material-ui/icons/ExpandMore';
+import StarBorder from '@material-ui/icons/StarBorder';
 import { createClient } from '../services/auth';
 
 
-const useStyles = makeStyles({
+
+
+const useStyles = makeStyles((theme) => ({
     list: {
         width: 250,
         backgroundColor: '#24364e',
     },
+    root: {
+        width: '100%',
+        maxWidth: 360,
+        backgroundColor: theme.palette.background.paper,
+      },
+      nested: {
+        paddingLeft: theme.spacing(4),
+      },
     fullList: {
         width: 'auto',
         backgroundColor: '#24364e'
@@ -136,11 +154,12 @@ const useStyles = makeStyles({
     radio: {
         marginTop: '1.5rem',
     }
-});
+}));
 
 export default function ClientDrawer({ authenticated, setAuthenticated, props }) {
     const classes = useStyles();
     const dispatch = useDispatch();
+    const [open, setOpen] = React.useState(true);
     const [openModal, setOpenModal] = React.useState(false);
     const [firstName, setFirstName] = useState("");
     const [lastName, setLastName] = useState("");
@@ -153,25 +172,25 @@ export default function ClientDrawer({ authenticated, setAuthenticated, props })
     const [paid, setPaid] = useState(false);
     const [password, setPassword] = useState("");
     const [repeatPassword, setRepeatPassword] = useState("");
-    const [state, setState] = React.useState({
-        top: false,
-        left: true,
-        bottom: false,
-        right: false,
-    });
+    // const [state, setState] = React.useState({
+    //     top: false,
+    //     left: true,
+    //     bottom: false,
+    //     right: false,
+    // });
     const trainer_id = useSelector((state) => state.store.current_trainer.id)
     const clients = useSelector((state) => state.store.clients)
     if (!clients) return null;
 
     let clientsArray = Object.values(clients)
 
-    const toggleDrawer = (anchor, open) => (event) => {
-        if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
-            return;
-        }
+    // const toggleDrawer = (anchor, open) => (event) => {
+    //     if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
+    //         return;
+    //     }
 
-        setState({ ...state, [anchor]: open });
-    };
+    //     setState({ ...state, [anchor]: open });
+    // };
 
 
 
@@ -205,6 +224,8 @@ export default function ClientDrawer({ authenticated, setAuthenticated, props })
         e.stopPropagation()
         setOpenModal(false);
     };
+
+
 
     const updateFirstName = (e) => {
         setFirstName(e.target.value);
@@ -262,61 +283,73 @@ export default function ClientDrawer({ authenticated, setAuthenticated, props })
     //Grabs list of clients for display in drawer
 
 
-    const handleClick = async (id) => {
-        let currentClientList = clientsArray.filter(client => {
-            if (client.id === id) return client;
-        })
-        // console.log(currentClientList['0'])
-        let currentClient = currentClientList[0]
-        localStorage.setItem('CURRENT_CLIENT', JSON.stringify(currentClient))
-        window.location.href = '/manage-client'
-    }
+    // const handleClick = async (id) => {
+    //     let currentClientList = clientsArray.filter(client => {
+    //         if (client.id === id) return client;
+    //     })
+    //     // console.log(currentClientList['0'])
+    //     let currentClient = currentClientList[0]
+    //     localStorage.setItem('CURRENT_CLIENT', JSON.stringify(currentClient))
+    //     window.location.href = '/manage-client'
+    //     //commented out above line to verify that application will work despite the reroute
+    // }
 
-    const list = (anchor) => (
-        <div
-            className={clsx(classes.list, {
-                [classes.fullList]: anchor === 'top' || anchor === 'bottom',
-            })}
-            role="presentation"
-            onClick={toggleDrawer(anchor, false)}
-            onKeyDown={toggleDrawer(anchor, false)}
-        >
-            <List className={classes.title}>
-                {['Current Clients'].map((text) => (
-                    <ListItem button key={text}>
-                        <ListItemIcon><ArrowDownward /></ListItemIcon>
-                        <ListItemText primary={text} />
-                    </ListItem>
-                ))}
-            </List>
-            <Divider variant="middle" />
-            <List>
-                {clientsArray.map(({ firstName, lastName, id }) => (
+    const handleClick = () => {
+        setOpen(!open);
+      };
+
+    // const list = (anchor) => (
+    //     <div
+    //         className={clsx(classes.list, {
+    //             [classes.fullList]: anchor === 'top' || anchor === 'bottom',
+    //         })}
+    //         role="presentation"
+    //         onClick={toggleDrawer(anchor, false)}
+    //         onKeyDown={toggleDrawer(anchor, false)}
+    //     >
+    //         <List className={classes.title}>
+    //             {['Current Clients'].map((text) => (
+    //                 <ListItem button key={text}>
+    //                     <ListItemIcon><ArrowDownward /></ListItemIcon>
+    //                     <ListItemText primary={text} />
+    //                 </ListItem>
+    //             ))}
+    //         </List>
+    //         <Divider variant="middle" />
+    //         <List>
+    //             {clientsArray.map(({ firstName, lastName, id }) => (
+    //                 <ListItem button key={id} onClick={() => handleClick(id)}>
+    //                     <ListItemIcon><DirectionsRunTwoTone /></ListItemIcon>
+    //                     <ListItemText primary={firstName + ' ' + lastName} />
+    //                 </ListItem>
+    //             ))}
+    //         </List>
+    //         <a className='addClient' onClick={handleOpenModal}>
+    //             +
+    //         </a>
+    //     </div>
+    // );
+
+
+    return (
+        <>
+            <List
+      component="nav"
+      aria-labelledby="nested-list-subheader"
+      subheader={
+        <ListSubheader component="div" id="nested-list-subheader">
+          Current Clients
+        </ListSubheader>
+      }
+      className={classes.root}
+    >
+      {clientsArray.map(({ firstName, lastName, id }) => (
                     <ListItem button key={id} onClick={() => handleClick(id)}>
                         <ListItemIcon><DirectionsRunTwoTone /></ListItemIcon>
                         <ListItemText primary={firstName + ' ' + lastName} />
                     </ListItem>
                 ))}
-            </List>
-            <a className='addClient' onClick={handleOpenModal}>
-                +
-            </a>
-        </div>
-    );
-
-
-    return (
-        <>
-            <div className='navButtons'>
-                {['clients'].map((anchor) => (
-                    <React.Fragment key={anchor}>
-                        <Button onClick={toggleDrawer(anchor, true)}>{anchor}</Button>
-                        <Drawer anchor={anchor} open={state[anchor]} onClose={toggleDrawer(anchor, false)}>
-                            {list(anchor)}
-                        </Drawer>
-                    </React.Fragment>
-                ))}
-            </div>
+    </List>
             <div className='profile-edit__container'>
 
                 <Modal

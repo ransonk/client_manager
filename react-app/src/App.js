@@ -89,10 +89,10 @@ function App() {
       </ProtectedRoute> */}
       <ProtectedRoute path="/" exact={true} authenticated={authenticated}>
         <HomePage setAuthenticated={setAuthenticated} />
+      {/* <ClientView setAuthenticated={setAuthenticated} /> */}
       </ProtectedRoute>
       <ProtectedRoute path="/manage-client" exact={true} authenticated={authenticated}>
         {/* <h1>My Home Page</h1> */}
-        <ClientView setAuthenticated={setAuthenticated} />
       </ProtectedRoute>
     </BrowserRouter>
   );
