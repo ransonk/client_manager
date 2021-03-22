@@ -72,6 +72,10 @@ body{
     top: 1rem;
 }
 
+.content__title-text:hover{
+    cursor: pointer;
+}
+
 .content__title-bar{
     display: flex;
     background-color: rgba(0, 0, 0, 0.4);

@@ -156,7 +156,7 @@ const useStyles = makeStyles((theme) => ({
     }
 }));
 
-export default function ClientDrawer({ authenticated, setAuthenticated, props }) {
+export default function ClientDrawer({ authenticated, setAuthenticated, props, clientView, setClientView }) {
     const classes = useStyles();
     const dispatch = useDispatch();
     const [open, setOpen] = React.useState(true);
@@ -283,16 +283,18 @@ export default function ClientDrawer({ authenticated, setAuthenticated, props })
     //Grabs list of clients for display in drawer
 
 
-    // const handleClick = async (id) => {
-    //     let currentClientList = clientsArray.filter(client => {
-    //         if (client.id === id) return client;
-    //     })
-    //     // console.log(currentClientList['0'])
-    //     let currentClient = currentClientList[0]
-    //     localStorage.setItem('CURRENT_CLIENT', JSON.stringify(currentClient))
-    //     window.location.href = '/manage-client'
-    //     //commented out above line to verify that application will work despite the reroute
-    // }
+    const handlePress = async (id) => {
+        setClientView(true)
+        let currentClientList = clientsArray.filter(client => {
+            if (client.id === id) return client;
+        })
+        // console.log(currentClientList['0'])
+        let currentClient = currentClientList[0]
+        localStorage.setItem('CURRENT_CLIENT', JSON.stringify(currentClient))
+        //******************************************* */
+        // window.location.href = '/manage-client'
+        //commented out above line to verify that application will work despite the reroute
+    }
 
     const handleClick = () => {
         setOpen(!open);
@@ -344,7 +346,7 @@ export default function ClientDrawer({ authenticated, setAuthenticated, props })
       className={classes.root}
     >
       {clientsArray.map(({ firstName, lastName, id }) => (
-                    <ListItem button key={id} onClick={() => handleClick(id)}>
+                    <ListItem button key={id} onClick={() => handlePress(id)}>
                         <ListItemIcon><DirectionsRunTwoTone /></ListItemIcon>
                         <ListItemText primary={firstName + ' ' + lastName} />
                     </ListItem>
