@@ -156,7 +156,7 @@ const useStyles = makeStyles((theme) => ({
     }
 }));
 
-export default function ClientDrawer({ authenticated, setAuthenticated, props, clientView, setClientView }) {
+export default function ClientDrawer({ authenticated, setAuthenticated, props, clientView, setClientView, update, setUpdate }) {
     const classes = useStyles();
     const dispatch = useDispatch();
     const [open, setOpen] = React.useState(true);
@@ -172,6 +172,7 @@ export default function ClientDrawer({ authenticated, setAuthenticated, props, c
     const [paid, setPaid] = useState(false);
     const [password, setPassword] = useState("");
     const [repeatPassword, setRepeatPassword] = useState("");
+    const [selected, setSelected] = useState(null)
     // const [state, setState] = React.useState({
     //     top: false,
     //     left: true,
@@ -284,6 +285,7 @@ export default function ClientDrawer({ authenticated, setAuthenticated, props, c
 
 
     const handlePress = async (id) => {
+        setSelected(true)
         setClientView(true)
         let currentClientList = clientsArray.filter(client => {
             if (client.id === id) return client;
@@ -347,7 +349,11 @@ export default function ClientDrawer({ authenticated, setAuthenticated, props, c
     >
       {clientsArray.map(({ firstName, lastName, id }) => (
                     <ListItem button key={id} onClick={() => handlePress(id)}>
-                        <ListItemIcon><DirectionsRunTwoTone /></ListItemIcon>
+                        {
+                            selected ?
+                            <ListItemIcon><DirectionsRunTwoTone /></ListItemIcon>
+                                        : null
+                        }
                         <ListItemText primary={firstName + ' ' + lastName} />
                     </ListItem>
                 ))}

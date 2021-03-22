@@ -57,15 +57,19 @@ const HomePage = ({ setAuthenticated }) => {
     const [calendar, setCalendar] = useState(false);
     const [stats, setStats] = useState(true);
     const [plan, setPlan] = useState(false);
-    const [clientInfo, setClientInfo] = useState(false);
-    const [clientStats, setClientStats] = useState(true);
+    const [clientInfo, setClientInfo] = useState(true);
+    const [clientStats, setClientStats] = useState(false);
     const [clientPlan, setClientPlan] = useState(false);
     const [clientView, setClientView] = useState(false);
+    const [update, setUpdate] = useState(false)
     // window.location.reload();
     let trainerId = useSelector(state => state.store.current_trainer.id)
     let allWorkoutPlans = useSelector(state => state.store.allWorkoutPlans)
     allWorkoutPlans = Object.values(allWorkoutPlans)
     // console.log('all the plans ', allWorkoutPlans)
+
+
+
 
 
 
@@ -282,7 +286,7 @@ const HomePage = ({ setAuthenticated }) => {
                 <Grid item xs={1} md={1} className='side__bar'>
                     <TopThree />
                     <br />
-                    <ClientDrawer clientView={clientView} setClientView={setClientView}/>
+                    <ClientDrawer clientView={clientView} setClientView={setClientView} update={update} setUpdate={setUpdate}/>
                 </Grid>
                 <Grid item xs={12} md={5} className='main__content'>
                     {   stats && !clientView ?
@@ -334,7 +338,8 @@ const HomePage = ({ setAuthenticated }) => {
                                                                 :
                                                                     clientPlan && clientView ?
                                                                     'workout plans'
-                                                                    : 'nothing'
+                                                                    :
+                                                                        'nothing'
 
                                             }
                 </Grid>
