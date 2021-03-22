@@ -20,6 +20,8 @@ import moment from 'moment'
 import 'react-big-calendar/lib/css/react-big-calendar.css';
 import TopThree from './TopThree';
 import ClientDrawer from './ClientDrawer';
+import ClientInfo from './clientview/ClientInfo';
+import ClientPayment from './clientview/ClientPayment';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -56,9 +58,9 @@ const HomePage = ({ setAuthenticated }) => {
     const [stats, setStats] = useState(true);
     const [plan, setPlan] = useState(false);
     const [clientInfo, setClientInfo] = useState(false);
-    const [clientStats, setClientStats] = useState(false);
+    const [clientStats, setClientStats] = useState(true);
     const [clientPlan, setClientPlan] = useState(false);
-    const [clientView, setClientView] = useState(true);
+    const [clientView, setClientView] = useState(false);
     // window.location.reload();
     let trainerId = useSelector(state => state.store.current_trainer.id)
     let allWorkoutPlans = useSelector(state => state.store.allWorkoutPlans)
@@ -322,7 +324,10 @@ const HomePage = ({ setAuthenticated }) => {
                                                 </Grid>
                                                     :
                                                     clientInfo && clientView ?
-                                                    'client information'
+                                                    <>
+                                                    <ClientInfo />
+                                                    <ClientPayment />
+                                                    </>
                                                         :
                                                             clientStats && clientView ?
                                                             'client pie chart and freq'
