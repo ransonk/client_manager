@@ -55,6 +55,9 @@ const HomePage = ({ setAuthenticated }) => {
     const [calendar, setCalendar] = useState(false);
     const [stats, setStats] = useState(true);
     const [plan, setPlan] = useState(false);
+    const [clientInfo, setClientInfo] = useState(false);
+    const [clientStats, setClientStats] = useState(false);
+    const [clientPlan, setClientPlan] = useState(false);
     const [clientView, setClientView] = useState(true);
     // window.location.reload();
     let trainerId = useSelector(state => state.store.current_trainer.id)
@@ -165,6 +168,33 @@ const HomePage = ({ setAuthenticated }) => {
         setPlan(true)
     }
 
+    const grabClientInfo = () => {
+        setStats(false)
+        setCalendar(false)
+        setPlan(false)
+        setClientInfo(true)
+        setClientStats(false)
+        setClientPlan(false)
+    }
+
+    const grabClientStats = () => {
+        setStats(false)
+        setCalendar(false)
+        setPlan(false)
+        setClientInfo(false)
+        setClientStats(true)
+        setClientPlan(false)
+    }
+
+    const grabClientPlan = () => {
+        setStats(false)
+        setCalendar(false)
+        setPlan(false)
+        setClientInfo(false)
+        setClientStats(false)
+        setClientPlan(true)
+    }
+
     // const grabToday = () => {
     //     setTomorrow(false)
     // }
@@ -235,9 +265,9 @@ const HomePage = ({ setAuthenticated }) => {
                             </>
                             :
                             <>
-                                <a className={"selection__buttons"} onClick={grabCalendar}>Info</a>
-                                <a className={"selection__buttons"} onClick={grabStats}>Stats</a>
-                                <a className={"selection__buttons"} onClick={grabPlan}>Plan</a>
+                                <a className={"selection__buttons"} onClick={grabClientInfo}>Info</a>
+                                <a className={"selection__buttons"} onClick={grabClientStats}>Stats</a>
+                                <a className={"selection__buttons"} onClick={grabClientPlan}>Plan</a>
                                 </>
 
                     }
@@ -253,50 +283,55 @@ const HomePage = ({ setAuthenticated }) => {
                     <ClientDrawer clientView={clientView} setClientView={setClientView}/>
                 </Grid>
                 <Grid item xs={12} md={5} className='main__content'>
-                    {stats ?
-                <ClientFrequency />
-                :
-                calendar ?
-                <Calendar
-                            localizer={localizer}
-                            views={['month']}
-                            events={Event}
-                            startAccessor="start"
-                            endAccessor="end"
-                            style={{ height: 500 }}
-                            // onSelectEvent={(e) => alert(e.title)}
-                            onSelectEvent={(e) => handleClickOpen(e)}
-                            popup
+                    {   stats && !clientView ?
+                        <ClientFrequency />
+                                :
+                                calendar && !clientView ?
+                                    <Calendar
+                                        localizer={localizer}
+                                        views={['month']}
+                                        events={Event}
+                                        startAccessor="start"
+                                        endAccessor="end"
+                                        style={{ height: 500 }}
+                                        // onSelectEvent={(e) => alert(e.title)}
+                                        onSelectEvent={(e) => handleClickOpen(e)}
+                                        popup
 
-                        />
-                :
-                plan ?
-                <Grid container>
-                {/* <Grid item xs={1} md={3}></Grid> */}
-                <Grid item xs={12} md={6} className='home-clients__payment'>
-                    <h1 className='home-clients__header2'>Available Exercises</h1>
-                    <div className='home-clients__workouts'>
-                        <Workouts />
-                    </div>
-                    <CreateNewWorkout />
-                </Grid>
-                {/* <Grid item xs={1} md={3}></Grid> */}
+                                    />
+                                            :
+                                            plan && !clientView ?
+                                            <Grid container>
+                                            {/* <Grid item xs={1} md={3}></Grid> */}
+                                            <Grid item xs={12} md={6} className='home-clients__payment'>
+                                                <h1 className='home-clients__header2'>Available Exercises</h1>
+                                                <div className='home-clients__workouts'>
+                                                    <Workouts />
+                                                </div>
+                                                <CreateNewWorkout />
+                                            </Grid>
 
+                                                <Grid item xs={12} md={6} className='home-clients__payment'>
+                                                    <h1 className='home-clients__header2'>Available Intensities</h1>
+                                                    <div className='home-clients__workouts'>
+                                                        <Intensities />
+                                                    </div>
+                                                    <CreateNewIntensity />
+                                                </Grid>
+                                                {/* <Grid item xs={1} md={3}></Grid> */}
+                                                </Grid>
+                                                    :
+                                                    clientInfo && clientView ?
+                                                    'client information'
+                                                        :
+                                                            clientStats && clientView ?
+                                                            'client pie chart and freq'
+                                                                :
+                                                                    clientPlan && clientView ?
+                                                                    'workout plans'
+                                                                    : 'nothing'
 
-
-                {/* <Grid item xs={1} md={3}></Grid> */}
-                <Grid item xs={12} md={6} className='home-clients__payment'>
-                    <h1 className='home-clients__header2'>Available Intensities</h1>
-                    <div className='home-clients__workouts'>
-                        <Intensities />
-                    </div>
-                    <CreateNewIntensity />
-                </Grid>
-                {/* <Grid item xs={1} md={3}></Grid> */}
-                </Grid>
-                :
-                'nothing'
-            }
+                                            }
                 </Grid>
                 <Grid item xs={1} md={3}></Grid>
                 {/* end */}
