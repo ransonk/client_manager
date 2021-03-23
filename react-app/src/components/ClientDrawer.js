@@ -299,8 +299,8 @@ export default function ClientDrawer({ authenticated, setAuthenticated, props, c
     }
 
     const myStyle = {
-        backgroundColor: "red",
-        color: "red",
+        backgroundColor: "green",
+        // color: "red",
         padding: "10px"
     }
 
@@ -363,10 +363,6 @@ export default function ClientDrawer({ authenticated, setAuthenticated, props, c
                     onClick={() => handlePress(id)}>
 
                         <ListItemText primary={firstName + ' ' + lastName} />
-                        {/* {
-                            selected ?
-                            : ''
-                        } */}
                         <ListItemIcon><DirectionsRunTwoTone /></ListItemIcon>
                     </ListItem>
                 ))}

@@ -227,8 +227,9 @@ const HomePage = ({ setAuthenticated }) => {
     // }
 
     const handleClickTrain = () => {
-        setClientView(false)
-        setSelectedClient("12345")
+        setClientView(false);
+        setSelectedClient("12345");
+        grabStats();
     }
 
     return (
