@@ -55,11 +55,13 @@ const useStyles = makeStyles({
 });
 
 export default function SimpleCard() {
-
+    const dispatch = useDispatch();
     const classes = useStyles();
     const workoutPlans = useSelector((state) => state.store.workoutPlans)
     // console.log('workoutplans', workoutPlans)
     let workoutPlanList = Object.values(workoutPlans)
+    const client = JSON.parse(localStorage.getItem('CURRENT_CLIENT'))
+    let id = client.id
 
     // let iterateIds = [];
     // workoutPlanList.map(workout => {
@@ -70,6 +72,15 @@ export default function SimpleCard() {
     const handleDeleteWorkoutPlan = async (id) => {
         const deleted = await deleteWorkoutPlan(id)
     }
+
+    useEffect(() => {
+        (async () => {
+
+            const workoutplans = await fetchWorkoutPlans(id);
+                dispatch(setWorkoutPlans(workoutplans))
+        })();
+
+    }, [id])
 
     return (
         <>

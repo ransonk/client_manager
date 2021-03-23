@@ -6,7 +6,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Workouts from './workouts/Workouts';
 import CreateNewWorkout from './workouts/CreateNewWorkout';
 import CreateNewIntensity from './workouts/CreateNewIntensity';
-import { Button, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle } from '@material-ui/core';
+import { Button, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, Divider } from '@material-ui/core';
 import { authenticate } from "../services/auth";
 import Intensities from './workouts/Intensities';
 import { setCurrentUser, setCurrentClient, fetchClients, setTrainerClients, fetchTodaysPlans, setTodaysPlans, fetchWorkouts, setWorkouts, fetchIntensities, setIntensities, fetchTodaysClients, updateProgress, fetchAllWorkoutPlans, setAllWorkoutPlans } from "../store/users";
@@ -19,6 +19,12 @@ import { Calendar, momentLocalizer } from 'react-big-calendar'
 import moment from 'moment'
 import 'react-big-calendar/lib/css/react-big-calendar.css';
 import TopThree from './TopThree';
+import ClientDrawer from './ClientDrawer';
+import ClientInfo from './clientview/ClientInfo';
+import ClientPayment from './clientview/ClientPayment';
+import GraphProgress from './clientview/GraphProgress';
+import FrequencyPie from './clientview/FrequencyPie';
+import WorkoutPlans from './clientview/workoutplans/WorkoutPlans'
 
 
 const useStyles = makeStyles((theme) => ({
@@ -54,11 +60,19 @@ const HomePage = ({ setAuthenticated }) => {
     const [calendar, setCalendar] = useState(false);
     const [stats, setStats] = useState(true);
     const [plan, setPlan] = useState(false);
+    const [clientInfo, setClientInfo] = useState(true);
+    const [clientStats, setClientStats] = useState(false);
+    const [clientPlan, setClientPlan] = useState(false);
+    const [clientView, setClientView] = useState(false);
+    const [selectedClient, setSelectedClient] = useState("")
     // window.location.reload();
     let trainerId = useSelector(state => state.store.current_trainer.id)
     let allWorkoutPlans = useSelector(state => state.store.allWorkoutPlans)
     allWorkoutPlans = Object.values(allWorkoutPlans)
     // console.log('all the plans ', allWorkoutPlans)
+
+
+
 
 
 
@@ -112,6 +126,7 @@ const HomePage = ({ setAuthenticated }) => {
     let date1 = mm + '/' + dd + '/' + yyyy;
 
     useEffect(() => {
+
         (async () => {
             const user = await authenticate();
             if (!user.errors) {
@@ -138,7 +153,7 @@ const HomePage = ({ setAuthenticated }) => {
 
 
         })();
-    }, []);
+    }, [selectedClient]);
 
 
     if (!loaded) {
@@ -161,6 +176,36 @@ const HomePage = ({ setAuthenticated }) => {
         setStats(false)
         setCalendar(false)
         setPlan(true)
+    }
+
+    const grabClientInfo = () => {
+        setStats(false)
+        setCalendar(false)
+        setPlan(false)
+        setClientInfo(true)
+        setClientStats(false)
+        setClientPlan(false)
+        setClientView(true)
+    }
+
+    const grabClientStats = () => {
+        setStats(false)
+        setCalendar(false)
+        setPlan(false)
+        setClientInfo(false)
+        setClientStats(true)
+        setClientPlan(false)
+        setClientView(true)
+    }
+
+    const grabClientPlan = () => {
+        setStats(false)
+        setCalendar(false)
+        setPlan(false)
+        setClientInfo(false)
+        setClientStats(false)
+        setClientPlan(true)
+        setClientView(true)
     }
 
     // const grabToday = () => {
@@ -188,6 +233,12 @@ const HomePage = ({ setAuthenticated }) => {
     //     }
     // }
 
+    const handleClickTrain = () => {
+        setClientView(false);
+        setSelectedClient("12345");
+        grabStats();
+    }
+
     return (
         <>
             <Grid container>
@@ -207,7 +258,8 @@ const HomePage = ({ setAuthenticated }) => {
                     <Grid item md={3} className='side__margin'></Grid>
                     <Grid item md={12} className='content__title-bar'>
 
-                        <p className='content__title-text'>Trainer / Client</p>
+                            <p className='content__title-text' onClick={handleClickTrain}>Train</p>
+
                     </Grid>
 
                     <Grid item md={3} className='side__margin'></Grid>
@@ -222,61 +274,126 @@ const HomePage = ({ setAuthenticated }) => {
                 <Grid item xs={1} md={3}></Grid>
                 <Grid item xs={1} md={1} className='side__bar'></Grid>
                 <Grid item xs={12} md={5} className='selection__title-bar'>
-                <a className={"selection__buttons"} onClick={grabCalendar}>Calendar</a>
-                <a className={"selection__buttons"} onClick={grabStats}>Stats</a>
-                <a className={"selection__buttons"} onClick={grabPlan}>Plan</a>
+                    {
+                        !clientView
+                        ?
+                        <>
+                            <a className={"selection__buttons"} onClick={grabCalendar}>Calendar</a>
+                            <a className={"selection__buttons"} onClick={grabStats}>Stats</a>
+                            <a className={"selection__buttons"} onClick={grabPlan}>Plan</a>
+                            </>
+                            :
+                            <>
+                                <a className={"selection__buttons"} onClick={grabClientInfo}>Info</a>
+                                <a className={"selection__buttons"} onClick={grabClientStats}>Stats</a>
+                                <a className={"selection__buttons"} onClick={grabClientPlan}>Plan</a>
+                                </>
+
+                    }
                 </Grid>
                 <Grid item xs={1} md={3}></Grid>
                 {/* end */}
 
                 {/* start */}
                 <Grid item xs={1} md={3}></Grid>
-                <Grid item xs={1} md={1} className='side__bar'><TopThree /><TopThree /></Grid>
+                <Grid item xs={1} md={1} className='side__bar'>
+                    <TopThree />
+                    <br />
+                    <ClientDrawer clientView={clientView} setClientView={setClientView} selectedClient={selectedClient} setSelectedClient={setSelectedClient} grabClientPlan={grabClientPlan} grabStats={grabStats}/>
+                </Grid>
                 <Grid item xs={12} md={5} className='main__content'>
-                    {stats ?
-                <ClientFrequency />
-                :
-                calendar ?
-                <Calendar
-                            localizer={localizer}
-                            views={['month']}
-                            events={Event}
-                            startAccessor="start"
-                            endAccessor="end"
-                            style={{ height: 500 }}
-                            // onSelectEvent={(e) => alert(e.title)}
-                            onSelectEvent={(e) => handleClickOpen(e)}
-                            popup
+                    {   stats && !clientView ?
+                        <ClientFrequency />
+                                :
+                                calendar && !clientView ?
+                                    <Calendar
+                                        localizer={localizer}
+                                        views={['month']}
+                                        events={Event}
+                                        startAccessor="start"
+                                        endAccessor="end"
+                                        style={{ height: 500 }}
+                                        // onSelectEvent={(e) => alert(e.title)}
+                                        onSelectEvent={(e) => handleClickOpen(e)}
+                                        popup
 
-                        />
-                :
-                plan ?
-                <Grid container>
-                {/* <Grid item xs={1} md={3}></Grid> */}
-                <Grid item xs={12} md={6} className='home-clients__payment'>
-                    <h1 className='home-clients__header2'>Available Exercises</h1>
-                    <div className='home-clients__workouts'>
-                        <Workouts />
-                    </div>
-                    <CreateNewWorkout />
-                </Grid>
-                {/* <Grid item xs={1} md={3}></Grid> */}
+                                    />
+                                            :
+                                            plan && !clientView ?
+                                            <Grid container>
+                                            {/* <Grid item xs={1} md={3}></Grid> */}
+                                            <Grid item xs={12} md={6} className='home-clients__payment'>
+                                                <h1 className='home-clients__header2'>Available Exercises</h1>
+                                                <div className='home-clients__workouts'>
+                                                    <Workouts />
+                                                </div>
+                                                <CreateNewWorkout />
+                                            </Grid>
 
+                                                <Grid item xs={12} md={6} className='home-clients__payment'>
+                                                    <h1 className='home-clients__header2'>Available Intensities</h1>
+                                                    <div className='home-clients__workouts'>
+                                                        <Intensities />
+                                                    </div>
+                                                    <CreateNewIntensity />
+                                                </Grid>
+                                                {/* <Grid item xs={1} md={3}></Grid> */}
+                                                </Grid>
+                                                    :
+                                                    clientInfo && clientView ?
+                                                    <>
+                                                    <Grid container>
+                                                            <Grid item xs={12} md={12}></Grid>
+                                                            <Grid item md={3}></Grid>
+                                                            <Grid item xs={12} md={6}>
+                                                    <ClientInfo />
+                                                            </Grid>
+                                                            <Grid item md={3}></Grid>
+                                                            <Grid item md={3}></Grid>
+                                                            <Grid item xs={12} md={6}>
+                                                    <ClientPayment />
+                                                            </Grid>
+                                                            <Grid item md={3}></Grid>
+                                                            </Grid>
+                                                    </>
+                                                        :
+                                                            clientStats && clientView ?
+                                                            <>
+                                                            <Grid container>
+                                                            <Grid item xs={12} md={12}></Grid>
+                                                            <Grid item md={3}></Grid>
+                                                            <Grid item xs={12} md={6}>
+                                                                <GraphProgress />
+                                                            </Grid>
+                                                            <Grid item md={3}></Grid>
+                                                            <Grid item md={3}></Grid>
+                                                            <Grid item xs={12} md={6}>
+                                                                <FrequencyPie />
+                                                            </Grid>
+                                                            <Grid item md={3}></Grid>
+                                                            </Grid>
+                                                            </>
+                                                                :
+                                                                clientPlan && clientView ?
+                                                                <>
+                                                                <Grid container>
+                                                                <Grid item xs={12} md={12}></Grid>
+                                                                <Grid item md={3}></Grid>
+                                                                <Grid item xs={12} md={6}>
+                                                                    <ClientCalendar />
+                                                                </Grid>
+                                                                <Grid item md={3}></Grid>
+                                                                <Grid item md={3}></Grid>
+                                                                <Grid item xs={12} md={6}>
+                                                                    <WorkoutPlans />
+                                                                </Grid>
+                                                                <Grid item md={3}></Grid>
+                                                                </Grid>
+                                                                </>
+                                                                :
+                                                                        'nothing'
 
-
-                {/* <Grid item xs={1} md={3}></Grid> */}
-                <Grid item xs={12} md={6} className='home-clients__payment'>
-                    <h1 className='home-clients__header2'>Available Intensities</h1>
-                    <div className='home-clients__workouts'>
-                        <Intensities />
-                    </div>
-                    <CreateNewIntensity />
-                </Grid>
-                {/* <Grid item xs={1} md={3}></Grid> */}
-                </Grid>
-                :
-                'nothing'
-            }
+                                            }
                 </Grid>
                 <Grid item xs={1} md={3}></Grid>
                 {/* end */}

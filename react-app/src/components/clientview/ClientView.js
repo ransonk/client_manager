@@ -35,7 +35,7 @@ const ClientView = ({ setAuthenticated }) => {
         <>
             <Grid container>
                 <Grid item xs={12}>
-                    < ButtonAppBar setAuthenticated={setAuthenticated} />
+                    {/* < ButtonAppBar setAuthenticated={setAuthenticated} /> */}
                 </Grid>
             </Grid>
 

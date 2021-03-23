@@ -72,6 +72,10 @@ body{
     top: 1rem;
 }
 
+.content__title-text:hover{
+    cursor: pointer;
+}
+
 .content__title-bar{
     display: flex;
     background-color: rgba(0, 0, 0, 0.4);
@@ -311,6 +315,20 @@ body::-webkit-scrollbar {
 .navButton{
     color: white !important;
     width: auto !important;
+
+}
+
+.MuiListItem-root {
+    background-color: transparent;
+}
+
+
+.makeStyles-root-8{
+    background-color: transparent !important;
+}
+
+.MuiListSubheader-sticky{
+    background-color: white !important;
 
 }
 

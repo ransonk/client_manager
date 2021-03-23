@@ -81,18 +81,10 @@ function App() {
       <ProtectedRoute path="/create-client" exact={true} authenticated={authenticated}>
         <CreateClientForm />
       </ProtectedRoute>
-      {/* <ProtectedRoute path="/home" exact={true} authenticated={authenticated}>
-        <UsersList />
-      </ProtectedRoute> */}
-      {/* <ProtectedRoute path="/users/:userId" exact={true} authenticated={authenticated}>
-        <User />
-      </ProtectedRoute> */}
       <ProtectedRoute path="/" exact={true} authenticated={authenticated}>
         <HomePage setAuthenticated={setAuthenticated} />
       </ProtectedRoute>
       <ProtectedRoute path="/manage-client" exact={true} authenticated={authenticated}>
-        {/* <h1>My Home Page</h1> */}
-        <ClientView setAuthenticated={setAuthenticated} />
       </ProtectedRoute>
     </BrowserRouter>
   );
