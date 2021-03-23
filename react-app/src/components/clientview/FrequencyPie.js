@@ -20,7 +20,7 @@ function FrequencyPie() {
 
 
         })();
-    }, []);
+    }, [id]);
 
     const historicalDataRaw = useSelector((state) => state.store.client_progress)
     const historicalData = Object.values(historicalDataRaw)

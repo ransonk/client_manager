@@ -22,6 +22,9 @@ import TopThree from './TopThree';
 import ClientDrawer from './ClientDrawer';
 import ClientInfo from './clientview/ClientInfo';
 import ClientPayment from './clientview/ClientPayment';
+import GraphProgress from './clientview/GraphProgress';
+import FrequencyPie from './clientview/FrequencyPie';
+import WorkoutPlans from './clientview/workoutplans/WorkoutPlans'
 
 
 const useStyles = makeStyles((theme) => ({
@@ -123,6 +126,7 @@ const HomePage = ({ setAuthenticated }) => {
     let date1 = mm + '/' + dd + '/' + yyyy;
 
     useEffect(() => {
+
         (async () => {
             const user = await authenticate();
             if (!user.errors) {
@@ -149,7 +153,7 @@ const HomePage = ({ setAuthenticated }) => {
 
 
         })();
-    }, []);
+    }, [selectedClient]);
 
 
     if (!loaded) {
@@ -181,6 +185,7 @@ const HomePage = ({ setAuthenticated }) => {
         setClientInfo(true)
         setClientStats(false)
         setClientPlan(false)
+        setClientView(true)
     }
 
     const grabClientStats = () => {
@@ -190,6 +195,7 @@ const HomePage = ({ setAuthenticated }) => {
         setClientInfo(false)
         setClientStats(true)
         setClientPlan(false)
+        setClientView(true)
     }
 
     const grabClientPlan = () => {
@@ -199,6 +205,7 @@ const HomePage = ({ setAuthenticated }) => {
         setClientInfo(false)
         setClientStats(false)
         setClientPlan(true)
+        setClientView(true)
     }
 
     // const grabToday = () => {
@@ -292,7 +299,7 @@ const HomePage = ({ setAuthenticated }) => {
                 <Grid item xs={1} md={1} className='side__bar'>
                     <TopThree />
                     <br />
-                    <ClientDrawer clientView={clientView} setClientView={setClientView} selectedClient={selectedClient} setSelectedClient={setSelectedClient}/>
+                    <ClientDrawer clientView={clientView} setClientView={setClientView} selectedClient={selectedClient} setSelectedClient={setSelectedClient} grabClientPlan={grabClientPlan} grabStats={grabStats}/>
                 </Grid>
                 <Grid item xs={12} md={5} className='main__content'>
                     {   stats && !clientView ?
@@ -335,16 +342,55 @@ const HomePage = ({ setAuthenticated }) => {
                                                     :
                                                     clientInfo && clientView ?
                                                     <>
+                                                    <Grid container>
+                                                            <Grid item xs={12} md={12}></Grid>
+                                                            <Grid item md={3}></Grid>
+                                                            <Grid item xs={12} md={6}>
                                                     <ClientInfo />
+                                                            </Grid>
+                                                            <Grid item md={3}></Grid>
+                                                            <Grid item md={3}></Grid>
+                                                            <Grid item xs={12} md={6}>
                                                     <ClientPayment />
+                                                            </Grid>
+                                                            <Grid item md={3}></Grid>
+                                                            </Grid>
                                                     </>
                                                         :
                                                             clientStats && clientView ?
-                                                            'client pie chart and freq'
+                                                            <>
+                                                            <Grid container>
+                                                            <Grid item xs={12} md={12}></Grid>
+                                                            <Grid item md={3}></Grid>
+                                                            <Grid item xs={12} md={6}>
+                                                                <GraphProgress />
+                                                            </Grid>
+                                                            <Grid item md={3}></Grid>
+                                                            <Grid item md={3}></Grid>
+                                                            <Grid item xs={12} md={6}>
+                                                                <FrequencyPie />
+                                                            </Grid>
+                                                            <Grid item md={3}></Grid>
+                                                            </Grid>
+                                                            </>
                                                                 :
-                                                                    clientPlan && clientView ?
-                                                                    'workout plans'
-                                                                    :
+                                                                clientPlan && clientView ?
+                                                                <>
+                                                                <Grid container>
+                                                                <Grid item xs={12} md={12}></Grid>
+                                                                <Grid item md={3}></Grid>
+                                                                <Grid item xs={12} md={6}>
+                                                                    <ClientCalendar />
+                                                                </Grid>
+                                                                <Grid item md={3}></Grid>
+                                                                <Grid item md={3}></Grid>
+                                                                <Grid item xs={12} md={6}>
+                                                                    <WorkoutPlans />
+                                                                </Grid>
+                                                                <Grid item md={3}></Grid>
+                                                                </Grid>
+                                                                </>
+                                                                :
                                                                         'nothing'
 
                                             }

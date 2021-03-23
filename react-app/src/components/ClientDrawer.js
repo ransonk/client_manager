@@ -156,7 +156,7 @@ const useStyles = makeStyles((theme) => ({
     }
 }));
 
-export default function ClientDrawer({ authenticated, setAuthenticated, props, clientView, setClientView, selectedClient, setSelectedClient }) {
+export default function ClientDrawer({ authenticated, setAuthenticated, props, clientView, setClientView, selectedClient, setSelectedClient, grabClientPlan, grabStats }) {
     const classes = useStyles();
     const dispatch = useDispatch();
     const [open, setOpen] = React.useState(true);
@@ -285,8 +285,10 @@ export default function ClientDrawer({ authenticated, setAuthenticated, props, c
 
 
     const handlePress = async (id) => {
-        setSelectedClient(id)
-        setClientView(true)
+        setSelectedClient(id);
+        // setClientView(true);
+        grabStats();
+        grabClientPlan();
         let currentClientList = clientsArray.filter(client => {
             if (client.id === id) return client;
         })
@@ -296,6 +298,7 @@ export default function ClientDrawer({ authenticated, setAuthenticated, props, c
         //******************************************* */
         // window.location.href = '/manage-client'
         //commented out above line to verify that application will work despite the reroute
+
     }
 
     const myStyle = {
