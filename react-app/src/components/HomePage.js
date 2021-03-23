@@ -61,7 +61,7 @@ const HomePage = ({ setAuthenticated }) => {
     const [clientStats, setClientStats] = useState(false);
     const [clientPlan, setClientPlan] = useState(false);
     const [clientView, setClientView] = useState(false);
-    const [update, setUpdate] = useState(false)
+    const [selectedClient, setSelectedClient] = useState("")
     // window.location.reload();
     let trainerId = useSelector(state => state.store.current_trainer.id)
     let allWorkoutPlans = useSelector(state => state.store.allWorkoutPlans)
@@ -226,6 +226,11 @@ const HomePage = ({ setAuthenticated }) => {
     //     }
     // }
 
+    const handleClickTrain = () => {
+        setClientView(false)
+        setSelectedClient("12345")
+    }
+
     return (
         <>
             <Grid container>
@@ -245,7 +250,7 @@ const HomePage = ({ setAuthenticated }) => {
                     <Grid item md={3} className='side__margin'></Grid>
                     <Grid item md={12} className='content__title-bar'>
 
-                            <p className='content__title-text' onClick={() => setClientView(false)}>Train</p>
+                            <p className='content__title-text' onClick={handleClickTrain}>Train</p>
 
                     </Grid>
 
@@ -286,7 +291,7 @@ const HomePage = ({ setAuthenticated }) => {
                 <Grid item xs={1} md={1} className='side__bar'>
                     <TopThree />
                     <br />
-                    <ClientDrawer clientView={clientView} setClientView={setClientView} update={update} setUpdate={setUpdate}/>
+                    <ClientDrawer clientView={clientView} setClientView={setClientView} selectedClient={selectedClient} setSelectedClient={setSelectedClient}/>
                 </Grid>
                 <Grid item xs={12} md={5} className='main__content'>
                     {   stats && !clientView ?

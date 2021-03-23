@@ -319,8 +319,9 @@ body::-webkit-scrollbar {
 }
 
 .MuiListItem-root {
-    background-color: transparent !important;
+    background-color: transparent;
 }
+
 
 .makeStyles-root-8{
     background-color: transparent !important;

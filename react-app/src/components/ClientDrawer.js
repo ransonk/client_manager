@@ -156,7 +156,7 @@ const useStyles = makeStyles((theme) => ({
     }
 }));
 
-export default function ClientDrawer({ authenticated, setAuthenticated, props, clientView, setClientView, update, setUpdate }) {
+export default function ClientDrawer({ authenticated, setAuthenticated, props, clientView, setClientView, selectedClient, setSelectedClient }) {
     const classes = useStyles();
     const dispatch = useDispatch();
     const [open, setOpen] = React.useState(true);
@@ -172,7 +172,7 @@ export default function ClientDrawer({ authenticated, setAuthenticated, props, c
     const [paid, setPaid] = useState(false);
     const [password, setPassword] = useState("");
     const [repeatPassword, setRepeatPassword] = useState("");
-    const [selected, setSelected] = useState(null)
+
     // const [state, setState] = React.useState({
     //     top: false,
     //     left: true,
@@ -285,7 +285,7 @@ export default function ClientDrawer({ authenticated, setAuthenticated, props, c
 
 
     const handlePress = async (id) => {
-        setSelected(true)
+        setSelectedClient(id)
         setClientView(true)
         let currentClientList = clientsArray.filter(client => {
             if (client.id === id) return client;
@@ -296,6 +296,12 @@ export default function ClientDrawer({ authenticated, setAuthenticated, props, c
         //******************************************* */
         // window.location.href = '/manage-client'
         //commented out above line to verify that application will work despite the reroute
+    }
+
+    const myStyle = {
+        backgroundColor: "red",
+        color: "red",
+        padding: "10px"
     }
 
     const handleClick = () => {
@@ -348,13 +354,20 @@ export default function ClientDrawer({ authenticated, setAuthenticated, props, c
       className={classes.root}
     >
       {clientsArray.map(({ firstName, lastName, id }) => (
-                    <ListItem button key={id} onClick={() => handlePress(id)}>
-                        {
-                            selected ?
-                            <ListItemIcon><DirectionsRunTwoTone /></ListItemIcon>
-                                        : null
-                        }
+                    <ListItem
+                    divider
+                    button
+                    key={id}
+                    className={`client-${id}`}
+                    style={id === selectedClient ? myStyle : null }
+                    onClick={() => handlePress(id)}>
+
                         <ListItemText primary={firstName + ' ' + lastName} />
+                        {/* {
+                            selected ?
+                            : ''
+                        } */}
+                        <ListItemIcon><DirectionsRunTwoTone /></ListItemIcon>
                     </ListItem>
                 ))}
     </List>
