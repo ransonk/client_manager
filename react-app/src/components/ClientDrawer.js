@@ -156,7 +156,7 @@ const useStyles = makeStyles((theme) => ({
     }
 }));
 
-export default function ClientDrawer({ authenticated, setAuthenticated, props, clientView, setClientView, selectedClient, setSelectedClient, grabClientPlan, grabStats }) {
+export default function ClientDrawer({ authenticated, setAuthenticated, props, clientView, setClientView, selectedClient, setSelectedClient, grabClientStats, grabStats }) {
     const classes = useStyles();
     const dispatch = useDispatch();
     const [open, setOpen] = React.useState(true);
@@ -288,7 +288,7 @@ export default function ClientDrawer({ authenticated, setAuthenticated, props, c
         setSelectedClient(id);
         // setClientView(true);
         grabStats();
-        grabClientPlan();
+        grabClientStats();
         let currentClientList = clientsArray.filter(client => {
             if (client.id === id) return client;
         })

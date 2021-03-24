@@ -299,7 +299,7 @@ const HomePage = ({ setAuthenticated }) => {
                 <Grid item xs={1} md={1} className='side__bar'>
                     <TopThree />
                     <br />
-                    <ClientDrawer clientView={clientView} setClientView={setClientView} selectedClient={selectedClient} setSelectedClient={setSelectedClient} grabClientPlan={grabClientPlan} grabStats={grabStats}/>
+                    <ClientDrawer clientView={clientView} setClientView={setClientView} selectedClient={selectedClient} setSelectedClient={setSelectedClient} grabClientStats={grabClientStats} grabStats={grabStats}/>
                 </Grid>
                 <Grid item xs={12} md={5} className='main__content'>
                     {   stats && !clientView ?
