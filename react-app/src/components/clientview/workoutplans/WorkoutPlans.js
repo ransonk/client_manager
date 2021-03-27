@@ -91,7 +91,7 @@ export default function SimpleCard() {
                         <br />
                         <br />
                         <Typography variant="h5" component="h2" gutterBottom>
-                            Create Workout Plan
+                            Create Workout
                         </Typography>
                         <AddWorkoutPlan />
 
@@ -103,7 +103,7 @@ export default function SimpleCard() {
                         <br />
                         <br />
                         <Typography variant="h5" component="h2" gutterBottom>
-                            Select Workout Plan
+                            Select Workout
                         </Typography>
                         <SelectWorkoutPlan workoutPlanList={workoutPlanList}/>
 

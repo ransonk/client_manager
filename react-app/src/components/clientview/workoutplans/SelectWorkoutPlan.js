@@ -90,7 +90,7 @@ function SelectWorkoutPlan({workoutPlanList}) {
 
 
             <Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title">
-        <DialogTitle id="form-dialog-title">Select a Workout Plan</DialogTitle>
+        <DialogTitle id="form-dialog-title">Select a Workout</DialogTitle>
         <DialogContent>
           <DialogContentText>
             Select a Workout to edit, schedule or simply remove it!
