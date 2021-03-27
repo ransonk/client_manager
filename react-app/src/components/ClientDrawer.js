@@ -34,10 +34,13 @@ const useStyles = makeStyles((theme) => ({
         width: 250,
         backgroundColor: '#24364e',
     },
+    MuiListSubheader: {
+        backgroundColor: 'white'
+    },
     root: {
         width: '100%',
         maxWidth: 360,
-        backgroundColor: theme.palette.background.paper,
+        backgroundColor: 'transparent',
       },
       nested: {
         paddingLeft: theme.spacing(4),
@@ -347,6 +350,7 @@ export default function ClientDrawer({ authenticated, setAuthenticated, props, c
     return (
         <>
             <List
+        selected
       component="nav"
       aria-labelledby="nested-list-subheader"
       subheader={

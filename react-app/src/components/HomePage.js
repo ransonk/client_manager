@@ -25,6 +25,7 @@ import ClientPayment from './clientview/ClientPayment';
 import GraphProgress from './clientview/GraphProgress';
 import FrequencyPie from './clientview/FrequencyPie';
 import WorkoutPlans from './clientview/workoutplans/WorkoutPlans'
+import EditClientProfile from './clientview/EditClientProfile';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -346,12 +347,13 @@ const HomePage = ({ setAuthenticated }) => {
                                                             <Grid item xs={12} md={12}></Grid>
                                                             <Grid item md={3}></Grid>
                                                             <Grid item xs={12} md={6}>
-                                                    <ClientInfo />
+                                                            <EditClientProfile />
+                                                            <ClientInfo />
                                                             </Grid>
                                                             <Grid item md={3}></Grid>
                                                             <Grid item md={3}></Grid>
                                                             <Grid item xs={12} md={6}>
-                                                    <ClientPayment />
+                                                            <ClientPayment />
                                                             </Grid>
                                                             <Grid item md={3}></Grid>
                                                             </Grid>

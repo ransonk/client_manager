@@ -108,7 +108,7 @@ body{
 }
 
 .side__bar{
-    background-color: rgba(124,168,133, 0.6);
+    background-color: rgba(124,168,133);
     position: relative;
     text-align: center;
     color: white;
@@ -322,9 +322,8 @@ body::-webkit-scrollbar {
     background-color: transparent;
 }
 
-
-.makeStyles-root-17{
-    background-color: transparent !important;
+.List.Mui-selected{
+    background-color: transparent;
 }
 
 .MuiListSubheader-sticky{
