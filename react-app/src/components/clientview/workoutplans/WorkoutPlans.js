@@ -24,7 +24,7 @@ const useStyles = makeStyles({
         }
     },
     addWorkoutPlan: {
-        minWidth: 275,
+        minWidth: 190,
         margin: '0.5rem',
         height: '20rem',
     },
@@ -86,6 +86,18 @@ export default function SimpleCard() {
         <>
             {/* <AddWorkoutPlan /> */}
             <div className='workoutplans__container'>
+                <Card className={classes.addWorkoutPlan}>
+                    <CardContent>
+                        <br />
+                        <br />
+                        <br />
+                        <Typography variant="h5" component="h2" gutterBottom>
+                            Add Workout Plan
+                        </Typography>
+                        <AddWorkoutPlan />
+
+                    </CardContent>
+                </Card>
                 <Card className={classes.addWorkoutPlan}>
                     <CardContent>
                         <br />

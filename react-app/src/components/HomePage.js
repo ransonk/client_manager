@@ -254,9 +254,9 @@ const HomePage = ({ setAuthenticated }) => {
                 {/* space */}
 
                 {/* start */}
-                <Grid item xs={1} md={3}></Grid>
-                <Grid item xs={10} md={6} >
-                    <Grid item md={3} className='side__margin'></Grid>
+                <Grid item xs={1} md={2}></Grid>
+                <Grid item xs={10} md={8} >
+                    <Grid item md={2} className='side__margin'></Grid>
                     <Grid item md={12} className='content__title-bar'>
 
                             <p className='content__title-text' onClick={handleClickTrain}>Train</p>
@@ -268,13 +268,13 @@ const HomePage = ({ setAuthenticated }) => {
 
                     <Grid item md={3}></Grid>
                 </Grid>
-                <Grid item xs={1} md={3}></Grid>
+                <Grid item xs={1} md={2}></Grid>
                 {/* end */}
 
                 {/* start */}
-                <Grid item xs={1} md={3}></Grid>
-                <Grid item xs={1} md={1} className='side__bar'></Grid>
-                <Grid item xs={12} md={5} className='selection__title-bar'>
+                <Grid item xs={1} md={2}></Grid>
+                <Grid item xs={1} md={2} className='side__bar'></Grid>
+                <Grid item xs={12} md={6} className='selection__title-bar'>
                     {
                         !clientView
                         ?
@@ -292,17 +292,17 @@ const HomePage = ({ setAuthenticated }) => {
 
                     }
                 </Grid>
-                <Grid item xs={1} md={3}></Grid>
+                <Grid item xs={1} md={2}></Grid>
                 {/* end */}
 
                 {/* start */}
-                <Grid item xs={1} md={3}></Grid>
-                <Grid item xs={1} md={1} className='side__bar'>
+                <Grid item xs={1} md={2}></Grid>
+                <Grid item xs={1} md={2} className='side__bar'>
                     <TopThree />
                     <br />
                     <ClientDrawer clientView={clientView} setClientView={setClientView} selectedClient={selectedClient} setSelectedClient={setSelectedClient} grabClientStats={grabClientStats} grabStats={grabStats}/>
                 </Grid>
-                <Grid item xs={12} md={5} className='main__content'>
+                <Grid item xs={12} md={6} className='main__content'>
                     {   stats && !clientView ?
                         <ClientFrequency />
                                 :
@@ -399,7 +399,7 @@ const HomePage = ({ setAuthenticated }) => {
 
                                             }
                 </Grid>
-                <Grid item xs={1} md={3}></Grid>
+                <Grid item xs={1} md={2}></Grid>
                 {/* end */}
 
                 {/* space */}
