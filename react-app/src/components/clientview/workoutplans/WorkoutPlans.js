@@ -100,6 +100,7 @@ export default function SimpleCard() {
                 </Card>
                 {workoutPlanList.map((workout, i) => {
                     // console.log(workout.routinelist[0].name)comment
+                    //insert select
 
                     return (
 
