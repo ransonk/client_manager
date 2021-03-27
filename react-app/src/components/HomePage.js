@@ -347,10 +347,12 @@ const HomePage = ({ setAuthenticated }) => {
                                                             <Grid item xs={12} md={12}></Grid>
                                                             <Grid item md={3}></Grid>
                                                             <Grid item xs={12} md={6}>
-                                                            <EditClientProfile />
                                                             <ClientInfo />
                                                             </Grid>
-                                                            <Grid item md={3}></Grid>
+                                                            <Grid item md={3}>
+                                                            <EditClientProfile />
+
+                                                            </Grid>
                                                             <Grid item md={3}></Grid>
                                                             <Grid item xs={12} md={6}>
                                                             <ClientPayment />

@@ -67,7 +67,7 @@ const ClientInfo = () => {
                             </p>
                         </div>
                         <div className='clientinfo__info__payment__duedate'>
-                            <p className='card__header'>Next Due Date</p>
+                            <p className='card__header'>Next Due</p>
                             <p className='duedate'>{duedate}</p>
                         </div>
                     </div>
