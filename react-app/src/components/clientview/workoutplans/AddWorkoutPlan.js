@@ -11,6 +11,7 @@ import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import { createHistory, createWorkoutPlan } from '../../../services/auth';
 import { fetchClient, updateProgress } from '../../../store/users';
+import { AddBox } from '@material-ui/icons';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -417,7 +418,7 @@ const AddWorkoutPlan = (props) => {
 
         <div className='profile-edit__container'>
             <a className='addWorkoutPlan' onClick={handleOpenModal}>
-                +
+                <AddBox fontSize='large'/>
             </a>
 
             <Modal
