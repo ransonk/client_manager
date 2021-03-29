@@ -397,7 +397,7 @@ def seed_workouts():
                 trainer_id=1,)
 
     demo6 = Workout(name='Sumo Squats',
-                type='Push',
+                type='push',
                 trainer_id=1,)
 
     demo7 = Workout(name='Bicep Curls',
@@ -408,11 +408,11 @@ def seed_workouts():
                 type='push',
                 trainer_id=1,)
 
-    demo8 = Workout(name='Crunches',
+    demo9 = Workout(name='Crunches',
                 type='pull',
                 trainer_id=1,)
 
-    demo8 = Workout(name='Bicycle Kicks',
+    demo10 = Workout(name='Bicycle Kicks',
                 type='push',
                 trainer_id=1,)
 
@@ -425,6 +425,8 @@ def seed_workouts():
     db.session.add(demo6)
     db.session.add(demo7)
     db.session.add(demo8)
+    db.session.add(demo9)
+    db.session.add(demo10)
 
     db.session.commit()
 
@@ -457,15 +459,15 @@ def seed_workoutplans():
 
     demo = WorkoutPlan(name='Back Workout',
                 workout1='Pull Ups',
-                set1='Sets: 5, Reps: 6',
+                set1='Sets: 5 Reps: 6',
                 workout2='Rows',
-                set2='Sets: 3, Reps: 10',
+                set2='Sets: 3 Reps: 10',
                 workout3='Pull Ups',
-                set3='Sets: 3, Reps: 10',
+                set3='Sets: 3 Reps: 10',
                 workout4='Shoulder Press',
-                set4='Sets: 3, Reps: 10',
+                set4='Sets: 3 Reps: 10',
                 workout5='Lateral Raises',
-                set5='Sets: 3, Reps: 10',
+                set5='Sets: 3 Reps: 10',
                 time='8:00 am',
                 date='12/14/2020',
                 clientFirstName='Mike',
@@ -475,15 +477,15 @@ def seed_workoutplans():
 
     demo2 = WorkoutPlan(name='Upper Body',
                 workout1='Lateral Raises',
-                set1='Sets: 3, Reps: 10',
+                set1='Sets: 3 Reps: 10',
                 workout2='Rows',
-                set2='Sets: 4, Reps: 12',
+                set2='Sets: 4 Reps: 12',
                 workout3='Bicep Curls',
-                set3='Sets: 2, Reps: 20',
+                set3='Sets: 2 Reps: 20',
                 workout4='Tricep Dips',
-                set4='Sets: 3, Reps: 10',
+                set4='Sets: 3 Reps: 10',
                 workout5='Push Ups',
-                set8='Sets: 4, Reps: 12',
+                set8='Sets: 4 Reps: 12',
                 time='10:00 am',
                 date='12/14/2020',
                 clientFirstName='Peter',
@@ -493,13 +495,13 @@ def seed_workoutplans():
 
     demo3 = WorkoutPlan(name='Leg Day',
                 workout1='Sumo Squats',
-                set1='Sets: 2, Reps: 20',
+                set1='Sets: 2 Reps: 20',
                 workout2='Push Ups',
-                set2='Sets: 3, Reps: 10',
+                set2='Sets: 3 Reps: 10',
                 workout3='Squats',
-                set3='Sets: 3, Reps: 10',
+                set3='Sets: 3 Reps: 10',
                 workout4='Pull Ups',
-                set4='Sets: 3, Reps: 10',
+                set4='Sets: 3 Reps: 10',
                 time='3:00 pm',
                 date='12/14/2020',
                 clientFirstName='Derek',
@@ -509,13 +511,13 @@ def seed_workoutplans():
 
     demo4 = WorkoutPlan(name='Pull Day',
                 workout1='Pull Ups',
-                set1='Sets: 3, Reps: 10',
+                set1='Sets: 3 Reps: 10',
                 workout2='Rows',
-                set2='Sets: 2, Reps: 20',
+                set2='Sets: 2 Reps: 20',
                 workout3='Bicep Curls',
-                set3='Sets: 4, Reps: 12',
+                set3='Sets: 4 Reps: 12',
                 workout4='Squats',
-                set4='Sets: 3, Reps: 10',
+                set4='Sets: 3 Reps: 10',
                 time='6:00 pm',
                 date='12/14/2020',
                 clientFirstName='Warren',
@@ -525,11 +527,11 @@ def seed_workoutplans():
 
     demo5 = WorkoutPlan(name='Abs Workout',
                 workout1='Crunches',
-                set1='Sets: 4, Reps: 12',
+                set1='Sets: 4 Reps: 12',
                 workout2='Bicycle Kicks',
-                set2='Sets: 2, Reps: 20',
+                set2='Sets: 2 Reps: 20',
                 workout3='Crunches',
-                set3='Sets: 2, Reps: 20',
+                set3='Sets: 2 Reps: 20',
                 time='6:00 am',
                 date='12/15/2020',
                 clientFirstName='Derek',
@@ -539,21 +541,21 @@ def seed_workoutplans():
 
     demo6 = WorkoutPlan(name='Full Body',
                 workout1='Push Ups',
-                set1='Sets: 3, Reps: 10',
+                set1='Sets: 3 Reps: 10',
                 workout2='Pull Ups',
-                set2='Sets: 4, Reps: 12',
+                set2='Sets: 4 Reps: 12',
                 workout3='Squats',
-                set3='Sets: 5, Reps: 6',
+                set3='Sets: 5 Reps: 6',
                 workout4='Shoulder Press',
-                set4='Sets: 3, Reps: 10',
+                set4='Sets: 3 Reps: 10',
                 workout5='Crunches',
-                set5='Sets: 2, Reps: 20',
+                set5='Sets: 2 Reps: 20',
                 workout6='Lateral Raises',
-                set6='Sets: 3, Reps: 10',
+                set6='Sets: 3 Reps: 10',
                 workout7='Sumo Squats',
-                set7='Sets: 4, Reps: 12',
+                set7='Sets: 4 Reps: 12',
                 workout8='Bicep Curls',
-                set8='Sets: 3, Reps: 10',
+                set8='Sets: 3 Reps: 10',
                 time='12:00 pm',
                 date='12/15/2020',
                 clientFirstName='Peter',
@@ -602,7 +604,7 @@ def seed_routine():
     db.session.commit()
 
 def undo_trainers():
-    db.session.execute('TRUNCATE users;')
+    db.session.execute('TRUNCATE trainers CASCADE;')
     db.session.commit()
 
 # def seed_users():

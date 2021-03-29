@@ -80,8 +80,8 @@ const CloneWorkoutPlan = ({cloneId}) => {
     const [name, setName] = useState("");
     const [time, setTime] = useState("");
     const [date, setDate] = useState("");
-    const [workout1, setWorkout1] = useState("example");
-    const [set1, setSet1] = useState("example");
+    const [workout1, setWorkout1] = useState("");
+    const [set1, setSet1] = useState("");
     const [weight1, setWeight1] = useState("")
     const [workout2, setWorkout2] = useState("");
     const [set2, setSet2] = useState("");
@@ -136,44 +136,53 @@ const CloneWorkoutPlan = ({cloneId}) => {
 
 
     useEffect(() => {
-        (async () => {
-            // const client = await fetchClient(client_id)
-            // setClientFirstName(client.firstName)
-            // setClientLastName(client.lastName)
-            if (targetPlan){
 
-                setName(targetPlan.name)
-                setTime(targetPlan.time)
-                setDate(targetPlan.date)
-                setWorkout1(targetPlan.workout1)
-                setSet1(targetPlan.set1)
-                setWeight1(targetPlan.weight1)
-                setWorkout2(targetPlan.workout2)
-                setSet2(targetPlan.set2)
-                setWeight2(targetPlan.weight2)
-                setWorkout3(targetPlan.workout3)
-                setSet3(targetPlan.set3)
-                setWeight3(targetPlan.weight3)
-                setWorkout4(targetPlan.workout4)
-                setSet4(targetPlan.set4)
-                setWeight4(targetPlan.weight4)
-                setWorkout5(targetPlan.workout5)
-                setSet5(targetPlan.set5)
-                setWeight5(targetPlan.weight5)
-                setWorkout6(targetPlan.workout6)
-                setSet6(targetPlan.set6)
-                setWeight6(targetPlan.weight6)
-                setWorkout7(targetPlan.workout7)
-                setSet7(targetPlan.set7)
-                setWeight7(targetPlan.weight7)
-                setWorkout8(targetPlan.workout8)
-                setSet8(targetPlan.set8)
-                setWeight8(targetPlan.weight8)
-            }
+        (() => {
+
+            if (!targetPlan) return null;
 
 
-        })();
+            setName(targetPlan.name)
+            setTime(targetPlan.time)
+            setDate(targetPlan.date)
+            setWorkout1(targetPlan.workout1)
+            setSet1(targetPlan.set1)
+            setWeight1(targetPlan.weight1)
+            setWorkout2(targetPlan.workout2)
+            setSet2(targetPlan.set2)
+            setWeight2(targetPlan.weight2)
+            setWorkout3(targetPlan.workout3)
+            setSet3(targetPlan.set3)
+            setWeight3(targetPlan.weight3)
+            setWorkout4(targetPlan.workout4)
+            setSet4(targetPlan.set4)
+            setWeight4(targetPlan.weight4)
+            setWorkout5(targetPlan.workout5)
+            setSet5(targetPlan.set5)
+            setWeight5(targetPlan.weight5)
+            setWorkout6(targetPlan.workout6)
+            setSet6(targetPlan.set6)
+            setWeight6(targetPlan.weight6)
+            setWorkout7(targetPlan.workout7)
+            setSet7(targetPlan.set7)
+        setWeight7(targetPlan.weight7)
+        setWorkout8(targetPlan.workout8)
+        setSet8(targetPlan.set8)
+        setWeight8(targetPlan.weight8)
+
+
+
+    })()
     }, [plannId]);
+
+    useEffect(() => {
+        (async () => {
+
+            const client = await fetchClient(client_id)
+            setClientFirstName(client.firstName)
+            setClientLastName(client.lastName)
+        })();
+    }, []);
 
 
     const createThisWorkoutPlan = async (e) => {
