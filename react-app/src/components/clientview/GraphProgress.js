@@ -115,13 +115,11 @@ function GraphProgress() {
         let unOrganizedDates = exerciseRecord[key]
         let organizedDates = []
         let finalDates = []
-        console.log('LOOKIE HERE SON', unOrganizedDates)
 
         for (let i = 0; i < unOrganizedDates.length - 1; i += 2) {
             organizedDates.push({ date: unOrganizedDates[i], score: unOrganizedDates[i + 1] })
         }
         organizedDates.sort((a, b) => new Date(a.date) - new Date(b.date))
-        console.log('new Object? ', organizedDates)
 
         for (let i = 0; i < organizedDates.length; i++) {
             let date = organizedDates[i].date
@@ -129,7 +127,6 @@ function GraphProgress() {
             finalDates.push(date)
             finalDates.push(score)
         }
-        console.log('final Object? ', finalDates)
         exerciseRecord[key] = finalDates
 
     }
@@ -166,7 +163,6 @@ function GraphProgress() {
     exerciseRecordList.map((item, i) => {
         let scoreList = [];
         item[1].forEach(num => {
-            console.log('nummm', num)
             if (typeof (num) == 'number') {
                 scoreList.push(num)
             }
@@ -248,9 +244,6 @@ function GraphProgress() {
     // let unsortedDates = needsSorting.map
     // needsSorting.sort((a, b) => new Date(a.date) - new Date(b.date))
     // exerciseRecord[key] = needsSorting
-
-    console.log('object reorganized?', exerciseRecord)
-
 
 
 

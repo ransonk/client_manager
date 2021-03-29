@@ -121,12 +121,9 @@ export default function ClientCalendar() {
             return
         }
     })
-    console.log('todays workout', todaysWorkout[0])
     todaysWorkout = todaysWorkout[0]
     if (!todaysWorkout) return null;
-    console.log('todays workout222', todaysWorkout)
     let time = todaysWorkout.time
-    console.log(time)
     // let todayTime = todaysWorkout[0].time
     // setTime(todaysWorkout.time)
 

@@ -24,7 +24,6 @@ function FrequencyPie() {
 
     const historicalDataRaw = useSelector((state) => state.store.client_progress)
     const historicalData = Object.values(historicalDataRaw)
-    console.log('historical', historicalData)
     const sortedData = historicalData.sort((a, b) => new Date(a.date) - new Date(b.date))
 
     const dates = sortedData.map(history => history.date)
@@ -86,7 +85,6 @@ function FrequencyPie() {
         }
     })
 
-    console.log('exercise counter', exerciseCounter)
     let borderColors = ['#f94144', '#f3722c', '#f8961e', '#f9c74f', '#90be6d', "#43aa8b", "#577590", "#0081a7", "#fed9b7", '#f07167', "#00f5d4", "#d0f4de", "#c8553d", "#b09e99"]
 
 

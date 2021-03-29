@@ -126,6 +126,13 @@ def workout_plans(id):
 
     return {"workoutplans": plansObj}
 
+# Grab target workout plan
+@trainer_routes.route('/workout-plan/<int:id>')
+# @login_required
+def target_workout_plan(id):
+    workoutPlan = WorkoutPlan.query.get(id)
+    return {"workoutplan": workoutPlan.to_dict()}
+
 
 # Grab all workout plans
 @trainer_routes.route('/<int:id>/workout-plans')

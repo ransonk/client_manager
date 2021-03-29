@@ -19,6 +19,7 @@ class Trainer(db.Model, UserMixin):
 
   clients = db.relationship(
       "Client",
+      cascade="all, delete-orphan",
       back_populates="trainer"
   )
 

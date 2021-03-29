@@ -140,6 +140,17 @@ export const fetchWorkoutPlans = async (clientId) => {
     return workoutplans
 }
 
+export const fetchTargetWorkoutPlan = async (workoutPlanId) => {
+    const response = await fetch(`/api/trainers/workout-plan/${workoutPlanId}`, {
+        headers: {
+            "Content-Type": "application/json",
+        },
+    });
+    const result = await response.json();
+    const workoutPlan = {...result}
+    return workoutPlan
+}
+
 export const fetchAllWorkoutPlans = async (trainerId) => {
     const response = await fetch(`/api/trainers/${trainerId}/workout-plans`, {
         headers: {

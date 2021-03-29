@@ -24,6 +24,6 @@ def seed():
 @seed_commands.command('undo')
 def undo():
     undo_trainers()
-    undo_clients()
+    # undo_clients()
     # undo_users()
     # Add other undo functions here

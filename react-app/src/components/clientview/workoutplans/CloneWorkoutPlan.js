@@ -10,7 +10,7 @@ import ListSubheader from '@material-ui/core/ListSubheader';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import { createHistory, createWorkoutPlan } from '../../../services/auth';
-import { fetchClient, updateProgress } from '../../../store/users';
+import { fetchClient, fetchTargetWorkoutPlan, updateProgress } from '../../../store/users';
 import { AddBox } from '@material-ui/icons';
 
 
@@ -70,17 +70,17 @@ const useStyles = makeStyles((theme) => ({
     },
     inputs: {
         margin: '0.5rem'
-    }
+    },
 }));
 
-const AddWorkoutPlan = (props) => {
+const CloneWorkoutPlan = ({cloneId}) => {
     const dispatch = useDispatch();
     const classes = useStyles();
     const [openModal, setOpenModal] = React.useState(false);
     const [name, setName] = useState("");
     const [time, setTime] = useState("");
     const [date, setDate] = useState("");
-    const [workout1, setWorkout1] = useState("false");
+    const [workout1, setWorkout1] = useState("");
     const [set1, setSet1] = useState("");
     const [weight1, setWeight1] = useState("")
     const [workout2, setWorkout2] = useState("");
@@ -112,15 +112,18 @@ const AddWorkoutPlan = (props) => {
     let client_id = client.id
     let trainer_id = useSelector(state => state.store.current_trainer.id)
 
-    // console.log('wow')
+    let workoutPlans = useSelector(state => state.store.workoutPlans)
+    workoutPlans = Object.values(workoutPlans)
+    const plannId = JSON.parse(localStorage.getItem('CURRENT_PLAN'))
+
+    let targetPlan = workoutPlans.filter(plan => plan.id === plannId)
+    targetPlan = targetPlan[0]
 
     const workouts = useSelector((state) => state.store.workouts)
     const sortedWorkouts = Object.values(workouts)
-    // console.log('SORTEDWORKOUTS ', sortedWorkouts)
     const intensities = useSelector((state) => state.store.intensities)
     const sortedIntensities = Object.values(intensities)
 
-    //CREATE exerciseHistory object that records points related to line 108
 
     const pushWorkouts = sortedWorkouts.filter(workout => {
         if (workout.type === 'push') return workout
@@ -129,12 +132,52 @@ const AddWorkoutPlan = (props) => {
         if (workout.type === 'pull') return workout
     })
 
-    // console.log('pushWorkouts', pushWorkouts)
     const pushNames = pushWorkouts.map(push => push.name)
-    // console.log('pushNames', pushNames)
+
+
+    useEffect(() => {
+
+        (() => {
+
+            if (!targetPlan) return null;
+
+
+            setName(targetPlan.name)
+            setTime(targetPlan.time)
+            setDate(targetPlan.date)
+            setWorkout1(targetPlan.workout1)
+            setSet1(targetPlan.set1)
+            setWeight1(targetPlan.weight1)
+            setWorkout2(targetPlan.workout2)
+            setSet2(targetPlan.set2)
+            setWeight2(targetPlan.weight2)
+            setWorkout3(targetPlan.workout3)
+            setSet3(targetPlan.set3)
+            setWeight3(targetPlan.weight3)
+            setWorkout4(targetPlan.workout4)
+            setSet4(targetPlan.set4)
+            setWeight4(targetPlan.weight4)
+            setWorkout5(targetPlan.workout5)
+            setSet5(targetPlan.set5)
+            setWeight5(targetPlan.weight5)
+            setWorkout6(targetPlan.workout6)
+            setSet6(targetPlan.set6)
+            setWeight6(targetPlan.weight6)
+            setWorkout7(targetPlan.workout7)
+            setSet7(targetPlan.set7)
+        setWeight7(targetPlan.weight7)
+        setWorkout8(targetPlan.workout8)
+        setSet8(targetPlan.set8)
+        setWeight8(targetPlan.weight8)
+
+
+
+    })()
+    }, [plannId]);
 
     useEffect(() => {
         (async () => {
+
             const client = await fetchClient(client_id)
             setClientFirstName(client.firstName)
             setClientLastName(client.lastName)
@@ -235,10 +278,6 @@ const AddWorkoutPlan = (props) => {
         }
 
 
-        // console.log('pushCount', pushCount)
-        // console.log('pullCount', pullCount)
-        // console.log('pushScore', pushScore)
-        // console.log('pullScore', pullScore)
         const workoutHistory = await createHistory(
             name,
             workout1,
@@ -261,7 +300,6 @@ const AddWorkoutPlan = (props) => {
             client_id,
             trainer_id
         )
-        // console.log('after dispatch')
         const workoutPlan = await createWorkoutPlan(
             name,
             workout1,
@@ -299,10 +337,12 @@ const AddWorkoutPlan = (props) => {
     };
 
     const handleOpenModal = () => {
+        localStorage.setItem('CURRENT_PLAN', cloneId)
         setOpenModal(true);
     };
 
     const handleCloseModal = () => {
+        localStorage.removeItem('CURRENT_PLAN')
         setOpenModal(false);
     };
 
@@ -417,8 +457,8 @@ const AddWorkoutPlan = (props) => {
     return (
 
         <div className='profile-edit__container'>
-            <a className='addWorkoutPlan' onClick={handleOpenModal}>
-                <AddBox fontSize='large'/>
+            <a onClick={handleOpenModal}>
+                Clone
             </a>
 
             <Modal
@@ -436,7 +476,6 @@ const AddWorkoutPlan = (props) => {
                 <Fade in={openModal}>
                     <Typography variant='h5'>
                         <form className={classes.paper} noValidate autoComplete='off' onSubmit={createThisWorkoutPlan}>
-                            {/* <form className={classes.paper} noValidate autoComplete='off'> */}
                             <Button size='large' variant='contained' onClick={handleCloseModal} className={classes.exitBtn} variant='outlined'>x</Button>
                             <Typography variant='h4' className={classes.editHeading}>
                                 Create a Workout
@@ -452,8 +491,8 @@ const AddWorkoutPlan = (props) => {
                             <div>
                                 <FormControl className={classes.formControl}>
                                     <InputLabel htmlFor="grouped-native-select">Workouts</InputLabel>
-                                    <Select native defaultValue="" id="grouped-native-select" onChange={updateWorkout1}>
-                                        <option aria-label="None" value="" />
+                                    <Select native value={workout1} id="grouped-native-select" onChange={updateWorkout1}>
+                                        <option aria-label="None" value="wattt" />
                                         <optgroup label="Push">
                                             {
                                                 pushWorkouts.map((workout, i) => {
@@ -477,7 +516,7 @@ const AddWorkoutPlan = (props) => {
                                 </FormControl>
                                 <FormControl className={classes.formControl}>
                                     <InputLabel htmlFor="grouped-select">Sets & Reps</InputLabel>
-                                    <Select defaultValue="" id="grouped-select" onChange={updateSet1}>
+                                    <Select value={set1} id="grouped-select" onChange={updateSet1}>
                                         {
                                             sortedIntensities.map((intensity, i) => {
                                                 return (
@@ -487,11 +526,11 @@ const AddWorkoutPlan = (props) => {
                                         }
                                     </Select>
                                 </FormControl>
-                                <TextField id='standard-basic' className={classes.inputs} value={weight1} onChange={updateWeight1} label='Weight (lbs)' autoFocus />
+                                <TextField id='standard-basic' className={classes.inputs} value={weight1} onChange={updateWeight1} label='Weight (lbs)' />
                                 <br />
                                 <FormControl className={classes.formControl}>
                                     <InputLabel htmlFor="grouped-native-select">Workouts</InputLabel>
-                                    <Select native defaultValue="" id="grouped-native-select" onChange={updateWorkout2}>
+                                    <Select native value={workout2} id="grouped-native-select" onChange={updateWorkout2}>
                                         <option aria-label="None" value="" />
                                         <optgroup label="Push">
                                             {
@@ -516,7 +555,7 @@ const AddWorkoutPlan = (props) => {
                                 </FormControl>
                                 <FormControl className={classes.formControl}>
                                     <InputLabel htmlFor="grouped-select">Sets & Reps</InputLabel>
-                                    <Select defaultValue="" id="grouped-select" onChange={updateSet2}>
+                                    <Select value={set2} id="grouped-select" onChange={updateSet2}>
                                         {
                                             sortedIntensities.map((intensity, i) => {
                                                 return (
@@ -526,11 +565,11 @@ const AddWorkoutPlan = (props) => {
                                         }
                                     </Select>
                                 </FormControl>
-                                <TextField id='standard-basic' className={classes.inputs} value={weight2} onChange={updateWeight2} label='Weight (lbs)' autoFocus />
+                                <TextField id='standard-basic' className={classes.inputs} value={weight2} onChange={updateWeight2} label='Weight (lbs)' />
                                 <br />
                                 <FormControl className={classes.formControl}>
                                     <InputLabel htmlFor="grouped-native-select">Workouts</InputLabel>
-                                    <Select native defaultValue="" id="grouped-native-select" onChange={updateWorkout3}>
+                                    <Select native value={workout3} id="grouped-native-select" onChange={updateWorkout3}>
                                         <option aria-label="None" value="" />
                                         <optgroup label="Push">
                                             {
@@ -555,7 +594,7 @@ const AddWorkoutPlan = (props) => {
                                 </FormControl>
                                 <FormControl className={classes.formControl}>
                                     <InputLabel htmlFor="grouped-select">Sets & Reps</InputLabel>
-                                    <Select defaultValue="" id="grouped-select" onChange={updateSet3}>
+                                    <Select value={set3} id="grouped-select" onChange={updateSet3}>
                                         {
                                             sortedIntensities.map((intensity, i) => {
                                                 return (
@@ -565,11 +604,11 @@ const AddWorkoutPlan = (props) => {
                                         }
                                     </Select>
                                 </FormControl>
-                                <TextField id='standard-basic' className={classes.inputs} value={weight3} onChange={updateWeight3} label='Weight (lbs)' autoFocus />
+                                <TextField id='standard-basic' className={classes.inputs} value={weight3} onChange={updateWeight3} label='Weight (lbs)' />
                                 <br />
                                 <FormControl className={classes.formControl}>
                                     <InputLabel htmlFor="grouped-native-select">Workouts</InputLabel>
-                                    <Select native defaultValue="" id="grouped-native-select" onChange={updateWorkout4}>
+                                    <Select native value={workout4} id="grouped-native-select" onChange={updateWorkout4}>
                                         <option aria-label="None" value="" />
                                         <optgroup label="Push">
                                             {
@@ -594,7 +633,7 @@ const AddWorkoutPlan = (props) => {
                                 </FormControl>
                                 <FormControl className={classes.formControl}>
                                     <InputLabel htmlFor="grouped-select">Sets & Reps</InputLabel>
-                                    <Select defaultValue="" id="grouped-select" onChange={updateSet4}>
+                                    <Select value={set4} id="grouped-select" onChange={updateSet4}>
                                         {
                                             sortedIntensities.map((intensity, i) => {
                                                 return (
@@ -604,11 +643,11 @@ const AddWorkoutPlan = (props) => {
                                         }
                                     </Select>
                                 </FormControl>
-                                <TextField id='standard-basic' className={classes.inputs} value={weight4} onChange={updateWeight4} label='Weight (lbs)' autoFocus />
+                                <TextField id='standard-basic' className={classes.inputs} value={weight4} onChange={updateWeight4} label='Weight (lbs)' />
                                 <br />
                                 <FormControl className={classes.formControl}>
                                     <InputLabel htmlFor="grouped-native-select">Workouts</InputLabel>
-                                    <Select native defaultValue="" id="grouped-native-select" onChange={updateWorkout5}>
+                                    <Select native value={workout5} id="grouped-native-select" onChange={updateWorkout5}>
                                         <option aria-label="None" value="" />
                                         <optgroup label="Push">
                                             {
@@ -633,7 +672,7 @@ const AddWorkoutPlan = (props) => {
                                 </FormControl>
                                 <FormControl className={classes.formControl}>
                                     <InputLabel htmlFor="grouped-select">Sets & Reps</InputLabel>
-                                    <Select defaultValue="" id="grouped-select" onChange={updateSet5}>
+                                    <Select value={set5} id="grouped-select" onChange={updateSet5}>
                                         {
                                             sortedIntensities.map((intensity, i) => {
                                                 return (
@@ -643,11 +682,11 @@ const AddWorkoutPlan = (props) => {
                                         }
                                     </Select>
                                 </FormControl>
-                                <TextField id='standard-basic' className={classes.inputs} value={weight5} onChange={updateWeight5} label='Weight (lbs)' autoFocus />
+                                <TextField id='standard-basic' className={classes.inputs} value={weight5} onChange={updateWeight5} label='Weight (lbs)' />
                                 <br />
                                 <FormControl className={classes.formControl}>
                                     <InputLabel htmlFor="grouped-native-select">Workouts</InputLabel>
-                                    <Select native defaultValue="" id="grouped-native-select" onChange={updateWorkout6}>
+                                    <Select native value={workout6} id="grouped-native-select" onChange={updateWorkout6}>
                                         <option aria-label="None" value="" />
                                         <optgroup label="Push">
                                             {
@@ -672,7 +711,7 @@ const AddWorkoutPlan = (props) => {
                                 </FormControl>
                                 <FormControl className={classes.formControl}>
                                     <InputLabel htmlFor="grouped-select">Sets & Reps</InputLabel>
-                                    <Select defaultValue="" id="grouped-select" onChange={updateSet6}>
+                                    <Select value={set6} id="grouped-select" onChange={updateSet6}>
                                         {
                                             sortedIntensities.map((intensity, i) => {
                                                 return (
@@ -682,11 +721,11 @@ const AddWorkoutPlan = (props) => {
                                         }
                                     </Select>
                                 </FormControl>
-                                <TextField id='standard-basic' className={classes.inputs} value={weight6} onChange={updateWeight6} label='Weight (lbs)' autoFocus />
+                                <TextField id='standard-basic' className={classes.inputs} value={weight6} onChange={updateWeight6} label='Weight (lbs)' />
                                 <br />
                                 <FormControl className={classes.formControl}>
                                     <InputLabel htmlFor="grouped-native-select">Workouts</InputLabel>
-                                    <Select native defaultValue="" id="grouped-native-select" onChange={updateWorkout7}>
+                                    <Select native value={workout7} id="grouped-native-select" onChange={updateWorkout7}>
                                         <option aria-label="None" value="" />
                                         <optgroup label="Push">
                                             {
@@ -711,7 +750,7 @@ const AddWorkoutPlan = (props) => {
                                 </FormControl>
                                 <FormControl className={classes.formControl}>
                                     <InputLabel htmlFor="grouped-select">Sets & Reps</InputLabel>
-                                    <Select defaultValue="" id="grouped-select" onChange={updateSet7}>
+                                    <Select value={set7} id="grouped-select" onChange={updateSet7}>
                                         {
                                             sortedIntensities.map((intensity, i) => {
                                                 return (
@@ -721,11 +760,11 @@ const AddWorkoutPlan = (props) => {
                                         }
                                     </Select>
                                 </FormControl>
-                                <TextField id='standard-basic' className={classes.inputs} value={weight7} onChange={updateWeight7} label='Weight (lbs)' autoFocus />
+                                <TextField id='standard-basic' className={classes.inputs} value={weight7} onChange={updateWeight7} label='Weight (lbs)' />
                                 <br />
                                 <FormControl className={classes.formControl}>
                                     <InputLabel htmlFor="grouped-native-select">Workouts</InputLabel>
-                                    <Select native defaultValue="" id="grouped-native-select" onChange={updateWorkout8}>
+                                    <Select native value={workout8} id="grouped-native-select" onChange={updateWorkout8}>
                                         <option aria-label="None" value="" />
                                         <optgroup label="Push">
                                             {
@@ -750,7 +789,7 @@ const AddWorkoutPlan = (props) => {
                                 </FormControl>
                                 <FormControl className={classes.formControl}>
                                     <InputLabel htmlFor="grouped-select">Sets & Reps</InputLabel>
-                                    <Select defaultValue="" id="grouped-select" onChange={updateSet8}>
+                                    <Select value={set8} id="grouped-select" onChange={updateSet8}>
                                         {
                                             sortedIntensities.map((intensity, i) => {
                                                 return (
@@ -760,7 +799,7 @@ const AddWorkoutPlan = (props) => {
                                         }
                                     </Select>
                                 </FormControl>
-                                <TextField id='standard-basic' className={classes.inputs} value={weight8} onChange={updateWeight8} label='Weight (lbs)' autoFocus />
+                                <TextField id='standard-basic' className={classes.inputs} value={weight8} onChange={updateWeight8} label='Weight (lbs)' />
                             </div>
                             <br/>
                             <Button variant='contained' color='primary' className={classes.button} type='submit'>Submit</Button>
@@ -772,4 +811,4 @@ const AddWorkoutPlan = (props) => {
     );
 }
 
-export default AddWorkoutPlan;
+export default CloneWorkoutPlan;

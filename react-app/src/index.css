@@ -203,7 +203,7 @@ body{
     font-size: 5rem;
     font-weight: 300;
     position: relative;
-    top: 1rem;
+    /* top: 1rem; */
 }
 
 .addWorkoutPlan:hover{
@@ -211,6 +211,34 @@ body{
     overflow: hidden;
     overflow-y: hidden;
     cursor: pointer;
+}
+
+.select-workout-plan__button{
+    font-size: 5rem;
+    font-weight: 300;
+    position: relative;
+    /* top: 1rem; */
+
+}
+
+.select-workout-plan__button:hover{
+    cursor: pointer;
+}
+
+.workout-plan-menu{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.MuiDialogContent-root {
+    /* display: flex; */
+    /* flex-wrap: wrap; */
+}
+
+.MuiDialog-paperWidthSm {
+    /* max-width: 800px; */
+    /* flex-wrap: wrap; */
 }
 
 .editProfile{
@@ -1146,7 +1174,7 @@ body::-webkit-scrollbar {
     /* margin-left: 3rem;; */
 }
 
-.workoutplans__container:hover{
+/* .workoutplans__container:hover{
     overflow-x: auto;
 }
 
@@ -1162,7 +1190,7 @@ body::-webkit-scrollbar {
 .workoutplans__container::-webkit-scrollbar-thumb {
     background-color: white;
     outline: none;
-  }
+  } */
 
 
   .overview-button-today-on{
@@ -1315,7 +1343,7 @@ body::-webkit-scrollbar {
     justify-content: center;
 }
 
-p {
+/* p {
     color: white;
     opacity: 1;
-}
+} */

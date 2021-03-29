@@ -32,7 +32,7 @@ function Footer() {
 
     useEffect(() => {
         setInterval(tick, 1000);
-    })
+    }, [])
 
     let date = new Date();
     let dd = date.getDate();

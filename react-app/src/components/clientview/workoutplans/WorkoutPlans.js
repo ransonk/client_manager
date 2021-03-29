@@ -10,7 +10,7 @@ import { fetchWorkoutPlans, setWorkoutPlans } from '../../../store/users';
 import AddWorkoutPlan from './AddWorkoutPlan';
 import { Divider } from '@material-ui/core';
 import { deleteWorkoutPlan } from '../../../services/auth';
-
+import SelectWorkoutPlan from './SelectWorkoutPlan';
 
 const useStyles = makeStyles({
     root: {
@@ -24,7 +24,7 @@ const useStyles = makeStyles({
         }
     },
     addWorkoutPlan: {
-        minWidth: 190,
+        minWidth: 200,
         margin: '0.5rem',
         height: '20rem',
     },
@@ -84,7 +84,6 @@ export default function SimpleCard() {
 
     return (
         <>
-            {/* <AddWorkoutPlan /> */}
             <div className='workoutplans__container'>
                 <Card className={classes.addWorkoutPlan}>
                     <CardContent>
@@ -92,7 +91,7 @@ export default function SimpleCard() {
                         <br />
                         <br />
                         <Typography variant="h5" component="h2" gutterBottom>
-                            Add Workout Plan
+                            Create Workout
                         </Typography>
                         <AddWorkoutPlan />
 
@@ -104,15 +103,25 @@ export default function SimpleCard() {
                         <br />
                         <br />
                         <Typography variant="h5" component="h2" gutterBottom>
-                            Add Workout Plan
+                            Select Workout
                         </Typography>
-                        <AddWorkoutPlan />
+                        <SelectWorkoutPlan workoutPlanList={workoutPlanList}/>
 
                     </CardContent>
                 </Card>
-                {workoutPlanList.map((workout, i) => {
-                    // console.log(workout.routinelist[0].name)comment
-                    //insert select
+                <Card className={classes.addWorkoutPlan}>
+                    <CardContent>
+                        <br />
+                        <br />
+                        <br />
+                        <Typography variant="h5" component="h2" gutterBottom>
+                            Build Program
+                        </Typography>
+                        <SelectWorkoutPlan workoutPlanList={workoutPlanList}/>
+
+                    </CardContent>
+                </Card>
+                {/* {workoutPlanList.map((workout, i) => {
 
                     return (
 
@@ -130,7 +139,6 @@ export default function SimpleCard() {
                                 <br />
                                 <Divider />
                                 <br />
-                                {/* <Typography className={classes.pos} color="textSecondary"> */}
                                 <div>
                                     <p className={classes.bold}>{workout.weight1 ? workout.workout1 + ' ( ' + workout.weight1 + ' lbs)' : workout.workout1}</p>
                                     {workout.set1}
@@ -149,7 +157,6 @@ export default function SimpleCard() {
                                     <p className={classes.bold}>{workout.weight8 ? workout.workout8 + ' ( ' + workout.weight8 + ' lbs)' : workout.workout8}</p>
                                     {workout.set8}
                                 </div>
-                                {/* </Typography> */}
                             </CardContent>
                             <Typography className={classes.delete} onClick={() => handleDeleteWorkoutPlan(workout.id)}>
                                 Delete
@@ -158,7 +165,7 @@ export default function SimpleCard() {
 
                     )
 
-                })}
+                })} */}
             </div>
         </>
     );
