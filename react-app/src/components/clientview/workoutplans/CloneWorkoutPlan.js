@@ -80,8 +80,8 @@ const CloneWorkoutPlan = ({cloneId}) => {
     const [name, setName] = useState("");
     const [time, setTime] = useState("");
     const [date, setDate] = useState("");
-    const [workout1, setWorkout1] = useState("");
-    const [set1, setSet1] = useState("");
+    const [workout1, setWorkout1] = useState("example");
+    const [set1, setSet1] = useState("example");
     const [weight1, setWeight1] = useState("")
     const [workout2, setWorkout2] = useState("");
     const [set2, setSet2] = useState("");
@@ -119,11 +119,6 @@ const CloneWorkoutPlan = ({cloneId}) => {
     let targetPlan = workoutPlans.filter(plan => plan.id === plannId)
     targetPlan = targetPlan[0]
 
-    console.log('targetPlan', targetPlan)
-
-
-
-
     const workouts = useSelector((state) => state.store.workouts)
     const sortedWorkouts = Object.values(workouts)
     const intensities = useSelector((state) => state.store.intensities)
@@ -139,12 +134,12 @@ const CloneWorkoutPlan = ({cloneId}) => {
 
     const pushNames = pushWorkouts.map(push => push.name)
 
+
     useEffect(() => {
         (async () => {
-            const client = await fetchClient(client_id)
-            setClientFirstName(client.firstName)
-            setClientLastName(client.lastName)
-
+            // const client = await fetchClient(client_id)
+            // setClientFirstName(client.firstName)
+            // setClientLastName(client.lastName)
             if (targetPlan){
 
                 setName(targetPlan.name)
@@ -175,6 +170,7 @@ const CloneWorkoutPlan = ({cloneId}) => {
                 setSet8(targetPlan.set8)
                 setWeight8(targetPlan.weight8)
             }
+
 
         })();
     }, [plannId]);
@@ -448,6 +444,7 @@ const CloneWorkoutPlan = ({cloneId}) => {
     }
 
 
+
     return (
 
         <div className='profile-edit__container'>
@@ -485,8 +482,8 @@ const CloneWorkoutPlan = ({cloneId}) => {
                             <div>
                                 <FormControl className={classes.formControl}>
                                     <InputLabel htmlFor="grouped-native-select">Workouts</InputLabel>
-                                    <Select native defaultValue={workout1} id="grouped-native-select" onChange={updateWorkout1}>
-                                        <option aria-label="None" value="" />
+                                    <Select native value={workout1} id="grouped-native-select" onChange={updateWorkout1}>
+                                        <option aria-label="None" value="wattt" />
                                         <optgroup label="Push">
                                             {
                                                 pushWorkouts.map((workout, i) => {
@@ -510,7 +507,7 @@ const CloneWorkoutPlan = ({cloneId}) => {
                                 </FormControl>
                                 <FormControl className={classes.formControl}>
                                     <InputLabel htmlFor="grouped-select">Sets & Reps</InputLabel>
-                                    <Select defaultValue={set1} id="grouped-select" onChange={updateSet1}>
+                                    <Select value={set1} id="grouped-select" onChange={updateSet1}>
                                         {
                                             sortedIntensities.map((intensity, i) => {
                                                 return (
@@ -520,11 +517,11 @@ const CloneWorkoutPlan = ({cloneId}) => {
                                         }
                                     </Select>
                                 </FormControl>
-                                <TextField id='standard-basic' className={classes.inputs} value={weight1} onChange={updateWeight1} label='Weight (lbs)' autoFocus />
+                                <TextField id='standard-basic' className={classes.inputs} value={weight1} onChange={updateWeight1} label='Weight (lbs)' />
                                 <br />
                                 <FormControl className={classes.formControl}>
                                     <InputLabel htmlFor="grouped-native-select">Workouts</InputLabel>
-                                    <Select native defaultValue={workout2} id="grouped-native-select" onChange={updateWorkout2}>
+                                    <Select native value={workout2} id="grouped-native-select" onChange={updateWorkout2}>
                                         <option aria-label="None" value="" />
                                         <optgroup label="Push">
                                             {
@@ -549,7 +546,7 @@ const CloneWorkoutPlan = ({cloneId}) => {
                                 </FormControl>
                                 <FormControl className={classes.formControl}>
                                     <InputLabel htmlFor="grouped-select">Sets & Reps</InputLabel>
-                                    <Select defaultValue={set2} id="grouped-select" onChange={updateSet2}>
+                                    <Select value={set2} id="grouped-select" onChange={updateSet2}>
                                         {
                                             sortedIntensities.map((intensity, i) => {
                                                 return (
@@ -559,11 +556,11 @@ const CloneWorkoutPlan = ({cloneId}) => {
                                         }
                                     </Select>
                                 </FormControl>
-                                <TextField id='standard-basic' className={classes.inputs} value={weight2} onChange={updateWeight2} label='Weight (lbs)' autoFocus />
+                                <TextField id='standard-basic' className={classes.inputs} value={weight2} onChange={updateWeight2} label='Weight (lbs)' />
                                 <br />
                                 <FormControl className={classes.formControl}>
                                     <InputLabel htmlFor="grouped-native-select">Workouts</InputLabel>
-                                    <Select native defaultValue={workout3} id="grouped-native-select" onChange={updateWorkout3}>
+                                    <Select native value={workout3} id="grouped-native-select" onChange={updateWorkout3}>
                                         <option aria-label="None" value="" />
                                         <optgroup label="Push">
                                             {
@@ -588,7 +585,7 @@ const CloneWorkoutPlan = ({cloneId}) => {
                                 </FormControl>
                                 <FormControl className={classes.formControl}>
                                     <InputLabel htmlFor="grouped-select">Sets & Reps</InputLabel>
-                                    <Select defaultValue={set3} id="grouped-select" onChange={updateSet3}>
+                                    <Select value={set3} id="grouped-select" onChange={updateSet3}>
                                         {
                                             sortedIntensities.map((intensity, i) => {
                                                 return (
@@ -598,11 +595,11 @@ const CloneWorkoutPlan = ({cloneId}) => {
                                         }
                                     </Select>
                                 </FormControl>
-                                <TextField id='standard-basic' className={classes.inputs} value={weight3} onChange={updateWeight3} label='Weight (lbs)' autoFocus />
+                                <TextField id='standard-basic' className={classes.inputs} value={weight3} onChange={updateWeight3} label='Weight (lbs)' />
                                 <br />
                                 <FormControl className={classes.formControl}>
                                     <InputLabel htmlFor="grouped-native-select">Workouts</InputLabel>
-                                    <Select native defaultValue={workout4} id="grouped-native-select" onChange={updateWorkout4}>
+                                    <Select native value={workout4} id="grouped-native-select" onChange={updateWorkout4}>
                                         <option aria-label="None" value="" />
                                         <optgroup label="Push">
                                             {
@@ -627,7 +624,7 @@ const CloneWorkoutPlan = ({cloneId}) => {
                                 </FormControl>
                                 <FormControl className={classes.formControl}>
                                     <InputLabel htmlFor="grouped-select">Sets & Reps</InputLabel>
-                                    <Select defaultValue={set4} id="grouped-select" onChange={updateSet4}>
+                                    <Select value={set4} id="grouped-select" onChange={updateSet4}>
                                         {
                                             sortedIntensities.map((intensity, i) => {
                                                 return (
@@ -637,11 +634,11 @@ const CloneWorkoutPlan = ({cloneId}) => {
                                         }
                                     </Select>
                                 </FormControl>
-                                <TextField id='standard-basic' className={classes.inputs} value={weight4} onChange={updateWeight4} label='Weight (lbs)' autoFocus />
+                                <TextField id='standard-basic' className={classes.inputs} value={weight4} onChange={updateWeight4} label='Weight (lbs)' />
                                 <br />
                                 <FormControl className={classes.formControl}>
                                     <InputLabel htmlFor="grouped-native-select">Workouts</InputLabel>
-                                    <Select native defaultValue={workout5} id="grouped-native-select" onChange={updateWorkout5}>
+                                    <Select native value={workout5} id="grouped-native-select" onChange={updateWorkout5}>
                                         <option aria-label="None" value="" />
                                         <optgroup label="Push">
                                             {
@@ -666,7 +663,7 @@ const CloneWorkoutPlan = ({cloneId}) => {
                                 </FormControl>
                                 <FormControl className={classes.formControl}>
                                     <InputLabel htmlFor="grouped-select">Sets & Reps</InputLabel>
-                                    <Select defaultValue={set5} id="grouped-select" onChange={updateSet5}>
+                                    <Select value={set5} id="grouped-select" onChange={updateSet5}>
                                         {
                                             sortedIntensities.map((intensity, i) => {
                                                 return (
@@ -676,11 +673,11 @@ const CloneWorkoutPlan = ({cloneId}) => {
                                         }
                                     </Select>
                                 </FormControl>
-                                <TextField id='standard-basic' className={classes.inputs} value={weight5} onChange={updateWeight5} label='Weight (lbs)' autoFocus />
+                                <TextField id='standard-basic' className={classes.inputs} value={weight5} onChange={updateWeight5} label='Weight (lbs)' />
                                 <br />
                                 <FormControl className={classes.formControl}>
                                     <InputLabel htmlFor="grouped-native-select">Workouts</InputLabel>
-                                    <Select native defaultValue={workout6} id="grouped-native-select" onChange={updateWorkout6}>
+                                    <Select native value={workout6} id="grouped-native-select" onChange={updateWorkout6}>
                                         <option aria-label="None" value="" />
                                         <optgroup label="Push">
                                             {
@@ -705,7 +702,7 @@ const CloneWorkoutPlan = ({cloneId}) => {
                                 </FormControl>
                                 <FormControl className={classes.formControl}>
                                     <InputLabel htmlFor="grouped-select">Sets & Reps</InputLabel>
-                                    <Select defaultValue={set6} id="grouped-select" onChange={updateSet6}>
+                                    <Select value={set6} id="grouped-select" onChange={updateSet6}>
                                         {
                                             sortedIntensities.map((intensity, i) => {
                                                 return (
@@ -715,11 +712,11 @@ const CloneWorkoutPlan = ({cloneId}) => {
                                         }
                                     </Select>
                                 </FormControl>
-                                <TextField id='standard-basic' className={classes.inputs} value={weight6} onChange={updateWeight6} label='Weight (lbs)' autoFocus />
+                                <TextField id='standard-basic' className={classes.inputs} value={weight6} onChange={updateWeight6} label='Weight (lbs)' />
                                 <br />
                                 <FormControl className={classes.formControl}>
                                     <InputLabel htmlFor="grouped-native-select">Workouts</InputLabel>
-                                    <Select native defaultValue={workout7} id="grouped-native-select" onChange={updateWorkout7}>
+                                    <Select native value={workout7} id="grouped-native-select" onChange={updateWorkout7}>
                                         <option aria-label="None" value="" />
                                         <optgroup label="Push">
                                             {
@@ -744,7 +741,7 @@ const CloneWorkoutPlan = ({cloneId}) => {
                                 </FormControl>
                                 <FormControl className={classes.formControl}>
                                     <InputLabel htmlFor="grouped-select">Sets & Reps</InputLabel>
-                                    <Select defaultValue={set7} id="grouped-select" onChange={updateSet7}>
+                                    <Select value={set7} id="grouped-select" onChange={updateSet7}>
                                         {
                                             sortedIntensities.map((intensity, i) => {
                                                 return (
@@ -754,11 +751,11 @@ const CloneWorkoutPlan = ({cloneId}) => {
                                         }
                                     </Select>
                                 </FormControl>
-                                <TextField id='standard-basic' className={classes.inputs} value={weight7} onChange={updateWeight7} label='Weight (lbs)' autoFocus />
+                                <TextField id='standard-basic' className={classes.inputs} value={weight7} onChange={updateWeight7} label='Weight (lbs)' />
                                 <br />
                                 <FormControl className={classes.formControl}>
                                     <InputLabel htmlFor="grouped-native-select">Workouts</InputLabel>
-                                    <Select native defaultValue={workout8} id="grouped-native-select" onChange={updateWorkout8}>
+                                    <Select native value={workout8} id="grouped-native-select" onChange={updateWorkout8}>
                                         <option aria-label="None" value="" />
                                         <optgroup label="Push">
                                             {
@@ -783,7 +780,7 @@ const CloneWorkoutPlan = ({cloneId}) => {
                                 </FormControl>
                                 <FormControl className={classes.formControl}>
                                     <InputLabel htmlFor="grouped-select">Sets & Reps</InputLabel>
-                                    <Select defaultValue={set8} id="grouped-select" onChange={updateSet8}>
+                                    <Select value={set8} id="grouped-select" onChange={updateSet8}>
                                         {
                                             sortedIntensities.map((intensity, i) => {
                                                 return (
@@ -793,7 +790,7 @@ const CloneWorkoutPlan = ({cloneId}) => {
                                         }
                                     </Select>
                                 </FormControl>
-                                <TextField id='standard-basic' className={classes.inputs} value={weight8} onChange={updateWeight8} label='Weight (lbs)' autoFocus />
+                                <TextField id='standard-basic' className={classes.inputs} value={weight8} onChange={updateWeight8} label='Weight (lbs)' />
                             </div>
                             <br/>
                             <Button variant='contained' color='primary' className={classes.button} type='submit'>Submit</Button>

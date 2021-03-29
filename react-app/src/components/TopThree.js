@@ -15,7 +15,6 @@ function TopThree(props) {
     const classes = useStyles();
 
     let topThreeClients = localStorage.getItem('asd9f0393y8fgkls233fxxh');
-    console.log('TOP THREE', topThreeClients)
     topThreeClients = topThreeClients.split(',');
 
     return (

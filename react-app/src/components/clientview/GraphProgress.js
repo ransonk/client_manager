@@ -163,7 +163,6 @@ function GraphProgress() {
     exerciseRecordList.map((item, i) => {
         let scoreList = [];
         item[1].forEach(num => {
-            console.log('nummm', num)
             if (typeof (num) == 'number') {
                 scoreList.push(num)
             }
@@ -245,9 +244,6 @@ function GraphProgress() {
     // let unsortedDates = needsSorting.map
     // needsSorting.sort((a, b) => new Date(a.date) - new Date(b.date))
     // exerciseRecord[key] = needsSorting
-
-    console.log('object reorganized?', exerciseRecord)
-
 
 
 
