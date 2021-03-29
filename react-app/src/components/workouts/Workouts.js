@@ -88,7 +88,6 @@ export default function Workouts() {
     const workouts = useSelector((state) => state.store.workouts)
     // console.log('workoutsss', workouts)
     let workoutList = Object.values(workouts)
-    console.log('list', workoutList)
     let pushExercises = [];
     let pullExercises = [];
     let combinedExerciseList = [];
@@ -100,9 +99,7 @@ export default function Workouts() {
             pullExercises.push([exercise.name, exercise.id])
         }
     });
-    console.log('wowww')
-    console.log('pushhhhhhhhhhh', pushExercises)
-    console.log('pullllllllllll', pullExercises)
+
 
     const handleDeleteWorkout = async (id) => {
         const deleted = await deleteWorkout(id)

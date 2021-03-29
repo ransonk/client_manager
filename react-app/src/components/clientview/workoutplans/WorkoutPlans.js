@@ -109,6 +109,18 @@ export default function SimpleCard() {
 
                     </CardContent>
                 </Card>
+                <Card className={classes.addWorkoutPlan}>
+                    <CardContent>
+                        <br />
+                        <br />
+                        <br />
+                        <Typography variant="h5" component="h2" gutterBottom>
+                            Build Program
+                        </Typography>
+                        <SelectWorkoutPlan workoutPlanList={workoutPlanList}/>
+
+                    </CardContent>
+                </Card>
                 {/* {workoutPlanList.map((workout, i) => {
 
                     return (

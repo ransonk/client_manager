@@ -7,12 +7,13 @@ import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
-import Card from '@material-ui/core/Card'
+import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent'
 import Typography from '@material-ui/core/Typography';
-import Divider from '@material-ui/core/Divider'
+import Divider from '@material-ui/core/Divider';
+import CloneWorkoutPlan from './CloneWorkoutPlan';
 import { deleteWorkoutPlan } from '../../../services/auth';
-import {Apps} from '@material-ui/icons'
+import {Apps} from '@material-ui/icons';
 
 const useStyles = makeStyles({
     root: {
@@ -59,8 +60,11 @@ const useStyles = makeStyles({
     modify: {
         color: 'blue',
     },
-    schedule: {
+    clone: {
         color: 'lightgreen',
+        "&:hover": {
+            cursor: 'pointer'
+        }
     }
 });
 
@@ -80,6 +84,10 @@ function SelectWorkoutPlan({workoutPlanList}) {
         const deleted = await deleteWorkoutPlan(id)
     }
 
+    const createClone = async (id) => {
+        localStorage.setItem('CURRENT_PLAN', 'id')
+    }
+
     return (
         <div className='select-workout__container'>
             <a className='select-workout-plan__button'>
@@ -93,7 +101,7 @@ function SelectWorkoutPlan({workoutPlanList}) {
         <DialogTitle id="form-dialog-title">Select a Workout</DialogTitle>
         <DialogContent>
           <DialogContentText>
-            Select a Workout to edit, schedule or simply remove it!
+            Select an existing workout to reschedule or delete!
           </DialogContentText>
           <div className='workout-plan-menu'>
 
@@ -106,8 +114,8 @@ function SelectWorkoutPlan({workoutPlanList}) {
                                 <Typography variant="h5" component="h2" gutterBottom>
                                     {workout.name}
                                 </Typography>
-                            <Typography className={classes.schedule}>
-                                Schedule
+                            <Typography className={classes.clone}>
+                                <CloneWorkoutPlan cloneId={workout.id}/>
                                 </Typography>
                                 <Typography>
                                     Date: <span className={classes.title}>{workout.date}</span>
