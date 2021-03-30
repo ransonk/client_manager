@@ -61,10 +61,14 @@ const useStyles = makeStyles({
         color: 'blue',
     },
     clone: {
-        color: 'lightgreen',
+        color: 'blue',
         "&:hover": {
             cursor: 'pointer'
         }
+    },
+    dialogFooter: {
+        display: 'flex',
+        justifyContent: 'center'
     }
 });
 
@@ -114,9 +118,7 @@ function SelectWorkoutPlan({workoutPlanList}) {
                                 <Typography variant="h5" component="h2" gutterBottom>
                                     {workout.name}
                                 </Typography>
-                            <Typography className={classes.clone}>
-                                <CloneWorkoutPlan cloneId={workout.id}/>
-                                </Typography>
+
                                 <Typography>
                                     Date: <span className={classes.title}>{workout.date}</span>
                                 </Typography>
@@ -125,8 +127,8 @@ function SelectWorkoutPlan({workoutPlanList}) {
                                 </Typography>
                                 <br />
                                 <div className={classes.buttonContainer}>
-                            <Typography className={classes.modify}>
-                                Edit
+                            <Typography className={classes.clone}>
+                                <CloneWorkoutPlan cloneId={workout.id}/>
                                 </Typography>
 
 
@@ -163,12 +165,9 @@ function SelectWorkoutPlan({workoutPlanList}) {
                 })}
 </div>
         </DialogContent>
-        <DialogActions>
-          <Button onClick={handleClose} color="primary">
+        <DialogActions className={classes.dialogFooter}>
+          <Button onClick={handleClose} className={classes.delete}>
             Cancel
-          </Button>
-          <Button onClick={handleClose} color="primary">
-            Subscribe
           </Button>
         </DialogActions>
       </Dialog>
