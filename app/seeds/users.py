@@ -485,7 +485,7 @@ def seed_workoutplans():
                 workout4='Tricep Dips',
                 set4='Sets: 3 Reps: 10',
                 workout5='Push Ups',
-                set8='Sets: 4 Reps: 12',
+                set5='Sets: 4 Reps: 12',
                 time='10:00 am',
                 date='12/14/2020',
                 clientFirstName='Peter',

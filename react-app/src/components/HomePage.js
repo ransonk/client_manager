@@ -85,12 +85,14 @@ const HomePage = ({ setAuthenticated }) => {
     sortedByTimeList.sort(function (a, b) {
         return new Date('1970/01/01 ' + a) - new Date('1970/01/01 ' + b);
     })
-
     let finalWorkoutPlanList = [];
     sortedByTimeList.forEach(time => {
         allWorkoutPlans.map(item => {
             if (time === item.time) {
-                finalWorkoutPlanList.push(item)
+
+                if (!finalWorkoutPlanList.includes(item)){
+                    finalWorkoutPlanList.push(item)
+                }
             }
         })
     })
@@ -422,7 +424,7 @@ const HomePage = ({ setAuthenticated }) => {
 
 
 
-            {/* DIALOG CODE BELOW */}
+            {/* DIALOG CODE FOR CALENDAR BELOW */}
             <Dialog
                 open={open}
                 onClose={handleClose}
