@@ -100,7 +100,9 @@ function FrequencyPie() {
 
     return (
         <div>
-            <Doughnut
+            {
+                dates.length ?
+                <Doughnut
                 data={data}
                 options={{
                     title: {
@@ -121,8 +123,18 @@ function FrequencyPie() {
                         duration: 4000
                     }
                 }}
-            />
-        </div>
+                />
+                :
+                <>
+                <div>
+
+                    <h2>Targeted Exercise Frequency</h2>
+                    <br/>
+                    <p>No Data to Display</p>
+                </div>
+                </>
+            }
+                </div>
     );
 }
 
