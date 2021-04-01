@@ -46,6 +46,9 @@ const useStyles = makeStyles((theme) => ({
         position: 'absolute',
         bottom: '0'
     },
+    info: {
+        backgroundColor: '#1b4332'
+    }
 }));
 
 
@@ -352,20 +355,20 @@ const HomePage = ({ setAuthenticated }) => {
                                                     clientInfo && clientView ?
                                                     <>
                                                     <Grid container>
-                                                            <Grid item xs={12} md={12}></Grid>
-                                                            <Grid item md={3}></Grid>
-                                                            <Grid item xs={12} md={6}>
+                                                            {/* <Grid item xs={12} md={12}></Grid> */}
+                                                            <Grid item md={3} className={classes.info}></Grid>
+                                                            <Grid item xs={12} md={6} className={classes.info}>
                                                             <ClientInfo />
                                                             </Grid>
-                                                            <Grid item md={3}>
+                                                            <Grid item md={3} className={classes.info}>
                                                             <EditClientProfile />
 
                                                             </Grid>
-                                                            <Grid item md={3}></Grid>
-                                                            <Grid item xs={12} md={6}>
+                                                            <Grid item md={3} className={classes.info}></Grid>
+                                                            <Grid item xs={12} md={6} className={classes.info}>
                                                             <ClientPayment />
                                                             </Grid>
-                                                            <Grid item md={3}></Grid>
+                                                            <Grid item md={3} className={classes.info}></Grid>
                                                             </Grid>
                                                     </>
                                                         :
