@@ -367,16 +367,16 @@ const HomePage = ({ setAuthenticated }) => {
                                                             <>
                                                             <Grid container>
                                                             <Grid item xs={12} md={12}></Grid>
-                                                            <Grid item md={3}></Grid>
-                                                            <Grid item xs={12} md={6}>
+                                                            <Grid item md={2}></Grid>
+                                                            <Grid item xs={12} md={8}>
                                                                 <GraphProgress />
                                                             </Grid>
-                                                            <Grid item md={3}></Grid>
-                                                            <Grid item md={3}></Grid>
-                                                            <Grid item xs={12} md={6}>
+                                                            <Grid item md={2}></Grid>
+                                                            <Grid item md={2}></Grid>
+                                                            <Grid item xs={12} md={8}>
                                                                 <FrequencyPie />
                                                             </Grid>
-                                                            <Grid item md={3}></Grid>
+                                                            <Grid item md={2}></Grid>
                                                             </Grid>
                                                             </>
                                                                 :

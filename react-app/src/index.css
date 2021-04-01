@@ -124,6 +124,7 @@ body{
     justify-content: center;
     color: white;
     height: 80vh;
+    overflow-y: auto;
 }
 
 .chart-container{
