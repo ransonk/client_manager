@@ -66,20 +66,22 @@ const HomePage = ({ setAuthenticated }) => {
     const [clientPlan, setClientPlan] = useState(false);
     const [clientView, setClientView] = useState(false);
     const [selectedClient, setSelectedClient] = useState("")
-    // window.location.reload();
+    const [time, setTime] = useState()
+
+    const tick = () => {
+        let today = new Date();
+        setTime(today.toLocaleTimeString())
+    }
+
+    useEffect(() => {
+        setInterval(tick, 1000);
+    }, [])
+
+
     let trainerId = useSelector(state => state.store.current_trainer.id)
     let allWorkoutPlans = useSelector(state => state.store.allWorkoutPlans)
     allWorkoutPlans = Object.values(allWorkoutPlans)
-    // console.log('all the plans ', allWorkoutPlans)
 
-
-
-
-
-
-
-    //SORT BY TIME BELOW!
-    //possibly coordinate color of total client session bars with timeslots in schedule
 
     let sortedByTimeList = allWorkoutPlans.map(item => item.time)
     sortedByTimeList.sort(function (a, b) {
@@ -99,13 +101,10 @@ const HomePage = ({ setAuthenticated }) => {
 
     let Event = finalWorkoutPlanList.map(plan => {
         let targetDate = plan.date.split('/')
-        // console.log('TARGET DATE???', targetDate)
         let tMonth = targetDate[0] - 1
         let tDay = targetDate[1]
         let tYear = targetDate[2]
-        // console.log('tMonth', tMonth)
-        // console.log('tDay', tDay)
-        // console.log('tYear', tYear)
+
 
         return {
             title: plan.time,
@@ -261,7 +260,14 @@ const HomePage = ({ setAuthenticated }) => {
                     <Grid item md={2} className='side__margin'></Grid>
                     <Grid item md={12} className='content__title-bar'>
 
+                    <h2>
+                        {date1}
+                    </h2>
                             <p className='content__title-text' onClick={handleClickTrain}>Train</p>
+                    <h2>
+                        {time}
+                    </h2>
+
 
                     </Grid>
 
@@ -419,8 +425,6 @@ const HomePage = ({ setAuthenticated }) => {
 
             </Grid>
             <Grid item xs={12} md={12} className='invisibar'></Grid>
-            <Footer className={classes.footer} />
-
 
 
 
