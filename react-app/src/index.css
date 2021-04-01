@@ -20,19 +20,15 @@
 
 
 html{
-    overflow: auto;
+    overflow: none;
 
     /* background-color: red; */
     background-image: url('./images/meghan-holmes-buWcS7G1_28-unsplash.jpg');
     background-size: contain;
     overflow-x: hidden;
+    overflow-y: hidden;
     width: 100%;
 
-}
-
-body{
-    width: 100%;
-    height: 100%;
 }
 
 .logo{
@@ -69,7 +65,7 @@ body{
     font-weight: bold;
     font-size: 1.3em;
     position: relative;
-    top: 1rem;
+    bottom: 1rem;
 }
 
 .content__title-text:hover{
@@ -80,8 +76,9 @@ body{
     display: flex;
     background-color: rgba(0, 0, 0, 0.4);
     position: relative;
-    text-align: center;
-    justify-content: center;
+    /* text-align: center; */
+    align-items: flex-end;
+    justify-content: space-between;
     color: white;
     height: 4rem;
     border-top-left-radius: 20px;
@@ -124,6 +121,7 @@ body{
     justify-content: center;
     color: white;
     height: 80vh;
+    overflow-y: auto;
 }
 
 .chart-container{
@@ -270,19 +268,6 @@ body{
     display: inline-block;
     transform: scale(0.98);
 }
-
-body::-webkit-scrollbar {
-    width: 1.5em;
-  }
-
-  body::-webkit-scrollbar-track {
-    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
-  }
-
-  body::-webkit-scrollbar-thumb {
-    background-color: white;
-    outline: 1px solid #99c1de;
-  }
 
 .MuiTableContainer-root, .MuiTable-root{
     /* max-width: 90% !important; */
@@ -594,79 +579,40 @@ body::-webkit-scrollbar {
     padding-bottom: 1.5rem;
     text-align: center;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: white;
+    background-color: black;
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
 }
 
 .clientinfo__info{
     display: block;
     text-align: center;
-    /* width: 35rem; */
     height: 20rem;
     position: relative;
-    /* left: 5rem; */
-    /* top: 3rem; */
-    /* border-radius: 5px; */
-    /* padding-left: 2rem;
-    padding-right: 2rem; */
     padding-bottom: 5rem;
-    /* width: 100%; */
-    /* margin-right: 0.5rem; */
     color: #bde0fe;
     background-color: transparent;
-    /* background-color: #fcd5ce; */
-    /* box-shadow:
-    inset -3px -3px 7px #ffffff73,
-    inset 3px 3px 5px
-    rgba(94, 104, 121, .288) */
-    /* box-shadow: -2px -2px 8px rgba(255, 255, 255, 1),
-    -2px -2px 12px rgba(255, 255, 255, 0.5),
-    inset 2px 2px 4px rgba(255, 255, 255, 0.1),
-    6px 6px 8px rgba(0, 0, 0, 0.15); */
 }
 
 .clientinfo__payment{
     display: block;
     text-align: center;
-    /* width: 40rem; */
     height: 15rem;
     position: relative;
-    /* top: 3rem; */
-    /* margin-left: -20rem; */
     bottom: 7rem;
-    /* border-radius: 5px; */
-    /* padding-left: 2rem; */
-    /* padding-right: 2rem; */
-    /* padding-bottom: 5rem; */
     color: #bde0fe;
     background-color: transparent;
-    /* box-shadow:
-    inset -3px -3px 7px #ffffff73,
-    inset 3px 3px 5px
-    rgba(94, 104, 121, .288) */
-    /* box-shadow: -2px -2px 8px rgba(255, 255, 255, 1),
-    -2px -2px 12px rgba(255, 255, 255, 0.5),
-    inset 2px 2px 4px rgba(255, 255, 255, 0.1),
-    6px 6px 8px rgba(0, 0, 0, 0.15); */
 }
 
 .clientinfo__clientcard{
     display: flex;
     justify-content: space-evenly;
     overflow: auto;
-    /* padding: 1rem; */
-    /* margin-right: 2rem; */
-    /* margin-left: 1rem; */
     padding-top: 1rem;
     padding-bottom: 1rem;
-    /* padding-left: rem; */
-    /* width: 26rem; */
     color: white;
-    background-color: black;
-    border: 1px solid white;
-    /* font-size: 1.2em; */
-    /* box-shadow:
-    inset -3px -3px 7px #ffffff73,
-    inset 3px 3px 5px
-    #A3B1C6 */
+    background-color: rgba(255, 255, 255, 0.3);
 }
 
 .clientinfo__clientcard::-webkit-scrollbar {
@@ -686,7 +632,6 @@ body::-webkit-scrollbar {
 .title__header{
     font-size: 3em;
     color: #bde0fe;
-    /* background-color: #1a2230; */
 }
 
 @media only screen and (max-width: 1400px) {
@@ -701,21 +646,13 @@ body::-webkit-scrollbar {
     justify-content: space-evenly;
     padding: 1rem;
     padding-top: 1rem;
-    /* margin-left: 1rem; */
     padding-bottom: 3rem;
-    /* margin-right: 1rem; */
     color: white;
-    background-color: black;
-    border: 1px solid white;
-    /* box-shadow:
-    inset -3px -3px 7px #ffffff73,
-    inset 3px 3px 5px
-    #A3B1C6 */
+    background-color: rgba(255, 255, 255, 0.3);
 }
 
 .clientinfo__info__contact{
     border: 1px solid transparent;
-    /* border-radius: 3px; */
     display: flex;
     flex-direction: column;
     margin-right: 0.5rem;
@@ -732,10 +669,8 @@ body::-webkit-scrollbar {
 
 .clientinfo__info__payment{
     border: 1px solid transparent;
-    /* border-radius: 3px; */
     display: flex;
     flex-direction: column;
-    /* margin-right: 2rem; */
     text-align: center;
 }
 
@@ -743,7 +678,6 @@ body::-webkit-scrollbar {
     justify-content: flex-start;
 }
 
-/* home - client / workout section */
 .home-page__container{
     display: flex;
     flex-direction: column;
@@ -765,9 +699,6 @@ body::-webkit-scrollbar {
     margin-bottom: 2rem;
     padding-bottom: 2rem;
     background-color: #c4dfd7;
-    /* box-shadow:
-    inset -3px -3px 7px #ffffff73,
-    inset 3px 3px 5px #bdbfb8 */
     box-shadow: -2px -2px 8px rgba(255, 255, 255, 1),
     -2px -2px 12px rgba(255, 255, 255, 0.5),
     inset 2px 2px 4px rgba(255, 255, 255, 0.1),
@@ -798,24 +729,13 @@ body::-webkit-scrollbar {
     font-size: 2rem;
     font-family: Calibri;
     font-weight: 800;
-    /* width: 10rem; */
     height: 3.2rem;
     position: relative;
     top: 1rem;
-    /* left: 7rem; */
-    /* top: 1rem; */
     margin-top: 0.5rem;
     margin-bottom: 3rem;
     background-color: #212c3d;
     border-bottom: 1px solid black;
-    /* box-shadow:
-    inset -3px -3px 7px #ffffff73,
-    inset 3px 3px 5px
-    rgba(94, 104, 121, .288) */
-    /* box-shadow: -2px -2px 8px rgba(255, 255, 255, 1),
-    -2px -2px 12px rgba(255, 255, 255, 0.5),
-    inset 2px 2px 4px rgba(255, 255, 255, 0.1),
-    6px 6px 8px rgba(0, 0, 0, 0.15); */
 }
 
 
@@ -843,10 +763,6 @@ body::-webkit-scrollbar {
     inset -3px -3px 7px #A3B1C6,
     inset 3px 3px 5px
      #ffffff
-    /* background-color: white;
-    box-shadow:
-    -6px -6px 16px 0 rgba(0, 0, 0, 0.25),
-    8px 8px 12px 0 rgba(255, 255, 255, 0.3); */
 }
 
 .home-clients__info:hover{
@@ -858,25 +774,6 @@ body::-webkit-scrollbar {
     display: block;
     text-align: center;
     width: 30rem;
-    /* height: 25rem; */
-    /* margin-top: 3rem; */
-    /* border-radius: 5px; */
-    /* background-color: #212c3d; */
-    /* margin-bottom: 3rem; */
-    /* color: black; */
-    /* box-shadow: -2px -2px 8px rgba(255, 255, 255, 1),
-    -2px -2px 12px rgba(255, 255, 255, 0.5),
-    inset 2px 2px 4px rgba(255, 255, 255, 0.1),
-    6px 6px 8px rgba(0, 0, 0, 0.15); */
-    /* box-shadow:
-    inset -3px -3px 7px #A3B1C6,
-    inset 3px 3px 5px
-     #ffffff */
-    /* box-shadow:
-    inset -3px -3px 7px #ffffff73,
-    inset 3px 3px 5px
-    rgba(94, 104, 121, .288) */
-
 }
 
 .home-clients__payment::-webkit-scrollbar {
@@ -954,8 +851,6 @@ body::-webkit-scrollbar {
 
 .form__container{
     position: relative;
-    /* left: 5rem;
-    top: 15rem; */
     width: 40%;
     height: auto;
 }
@@ -985,25 +880,14 @@ body::-webkit-scrollbar {
 
 .client-view__workout-plans{
     display: block;
-    /* text-align: center; */
-    /* align-content: center; */
     position: relative;
     bottom: 3rem;
-    /* left: 30rem; */
-    /* width: auto; */
     height: 27rem;
-    /* bottom: 10rem; */
-    /* border-radius: 20px; */
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     background-color: #24364e;
-    /* padding-bottom: 2rem; */
     padding-right: 3rem;
     border-bottom: 1px solid black;
     overflow-x: auto;
-    /* box-shadow: -2px -2px 8px rgba(255, 255, 255, 1),
-    -2px -2px 12px rgba(255, 255, 255, 0.5),
-    inset 2px 2px 4px rgba(255, 255, 255, 0.1),
-    6px 6px 8px rgba(0, 0, 0, 0.15); */
 }
 
 @media only screen and (max-width: 960px) {
@@ -1061,10 +945,6 @@ body::-webkit-scrollbar {
     inset 2px 2px 4px rgba(255, 255, 255, 0.1),
     6px 6px 8px rgba(0, 0, 0, 0.15);
     align-items: center;
-    /* box-shadow:
-    inset -3px -3px 7px #ffffff73,
-    inset 3px 3px 5px
-    rgba(94, 104, 121, .288); */
     padding-right: 1rem;
 
 }
@@ -1100,7 +980,6 @@ body::-webkit-scrollbar {
     height: 25rem;
     border-radius: 20px;
     position: relative;
-    /* bottom: 10rem; */
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     background-color: #b0c9c2;
     padding-bottom: 2rem;
@@ -1123,10 +1002,6 @@ body::-webkit-scrollbar {
     top: 4rem;
     padding-top: 1rem;
     padding-bottom: 0.4rem;
-    /* box-shadow:
-    inset -3px -3px 7px #ffffff73,
-    inset 3px 3px 5px
-    rgba(94, 104, 121, .288); */
     padding-left: 1rem;
     padding-right: 1rem;
     box-shadow: -2px -2px 8px rgba(255, 255, 255, 1),
@@ -1153,17 +1028,12 @@ body::-webkit-scrollbar {
 
 .workoutplans__container{
     display: flex;
-    /* margin-top: 3rem; */
-    /* overflow-x: hidden; */
-    /* margin-left: 3rem; */
-    /* padding-left: 3rem; */
 }
 
 .today-plan-sched__container{
     display: flex;
     margin-top: 3rem;
     overflow-x: hidden;
-    /* margin-left: 3rem;; */
 }
 
 .today-plan-sched__container-hidden{
@@ -1171,26 +1041,7 @@ body::-webkit-scrollbar {
     display: flex;
     margin-top: 3rem;
     overflow-x: hidden;
-    /* margin-left: 3rem;; */
 }
-
-/* .workoutplans__container:hover{
-    overflow-x: auto;
-}
-
-.workoutplans__container::-webkit-scrollbar {
-
-    background-color: #dbded5;
-}
-
-.workoutplans__container::-webkit-scrollbar-track {
-    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
-}
-
-.workoutplans__container::-webkit-scrollbar-thumb {
-    background-color: white;
-    outline: none;
-  } */
 
 
   .overview-button-today-on{
@@ -1199,9 +1050,7 @@ body::-webkit-scrollbar {
     height: 3rem;
     position: relative;
     width: 5rem;
-    /* left: 10.4rem; */
     top: 1rem;
-    /* right: 2px; */
     padding-top: 1rem;
     padding-left: 1rem;
     padding-bottom: 0.4rem;
@@ -1220,7 +1069,6 @@ body::-webkit-scrollbar {
     position: relative;
     top: 1rem;
     width: 5rem;
-    /* left: 10.47rem; */
     padding-top: 1rem;
     padding-left: 1rem;
     padding-bottom: 0.4rem;
@@ -1261,7 +1109,6 @@ body::-webkit-scrollbar {
     height: 3rem;
     position: relative;
     justify-content: center;
-    /* left: px; */
     width: 7rem;
     top: 1rem;
     padding-top: 1rem;
@@ -1288,7 +1135,6 @@ body::-webkit-scrollbar {
 }
 
 
-/* modals */
 #alert-dialog-title{
     color:
     #3174ad !important;
@@ -1331,7 +1177,6 @@ body::-webkit-scrollbar {
     height: 3rem;
     text-align: center;
     position: relative;
-    /* bottom: 3rem; */
 }
 
 .marginTop{
@@ -1343,7 +1188,7 @@ body::-webkit-scrollbar {
     justify-content: center;
 }
 
-/* p {
-    color: white;
-    opacity: 1;
-} */
+.chartjs-render-monitor{
+    height: 300;
+    color: rgb(101, 139, 109)
+}

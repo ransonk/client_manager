@@ -46,6 +46,15 @@ const useStyles = makeStyles((theme) => ({
         position: 'absolute',
         bottom: '0'
     },
+    info: {
+        backgroundColor: 'rgba(101, 139, 109, 0.5)'
+    },
+    dateHeader: {
+        paddingLeft: '1rem'
+    },
+    timeHeader: {
+        paddingRight: '1rem'
+    }
 }));
 
 
@@ -66,20 +75,22 @@ const HomePage = ({ setAuthenticated }) => {
     const [clientPlan, setClientPlan] = useState(false);
     const [clientView, setClientView] = useState(false);
     const [selectedClient, setSelectedClient] = useState("")
-    // window.location.reload();
+    const [time, setTime] = useState()
+
+    const tick = () => {
+        let today = new Date();
+        setTime(today.toLocaleTimeString())
+    }
+
+    useEffect(() => {
+        setInterval(tick, 1000);
+    }, [])
+
+
     let trainerId = useSelector(state => state.store.current_trainer.id)
     let allWorkoutPlans = useSelector(state => state.store.allWorkoutPlans)
     allWorkoutPlans = Object.values(allWorkoutPlans)
-    // console.log('all the plans ', allWorkoutPlans)
 
-
-
-
-
-
-
-    //SORT BY TIME BELOW!
-    //possibly coordinate color of total client session bars with timeslots in schedule
 
     let sortedByTimeList = allWorkoutPlans.map(item => item.time)
     sortedByTimeList.sort(function (a, b) {
@@ -99,13 +110,10 @@ const HomePage = ({ setAuthenticated }) => {
 
     let Event = finalWorkoutPlanList.map(plan => {
         let targetDate = plan.date.split('/')
-        // console.log('TARGET DATE???', targetDate)
         let tMonth = targetDate[0] - 1
         let tDay = targetDate[1]
         let tYear = targetDate[2]
-        // console.log('tMonth', tMonth)
-        // console.log('tDay', tDay)
-        // console.log('tYear', tYear)
+
 
         return {
             title: plan.time,
@@ -261,7 +269,14 @@ const HomePage = ({ setAuthenticated }) => {
                     <Grid item md={2} className='side__margin'></Grid>
                     <Grid item md={12} className='content__title-bar'>
 
+                    <h2 className={classes.dateHeader}>
+                        {date1}
+                    </h2>
                             <p className='content__title-text' onClick={handleClickTrain}>Train</p>
+                    <h2 className={classes.timeHeader}>
+                        {time}
+                    </h2>
+
 
                     </Grid>
 
@@ -306,7 +321,10 @@ const HomePage = ({ setAuthenticated }) => {
                 </Grid>
                 <Grid item xs={12} md={6} className='main__content'>
                     {   stats && !clientView ?
+                    <>
                         <ClientFrequency />
+                        <h1>hello</h1>
+                        </>
                                 :
                                 calendar && !clientView ?
                                     <Calendar
@@ -316,7 +334,6 @@ const HomePage = ({ setAuthenticated }) => {
                                         startAccessor="start"
                                         endAccessor="end"
                                         style={{ height: 500 }}
-                                        // onSelectEvent={(e) => alert(e.title)}
                                         onSelectEvent={(e) => handleClickOpen(e)}
                                         popup
 
@@ -346,20 +363,20 @@ const HomePage = ({ setAuthenticated }) => {
                                                     clientInfo && clientView ?
                                                     <>
                                                     <Grid container>
-                                                            <Grid item xs={12} md={12}></Grid>
-                                                            <Grid item md={3}></Grid>
-                                                            <Grid item xs={12} md={6}>
+                                                            {/* <Grid item xs={12} md={12}></Grid> */}
+                                                            <Grid item md={3} className={classes.info}></Grid>
+                                                            <Grid item xs={12} md={6} className={classes.info}>
                                                             <ClientInfo />
                                                             </Grid>
-                                                            <Grid item md={3}>
+                                                            <Grid item md={3} className={classes.info}>
                                                             <EditClientProfile />
 
                                                             </Grid>
-                                                            <Grid item md={3}></Grid>
-                                                            <Grid item xs={12} md={6}>
+                                                            <Grid item md={3} className={classes.info}></Grid>
+                                                            <Grid item xs={12} md={6} className={classes.info}>
                                                             <ClientPayment />
                                                             </Grid>
-                                                            <Grid item md={3}></Grid>
+                                                            <Grid item md={3} className={classes.info}></Grid>
                                                             </Grid>
                                                     </>
                                                         :
@@ -367,16 +384,16 @@ const HomePage = ({ setAuthenticated }) => {
                                                             <>
                                                             <Grid container>
                                                             <Grid item xs={12} md={12}></Grid>
-                                                            <Grid item md={3}></Grid>
-                                                            <Grid item xs={12} md={6}>
+                                                            <Grid item md={2}></Grid>
+                                                            <Grid item xs={12} md={8}>
                                                                 <GraphProgress />
                                                             </Grid>
-                                                            <Grid item md={3}></Grid>
-                                                            <Grid item md={3}></Grid>
-                                                            <Grid item xs={12} md={6}>
+                                                            <Grid item md={2}></Grid>
+                                                            <Grid item md={2}></Grid>
+                                                            <Grid item xs={12} md={8}>
                                                                 <FrequencyPie />
                                                             </Grid>
-                                                            <Grid item md={3}></Grid>
+                                                            <Grid item md={2}></Grid>
                                                             </Grid>
                                                             </>
                                                                 :
@@ -419,8 +436,6 @@ const HomePage = ({ setAuthenticated }) => {
 
             </Grid>
             <Grid item xs={12} md={12} className='invisibar'></Grid>
-            <Footer className={classes.footer} />
-
 
 
 

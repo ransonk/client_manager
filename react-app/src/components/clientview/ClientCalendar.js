@@ -16,53 +16,10 @@ const StyledTableCell = withStyles((theme) => ({
 }))(TableCell);
 
 const useStyles = makeStyles({
-    table: {
-        // minWidth: 650,
-    },
     head: {
         backgroundColor: theme.palette.common.black,
         color: theme.palette.common.white,
     },
-
-
-
-    // root: {
-    //     minWidth: 275,
-    //     margin: '0.5rem',
-    //     overflowX: 'hidden',
-    //     overflowY: 'hidden',
-    //     height: '20rem',
-    //     '&:hover': {
-    //         overflowY: 'auto',
-    //     }
-    // },
-    // bullet: {
-    //     display: 'inline-block',
-    //     margin: '0 2px',
-    //     transform: 'scale(0.8)',
-    // },
-    // title: {
-    //     fontSize: 14,
-    //     color: '#457b9d',
-    // },
-    // pos: {
-    //     marginBottom: 0,
-    // },
-    // bold: {
-    //     fontWeight: 'bold',
-    // },
-    // delete: {
-    //     position: 'relative',
-    //     color: '#e63946',
-    //     fontWeight: 'bold',
-    //     "&:hover": {
-    //         cursor: 'pointer'
-    //     }
-    // },
-    // cardHeader: {
-    //     marginBottom: '1rem',
-    //     color: 'blue'
-    // }
 });
 
 export default function ClientCalendar() {
@@ -107,7 +64,6 @@ export default function ClientCalendar() {
     } else if (month.startsWith('Dec')) {
         mms = 12;
     } else {
-        // console.log('month translator broken')
     }
 
 
@@ -124,23 +80,6 @@ export default function ClientCalendar() {
     todaysWorkout = todaysWorkout[0]
     if (!todaysWorkout) return null;
     let time = todaysWorkout.time
-    // let todayTime = todaysWorkout[0].time
-    // setTime(todaysWorkout.time)
-
-
-
-
-
-    // let tomorrowsWorkout = workoutPlanList.filter((workout) => {
-    //     let workoutMonth = workout.date.toString().split('/')[0]
-    //     let workoutDay = workout.date.toString().split('/')[1]
-
-    //     if (day2 == workoutDay && mms == workoutMonth) {
-    //         return workout
-    //     } else {
-    //         return
-    //     }
-    // })
 
     return (
 
@@ -259,3 +198,13 @@ export default function ClientCalendar() {
 
     )
 }
+
+//insert :::
+{/* <>
+                <div>
+
+                    <h2>Nothing Scheduled for Today</h2>
+                    <br/>
+                    <p>No Data to Display</p>
+                </div>
+                </> */}
