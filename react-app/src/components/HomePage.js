@@ -26,6 +26,7 @@ import GraphProgress from './clientview/GraphProgress';
 import FrequencyPie from './clientview/FrequencyPie';
 import WorkoutPlans from './clientview/workoutplans/WorkoutPlans'
 import EditClientProfile from './clientview/EditClientProfile';
+import SessionFrequency from './clientview/SessionFrequency';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -322,8 +323,19 @@ const HomePage = ({ setAuthenticated }) => {
                 <Grid item xs={12} md={6} className='main__content'>
                     {   stats && !clientView ?
                     <>
+                        <Grid container>
+                        {/* <Grid item xs={12} md={12}></Grid> */}
+                        <Grid item md={2}></Grid>
+                        <Grid item xs={12} md={8}>
                         <ClientFrequency />
-                        <h1>hello</h1>
+                        </Grid>
+                        <Grid item md={2}></Grid>
+                        <Grid item md={2}></Grid>
+                        <Grid item xs={12} md={8}>
+                        <SessionFrequency />
+                        </Grid>
+                        <Grid item md={2}></Grid>
+                        </Grid>
                         </>
                                 :
                                 calendar && !clientView ?
