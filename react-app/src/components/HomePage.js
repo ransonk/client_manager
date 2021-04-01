@@ -47,7 +47,13 @@ const useStyles = makeStyles((theme) => ({
         bottom: '0'
     },
     info: {
-        backgroundColor: '#1b4332'
+        backgroundColor: 'rgba(101, 139, 109, 0.5)'
+    },
+    dateHeader: {
+        paddingLeft: '1rem'
+    },
+    timeHeader: {
+        paddingRight: '1rem'
     }
 }));
 
@@ -263,11 +269,11 @@ const HomePage = ({ setAuthenticated }) => {
                     <Grid item md={2} className='side__margin'></Grid>
                     <Grid item md={12} className='content__title-bar'>
 
-                    <h2>
+                    <h2 className={classes.dateHeader}>
                         {date1}
                     </h2>
                             <p className='content__title-text' onClick={handleClickTrain}>Train</p>
-                    <h2>
+                    <h2 className={classes.timeHeader}>
                         {time}
                     </h2>
 
@@ -315,7 +321,10 @@ const HomePage = ({ setAuthenticated }) => {
                 </Grid>
                 <Grid item xs={12} md={6} className='main__content'>
                     {   stats && !clientView ?
+                    <>
                         <ClientFrequency />
+                        <h1>hello</h1>
+                        </>
                                 :
                                 calendar && !clientView ?
                                     <Calendar
@@ -325,7 +334,6 @@ const HomePage = ({ setAuthenticated }) => {
                                         startAccessor="start"
                                         endAccessor="end"
                                         style={{ height: 500 }}
-                                        // onSelectEvent={(e) => alert(e.title)}
                                         onSelectEvent={(e) => handleClickOpen(e)}
                                         popup
 
