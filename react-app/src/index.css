@@ -174,7 +174,7 @@ html{
     transform: scale(0.98);
 }
 
-.addClient{
+/* .addClient{
     margin-top: 1.2rem;
     margin-left: 6.5rem;
     position: relative;
@@ -188,7 +188,7 @@ html{
     font-size: 18px;
     border-radius: 50px;
 
-}
+} */
 
 .addClient:hover{
     cursor: pointer;
