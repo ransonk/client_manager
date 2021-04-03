@@ -94,9 +94,6 @@ export default function ClientCalendar() {
 
 
         let time = todaysWorkout.time
-        console.log('workoutplan list', workoutPlanList)
-        console.log('todaysworkout', todaysWorkout)
-
 
         return (
 
