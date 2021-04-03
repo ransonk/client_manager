@@ -29,7 +29,6 @@ function GraphProgress() {
 
 
     const sortedData = historicalData.sort((a, b) => new Date(a.date) - new Date(b.date))
-    console.log('sortedData', sortedData)
 
 
     sortedData.forEach(record => {
@@ -118,10 +117,10 @@ function GraphProgress() {
 
 
     let exerciseRecordList = Object.entries(exerciseRecord)
-    console.log('exercise Record List', exerciseRecordList)
     let datasetRecords = []
     let borderColors = ['#f94144', '#f3722c', '#f8961e', '#f9c74f', '#90be6d', "#43aa8b", "#577590", "#0081a7", "#fed9b7", '#f07167', "#00f5d4", "#d0f4de", "#c8553d", "#b09e99"]
 
+    console.log('exerciseRec', exerciseRecordList)
 
     exerciseRecordList.map((item, i) => {
         let scoreList = [];

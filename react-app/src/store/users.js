@@ -237,7 +237,6 @@ export const fetchRoutineList = async (workoutPlanId) => {
     result.routinelists.forEach(routinelist => {
         routinelists[routinelist.id] = routinelist
     })
-    console.log('fetchRoutineList returns:', routinelists)
     return routinelists
 }
 

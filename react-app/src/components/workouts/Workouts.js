@@ -125,7 +125,6 @@ export default function Workouts() {
 
 
 
-    console.log('combined???', combinedExerciseList)
 
 
     return (

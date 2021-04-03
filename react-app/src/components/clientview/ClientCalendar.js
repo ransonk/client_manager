@@ -78,12 +78,26 @@ export default function ClientCalendar() {
         }
     })
     todaysWorkout = todaysWorkout[0]
-    if (!todaysWorkout) return null;
-    let time = todaysWorkout.time
+    if (!todaysWorkout) {
+        return (
+                <>
+                <div>
 
-    return (
+                    <h2>Nothing Scheduled for Today</h2>
+                    <br/>
+                    <p>No Data to Display</p>
+                </div>
+                </>
+        )
 
-        <div className='workoutplans__container'>
+    } else {
+
+
+        let time = todaysWorkout.time
+
+        return (
+
+            <div className='workoutplans__container'>
 
 
             <TableContainer component={Paper}>
@@ -97,114 +111,90 @@ export default function ClientCalendar() {
                         </TableRow>
                     </TableHead>
                     <TableBody>
-                        {workoutPlanList.map(workout => {
+                    <TableRow key={todaysWorkout.name}>
+                        <TableCell component="th" scope="row">
+                            {todaysWorkout.workout1}
+                        </TableCell>
+                        <TableCell align="right">{(todaysWorkout.set1.split(' '))[1]}</TableCell>
+                        <TableCell align="right">{(todaysWorkout.set1.split(' '))[3]}</TableCell>
+                        <TableCell align="right">{todaysWorkout.weight1 ? todaysWorkout.weight1 : 'None'}</TableCell>
+                    </TableRow>
+                    {todaysWorkout.workout2 ?
+                        <TableRow key={todaysWorkout.name}>
+                            <TableCell component="th" scope="row">
+                                {todaysWorkout.workout2}
+                            </TableCell>
+                            <TableCell align="right">{(todaysWorkout.set2.split(' '))[1]}</TableCell>
+                            <TableCell align="right">{(todaysWorkout.set2.split(' '))[3]}</TableCell>
+                            <TableCell align="right">{todaysWorkout.weight2 ? todaysWorkout.weight2 : 'None'}</TableCell>
+                        </TableRow>
+                        : <TableRow></TableRow>}
+                    {todaysWorkout.workout3 ?
+                        <TableRow key={todaysWorkout.name}>
+                            <TableCell component="th" scope="row">
+                                {todaysWorkout.workout3}
+                            </TableCell>
+                            <TableCell align="right">{(todaysWorkout.set3.split(' '))[1]}</TableCell>
+                            <TableCell align="right">{(todaysWorkout.set3.split(' '))[3]}</TableCell>
+                            <TableCell align="right">{todaysWorkout.weight3 ? todaysWorkout.weight3 : 'None'}</TableCell>
+                        </TableRow>
+                        : <TableRow></TableRow>}
+                    {todaysWorkout.workout4 ?
+                        <TableRow key={todaysWorkout.name}>
+                            <TableCell component="th" scope="row">
+                                {todaysWorkout.workout4}
+                            </TableCell>
+                            <TableCell align="right">{(todaysWorkout.set4.split(' '))[1]}</TableCell>
+                            <TableCell align="right">{(todaysWorkout.set4.split(' '))[3]}</TableCell>
+                            <TableCell align="right">{todaysWorkout.weight4 ? todaysWorkout.weight4 : 'None'}</TableCell>
+                        </TableRow>
+                        : <TableRow></TableRow>}
+                    {todaysWorkout.workout5 ?
+                        <TableRow key={todaysWorkout.name}>
+                            <TableCell component="th" scope="row">
+                                {todaysWorkout.workout5}
+                            </TableCell>
+                            <TableCell align="right">{(todaysWorkout.set5.split(' '))[1]}</TableCell>
+                            <TableCell align="right">{(todaysWorkout.set5.split(' '))[3]}</TableCell>
+                            <TableCell align="right">{todaysWorkout.weight5 ? todaysWorkout.weight5 : 'None'}</TableCell>
+                        </TableRow>
+                        : <TableRow></TableRow>}
+                    {todaysWorkout.workout6 ?
+                        <TableRow key={todaysWorkout.name}>
+                            <TableCell component="th" scope="row">
+                                {todaysWorkout.workout6}
+                            </TableCell>
+                            <TableCell align="right">{(todaysWorkout.set6.split(' '))[1]}</TableCell>
+                            <TableCell align="right">{(todaysWorkout.set6.split(' '))[3]}</TableCell>
+                            <TableCell align="right">{todaysWorkout.weight6 ? todaysWorkout.weight6 : 'None'}</TableCell>
+                        </TableRow>
+                        : <TableRow></TableRow>}
+                    {todaysWorkout.workout7 ?
+                        <TableRow key={todaysWorkout.name}>
+                            <TableCell component="th" scope="row">
+                                {todaysWorkout.workout7}
+                            </TableCell>
+                            <TableCell align="right">{(todaysWorkout.set7.split(' '))[1]}</TableCell>
+                            <TableCell align="right">{(todaysWorkout.set7.split(' '))[3]}</TableCell>
+                            <TableCell align="right">{todaysWorkout.weight7 ? todaysWorkout.weight7 : 'None'}</TableCell>
+                        </TableRow>
+                        : <TableRow></TableRow>}
+                    {todaysWorkout.workout8 ?
+                        <TableRow key={todaysWorkout.name}>
+                            <TableCell component="th" scope="row">
+                                {todaysWorkout.workout8}
+                            </TableCell>
+                            <TableCell align="right">{(todaysWorkout.set8.split(' '))[1]}</TableCell>
+                            <TableCell align="right">{(todaysWorkout.set8.split(' '))[3]}</TableCell>
+                            <TableCell align="right">{todaysWorkout.weight8 ? todaysWorkout.weight8 : 'None'}</TableCell>
+                        </TableRow>
+                        : <TableRow></TableRow>}
 
-                            let m1 = workout.date.toString().split('/')[0]
-                            let d1 = workout.date.toString().split('/')[1]
-
-                            if (day1 == d1 && mms == m1) {
-
-
-                                return (
-
-                                    <>
-                                        <TableRow key={workout.name}>
-                                            <TableCell component="th" scope="row">
-                                                {workout.workout1}
-                                            </TableCell>
-                                            <TableCell align="right">{(workout.set1.split(' '))[1]}</TableCell>
-                                            <TableCell align="right">{(workout.set1.split(' '))[3]}</TableCell>
-                                            <TableCell align="right">{workout.weight1 ? workout.weight1 : 'None'}</TableCell>
-                                        </TableRow>
-                                        {workout.workout2 ?
-                                            <TableRow key={workout.name}>
-                                                <TableCell component="th" scope="row">
-                                                    {workout.workout2}
-                                                </TableCell>
-                                                <TableCell align="right">{(workout.set2.split(' '))[1]}</TableCell>
-                                                <TableCell align="right">{(workout.set2.split(' '))[3]}</TableCell>
-                                                <TableCell align="right">{workout.weight2 ? workout.weight2 : 'None'}</TableCell>
-                                            </TableRow>
-                                            : <TableRow></TableRow>}
-                                        {workout.workout3 ?
-                                            <TableRow key={workout.name}>
-                                                <TableCell component="th" scope="row">
-                                                    {workout.workout3}
-                                                </TableCell>
-                                                <TableCell align="right">{(workout.set3.split(' '))[1]}</TableCell>
-                                                <TableCell align="right">{(workout.set3.split(' '))[3]}</TableCell>
-                                                <TableCell align="right">{workout.weight3 ? workout.weight3 : 'None'}</TableCell>
-                                            </TableRow>
-                                            : <TableRow></TableRow>}
-                                        {workout.workout4 ?
-                                            <TableRow key={workout.name}>
-                                                <TableCell component="th" scope="row">
-                                                    {workout.workout4}
-                                                </TableCell>
-                                                <TableCell align="right">{(workout.set4.split(' '))[1]}</TableCell>
-                                                <TableCell align="right">{(workout.set4.split(' '))[3]}</TableCell>
-                                                <TableCell align="right">{workout.weight4 ? workout.weight4 : 'None'}</TableCell>
-                                            </TableRow>
-                                            : <TableRow></TableRow>}
-                                        {workout.workout5 ?
-                                            <TableRow key={workout.name}>
-                                                <TableCell component="th" scope="row">
-                                                    {workout.workout5}
-                                                </TableCell>
-                                                <TableCell align="right">{(workout.set5.split(' '))[1]}</TableCell>
-                                                <TableCell align="right">{(workout.set5.split(' '))[3]}</TableCell>
-                                                <TableCell align="right">{workout.weight5 ? workout.weight5 : 'None'}</TableCell>
-                                            </TableRow>
-                                            : <TableRow></TableRow>}
-                                        {workout.workout6 ?
-                                            <TableRow key={workout.name}>
-                                                <TableCell component="th" scope="row">
-                                                    {workout.workout6}
-                                                </TableCell>
-                                                <TableCell align="right">{(workout.set6.split(' '))[1]}</TableCell>
-                                                <TableCell align="right">{(workout.set6.split(' '))[3]}</TableCell>
-                                                <TableCell align="right">{workout.weight6 ? workout.weight6 : 'None'}</TableCell>
-                                            </TableRow>
-                                            : <TableRow></TableRow>}
-                                        {workout.workout7 ?
-                                            <TableRow key={workout.name}>
-                                                <TableCell component="th" scope="row">
-                                                    {workout.workout7}
-                                                </TableCell>
-                                                <TableCell align="right">{(workout.set7.split(' '))[1]}</TableCell>
-                                                <TableCell align="right">{(workout.set7.split(' '))[3]}</TableCell>
-                                                <TableCell align="right">{workout.weight7 ? workout.weight7 : 'None'}</TableCell>
-                                            </TableRow>
-                                            : <TableRow></TableRow>}
-                                        {workout.workout8 ?
-                                            <TableRow key={workout.name}>
-                                                <TableCell component="th" scope="row">
-                                                    {workout.workout8}
-                                                </TableCell>
-                                                <TableCell align="right">{(workout.set8.split(' '))[1]}</TableCell>
-                                                <TableCell align="right">{(workout.set8.split(' '))[3]}</TableCell>
-                                                <TableCell align="right">{workout.weight8 ? workout.weight8 : 'None'}</TableCell>
-                                            </TableRow>
-                                            : <TableRow></TableRow>}
-                                    </>
-
-                                )
-                            }
-                        })}
                     </TableBody>
                 </Table>
             </TableContainer>
         </div >
 
-    )
+)
 }
-
-//insert :::
-{/* <>
-                <div>
-
-                    <h2>Nothing Scheduled for Today</h2>
-                    <br/>
-                    <p>No Data to Display</p>
-                </div>
-                </> */}
+}
