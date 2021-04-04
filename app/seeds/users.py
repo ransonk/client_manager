@@ -58,24 +58,10 @@ def seed_clients():
                 trainer_id=1,
                 password='client')
 
-    demo3 = Client(firstName='Warren',
-                lastName='Tamagri',
-                email='warren@aa.io',
-                phone='123-123-1234',
-                weight='123 lbs',
-                age='43',
-                duedate='11/21/21',
-                amount='1,000',
-                paid=True,
-                noshows=4,
-                cancellations=1,
-                trainer_id=1,
-                password='client')
 
     db.session.add(demo)
     db.session.add(demo1)
     db.session.add(demo2)
-    db.session.add(demo3)
 
     db.session.commit()
 
@@ -92,7 +78,7 @@ def seed_history():
    workout4Score=75,
    workout5='Decline Bench',
    workout5Score=35,
-    date='12/28/2020',
+    date='01/01/2021',
     client_id=1,
     trainer_id=1)
 
@@ -107,7 +93,7 @@ def seed_history():
    workout4Score=75,
    workout5='Crunches',
    workout5Score=35,
-    date='12/29/2020',
+    date='01/02/2021',
     client_id=1,
     trainer_id=1)
 
@@ -123,7 +109,7 @@ def seed_history():
    workout4Score=75,
    workout5='Lateral Raises',
    workout5Score=35,
-    date='12/30/2020',
+    date='01/03/2021',
     client_id=1,
     trainer_id=1)
 
@@ -138,7 +124,7 @@ def seed_history():
    workout4Score=75,
    workout5='Decline Bench',
    workout5Score=35,
-    date='01/01/2020',
+    date='01/04/2021',
     client_id=1,
     trainer_id=1)
 
@@ -153,7 +139,7 @@ def seed_history():
    workout4Score=75,
    workout5='Crunches',
    workout5Score=35,
-    date='01/02/2020',
+    date='01/05/2021',
     client_id=1,
     trainer_id=1)
 
@@ -169,7 +155,7 @@ def seed_history():
    workout4Score=75,
    workout5='Lateral Raises',
    workout5Score=35,
-    date='01/03/2020',
+    date='01/06/2021',
     client_id=1,
     trainer_id=1)
 
@@ -184,7 +170,7 @@ def seed_history():
    workout4Score=75,
    workout5='Decline Bench',
    workout5Score=35,
-    date='01/04/2020',
+    date='01/07/2021',
     client_id=1,
     trainer_id=1)
 
@@ -199,7 +185,7 @@ def seed_history():
    workout4Score=75,
    workout5='Crunches',
    workout5Score=35,
-    date='01/05/2020',
+    date='01/08/2021',
     client_id=1,
     trainer_id=1)
 
@@ -215,7 +201,7 @@ def seed_history():
    workout4Score=75,
    workout5='Lateral Raises',
    workout5Score=35,
-    date='01/06/2020',
+    date='01/09/2021',
     client_id=1,
     trainer_id=1)
 
@@ -230,7 +216,7 @@ def seed_history():
    workout4Score=75,
    workout5='Decline Bench',
    workout5Score=35,
-    date='01/07/2020',
+    date='01/10/2021',
     client_id=1,
     trainer_id=1)
 
@@ -245,7 +231,7 @@ def seed_history():
    workout4Score=75,
    workout5='Crunches',
    workout5Score=35,
-    date='01/08/2020',
+    date='01/11/2021',
     client_id=1,
     trainer_id=1)
 
@@ -261,7 +247,7 @@ def seed_history():
    workout4Score=75,
    workout5='Lateral Raises',
    workout5Score=35,
-    date='01/09/2020',
+    date='01/12/2021',
     client_id=1,
     trainer_id=1)
 
@@ -276,7 +262,7 @@ def seed_history():
    workout4Score=75,
    workout5='Decline Bench',
    workout5Score=35,
-    date='01/10/2020',
+    date='01/13/2021',
     client_id=1,
     trainer_id=1)
 
@@ -291,7 +277,7 @@ def seed_history():
    workout4Score=75,
    workout5='Crunches',
    workout5Score=35,
-    date='01/11/2020',
+    date='01/14/2021',
     client_id=1,
     trainer_id=1)
 
@@ -307,7 +293,7 @@ def seed_history():
    workout4Score=75,
    workout5='Lateral Raises',
    workout5Score=35,
-    date='01/12/2020',
+    date='01/15/2021',
     client_id=1,
     trainer_id=1)
 
@@ -322,7 +308,7 @@ def seed_history():
    workout4Score=75,
    workout5='Crunches',
    workout5Score=35,
-    date='01/01/2020',
+    date='01/01/2021',
     client_id=2,
     trainer_id=1)
 
@@ -337,7 +323,7 @@ def seed_history():
    workout4Score=75,
    workout5='Crunches',
    workout5Score=35,
-    date='01/02/2020',
+    date='01/02/2021',
     client_id=2,
     trainer_id=1)
 
@@ -352,7 +338,7 @@ def seed_history():
    workout4Score=75,
    workout5='Crunches',
    workout5Score=35,
-    date='01/03/2020',
+    date='01/03/2021',
     client_id=2,
     trainer_id=1)
 
@@ -367,7 +353,7 @@ def seed_history():
    workout4Score=75,
    workout5='Crunches',
    workout5Score=35,
-    date='01/04/2020',
+    date='01/04/2021',
     client_id=2,
     trainer_id=1)
 
@@ -382,7 +368,7 @@ def seed_history():
    workout4Score=75,
    workout5='Crunches',
    workout5Score=35,
-    date='01/05/2020',
+    date='01/05/2021',
     client_id=2,
     trainer_id=1)
 
@@ -397,7 +383,7 @@ def seed_history():
    workout4Score=75,
    workout5='Crunches',
    workout5Score=35,
-    date='01/06/2020',
+    date='01/06/2021',
     client_id=2,
     trainer_id=1)
 
@@ -412,7 +398,7 @@ def seed_history():
    workout4Score=75,
    workout5='Crunches',
    workout5Score=35,
-    date='01/07/2020',
+    date='01/07/2021',
     client_id=2,
     trainer_id=1)
 
@@ -427,7 +413,7 @@ def seed_history():
    workout4Score=75,
    workout5='Crunches',
    workout5Score=35,
-    date='01/08/2020',
+    date='01/08/2021',
     client_id=2,
     trainer_id=1)
 
@@ -521,51 +507,36 @@ def seed_history():
     client_id=3,
     trainer_id=1)
 
-    demo29 = History(name="Bodyweight Routine",
-   workout1='Crunches',
-   workout1Score=100,
-   workout2='Bicycle Kicks',
-   workout2Score=100,
-   workout3='Pull Ups',
-   workout3Score=95,
-   workout4='Tricep Dips',
-   workout4Score=40,
-   workout5='Push Ups',
-   workout5Score=60,
-    date='02/07/2021',
-    client_id=3,
-    trainer_id=1)
 
-    demo30 = History(name="Lower Body",
-   workout1='Lunges',
-   workout1Score=100,
-   workout2='Calf Raises',
-   workout2Score=100,
-   workout3='Squats',
-   workout3Score=95,
-   workout4='Leg Curl',
-   workout4Score=75,
-   workout5='Squats',
-   workout5Score=35,
-    date='02/08/2021',
-    client_id=3,
-    trainer_id=1)
-
-
-
-    db.session.add(demo)
-    db.session.add(demo1)
-    db.session.add(demo2)
-    db.session.add(demo3)
-    db.session.add(demo4)
-    db.session.add(demo5)
-    db.session.add(demo6)
-    db.session.add(demo7)
-    db.session.add(demo8)
-    db.session.add(demo9)
-    db.session.add(demo10)
-    db.session.add(demo11)
-    db.session.add(demo12)
+    db.session.add_all([demo,
+                        demo1,
+                        demo3,
+                        demo4,
+                        demo5,
+                        demo6,
+                        demo7,
+                        demo8,
+                        demo9,
+                        demo10,
+                        demo11,
+                        demo12,
+                        demo13,
+                        demo14,
+                        demo15,
+                        demo16,
+                        demo17,
+                        demo18,
+                        demo19,
+                        demo20,
+                        demo21,
+                        demo22,
+                        demo23,
+                        demo24,
+                        demo25,
+                        demo26,
+                        demo27,
+                        demo28,
+                        ])
 
     db.session.commit()
 
