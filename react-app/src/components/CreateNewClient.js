@@ -9,6 +9,7 @@ import Checkbox from '@material-ui/core/Checkbox';
 // import 'fontsource-roboto';
 import clsx from 'clsx';
 import { createClient } from '../services/auth';
+import { PlaylistAdd } from '@material-ui/icons'
 
 const useStyles = makeStyles((theme) => ({
     modal: {
@@ -219,6 +220,7 @@ const CreateNewClient = ({ authenticated, setAuthenticated, props }) => {
         <div className='profile-edit__container'>
 
             <a className='addClient' onClick={handleOpenModal}>
+                {/* <PlaylistAdd /> */}
                 +
             </a>
             <Modal

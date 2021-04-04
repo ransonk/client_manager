@@ -25,6 +25,7 @@ import ExpandLess from '@material-ui/icons/ExpandLess';
 import ExpandMore from '@material-ui/icons/ExpandMore';
 import StarBorder from '@material-ui/icons/StarBorder';
 import { createClient } from '../services/auth';
+import CreateNewClient from './CreateNewClient';
 
 
 
@@ -377,6 +378,10 @@ export default function ClientDrawer({ authenticated, setAuthenticated, props, c
                         <ListItemIcon><DirectionsRunTwoTone /></ListItemIcon>
                     </ListItem>
                 ))}
+                <ListItem>
+                <ListItemText primary='Add Client' />
+    < CreateNewClient />
+                </ListItem>
     </List>
             <div className='profile-edit__container'>
 
