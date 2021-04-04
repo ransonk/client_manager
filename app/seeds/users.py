@@ -58,10 +58,40 @@ def seed_clients():
                 trainer_id=1,
                 password='client')
 
+    demo3 = Client(firstName='Gabe',
+                lastName='Lane',
+                email='gabe@aa.io',
+                phone='123-123-1234',
+                weight='123 lbs',
+                age='43',
+                duedate='11/21/21',
+                amount='35.99',
+                paid=True,
+                noshows=0,
+                cancellations=1,
+                trainer_id=1,
+                password='client')
+
+    demo4 = Client(firstName='Roo',
+                lastName='Knorr',
+                email='roo@aa.io',
+                phone='123-123-1234',
+                weight='123 lbs',
+                age='43',
+                duedate='11/21/21',
+                amount='35.99',
+                paid=True,
+                noshows=0,
+                cancellations=1,
+                trainer_id=1,
+                password='client')
+
 
     db.session.add(demo)
     db.session.add(demo1)
     db.session.add(demo2)
+    db.session.add(demo3)
+    db.session.add(demo4)
 
     db.session.commit()
 
@@ -507,6 +537,51 @@ def seed_history():
     client_id=3,
     trainer_id=1)
 
+    demo29 = History(name="Bodyweight Routine",
+   workout1='Crunches',
+   workout1Score=100,
+   workout2='Bicycle Kicks',
+   workout2Score=100,
+   workout3='Pull Ups',
+   workout3Score=95,
+   workout4='Tricep Dips',
+   workout4Score=40,
+   workout5='Push Ups',
+   workout5Score=60,
+    date='01/05/2021',
+    client_id=4,
+    trainer_id=1)
+
+    demo30 = History(name="Lower Body",
+   workout1='Lunges',
+   workout1Score=100,
+   workout2='Calf Raises',
+   workout2Score=100,
+   workout3='Squats',
+   workout3Score=95,
+   workout4='Leg Curl',
+   workout4Score=75,
+   workout5='Squats',
+   workout5Score=35,
+    date='01/06/2021',
+    client_id=4,
+    trainer_id=1)
+
+    demo31 = History(name="Lower Body",
+   workout1='Lunges',
+   workout1Score=100,
+   workout2='Calf Raises',
+   workout2Score=100,
+   workout3='Squats',
+   workout3Score=95,
+   workout4='Leg Curl',
+   workout4Score=75,
+   workout5='Squats',
+   workout5Score=35,
+    date='01/06/2021',
+    client_id=5,
+    trainer_id=1)
+
 
     db.session.add_all([demo,
                         demo1,
@@ -536,6 +611,8 @@ def seed_history():
                         demo26,
                         demo27,
                         demo28,
+                        demo30,
+                        demo31,
                         ])
 
     db.session.commit()
@@ -670,7 +747,7 @@ def seed_workoutplans():
                 workout5='Lateral Raises',
                 set5='Sets: 3 Reps: 10',
                 time='8:00 am',
-                date='12/14/2020',
+                date='04/14/2020',
                 clientFirstName='Mike',
                 clientLastName='Shuff',
                 client_id=1,
@@ -688,7 +765,7 @@ def seed_workoutplans():
                 workout5='Push Ups',
                 set5='Sets: 4 Reps: 12',
                 time='10:00 am',
-                date='12/14/2020',
+                date='04/14/2020',
                 clientFirstName='Peter',
                 clientLastName='Kang',
                 client_id=2,
@@ -704,7 +781,7 @@ def seed_workoutplans():
                 workout4='Pull Ups',
                 set4='Sets: 3 Reps: 10',
                 time='3:00 pm',
-                date='12/14/2020',
+                date='04/15/2020',
                 clientFirstName='Derek',
                 clientLastName='Kim',
                 client_id=3,
@@ -720,7 +797,7 @@ def seed_workoutplans():
                 workout4='Squats',
                 set4='Sets: 3 Reps: 10',
                 time='6:00 pm',
-                date='12/14/2020',
+                date='04/17/2020',
                 clientFirstName='Warren',
                 clientLastName='Tamagri',
                 client_id=1,
@@ -734,7 +811,7 @@ def seed_workoutplans():
                 workout3='Crunches',
                 set3='Sets: 2 Reps: 20',
                 time='6:00 am',
-                date='12/15/2020',
+                date='04/20/2020',
                 clientFirstName='Derek',
                 clientLastName='Kim',
                 client_id=3,
@@ -758,10 +835,34 @@ def seed_workoutplans():
                 workout8='Bicep Curls',
                 set8='Sets: 3 Reps: 10',
                 time='12:00 pm',
-                date='12/15/2020',
+                date='04/23/2020',
                 clientFirstName='Peter',
                 clientLastName='Kang',
                 client_id=2,
+                trainer_id=1)
+
+    demo6 = WorkoutPlan(name='Full Body',
+                workout1='Push Ups',
+                set1='Sets: 3 Reps: 10',
+                workout2='Pull Ups',
+                set2='Sets: 4 Reps: 12',
+                workout3='Squats',
+                set3='Sets: 5 Reps: 6',
+                workout4='Shoulder Press',
+                set4='Sets: 3 Reps: 10',
+                workout5='Crunches',
+                set5='Sets: 2 Reps: 20',
+                workout6='Lateral Raises',
+                set6='Sets: 3 Reps: 10',
+                workout7='Sumo Squats',
+                set7='Sets: 4 Reps: 12',
+                workout8='Bicep Curls',
+                set8='Sets: 3 Reps: 10',
+                time='12:00 pm',
+                date='04/23/2020',
+                clientFirstName='Gabe',
+                clientLastName='Lane',
+                client_id=4,
                 trainer_id=1)
 
     db.session.add(demo)
