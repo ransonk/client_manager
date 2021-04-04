@@ -78,7 +78,7 @@ def seed_history():
    workout4Score=75,
    workout5='Decline Bench',
    workout5Score=35,
-    date='01/01/2021',
+    date='03/01/2021',
     client_id=1,
     trainer_id=1)
 
@@ -93,7 +93,7 @@ def seed_history():
    workout4Score=75,
    workout5='Crunches',
    workout5Score=35,
-    date='01/02/2021',
+    date='03/02/2021',
     client_id=1,
     trainer_id=1)
 
@@ -109,7 +109,7 @@ def seed_history():
    workout4Score=75,
    workout5='Lateral Raises',
    workout5Score=35,
-    date='01/03/2021',
+    date='03/03/2021',
     client_id=1,
     trainer_id=1)
 
@@ -124,7 +124,7 @@ def seed_history():
    workout4Score=75,
    workout5='Decline Bench',
    workout5Score=35,
-    date='01/04/2021',
+    date='03/04/2021',
     client_id=1,
     trainer_id=1)
 
@@ -139,7 +139,7 @@ def seed_history():
    workout4Score=75,
    workout5='Crunches',
    workout5Score=35,
-    date='01/05/2021',
+    date='03/05/2021',
     client_id=1,
     trainer_id=1)
 
@@ -155,7 +155,7 @@ def seed_history():
    workout4Score=75,
    workout5='Lateral Raises',
    workout5Score=35,
-    date='01/06/2021',
+    date='03/06/2021',
     client_id=1,
     trainer_id=1)
 
@@ -170,7 +170,7 @@ def seed_history():
    workout4Score=75,
    workout5='Decline Bench',
    workout5Score=35,
-    date='01/07/2021',
+    date='03/07/2021',
     client_id=1,
     trainer_id=1)
 
@@ -185,7 +185,7 @@ def seed_history():
    workout4Score=75,
    workout5='Crunches',
    workout5Score=35,
-    date='01/08/2021',
+    date='03/08/2021',
     client_id=1,
     trainer_id=1)
 
@@ -201,7 +201,7 @@ def seed_history():
    workout4Score=75,
    workout5='Lateral Raises',
    workout5Score=35,
-    date='01/09/2021',
+    date='03/09/2021',
     client_id=1,
     trainer_id=1)
 
@@ -216,7 +216,7 @@ def seed_history():
    workout4Score=75,
    workout5='Decline Bench',
    workout5Score=35,
-    date='01/10/2021',
+    date='03/10/2021',
     client_id=1,
     trainer_id=1)
 
@@ -231,7 +231,7 @@ def seed_history():
    workout4Score=75,
    workout5='Crunches',
    workout5Score=35,
-    date='01/11/2021',
+    date='03/11/2021',
     client_id=1,
     trainer_id=1)
 
@@ -247,7 +247,7 @@ def seed_history():
    workout4Score=75,
    workout5='Lateral Raises',
    workout5Score=35,
-    date='01/12/2021',
+    date='03/12/2021',
     client_id=1,
     trainer_id=1)
 
@@ -262,7 +262,7 @@ def seed_history():
    workout4Score=75,
    workout5='Decline Bench',
    workout5Score=35,
-    date='01/13/2021',
+    date='03/13/2021',
     client_id=1,
     trainer_id=1)
 
@@ -277,7 +277,7 @@ def seed_history():
    workout4Score=75,
    workout5='Crunches',
    workout5Score=35,
-    date='01/14/2021',
+    date='03/14/2021',
     client_id=1,
     trainer_id=1)
 
@@ -293,7 +293,7 @@ def seed_history():
    workout4Score=75,
    workout5='Lateral Raises',
    workout5Score=35,
-    date='01/15/2021',
+    date='03/15/2021',
     client_id=1,
     trainer_id=1)
 
@@ -428,7 +428,7 @@ def seed_history():
    workout4Score=40,
    workout5='Push Ups',
    workout5Score=60,
-    date='03/01/2021',
+    date='01/01/2021',
     client_id=3,
     trainer_id=1)
 
@@ -443,7 +443,7 @@ def seed_history():
    workout4Score=75,
    workout5='Squats',
    workout5Score=35,
-    date='03/02/2021',
+    date='01/02/2021',
     client_id=3,
     trainer_id=1)
 
@@ -458,7 +458,7 @@ def seed_history():
    workout4Score=40,
    workout5='Push Ups',
    workout5Score=60,
-    date='03/03/2021',
+    date='01/03/2021',
     client_id=3,
     trainer_id=1)
 
@@ -473,7 +473,7 @@ def seed_history():
    workout4Score=75,
    workout5='Squats',
    workout5Score=35,
-    date='03/04/2021',
+    date='01/04/2021',
     client_id=3,
     trainer_id=1)
 
@@ -488,7 +488,7 @@ def seed_history():
    workout4Score=40,
    workout5='Push Ups',
    workout5Score=60,
-    date='03/05/2021',
+    date='01/05/2021',
     client_id=3,
     trainer_id=1)
 
@@ -503,7 +503,7 @@ def seed_history():
    workout4Score=75,
    workout5='Squats',
    workout5Score=35,
-    date='03/06/2021',
+    date='01/06/2021',
     client_id=3,
     trainer_id=1)
 
