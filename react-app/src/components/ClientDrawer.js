@@ -159,7 +159,8 @@ const useStyles = makeStyles((theme) => ({
         marginTop: '1.5rem',
     },
     clientList: {
-        overflowX: 'auto'
+        overflowY: 'auto',
+        height: '450px'
     }
 }));
 
@@ -353,31 +354,36 @@ export default function ClientDrawer({ authenticated, setAuthenticated, props, c
 
     return (
         <>
+        <div className={classes.clientList}>
+
             <List
-            className={classes.clientList}
-        selected
+            selected
       component="nav"
       aria-labelledby="nested-list-subheader"
       subheader={
-        <ListSubheader component="div" id="nested-list-subheader">
+          <ListSubheader component="div" id="nested-list-subheader">
           Current Clients
         </ListSubheader>
       }
       className={classes.root}
-    >
+      >
       {clientsArray.map(({ firstName, lastName, id }) => (
-                    <ListItem
-                    divider
-                    button
-                    key={id}
-                    className={`client-${id}`}
-                    style={id === selectedClient ? myStyle : null }
-                    onClick={() => handlePress(id)}>
+          <ListItem
+          divider
+          button
+          key={id}
+          className={`client-${id}`}
+          style={id === selectedClient ? myStyle : null }
+          onClick={() => handlePress(id)}>
 
                         <ListItemText primary={firstName + ' ' + lastName} />
                         <ListItemIcon><DirectionsRunTwoTone /></ListItemIcon>
                     </ListItem>
                 ))}
+    </List>
+                </div>
+    <List>
+
                 <ListItem>
                 <ListItemText primary='Add Client' />
     < CreateNewClient />

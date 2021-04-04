@@ -220,8 +220,7 @@ const CreateNewClient = ({ authenticated, setAuthenticated, props }) => {
         <div className='profile-edit__container'>
 
             <a className='addClient' onClick={handleOpenModal}>
-                {/* <PlaylistAdd /> */}
-                +
+                <PlaylistAdd />
             </a>
             <Modal
                 aria-labelledby="transition-modal-title"
