@@ -585,6 +585,7 @@ def seed_history():
 
     db.session.add_all([demo,
                         demo1,
+                        demo2,
                         demo3,
                         demo4,
                         demo5,
@@ -611,8 +612,9 @@ def seed_history():
                         demo26,
                         demo27,
                         demo28,
+                        demo29,
                         demo30,
-                        demo31,
+                        demo31
                         ])
 
     db.session.commit()
@@ -691,20 +693,25 @@ def seed_workouts():
                 type='push',
                 trainer_id=1,)
 
-    db.session.add(demo)
-    db.session.add(demo1)
-    db.session.add(demo2)
-    db.session.add(demo3)
-    db.session.add(demo4)
-    db.session.add(demo5)
-    db.session.add(demo6)
-    db.session.add(demo7)
-    db.session.add(demo8)
-    db.session.add(demo9)
-    db.session.add(demo10)
-    db.session.add(demo11)
-    db.session.add(demo12)
-    db.session.add(demo13)
+    db.session.add_all([demo,
+                        demo1,
+                        demo2,
+                        demo3,
+                        demo4,
+                        demo5,
+                        demo6,
+                        demo7,
+                        demo8,
+                        demo9,
+                        demo10,
+                        demo11,
+                        demo12,
+                        demo13,
+                        demo14,
+                        demo15,
+                        demo16,
+                        demo17
+                        ])
 
     db.session.commit()
 
