@@ -548,7 +548,7 @@ def seed_history():
    workout4Score=40,
    workout5='Push Ups',
    workout5Score=60,
-    date='01/05/2021',
+    date='02/05/2021',
     client_id=4,
     trainer_id=1)
 
@@ -563,7 +563,7 @@ def seed_history():
    workout4Score=75,
    workout5='Squats',
    workout5Score=35,
-    date='01/06/2021',
+    date='02/06/2021',
     client_id=4,
     trainer_id=1)
 
@@ -578,7 +578,7 @@ def seed_history():
    workout4Score=75,
    workout5='Squats',
    workout5Score=35,
-    date='01/06/2021',
+    date='02/06/2021',
     client_id=5,
     trainer_id=1)
 
