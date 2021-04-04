@@ -428,7 +428,7 @@ def seed_history():
    workout4Score=40,
    workout5='Push Ups',
    workout5Score=60,
-    date='02/01/2021',
+    date='03/01/2021',
     client_id=3,
     trainer_id=1)
 
@@ -443,7 +443,7 @@ def seed_history():
    workout4Score=75,
    workout5='Squats',
    workout5Score=35,
-    date='02/02/2021',
+    date='03/02/2021',
     client_id=3,
     trainer_id=1)
 
@@ -458,7 +458,7 @@ def seed_history():
    workout4Score=40,
    workout5='Push Ups',
    workout5Score=60,
-    date='02/03/2021',
+    date='03/03/2021',
     client_id=3,
     trainer_id=1)
 
@@ -473,7 +473,7 @@ def seed_history():
    workout4Score=75,
    workout5='Squats',
    workout5Score=35,
-    date='02/04/2021',
+    date='03/04/2021',
     client_id=3,
     trainer_id=1)
 
@@ -488,7 +488,7 @@ def seed_history():
    workout4Score=40,
    workout5='Push Ups',
    workout5Score=60,
-    date='02/05/2021',
+    date='03/05/2021',
     client_id=3,
     trainer_id=1)
 
@@ -503,7 +503,7 @@ def seed_history():
    workout4Score=75,
    workout5='Squats',
    workout5Score=35,
-    date='02/06/2021',
+    date='03/06/2021',
     client_id=3,
     trainer_id=1)
 
