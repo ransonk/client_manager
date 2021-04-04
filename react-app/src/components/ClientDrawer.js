@@ -156,6 +156,9 @@ const useStyles = makeStyles((theme) => ({
     },
     radio: {
         marginTop: '1.5rem',
+    },
+    clientList: {
+        overflowX: 'auto'
     }
 }));
 
@@ -350,6 +353,7 @@ export default function ClientDrawer({ authenticated, setAuthenticated, props, c
     return (
         <>
             <List
+            className={classes.clientList}
         selected
       component="nav"
       aria-labelledby="nested-list-subheader"
