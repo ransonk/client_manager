@@ -681,7 +681,7 @@ def seed_workouts():
                 trainer_id=1,)
 
     demo17 = Workout(name='Lateral Pulldown',
-                type='push',
+                type='pull',
                 trainer_id=1,)
 
     db.session.add_all([demo,

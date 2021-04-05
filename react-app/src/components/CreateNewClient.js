@@ -109,6 +109,9 @@ const useStyles = makeStyles((theme) => ({
     },
     radio: {
         marginTop: '1.5rem',
+    },
+    helperText: {
+        color: 'red'
     }
 }));
 
@@ -242,16 +245,16 @@ const CreateNewClient = ({ authenticated, setAuthenticated, props }) => {
                             <Typography variant='h4' className={classes.editHeading}>
                                 Create a Client
                             </Typography>
-                            <TextField id='standard-basic' value={firstName} onChange={updateFirstName} label='First Name' autoFocus />
-                            <TextField id='standard-basic' value={lastName} onChange={updateLastName} label='Last Name' />
-                            <TextField id='standard-basic' value={email} onChange={updateEmail} label='Email' />
+                            <TextField id='standard-basic' FormHelperTextProps={{className: classes.helperText}} helperText='*Required' value={firstName} onChange={updateFirstName} label='First Name' autoFocus />
+                            <TextField id='standard-basic' FormHelperTextProps={{className: classes.helperText}} helperText='*Required' value={lastName} onChange={updateLastName} label='Last Name' />
+                            <TextField id='standard-basic' FormHelperTextProps={{className: classes.helperText}} helperText='*Required' value={email} onChange={updateEmail} label='Email' />
                             <TextField id='standard-basic' value={phone} onChange={updatePhone} label='Phone' />
                             <TextField id='standard-basic' value={weight} onChange={updateWeight} label='Weight' />
                             <TextField id='standard-basic' value={age} onChange={updateAge} label='Age' />
                             <TextField id='standard-basic' value={duedate} onChange={updateDueDate} label='Due Date' />
                             <TextField id='standard-basic' value={amount} onChange={updateAmount} label='Amount' />
-                            <TextField id='standard-basic' type="password" value={password} onChange={updatePassword} label='Password' />
-                            <TextField id='standard-basic' type="password" value={repeatPassword} onChange={updateRepeatPassword} label='Repeat Password' />
+                            <TextField id='standard-basic' FormHelperTextProps={{className: classes.helperText}} helperText='*Required' type="password" value={password} onChange={updatePassword} label='Password' />
+                            <TextField id='standard-basic' FormHelperTextProps={{className: classes.helperText}} helperText='*Required' type="password" value={repeatPassword} onChange={updateRepeatPassword} label='Repeat Password' />
                             <div className={classes.paid}>
 
                                 <p>Paid</p>
