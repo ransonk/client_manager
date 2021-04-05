@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { useDispatch, useSelector } from "react-redux";
+import React from 'react';
+import { useSelector } from "react-redux";
 import { makeStyles } from '@material-ui/core/styles';
 import Timeline from '@material-ui/lab/Timeline';
 import TimelineItem from '@material-ui/lab/TimelineItem';
@@ -70,21 +70,6 @@ export default function TomorrowsClients() {
 
     let allPlansObj = useSelector(state => state.store.todaysPlans)
     let allPlans = Object.values(allPlansObj)
-    // console.log('hola', allPlans)
-
-
-
-    // let date = new Date();
-    // let dd = date.getDate();
-    // let mm = date.getMonth() + 1;
-
-    // let yyyy = date.getFullYear();
-    // if (dd < 10) { dd = '0' + dd }
-    // if (mm < 10) { mm = '0' + mm }
-    // let date1 = mm + '/' + dd + '/' + yyyy;
-
-
-
 
     const today = new Date()
     let month = today.toString().split(' ')[1]
@@ -122,7 +107,6 @@ export default function TomorrowsClients() {
     } else if (month.startsWith('Dec')) {
         mms = 12;
     } else {
-        // console.log('month translator broken')
     }
 
     let tomorrowslist = allPlans.filter((plan) => {
@@ -151,14 +135,7 @@ export default function TomorrowsClients() {
             }
         })
     })
-    // console.log('final list?: ', finalList)
 
-    // let times = ['01:00 am', '06:00 pm', '12:00 pm', '03:00 am', '12:00 am'];
-
-    // times.sort(function (a, b) {
-    //     return new Date('1970/01/01 ' + a) - new Date('1970/01/01 ' + b);
-    // });
-    // console.log('sorted?', times);
 
 
     return (

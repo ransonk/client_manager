@@ -5,7 +5,6 @@ import { makeStyles } from '@material-ui/core/styles';
 import Backdrop from '@material-ui/core/Backdrop';
 import Fade from '@material-ui/core/Fade';
 import { fetchClient } from '../../store/users';
-// import 'fontsource-roboto';
 import clsx from 'clsx';
 import { createWorkout } from '../../services/auth';
 
@@ -112,8 +111,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const CreateNewWorkout = (props) => {
-    // const currentUser = useSelector((state) => state.store.current_user)
-    // const idd = currentUser.id
+
     const classes = useStyles();
     const [openModal, setOpenModal] = React.useState(false);
     const [name, setName] = useState("");

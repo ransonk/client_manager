@@ -1,12 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useSelector } from 'react-redux'
-import { Avatar, Typography, Button, Modal, TextField, RadioGroup, Radio, FormLabel, FormControl, Dialog } from '@material-ui/core';
+import { Typography, Button, TextField, Dialog } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import Backdrop from '@material-ui/core/Backdrop';
 import Fade from '@material-ui/core/Fade';
 import { Redirect } from 'react-router-dom';
 import Checkbox from '@material-ui/core/Checkbox';
-// import 'fontsource-roboto';
 import clsx from 'clsx';
 import { createClient } from '../services/auth';
 import { PlaylistAdd } from '@material-ui/icons'
@@ -119,8 +118,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const CreateNewClient = ({ authenticated, setAuthenticated, props }) => {
-    // const currentUser = useSelector((state) => state.store.current_user)
-    // const idd = currentUser.id
+
     const classes = useStyles();
     const [openModal, setOpenModal] = React.useState(false);
     const [firstName, setFirstName] = useState("");
@@ -140,7 +138,7 @@ const CreateNewClient = ({ authenticated, setAuthenticated, props }) => {
     const onSignUp = async (e) => {
         e.preventDefault();
         if (password === repeatPassword) {
-            const user = await createClient(
+            await createClient(
                 firstName,
                 lastName,
                 email,
@@ -279,10 +277,6 @@ const CreateNewClient = ({ authenticated, setAuthenticated, props }) => {
                     </Typography>
                 </Fade>
             </Dialog>
-
-
-
-
         </div>
     );
 }

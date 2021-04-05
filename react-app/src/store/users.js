@@ -22,7 +22,6 @@ export const setCurrentUser = (trainer) => {
 };
 
 export const setCurrentClient = (client) => {
-    // console.log(classroom)
     return {
         type: SET_CURRENT_CLIENT,
         client,
@@ -30,7 +29,6 @@ export const setCurrentClient = (client) => {
 };
 
 export const updateProgress = (progress) => {
-    // console.log(classroom)
     return {
         type: UPDATE_PROGRESS,
         progress,
@@ -107,7 +105,6 @@ export const fetchClients = async (trainerId) => {
     });
     const result = await response.json();
     const clients = {}
-    // console.log('clients', result)
     result.clients.forEach(client => {
         clients[client.id] = client
     })
@@ -133,7 +130,6 @@ export const fetchWorkoutPlans = async (clientId) => {
     });
     const result = await response.json();
     const workoutplans = {}
-    // console.log('clients', result)
     result.workoutplans.forEach(workoutplan => {
         workoutplans[workoutplan.id] = workoutplan
     })
@@ -159,27 +155,11 @@ export const fetchAllWorkoutPlans = async (trainerId) => {
     });
     const result = await response.json();
     const allworkoutplans = {}
-    // console.log('clients', result)
     result.allworkoutplans.forEach(workoutplan => {
         allworkoutplans[workoutplan.id] = workoutplan
     })
     return allworkoutplans
 }
-
-// export const fetchTrainerWorkoutPlans = async (trainerId) => {
-//     const response = await fetch(`/api/trainers/${trainerId}/workout-plans`, {
-//         headers: {
-//             "Content-Type": "application/json",
-//         },
-//     });
-//     const result = await response.json();
-//     const workoutplans = {}
-//     // console.log('clients', result)
-//     result.workoutplans.forEach(workoutplan => {
-//         workoutplans[workoutplan.id] = workoutplan
-//     })
-//     return workoutplans
-// }
 
 export const fetchWorkoutHistory = async (clientId) => {
     const response = await fetch(`/api/trainers/client/${clientId}/workout-history`, {
@@ -189,7 +169,6 @@ export const fetchWorkoutHistory = async (clientId) => {
     });
     const result = await response.json();
     const workouthistory = {}
-    // console.log('clients', result)
     result.workouthistory.forEach(history => {
         workouthistory[history.id] = history
     })
@@ -204,7 +183,6 @@ export const fetchTrainerWorkoutHistory = async (trainerId) => {
     });
     const result = await response.json();
     const workouthistory = {}
-    // console.log('clients', result)
     result.workouthistory.forEach(history => {
         workouthistory[history.id] = history
     })
@@ -233,7 +211,6 @@ export const fetchRoutineList = async (workoutPlanId) => {
     });
     const result = await response.json();
     const routinelists = {}
-    // console.log('clients', result)
     result.routinelists.forEach(routinelist => {
         routinelists[routinelist.id] = routinelist
     })
@@ -247,7 +224,6 @@ export const fetchWorkouts = async (trainerId) => {
         },
     });
     const result = await response.json();
-    // console.log('workoutssss', result.workouts)
     const workoutss = {}
     result.workouts.forEach(workout => {
         workoutss[workout.id] = workout
@@ -262,7 +238,6 @@ export const fetchIntensities = async (trainerId) => {
         },
     });
     const result = await response.json();
-    // console.log('workoutssss', result.workouts)
     const intensities = {}
     result.intensities.forEach(intensity => {
         intensities[intensity.id] = intensity

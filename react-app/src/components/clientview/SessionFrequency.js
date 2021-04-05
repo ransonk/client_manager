@@ -1,16 +1,13 @@
 import React, { useState, useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { Line } from 'react-chartjs-2';
-import { fetchTrainerWorkoutHistory, fetchWorkoutHistory, updateProgress } from "../../store/users";
+import { fetchTrainerWorkoutHistory } from "../../store/users";
 
 function SessionFrequency() {
-    const dispatch = useDispatch();
     const userId = useSelector((state) => state.store.current_trainer.id);
     const [history, setHistory] = useState();
     const historicalDataRaw = useSelector((state) => state.store.client_progress)
-    const historicalData = Object.values(historicalDataRaw)
     let workoutList = useSelector((state) => state.store.workouts)
-    // let history;
 
     useEffect(() => {
         (async () => {
@@ -50,7 +47,7 @@ function SessionFrequency() {
     let labelMonths = []
     let monthCounts = []
 
-    let finalDatesArray = numToNameMonths.map(num => {
+    numToNameMonths.map(num => {
         let dateToConvert = num[0]
         dateToConvert = dateToConvert.split(' ')
         let month = dateToConvert[0]
@@ -84,15 +81,8 @@ function SessionFrequency() {
     dateToConvert[0] = mms
     labelMonths.push(dateToConvert.join(' '))
     monthCounts.push(num[1])
-    // return
     })
 
-
-
-
-
-    console.log('labelMonths', labelMonths)
-    console.log('monthCounts', monthCounts)
 
     dates.forEach(date => {
 
@@ -125,9 +115,8 @@ function SessionFrequency() {
     }
 
 
-    let exerciseRecordList = Object.entries(exerciseRecord)
     let datasetRecords = []
-    let borderColors = ['#f94144', '#f3722c', '#f8961e', '#f9c74f', '#90be6d', "#43aa8b", "#577590", "#0081a7", "#fed9b7", '#f07167', "#00f5d4", "#d0f4de", "#c8553d", "#b09e99"]
+    // let borderColors = ['#f94144', '#f3722c', '#f8961e', '#f9c74f', '#90be6d', "#43aa8b", "#577590", "#0081a7", "#fed9b7", '#f07167', "#00f5d4", "#d0f4de", "#c8553d", "#b09e99"]
 
 
     monthCounts.map((item, i) => {

@@ -24,26 +24,18 @@ const useStyles = makeStyles((theme) => ({
   },
   demoBtn: {
     position: "relative",
-    // top: '7rem',
-    // right: '6rem',
-    // bottom: "27rem",
-    // left: "29rem",
-    // width: "10rem",
     backgroundColor: '#e5989b',
     color: 'white'
-    // alignContent: "center"
-    // textAlign: "center"
+
   },
   header1: {
     color: '#bde0fe',
     fontFamily: 'Pacifico, cursive',
     fontSize: "180%",
     position: "relative",
-    // right: "4rem",
     bottom: "1rem"
   },
   header2: {
-    // color: theme.palette.primary.main,
     position: "relative",
     right: "4rem",
     bottom: "5rem"
@@ -52,7 +44,6 @@ const useStyles = makeStyles((theme) => ({
     display: 'block',
     position: 'relative',
     textAlign: 'center'
-    // marginBottom: '3rem'
   },
   signUp: {
     marginTop: '1rem',
@@ -111,9 +102,6 @@ const LoginForm = ({ authenticated, setAuthenticated }) => {
 
   if (authenticated) {
     return <Redirect to="/" />;
-    // window.location.reload();
-    // fix this it needs to be like logging you in correctly.
-    //when you log in it thinks ur the last user!!
   }
 
 
@@ -122,14 +110,12 @@ const LoginForm = ({ authenticated, setAuthenticated }) => {
     <Grid container xs={12} md={12} className='login-page__container'>
       <Grid xs={4} md={6} className='login__graphic'></Grid>
       <Grid container xs={12} md={6} className='login__container'>
-        {/* <Container maxWidth="sm" className={classes.border}> */}
         <Grid xs={12} md={12} className='login-page__filler'></Grid>
         <Grid xs={2} md={2} className='login-page__filler'></Grid>
         <Grid xs={8} md={8} className='login-page__form'>
 
           <form className={classes.loginForm} onSubmit={onLogin}>
             <p className={classes.header1}>Trainer Hub</p>
-            {/* <h2 className={classes.header2}>Welcome to Client Manager</h2> */}
             <div>
               {errors.map((error) => (
                 <div>{error}</div>

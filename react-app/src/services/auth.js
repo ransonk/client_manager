@@ -19,7 +19,6 @@ export const login = async (email, password) => {
     })
   });
   let res = await response.json();
-  // console.log(await response.json())
   return res;
 }
 
@@ -34,7 +33,6 @@ export const demoTrainerLogin = async (email, password) => {
     })
   });
   let res = await response.json();
-  // console.log(await response.json())
   return res;
 }
 

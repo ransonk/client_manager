@@ -17,9 +17,6 @@ function App() {
   const dispatch = useDispatch();
   const [authenticated, setAuthenticated] = useState(false);
   const [loaded, setLoaded] = useState(false);
-
-  // const currentClient = useSelector((state) => state.store.current_client);
-  // const currentClients = useSelector((state) => state.store.clients);
   const id = useSelector((state) => state.store.current_trainer.id);
 
   const interval = (id) => {
@@ -68,7 +65,6 @@ function App() {
 
   return (
     <BrowserRouter>
-      {/* <AppBar setAuthenticated={setAuthenticated} /> */}
       <Route path="/login" exact={true}>
         <LoginForm
           authenticated={authenticated}

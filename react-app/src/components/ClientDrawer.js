@@ -1,29 +1,19 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useDispatch, useSelector } from "react-redux";
-import { Route, Redirect } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 import clsx from 'clsx';
 import { makeStyles } from '@material-ui/core/styles';
-import Drawer from '@material-ui/core/Drawer';
 import Button from '@material-ui/core/Button';
 import List from '@material-ui/core/List';
-import Divider from '@material-ui/core/Divider';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
-import ArrowDownward from '@material-ui/icons/ArrowDownward';
 import DirectionsRunTwoTone from '@material-ui/icons/DirectionsRunTwoTone';
 import { Typography, Modal, TextField } from '@material-ui/core';
 import Backdrop from '@material-ui/core/Backdrop';
 import Fade from '@material-ui/core/Fade';
 import Checkbox from '@material-ui/core/Checkbox';
 import ListSubheader from '@material-ui/core/ListSubheader';
-import Collapse from '@material-ui/core/Collapse';
-import InboxIcon from '@material-ui/icons/MoveToInbox';
-import DraftsIcon from '@material-ui/icons/Drafts';
-import SendIcon from '@material-ui/icons/Send';
-import ExpandLess from '@material-ui/icons/ExpandLess';
-import ExpandMore from '@material-ui/icons/ExpandMore';
-import StarBorder from '@material-ui/icons/StarBorder';
 import { createClient } from '../services/auth';
 import CreateNewClient from './CreateNewClient';
 
@@ -70,7 +60,6 @@ const useStyles = makeStyles((theme) => ({
         outline: '0',
         border: '2px solid white',
         borderRadius: '5px',
-        // boxShadow: theme.shadows[5],
         paddingLeft: '5rem',
         paddingRight: '5rem',
         paddingTop: '2rem',
@@ -93,7 +82,6 @@ const useStyles = makeStyles((theme) => ({
         "&:hover": {
             backgroundColor: 'white'
         },
-        // margin: theme.spacing(1),
     },
     element: {
         padding: '1rem',
@@ -181,25 +169,14 @@ export default function ClientDrawer({ authenticated, setAuthenticated, props, c
     const [password, setPassword] = useState("");
     const [repeatPassword, setRepeatPassword] = useState("");
 
-    // const [state, setState] = React.useState({
-    //     top: false,
-    //     left: true,
-    //     bottom: false,
-    //     right: false,
-    // });
+
     const trainer_id = useSelector((state) => state.store.current_trainer.id)
     const clients = useSelector((state) => state.store.clients)
     if (!clients) return null;
 
     let clientsArray = Object.values(clients)
 
-    // const toggleDrawer = (anchor, open) => (event) => {
-    //     if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
-    //         return;
-    //     }
 
-    //     setState({ ...state, [anchor]: open });
-    // };
 
 
 
@@ -289,7 +266,6 @@ export default function ClientDrawer({ authenticated, setAuthenticated, props, c
     }
 
 
-    //Grabs list of clients for display in drawer
 
 
     const handlePress = async (id) => {
@@ -300,18 +276,14 @@ export default function ClientDrawer({ authenticated, setAuthenticated, props, c
         let currentClientList = clientsArray.filter(client => {
             if (client.id === id) return client;
         })
-        // console.log(currentClientList['0'])
         let currentClient = currentClientList[0]
         localStorage.setItem('CURRENT_CLIENT', JSON.stringify(currentClient))
-        //******************************************* */
-        // window.location.href = '/manage-client'
-        //commented out above line to verify that application will work despite the reroute
+
 
     }
 
     const myStyle = {
         backgroundColor: "green",
-        // color: "red",
         padding: "10px"
     }
 
@@ -319,37 +291,6 @@ export default function ClientDrawer({ authenticated, setAuthenticated, props, c
         setOpen(!open);
       };
 
-    // const list = (anchor) => (
-    //     <div
-    //         className={clsx(classes.list, {
-    //             [classes.fullList]: anchor === 'top' || anchor === 'bottom',
-    //         })}
-    //         role="presentation"
-    //         onClick={toggleDrawer(anchor, false)}
-    //         onKeyDown={toggleDrawer(anchor, false)}
-    //     >
-    //         <List className={classes.title}>
-    //             {['Current Clients'].map((text) => (
-    //                 <ListItem button key={text}>
-    //                     <ListItemIcon><ArrowDownward /></ListItemIcon>
-    //                     <ListItemText primary={text} />
-    //                 </ListItem>
-    //             ))}
-    //         </List>
-    //         <Divider variant="middle" />
-    //         <List>
-    //             {clientsArray.map(({ firstName, lastName, id }) => (
-    //                 <ListItem button key={id} onClick={() => handleClick(id)}>
-    //                     <ListItemIcon><DirectionsRunTwoTone /></ListItemIcon>
-    //                     <ListItemText primary={firstName + ' ' + lastName} />
-    //                 </ListItem>
-    //             ))}
-    //         </List>
-    //         <a className='addClient' onClick={handleOpenModal}>
-    //             +
-    //         </a>
-    //     </div>
-    // );
 
 
     return (
