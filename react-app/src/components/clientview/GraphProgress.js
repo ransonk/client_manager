@@ -84,11 +84,12 @@ function GraphProgress() {
 
 
     const dates = sortedData.map(history => history.date)
-
     dates.forEach(date => {
+
 
         for (let key in exerciseRecord) {
             if (!exerciseRecord[key].includes(date)) {
+                let recent = exerciseRecord[key][exerciseRecord[key].length -1]
                 exerciseRecord[key] = [...exerciseRecord[key], date, 0]
 
             }
@@ -118,29 +119,37 @@ function GraphProgress() {
 
     let exerciseRecordList = Object.entries(exerciseRecord)
     let datasetRecords = []
-    let borderColors = ['#f94144', '#f3722c', '#f8961e', '#f9c74f', '#90be6d', "#43aa8b", "#577590", "#0081a7", "#fed9b7", '#f07167', "#00f5d4", "#d0f4de", "#c8553d", "#b09e99"]
+    let borderColors = ['#f94144', '#f3722c', '#f8961e', '#f9c74f', '#90be6d', "#43aa8b", "#577590", "#0081a7", "#fed9b7", '#f07167', "#00f5d4", "#d0f4de", "#c8553d", "#b09e99", "#fff3b0", "#219ebc", "#52b788"]
 
-    console.log('exerciseRec', exerciseRecordList)
 
+    console.log('exerciseeeee', exerciseRecordList)
     exerciseRecordList.map((item, i) => {
         let scoreList = [];
+        let historicalScore;
         item[1].forEach(num => {
-            if (typeof (num) == 'number') {
+
+            if (typeof (num) == 'number' && num !== 0){
+                historicalScore = num;
                 scoreList.push(num)
+            } else if (typeof (num) == 'number' && num === 0) {
+                scoreList.push(historicalScore)
             }
         })
+
+        console.log('num?', scoreList)
         datasetRecords.push(
 
             {
 
                 label: item[0],
                 fill: false,
-                lineTension: 0.1,
+                lineTension: 0,
                 backgroundColor: 'white',
                 hoverBorderColor: 'orange',
-                pointBorderColor: 'white',
+                pointBorderColor: 'transparent',
                 borderColor: borderColors[i],
                 borderWidth: 2,
+                radius: 2,
                 color: 'white',
                 data: scoreList
             }
@@ -159,7 +168,7 @@ function GraphProgress() {
     return (
         <div>
             {
-                dates.length ?
+                (dates.length > 1) ?
                 <Line
                 data={data}
                 options={{
@@ -169,7 +178,7 @@ function GraphProgress() {
                                 display: true,
                             },
                             ticks: {
-                                fontColor: "white", // this here
+                                fontColor: "white",
                             },
                         }],
                         yAxes: [{
@@ -178,7 +187,7 @@ function GraphProgress() {
                                 display: true,
                             },
                             ticks: {
-                                fontColor: "white", // this here
+                                fontColor: "white",
                             },
                         }],
                     },
@@ -191,7 +200,8 @@ function GraphProgress() {
                     },
                     legend: {
                         display: true,
-                        position: 'right',
+                        position: 'top',
+                        left: 3,
                         labels: {
                             fontColor: 'white'
                         }
@@ -205,7 +215,7 @@ function GraphProgress() {
 
                     <h2>Targeted Exercise Progression</h2>
                     <br/>
-                    <p>No Data to Display</p>
+                    <p>Requires 2 scheduled workouts</p>
                 </div>
                 </>
 
