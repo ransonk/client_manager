@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux'
-import { Avatar, Typography, Button, Modal, TextField, RadioGroup, Radio, FormLabel, FormControl, FormControlLabel } from '@material-ui/core';
+import { Avatar, Typography, Button, Modal, TextField, RadioGroup, Radio, FormLabel, FormControl, Dialog } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import Backdrop from '@material-ui/core/Backdrop';
 import Fade from '@material-ui/core/Fade';
@@ -19,6 +19,7 @@ const useStyles = makeStyles((theme) => ({
 
     },
     paper: {
+        overflow: 'hidden',
         backgroundColor: 'white',
         outline: '0',
         border: '2px solid white',
@@ -62,10 +63,12 @@ const useStyles = makeStyles((theme) => ({
     exitBtn: {
         position: 'relative',
         bottom: '1.95rem',
-        left: '11rem',
+        left: '10rem',
         border: 'none',
         paddingRight: '0px',
         paddingLeft: '0px',
+        width: '10px',
+        color: 'red'
     },
     icon: {
         borderRadius: 3,
@@ -225,10 +228,11 @@ const CreateNewClient = ({ authenticated, setAuthenticated, props }) => {
             <a className='addClient' onClick={handleOpenModal}>
                 <PlaylistAdd />
             </a>
-            <Modal
+            <Dialog
                 aria-labelledby="transition-modal-title"
                 aria-describedby="transition-modal-description"
                 className={classes.modal}
+                maxWidth='md'
                 open={openModal}
                 onClose={handleCloseModal}
                 closeAfterTransition
@@ -274,7 +278,7 @@ const CreateNewClient = ({ authenticated, setAuthenticated, props }) => {
                         </form>
                     </Typography>
                 </Fade>
-            </Modal>
+            </Dialog>
 
 
 

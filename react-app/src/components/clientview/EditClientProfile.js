@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux'
-import { Avatar, Typography, Button, Modal, TextField, MenuItem, Divider, Checkbox } from '@material-ui/core';
+import { Avatar, Typography, Button, Dialog, TextField, MenuItem, Divider, Checkbox } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import Backdrop from '@material-ui/core/Backdrop';
 import Fade from '@material-ui/core/Fade';
@@ -16,6 +16,7 @@ const useStyles = makeStyles((theme) => ({
 
     },
     paper: {
+        overflow: 'hidden',
         backgroundColor: 'white',
         outline: '0',
         border: '2px solid white',
@@ -23,7 +24,7 @@ const useStyles = makeStyles((theme) => ({
         boxShadow: theme.shadows[5],
         paddingLeft: '5rem',
         paddingRight: '5rem',
-        paddingTop: '2rem',
+        // paddingTop: '2rem',
         paddingBottom: '2rem',
         display: 'flex',
         flexDirection: 'column',
@@ -60,15 +61,17 @@ const useStyles = makeStyles((theme) => ({
     },
     exitBtn: {
         position: 'relative',
-        bottom: '1.95rem',
+        // bottom: '1.95rem',
         left: '11rem',
         border: 'none',
         paddingRight: '0px',
         paddingLeft: '0px',
+        width: '10px',
+        color: 'red'
     },
     deleteBtn: {
         position: 'relative',
-        bottom: '4rem',
+        bottom: '2rem',
         right: '9rem',
         border: 'none',
         paddingRight: '0px',
@@ -272,10 +275,11 @@ const EditClientProfile = (props) => {
             <p className='editProfile' onClick={handleOpenModal}>
                 Edit Profile
             </p>
-            <Modal
+            <Dialog
                 aria-labelledby="transition-modal-title"
                 aria-describedby="transition-modal-description"
                 className={classes.modal}
+                maxWidth='md'
                 open={openModal}
                 onClose={handleCloseModal}
                 closeAfterTransition
@@ -323,7 +327,7 @@ const EditClientProfile = (props) => {
                         </form>
                     </Typography>
                 </Fade>
-            </Modal>
+            </Dialog>
 
 
 

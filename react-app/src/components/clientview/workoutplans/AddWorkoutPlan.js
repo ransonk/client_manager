@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux'
-import { Typography, Button, Modal, TextField } from '@material-ui/core';
+import { Typography, Button, Modal, TextField, Dialog } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import Backdrop from '@material-ui/core/Backdrop';
 import Fade from '@material-ui/core/Fade';
@@ -19,6 +19,10 @@ const useStyles = makeStyles((theme) => ({
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
+
+    },
+    paperWidthSm: {
+        maxWidth: '800px'
 
     },
     paper: {
@@ -55,10 +59,12 @@ const useStyles = makeStyles((theme) => ({
     exitBtn: {
         position: 'relative',
         bottom: '1.95rem',
-        left: '11rem',
+        left: '22rem',
         border: 'none',
         paddingRight: '0px',
         paddingLeft: '0px',
+        width: '10px',
+        color: 'red'
     },
     paid: {
         display: 'flex',
@@ -421,9 +427,10 @@ const AddWorkoutPlan = (props) => {
                 <AddBox fontSize='large'/>
             </a>
 
-            <Modal
+            <Dialog
                 aria-labelledby="transition-modal-title"
                 aria-describedby="transition-modal-description"
+                maxWidth="md"
                 className={classes.modal}
                 open={openModal}
                 onClose={handleCloseModal}
@@ -767,7 +774,7 @@ const AddWorkoutPlan = (props) => {
                         </form>
                     </Typography>
                 </Fade>
-            </Modal>
+            </Dialog>
         </div>
     );
 }

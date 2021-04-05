@@ -235,7 +235,7 @@ html{
 }
 
 .MuiDialog-paperWidthSm {
-    /* max-width: 800px; */
+    max-width: 800px;
     /* flex-wrap: wrap; */
 }
 
@@ -612,7 +612,8 @@ html{
     padding-top: 1rem;
     padding-bottom: 1rem;
     color: white;
-    background-color: rgba(255, 255, 255, 0.3);
+    /* background-color: rgba(101, 139, 109, 1); */
+    background-color: rgba(255, 255, 255, 0.1);
 }
 
 .clientinfo__clientcard::-webkit-scrollbar {
@@ -648,7 +649,8 @@ html{
     padding-top: 1rem;
     padding-bottom: 3rem;
     color: white;
-    background-color: rgba(255, 255, 255, 0.3);
+    /* background-color: rgba(101, 139, 109, 1); */
+    background-color: rgba(0, 0, 0, 0.3);
 }
 
 .clientinfo__info__contact{
