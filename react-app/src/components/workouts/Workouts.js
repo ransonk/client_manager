@@ -50,6 +50,8 @@ const StyledTableCell = withStyles((theme) => ({
 const useStyles = makeStyles((theme) => ({
     root: {
         width: '70%',
+        height: '400px',
+        overflowY: 'auto'
     },
     table: {
         // minWidth: 700,
