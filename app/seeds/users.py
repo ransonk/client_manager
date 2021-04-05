@@ -328,8 +328,6 @@ def seed_history():
     trainer_id=1)
 
 
-
-
     demo15 = History(name="Upper Body",
    workout1='Push Ups',
    workout1Score=100,
@@ -474,8 +472,6 @@ def seed_history():
    workout3Score=95,
    workout4='Leg Curl',
    workout4Score=75,
-   workout5='Squats',
-   workout5Score=35,
     date='01/02/2021',
     client_id=3,
     trainer_id=1)
@@ -504,8 +500,6 @@ def seed_history():
    workout3Score=95,
    workout4='Leg Curl',
    workout4Score=75,
-   workout5='Squats',
-   workout5Score=35,
     date='01/04/2021',
     client_id=3,
     trainer_id=1)
@@ -534,8 +528,6 @@ def seed_history():
    workout3Score=95,
    workout4='Leg Curl',
    workout4Score=75,
-   workout5='Squats',
-   workout5Score=35,
     date='01/06/2021',
     client_id=3,
     trainer_id=1)
@@ -564,8 +556,6 @@ def seed_history():
    workout3Score=95,
    workout4='Leg Curl',
    workout4Score=75,
-   workout5='Squats',
-   workout5Score=35,
     date='02/06/2021',
     client_id=4,
     trainer_id=1)
@@ -579,8 +569,6 @@ def seed_history():
    workout3Score=95,
    workout4='Leg Curl',
    workout4Score=75,
-   workout5='Squats',
-   workout5Score=35,
     date='02/06/2021',
     client_id=5,
     trainer_id=1)
