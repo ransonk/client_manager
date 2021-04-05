@@ -159,7 +159,7 @@ function GraphProgress() {
     return (
         <div>
             {
-                dates.length ?
+                (dates.length > 1) ?
                 <Line
                 data={data}
                 options={{
@@ -205,7 +205,7 @@ function GraphProgress() {
 
                     <h2>Targeted Exercise Progression</h2>
                     <br/>
-                    <p>No Data to Display</p>
+                    <p>Requires 2 scheduled workouts</p>
                 </div>
                 </>
 
