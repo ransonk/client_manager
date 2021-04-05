@@ -62,7 +62,6 @@ const useStyles = makeStyles((theme) => ({
 const HomePage = ({ setAuthenticated }) => {
     const classes = useStyles();
     const dispatch = useDispatch();
-    // const [authenticated, setAuthenticated] = useState(false);
     const [open, setOpen] = React.useState(false);
     const [info, setInfo] = useState('')
     const [value, onChange] = useState(new Date());
@@ -220,10 +219,6 @@ const HomePage = ({ setAuthenticated }) => {
         setClientView(true)
     }
 
-    // const grabToday = () => {
-    //     setTomorrow(false)
-    // }
-
     const handleClickOpen = (e) => {
         setInfo({
             name: e.name,
@@ -239,11 +234,6 @@ const HomePage = ({ setAuthenticated }) => {
 
     const localizer = momentLocalizer(moment)
 
-    //     const showMore = (slot, e) => {
-    //         e.preventDefault()
-    //         this.props.onShowMore(slot)
-    //     }
-    // }
 
     const handleClickTrain = () => {
         setClientView(false);
@@ -255,7 +245,6 @@ const HomePage = ({ setAuthenticated }) => {
         <>
             <Grid container>
                 <Grid item xs={12}>
-                    {/* < ButtonAppBar setAuthenticated={setAuthenticated} /> */}
                 </Grid>
             </Grid>
             <Grid container className='content__container'>

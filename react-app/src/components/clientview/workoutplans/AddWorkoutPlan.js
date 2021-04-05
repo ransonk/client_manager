@@ -1,16 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux'
-import { Typography, Button, Modal, TextField, Dialog } from '@material-ui/core';
+import { Typography, Button, TextField, Dialog } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import Backdrop from '@material-ui/core/Backdrop';
 import Fade from '@material-ui/core/Fade';
 import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
-import ListSubheader from '@material-ui/core/ListSubheader';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import { createHistory, createWorkoutPlan } from '../../../services/auth';
-import { fetchClient, updateProgress } from '../../../store/users';
+import { fetchClient } from '../../../store/users';
 import { AddBox } from '@material-ui/icons';
 
 
@@ -118,15 +117,11 @@ const AddWorkoutPlan = (props) => {
     let client_id = client.id
     let trainer_id = useSelector(state => state.store.current_trainer.id)
 
-    // console.log('wow')
-
     const workouts = useSelector((state) => state.store.workouts)
     const sortedWorkouts = Object.values(workouts)
-    // console.log('SORTEDWORKOUTS ', sortedWorkouts)
     const intensities = useSelector((state) => state.store.intensities)
     const sortedIntensities = Object.values(intensities)
 
-    //CREATE exerciseHistory object that records points related to line 108
 
     const pushWorkouts = sortedWorkouts.filter(workout => {
         if (workout.type === 'push') return workout
@@ -135,9 +130,7 @@ const AddWorkoutPlan = (props) => {
         if (workout.type === 'pull') return workout
     })
 
-    // console.log('pushWorkouts', pushWorkouts)
     const pushNames = pushWorkouts.map(push => push.name)
-    // console.log('pushNames', pushNames)
 
     useEffect(() => {
         (async () => {
@@ -158,7 +151,6 @@ const AddWorkoutPlan = (props) => {
         let workout6Score = 0;
         let workout7Score = 0;
         let workout8Score = 0;
-        // console.log('workout1', workout1)
 
         if (workout1) {
 
@@ -241,10 +233,7 @@ const AddWorkoutPlan = (props) => {
         }
 
 
-        // console.log('pushCount', pushCount)
-        // console.log('pullCount', pullCount)
-        // console.log('pushScore', pushScore)
-        // console.log('pullScore', pullScore)
+
         const workoutHistory = await createHistory(
             name,
             workout1,
@@ -267,7 +256,6 @@ const AddWorkoutPlan = (props) => {
             client_id,
             trainer_id
         )
-        // console.log('after dispatch')
         const workoutPlan = await createWorkoutPlan(
             name,
             workout1,
@@ -443,7 +431,6 @@ const AddWorkoutPlan = (props) => {
                 <Fade in={openModal}>
                     <Typography variant='h5'>
                         <form className={classes.paper} noValidate autoComplete='off' onSubmit={createThisWorkoutPlan}>
-                            {/* <form className={classes.paper} noValidate autoComplete='off'> */}
                             <Button size='large' variant='contained' onClick={handleCloseModal} className={classes.exitBtn} variant='outlined'>x</Button>
                             <Typography variant='h4' className={classes.editHeading}>
                                 Create a Workout
@@ -466,7 +453,7 @@ const AddWorkoutPlan = (props) => {
                                                 pushWorkouts.map((workout, i) => {
                                                     let update = 'updateWorkout'
                                                     return (
-                                                        <option value={workout.name}>{workout.name}</option>
+                                                        <option value={workout.name} key={i}>{workout.name}</option>
                                                     )
                                                 })
                                             }
@@ -475,7 +462,7 @@ const AddWorkoutPlan = (props) => {
                                             {
                                                 pullWorkouts.map((workout, i) => {
                                                     return (
-                                                        <option value={workout.name}>{workout.name}</option>
+                                                        <option value={workout.name} key={i}>{workout.name}</option>
                                                     )
                                                 })
                                             }
@@ -505,7 +492,7 @@ const AddWorkoutPlan = (props) => {
                                                 pushWorkouts.map((workout, i) => {
                                                     let update = 'updateWorkout'
                                                     return (
-                                                        <option value={workout.name}>{workout.name}</option>
+                                                        <option value={workout.name} key={i}>{workout.name}</option>
                                                     )
                                                 })
                                             }
@@ -514,7 +501,7 @@ const AddWorkoutPlan = (props) => {
                                             {
                                                 pullWorkouts.map((workout, i) => {
                                                     return (
-                                                        <option value={workout.name}>{workout.name}</option>
+                                                        <option value={workout.name} key={i}>{workout.name}</option>
                                                     )
                                                 })
                                             }
@@ -544,7 +531,7 @@ const AddWorkoutPlan = (props) => {
                                                 pushWorkouts.map((workout, i) => {
                                                     let update = 'updateWorkout'
                                                     return (
-                                                        <option value={workout.name}>{workout.name}</option>
+                                                        <option value={workout.name} key={i}>{workout.name}</option>
                                                     )
                                                 })
                                             }
@@ -553,7 +540,7 @@ const AddWorkoutPlan = (props) => {
                                             {
                                                 pullWorkouts.map((workout, i) => {
                                                     return (
-                                                        <option value={workout.name}>{workout.name}</option>
+                                                        <option value={workout.name} key={i}>{workout.name}</option>
                                                     )
                                                 })
                                             }
@@ -583,7 +570,7 @@ const AddWorkoutPlan = (props) => {
                                                 pushWorkouts.map((workout, i) => {
                                                     let update = 'updateWorkout'
                                                     return (
-                                                        <option value={workout.name}>{workout.name}</option>
+                                                        <option value={workout.name} key={i}>{workout.name}</option>
                                                     )
                                                 })
                                             }
@@ -592,7 +579,7 @@ const AddWorkoutPlan = (props) => {
                                             {
                                                 pullWorkouts.map((workout, i) => {
                                                     return (
-                                                        <option value={workout.name}>{workout.name}</option>
+                                                        <option value={workout.name} key={i}>{workout.name}</option>
                                                     )
                                                 })
                                             }
@@ -622,7 +609,7 @@ const AddWorkoutPlan = (props) => {
                                                 pushWorkouts.map((workout, i) => {
                                                     let update = 'updateWorkout'
                                                     return (
-                                                        <option value={workout.name}>{workout.name}</option>
+                                                        <option value={workout.name} key={i}>{workout.name}</option>
                                                     )
                                                 })
                                             }
@@ -631,7 +618,7 @@ const AddWorkoutPlan = (props) => {
                                             {
                                                 pullWorkouts.map((workout, i) => {
                                                     return (
-                                                        <option value={workout.name}>{workout.name}</option>
+                                                        <option value={workout.name} key={i}>{workout.name}</option>
                                                     )
                                                 })
                                             }
@@ -661,7 +648,7 @@ const AddWorkoutPlan = (props) => {
                                                 pushWorkouts.map((workout, i) => {
                                                     let update = 'updateWorkout'
                                                     return (
-                                                        <option value={workout.name}>{workout.name}</option>
+                                                        <option value={workout.name} key={i}>{workout.name}</option>
                                                     )
                                                 })
                                             }
@@ -670,7 +657,7 @@ const AddWorkoutPlan = (props) => {
                                             {
                                                 pullWorkouts.map((workout, i) => {
                                                     return (
-                                                        <option value={workout.name}>{workout.name}</option>
+                                                        <option value={workout.name} key={i}>{workout.name}</option>
                                                     )
                                                 })
                                             }
@@ -700,7 +687,7 @@ const AddWorkoutPlan = (props) => {
                                                 pushWorkouts.map((workout, i) => {
                                                     let update = 'updateWorkout'
                                                     return (
-                                                        <option value={workout.name}>{workout.name}</option>
+                                                        <option value={workout.name} key={i}>{workout.name}</option>
                                                     )
                                                 })
                                             }
@@ -709,7 +696,7 @@ const AddWorkoutPlan = (props) => {
                                             {
                                                 pullWorkouts.map((workout, i) => {
                                                     return (
-                                                        <option value={workout.name}>{workout.name}</option>
+                                                        <option value={workout.name} key={i}>{workout.name}</option>
                                                     )
                                                 })
                                             }
@@ -739,7 +726,7 @@ const AddWorkoutPlan = (props) => {
                                                 pushWorkouts.map((workout, i) => {
                                                     let update = 'updateWorkout'
                                                     return (
-                                                        <option value={workout.name}>{workout.name}</option>
+                                                        <option value={workout.name} key={i}>{workout.name}</option>
                                                     )
                                                 })
                                             }
@@ -748,7 +735,7 @@ const AddWorkoutPlan = (props) => {
                                             {
                                                 pullWorkouts.map((workout, i) => {
                                                     return (
-                                                        <option value={workout.name}>{workout.name}</option>
+                                                        <option value={workout.name} key={i}>{workout.name}</option>
                                                     )
                                                 })
                                             }

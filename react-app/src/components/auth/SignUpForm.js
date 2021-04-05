@@ -10,13 +10,6 @@ import { Grid } from '@material-ui/core';
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    // backgroundColor: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)',
-    // border: '3px solid black',
-    // borderRadius: 3,
-    // boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
-    // color: 'blue',
-    // height: 48,
-    // padding: '0 30px',
   },
   inputs: {
     alignContent: "center",
@@ -45,12 +38,10 @@ const useStyles = makeStyles((theme) => ({
     fontFamily: 'Pacifico, cursive',
     fontSize: "180%",
     position: "relative",
-    // right: "4rem",
     bottom: "1rem",
     color: '#0077b6',
   },
   header2: {
-    // color: theme.palette.primary.main,
     position: "relative",
     right: "4rem",
     bottom: "5rem"
@@ -62,7 +53,6 @@ const useStyles = makeStyles((theme) => ({
   },
   login: {
     position: "relative",
-    // left: "6rem",
     top: '4rem'
   },
   buttons: {
@@ -126,7 +116,6 @@ const SignUpForm = ({ authenticated, setAuthenticated }) => {
           <form onSubmit={onSignUp}>
             <p className={classes.header1}>Create Account</p>
             <div>
-              {/* <label>First Name</label> */}
               <TextField
                 id="standard-basic"
                 label="First Name"
@@ -138,7 +127,6 @@ const SignUpForm = ({ authenticated, setAuthenticated }) => {
               />
             </div>
             <div>
-              {/* <label>Last Name</label> */}
               <TextField
                 id="standard-basic"
                 label="Last Name"
@@ -150,7 +138,6 @@ const SignUpForm = ({ authenticated, setAuthenticated }) => {
               />
             </div>
             <div>
-              {/* <label>Email</label> */}
               <TextField
                 id="standard-basic"
                 label="Email"
@@ -162,7 +149,6 @@ const SignUpForm = ({ authenticated, setAuthenticated }) => {
               />
             </div>
             <div>
-              {/* <label>Password</label> */}
               <TextField
                 id="standard-basic"
                 label="Password"
@@ -173,7 +159,6 @@ const SignUpForm = ({ authenticated, setAuthenticated }) => {
               />
             </div>
             <div>
-              {/* <label>Repeat Password</label> */}
               <TextField
                 id="standard-basic"
                 label="Confirm Password"

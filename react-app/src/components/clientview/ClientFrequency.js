@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 
 import { Bar } from 'react-chartjs-2';
-import { fetchTrainerWorkoutHistory, fetchWorkoutHistory, updateProgress } from "../../store/users";
+import { fetchTrainerWorkoutHistory } from "../../store/users";
 
 
 function ClientFrequency() {
@@ -25,9 +25,7 @@ function ClientFrequency() {
 
     if (!clients) return null;
     let clientsArray = Object.values(clients)
-    // console.log(clientsArray)
     let clientList = clientsArray.map(client => (client.firstName + ' ' + client.lastName))
-    // console.log('client list', clientList)
     workoutPlans = Object.values(workoutPlans)
 
     let historyTracker = {}
@@ -38,7 +36,6 @@ function ClientFrequency() {
             historyTracker[history.client_id] = historyTracker[history.client_id] + 1
         }
     })
-    // console.log('historyTracker ', historyTracker)
     let trackerData = Object.values(historyTracker)
     const randomColor = Math.floor(Math.random() * 16777215).toString(16);
     let numClients = trackerData.length;
@@ -46,8 +43,7 @@ function ClientFrequency() {
     for (let i = 0; i < trackerData.length; i++) {
         clientColors.push(`#bde0fe`)
     }
-    // const clientColors = trackerData.map(tracker => `#${randomColor}`)
-    // console.log('random', clientColors)
+
     let GreatestToLeast = trackerData.map(num => num)
 
     let topClientsObj = {};
@@ -87,7 +83,7 @@ function ClientFrequency() {
                                 color: 'gray',
                             },
                             ticks: {
-                                fontColor: "white", // this here
+                                fontColor: "white",
                             },
                         }],
                         yAxes: [{

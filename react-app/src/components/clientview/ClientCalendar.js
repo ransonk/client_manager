@@ -1,8 +1,7 @@
-import React, { useState, useEffect } from 'react';
-import { useDispatch, useSelector } from "react-redux";
+import React from 'react';
+import { useSelector } from "react-redux";
 import { withStyles, makeStyles } from '@material-ui/core/styles';
-import CardContent from '@material-ui/core/CardContent';
-import { Divider, Card, Typography, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper } from '@material-ui/core';
+import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper } from '@material-ui/core';
 import theme from '../../theme';
 
 const StyledTableCell = withStyles((theme) => ({
@@ -25,7 +24,6 @@ const useStyles = makeStyles({
 export default function ClientCalendar() {
     const classes = useStyles();
     const workoutPlans = useSelector((state) => state.store.workoutPlans)
-    // console.log('workoutplans', workoutPlans)
     let workoutPlanList = Object.values(workoutPlans)
 
     const today = new Date()

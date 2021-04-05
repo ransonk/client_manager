@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import { Doughnut } from 'react-chartjs-2';
@@ -28,59 +28,55 @@ function FrequencyPie() {
 
     const dates = sortedData.map(history => history.date)
 
-    let pushCount = sortedData.map(history => Number(history.pushCount))
-    let pullCount = sortedData.map(history => Number(history.pullCount))
-    pushCount = pushCount.reduce((a, b) => a + b, 0)
-    pullCount = pullCount.reduce((a, b) => a + b, 0)
 
     let exerciseCounter = {};
 
     historicalData.forEach(record => {
-        if (!exerciseCounter[record.workout1] && record.workout1 != ' ' && record.workout1 != '' && record.workout1 != null) {
+        if (!exerciseCounter[record.workout1] && record.workout1 !== ' ' && record.workout1 !== '' && record.workout1 !== null) {
             exerciseCounter[record.workout1] = 1
-        } else if (exerciseCounter[record.workout1] && record.workout1 != ' ' && record.workout1 != '' && record.workout1 != null) {
+        } else if (exerciseCounter[record.workout1] && record.workout1 !== ' ' && record.workout1 !== '' && record.workout1 !== null) {
             exerciseCounter[record.workout1] = exerciseCounter[record.workout1] + 1;
         }
 
-        if (!exerciseCounter[record.workout2] && record.workout2 != ' ' && record.workout2 != '' && record.workout2 != null) {
+        if (!exerciseCounter[record.workout2] && record.workout2 !== ' ' && record.workout2 !== '' && record.workout2 !== null) {
             exerciseCounter[record.workout2] = 1
-        } else if (exerciseCounter[record.workout2] && record.workout2 != ' ' && record.workout2 != '' && record.workout2 != null) {
+        } else if (exerciseCounter[record.workout2] && record.workout2 !== ' ' && record.workout2 !== '' && record.workout2 !== null) {
             exerciseCounter[record.workout2] = exerciseCounter[record.workout2] + 1;
         }
 
-        if (!exerciseCounter[record.workout3] && record.workout3 != ' ' && record.workout3 != '' && record.workout3 != null) {
+        if (!exerciseCounter[record.workout3] && record.workout3 !== ' ' && record.workout3 !== '' && record.workout3 !== null) {
             exerciseCounter[record.workout3] = 1
-        } else if (exerciseCounter[record.workout3] && record.workout3 != ' ' && record.workout3 != '' && record.workout3 != null) {
+        } else if (exerciseCounter[record.workout3] && record.workout3 !== ' ' && record.workout3 !== '' && record.workout3 !== null) {
             exerciseCounter[record.workout3] = exerciseCounter[record.workout3] + 1;
         }
 
-        if (!exerciseCounter[record.workout4] && record.workout4 != ' ' && record.workout4 != '' && record.workout4 != null) {
+        if (!exerciseCounter[record.workout4] && record.workout4 !== ' ' && record.workout4 !== '' && record.workout4 !== null) {
             exerciseCounter[record.workout4] = 1
-        } else if (exerciseCounter[record.workout4] && record.workout4 != ' ' && record.workout4 != '' && record.workout4 != null) {
+        } else if (exerciseCounter[record.workout4] && record.workout4 !== ' ' && record.workout4 !== '' && record.workout4 !== null) {
             exerciseCounter[record.workout4] = exerciseCounter[record.workout4] + 1;
         }
 
-        if (!exerciseCounter[record.workout5] && record.workout5 != ' ' && record.workout5 != '' && record.workout5 != null) {
+        if (!exerciseCounter[record.workout5] && record.workout5 !== ' ' && record.workout5 !== '' && record.workout5 !== null) {
             exerciseCounter[record.workout5] = 1
-        } else if (exerciseCounter[record.workout5] && record.workout5 != ' ' && record.workout5 != '' && record.workout5 != null) {
+        } else if (exerciseCounter[record.workout5] && record.workout5 !== ' ' && record.workout5 !== '' && record.workout5 !== null) {
             exerciseCounter[record.workout5] = exerciseCounter[record.workout5] + 1;
         }
 
-        if (!exerciseCounter[record.workout6] && record.workout6 != ' ' && record.workout6 != '' && record.workout6 != null) {
+        if (!exerciseCounter[record.workout6] && record.workout6 !== ' ' && record.workout6 !== '' && record.workout6 !== null) {
             exerciseCounter[record.workout6] = 1
-        } else if (exerciseCounter[record.workout6] && record.workout6 != ' ' && record.workout6 != '' && record.workout6 != null) {
+        } else if (exerciseCounter[record.workout6] && record.workout6 !== ' ' && record.workout6 !== '' && record.workout6 !== null) {
             exerciseCounter[record.workout6] = exerciseCounter[record.workout6] + 1;
         }
 
-        if (!exerciseCounter[record.workout7] && record.workout7 != ' ' && record.workout7 != '' && record.workout7 != null) {
+        if (!exerciseCounter[record.workout7] && record.workout7 !== ' ' && record.workout7 !== '' && record.workout7 !== null) {
             exerciseCounter[record.workout7] = 1
-        } else if (exerciseCounter[record.workout7] && record.workout7 != ' ' && record.workout7 != '' && record.workout7 != null) {
+        } else if (exerciseCounter[record.workout7] && record.workout7 !== ' ' && record.workout7 !== '' && record.workout7 !== null) {
             exerciseCounter[record.workout7] = exerciseCounter[record.workout7] + 1;
         }
 
-        if (!exerciseCounter[record.workout8] && record.workout8 != ' ' && record.workout8 != '' && record.workout8 != null) {
+        if (!exerciseCounter[record.workout8] && record.workout8 !== ' ' && record.workout8 !== '' && record.workout8 !== null) {
             exerciseCounter[record.workout8] = 1
-        } else if (exerciseCounter[record.workout8] && record.workout8 != ' ' && record.workout8 != '' && record.workout8 != null) {
+        } else if (exerciseCounter[record.workout8] && record.workout8 !== ' ' && record.workout8 !== '' && record.workout8 !== null) {
             exerciseCounter[record.workout8] = exerciseCounter[record.workout8] + 1;
         }
     })

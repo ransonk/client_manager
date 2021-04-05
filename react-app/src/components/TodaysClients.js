@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { useDispatch, useSelector } from "react-redux";
+import React from 'react';
+import { useSelector } from "react-redux";
 import { makeStyles } from '@material-ui/core/styles';
 import Timeline from '@material-ui/lab/Timeline';
 import TimelineItem from '@material-ui/lab/TimelineItem';
@@ -12,16 +12,12 @@ import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 import FitnessCenterIcon from '@material-ui/icons/FitnessCenter';
 import theme from '../theme';
-import Collapse from '@material-ui/core/Collapse';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import Switch from '@material-ui/core/Switch';
-import TomorrowsClients from './TomorrowsClients';
+
 
 
 const useStyles = makeStyles({
     root: {
         minWidth: 275,
-        // width: 'auto',
         margin: '0.5rem',
         overflowX: 'hidden',
         overflowY: 'hidden',
@@ -101,32 +97,10 @@ const useStyles = makeStyles({
 
 export default function TodaysClients() {
     const classes = useStyles();
-    const [checked, setChecked] = React.useState(false);
-    const [tomorrowClients, setTomorrowClients] = useState(false)
-
-    const handleChange = () => {
-        setChecked((prev) => !prev);
-    };
-
-    // const [todayClients, setTodayClients] = useState(true)
-    // const [tomorrowClients, setTomorrowClients] = useState(false)
+    const [checked] = React.useState(false);
 
     let allPlansObj = useSelector(state => state.store.todaysPlans)
     let allPlans = Object.values(allPlansObj)
-    // console.log('hola', allPlans)
-
-
-
-    // let date = new Date();
-    // let dd = date.getDate();
-    // let mm = date.getMonth() + 1;
-
-    // let yyyy = date.getFullYear();
-    // if (dd < 10) { dd = '0' + dd }
-    // if (mm < 10) { mm = '0' + mm }
-    // let date1 = mm + '/' + dd + '/' + yyyy;
-
-
 
 
     const today = new Date()
@@ -136,7 +110,6 @@ export default function TodaysClients() {
 
     const tomorrow = new Date(today)
     tomorrow.setDate(tomorrow.getDate() + 1)
-    let day2 = tomorrow.toString().split(' ')[2]
 
 
     let mms;
@@ -165,20 +138,16 @@ export default function TodaysClients() {
     } else if (month.startsWith('Dec')) {
         mms = 12;
     } else {
-        // console.log('month translator broken')
     }
 
     let todayslist = allPlans.filter((plan) => {
         let m1 = plan.date.toString().split('/')[0]
         let d1 = plan.date.toString().split('/')[1]
 
-        if (day1 == d1 && mms == m1) {
+        if (day1 === d1 && mms === m1) {
             return plan
-        } else {
-            return
         }
     })
-    // console.log('today!: ', todayslist)
 
     let sortedTodaysList = todayslist.map(item => item.time)
 
@@ -186,7 +155,6 @@ export default function TodaysClients() {
 
         return new Date('1970/01/01 ' + a) - new Date('1970/01/01 ' + b);
     })
-    // console.log('SORTED?: ', sortedTodaysList)
     let finalList = [];
     sortedTodaysList.forEach(time => {
         todayslist.map(item => {
@@ -195,7 +163,6 @@ export default function TodaysClients() {
             }
         })
     })
-    // console.log('final list?: ', finalList)
 
 
 
@@ -307,8 +274,5 @@ export default function TodaysClients() {
                 </Timeline>}
 
         </div >
-
-
-
     )
 }

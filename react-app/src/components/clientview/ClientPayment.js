@@ -39,7 +39,6 @@ const ClientInfo = () => {
             setCancellations(secureClient.cancellations)
             setFirstName(secureClient.firstName)
             setLastName(secureClient.lastName)
-            // dispatch(setCurrentClient(secureClient))
             const workoutplans = await fetchWorkoutPlans(id);
             dispatch(setWorkoutPlans(workoutplans))
 

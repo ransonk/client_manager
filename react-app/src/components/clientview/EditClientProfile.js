@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useSelector } from 'react-redux'
-import { Avatar, Typography, Button, Dialog, TextField, MenuItem, Divider, Checkbox } from '@material-ui/core';
+import { Typography, Button, Dialog, TextField, Checkbox } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import Backdrop from '@material-ui/core/Backdrop';
 import Fade from '@material-ui/core/Fade';
@@ -24,7 +23,6 @@ const useStyles = makeStyles((theme) => ({
         boxShadow: theme.shadows[5],
         paddingLeft: '5rem',
         paddingRight: '5rem',
-        // paddingTop: '2rem',
         paddingBottom: '2rem',
         display: 'flex',
         flexDirection: 'column',
@@ -61,7 +59,6 @@ const useStyles = makeStyles((theme) => ({
     },
     exitBtn: {
         position: 'relative',
-        // bottom: '1.95rem',
         left: '11rem',
         border: 'none',
         paddingRight: '0px',
@@ -119,17 +116,10 @@ const useStyles = makeStyles((theme) => ({
         display: 'flex',
         fontSize: '20px'
     },
-    // multilineColor: {
-    //     color: '#bde0fe'
-    // },
-    // input: {
-    //     color: 'white'
-    // }
 }));
 
 const EditClientProfile = (props) => {
-    // const currentUser = useSelector((state) => state.store.current_user)
-    // const idd = currentUser.id
+
     const classes = useStyles();
     const [openModal, setOpenModal] = React.useState(false);
     const [firstName, setFirstName] = useState("");

@@ -195,7 +195,6 @@ const CloneWorkoutPlan = ({cloneId}) => {
         let workout6Score = 0;
         let workout7Score = 0;
         let workout8Score = 0;
-        // console.log('workout1', workout1)
 
         if (workout1) {
 

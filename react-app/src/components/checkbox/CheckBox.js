@@ -47,7 +47,6 @@ const useStyles = makeStyles({
     },
 });
 
-// Inspired by blueprintjs
 function StyledCheckbox(props) {
     const classes = useStyles();
 

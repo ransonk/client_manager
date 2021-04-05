@@ -1,13 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { withStyles, makeStyles } from '@material-ui/core/styles';
-import { useDispatch, useSelector } from "react-redux";
-import Accordion from '@material-ui/core/Accordion';
-import AccordionSummary from '@material-ui/core/AccordionSummary';
-import AccordionDetails from '@material-ui/core/AccordionDetails';
-import Typography from '@material-ui/core/Typography';
-import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import { Button } from '@material-ui/core';
-import { fetchWorkouts, setWorkouts } from '../../store/users';
+import { useSelector } from "react-redux";
+
 import { deleteWorkout } from '../../services/auth';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
@@ -46,10 +40,6 @@ const useStyles = makeStyles((theme) => ({
         height: '400px',
         overflowY: 'auto'
     },
-    table: {
-        // minWidth: 700,
-        // maxHeight: 100,
-      },
     heading: {
         fontSize: theme.typography.pxToRem(15),
         fontWeight: theme.typography.fontWeightRegular,
@@ -81,7 +71,6 @@ const useStyles = makeStyles((theme) => ({
 export default function Workouts() {
     const classes = useStyles();
     const workouts = useSelector((state) => state.store.workouts)
-    // console.log('workoutsss', workouts)
     let workoutList = Object.values(workouts)
     let pushExercises = [];
     let pullExercises = [];
@@ -161,39 +150,6 @@ export default function Workouts() {
                     </TableBody>
                 </Table>
                 </TableContainer>
-
-
-
-
-
-
-            {/* {
-                workoutList.map((workout, i) => {
-                    let panelContent = `panel${i}a-content`
-                    let panelHeader = `panel${i}a-header`
-                    return (
-                        <Accordion>
-                            <AccordionSummary
-                                expandIcon={<ExpandMoreIcon />}
-                                aria-controls={panelContent}
-                                id={panelHeader}
-                            >
-                                <Typography className={classes.heading}>{workout.name}</Typography>
-                            </AccordionSummary>
-                            <AccordionDetails>
-                                <Typography className={classes.type}>
-                                    (Type: {workout.type})
-                                </Typography>
-                            </AccordionDetails>
-                            <AccordionDetails>
-                                <Typography className={classes.delete} onClick={() => handleDeleteWorkout(workout.id)}>
-                                    Delete
-                                </Typography>
-                            </AccordionDetails>
-                        </Accordion>
-                    )
-                })
-            } */}
         </div>
     );
 }
