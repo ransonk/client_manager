@@ -48,7 +48,7 @@ const useStyles = makeStyles((theme) => ({
         bottom: '0'
     },
     info: {
-        backgroundColor: 'rgba(101, 139, 109, 0.5)'
+        backgroundColor: 'rgba(101, 139, 109, 0.2)'
     },
     dateHeader: {
         paddingLeft: '1rem'
