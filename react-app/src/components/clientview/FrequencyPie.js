@@ -85,7 +85,7 @@ function FrequencyPie() {
         }
     })
 
-    let borderColors = ['#f94144', '#f3722c', '#f8961e', '#f9c74f', '#90be6d', "#43aa8b", "#577590", "#0081a7", "#fed9b7", '#f07167', "#00f5d4", "#d0f4de", "#c8553d", "#b09e99"]
+    let borderColors = ['#f94144', '#f3722c', '#f8961e', '#f9c74f', '#90be6d', "#43aa8b", "#577590", "#0081a7", "#fed9b7", '#f07167', "#00f5d4", "#d0f4de", "#c8553d", "#b09e99", "#fff3b0", "#219ebc", "#52b788"]
 
 
     const data = {
@@ -113,8 +113,8 @@ function FrequencyPie() {
 
                     },
                     legend: {
-                        display: true,
-                        position: 'right',
+                        display: false,
+                        position: 'bottom',
                         labels: {
                             fontColor: 'white'
                         }
