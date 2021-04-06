@@ -98,10 +98,16 @@ html{
     border-bottom: 1px solid rgba(255, 255, 255, 0.466);
 }
 
+.selection__buttons {
+    padding: 20px 60px;
+    /* border: 1px solid white; */
+}
+
 .selection__buttons:hover {
     cursor: pointer;
-    text-decoration: underline wavy red;
-    transition-duration: 1s;
+    padding: 20px 60px;
+    /* border: 1px solid white; */
+    background-color: rgba(255, 255, 255, 0.3)
 }
 
 .side__bar{

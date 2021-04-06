@@ -1,18 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from "react-redux";
-import ButtonAppBar from './AppBar';
-import Footer from './Footer';
 import { makeStyles } from '@material-ui/core/styles';
 import Workouts from './workouts/Workouts';
 import CreateNewWorkout from './workouts/CreateNewWorkout';
 import CreateNewIntensity from './workouts/CreateNewIntensity';
-import { Button, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, Divider } from '@material-ui/core';
+import { Dialog, DialogContent, DialogContentText, DialogTitle } from '@material-ui/core';
 import { authenticate } from "../services/auth";
 import Intensities from './workouts/Intensities';
-import { setCurrentUser, setCurrentClient, fetchClients, setTrainerClients, fetchTodaysPlans, setTodaysPlans, fetchWorkouts, setWorkouts, fetchIntensities, setIntensities, fetchTodaysClients, updateProgress, fetchAllWorkoutPlans, setAllWorkoutPlans } from "../store/users";
+import { setCurrentUser, fetchClients, setTrainerClients, fetchTodaysPlans, setTodaysPlans, fetchWorkouts, setWorkouts, fetchIntensities, setIntensities, fetchAllWorkoutPlans, setAllWorkoutPlans } from "../store/users";
 import ClientCalendar from './clientview/ClientCalendar';
-import TodaysClients from './TodaysClients';
-import TomorrowsClients from './TomorrowsClients';
 import { Grid } from '@material-ui/core';
 import ClientFrequency from './clientview/ClientFrequency'
 import { Calendar, momentLocalizer } from 'react-big-calendar'
@@ -27,6 +23,7 @@ import FrequencyPie from './clientview/FrequencyPie';
 import WorkoutPlans from './clientview/workoutplans/WorkoutPlans'
 import EditClientProfile from './clientview/EditClientProfile';
 import SessionFrequency from './clientview/SessionFrequency';
+import LogoutButton from './auth/LogoutButton';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -55,6 +52,13 @@ const useStyles = makeStyles((theme) => ({
     },
     timeHeader: {
         paddingRight: '1rem'
+    },
+    logout: {
+        display: 'flex',
+        justifyContent: 'flex-end'
+    },
+    menu: {
+        border: '1px solid white'
     }
 }));
 
@@ -244,7 +248,8 @@ const HomePage = ({ setAuthenticated }) => {
     return (
         <>
             <Grid container>
-                <Grid item xs={12}>
+                <Grid item xs={12} className={classes.logout}>
+                    <LogoutButton setAuthenticated={setAuthenticated}/>
                 </Grid>
             </Grid>
             <Grid container className='content__container'>
@@ -286,15 +291,15 @@ const HomePage = ({ setAuthenticated }) => {
                         !clientView
                         ?
                         <>
-                            <a className={"selection__buttons"} onClick={grabCalendar}>Calendar</a>
-                            <a className={"selection__buttons"} onClick={grabStats}>Stats</a>
-                            <a className={"selection__buttons"} onClick={grabPlan}>Plan</a>
+                            <div className="selection__buttons" onClick={grabCalendar}>Calendar</div>
+                            <div className="selection__buttons" onClick={grabStats}>Stats</div>
+                            <div className="selection__buttons" onClick={grabPlan}>Plan</div>
                             </>
                             :
                             <>
-                                <a className={"selection__buttons"} onClick={grabClientInfo}>Info</a>
-                                <a className={"selection__buttons"} onClick={grabClientStats}>Stats</a>
-                                <a className={"selection__buttons"} onClick={grabClientPlan}>Plan</a>
+                                <div className="selection__buttons" onClick={grabClientInfo}>Info</div>
+                                <div className="selection__buttons" onClick={grabClientStats}>Stats</div>
+                                <div className="selection__buttons" onClick={grabClientPlan}>Plan</div>
                                 </>
 
                     }
