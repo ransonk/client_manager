@@ -10,7 +10,11 @@ const useStyles = makeStyles((theme) => ({
       maxWidth: 360,
     },
     Title: {
-        paddingTop: '10px'
+        paddingTop: '30px',
+        fontFamily: 'Viga'
+    },
+    listItem: {
+        fontFamily: 'Monteserrat, sans-serif'
     },
   }));
 
@@ -58,13 +62,13 @@ function TopThree({setSelectedClient, grabClientStats}) {
                     <ListItemIcon>
                     <StarIcon />
                     </ListItemIcon>
-                    <ListItemText primary={topThreeClients[0]} onClick={() => handlePress(selectClientObj[lastNames[0]])}/>
+                    <ListItemText disableTypography primary={topThreeClients[0]} className={classes.listItem} onClick={() => handlePress(selectClientObj[lastNames[0]])}/>
                 </ListItem>
                 <ListItem button>
-                    <ListItemText inset primary={topThreeClients[1]} onClick={() => handlePress(selectClientObj[lastNames[1]])}/>
+                    <ListItemText inset disableTypography primary={topThreeClients[1]} className={classes.listItem} onClick={() => handlePress(selectClientObj[lastNames[1]])}/>
                 </ListItem>
                 <ListItem button>
-                    <ListItemText inset primary={topThreeClients[2]} onClick={() => handlePress(selectClientObj[lastNames[2]])}/>
+                    <ListItemText inset disableTypography primary={topThreeClients[2]} className={classes.listItem} onClick={() => handlePress(selectClientObj[lastNames[2]])}/>
                 </ListItem>
             </List>
         </div>

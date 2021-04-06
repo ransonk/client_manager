@@ -66,6 +66,8 @@ html{
     font-size: 1.3em;
     position: relative;
     bottom: 1rem;
+    /* font-family: Monteserrat, sans-serif; */
+    font-family: Viga;
 }
 
 .content__title-text:hover{
@@ -100,6 +102,7 @@ html{
 
 .selection__buttons {
     padding: 20px 60px;
+    font-family: Monteserrat, sans-serif;
     /* border: 1px solid white; */
 }
 
@@ -120,12 +123,13 @@ html{
 }
 
 .side__bar__date{
-    background-color: rgba(0, 0, 0, 0.8);
+    /* background-color: rgba(0, 0, 0, 0.8); */
+    background: linear-gradient(to right, black, grey);
     position: relative;
     text-align: center;
     color: white;
-    /* height: 80vh; */
-    border-right: 1px solid rgba(255, 255, 255, 0.466);
+    font-family: Viga;
+    border-right: 1px solid white;
 }
 
 .main__content{

@@ -149,6 +149,13 @@ const useStyles = makeStyles((theme) => ({
     clientList: {
         overflowY: 'auto',
         height: '450px'
+    },
+    listItem: {
+        fontFamily: 'Monteserrat, sans-serif'
+    },
+    listHeader: {
+        fontFamily: 'Viga',
+        fontWeight: 700,
     }
 }));
 
@@ -317,7 +324,7 @@ export default function ClientDrawer({ authenticated, setAuthenticated, props, c
           style={id === selectedClient ? myStyle : null }
           onClick={() => handlePress(id)}>
 
-                        <ListItemText primary={firstName + ' ' + lastName} />
+                        <ListItemText className={classes.listItem} primary={firstName + ' ' + lastName} />
                         <ListItemIcon><DirectionsRunTwoTone /></ListItemIcon>
                     </ListItem>
                 ))}
@@ -326,7 +333,7 @@ export default function ClientDrawer({ authenticated, setAuthenticated, props, c
     <List>
 
                 <ListItem>
-                <ListItemText primary='Add Client' />
+                <ListItemText className={classes.listItem} primary='Add Client' />
     < CreateNewClient />
                 </ListItem>
     </List>
