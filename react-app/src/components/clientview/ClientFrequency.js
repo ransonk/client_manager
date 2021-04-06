@@ -51,7 +51,6 @@ function ClientFrequency() {
         topClientsObj[GreatestToLeast[i]] = clientList[i]
     }
     GreatestToLeast.sort((a, b) => b-a)
-
     let finalTopClientList = [];
     for (let i = 0; i < 3; i++) {
         finalTopClientList.push(topClientsObj[GreatestToLeast[i]])

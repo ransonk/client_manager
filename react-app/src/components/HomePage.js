@@ -315,7 +315,7 @@ const HomePage = ({ setAuthenticated }) => {
                 {/* start */}
                 <Grid item xs={1} md={2}></Grid>
                 <Grid item xs={1} md={2} className='side__bar'>
-                    <TopThree />
+                    <TopThree setSelectedClient={setSelectedClient} grabClientStats={grabClientStats}/>
                     <br />
                     <ClientDrawer clientView={clientView} setClientView={setClientView} selectedClient={selectedClient} setSelectedClient={setSelectedClient} grabClientStats={grabClientStats} grabStats={grabStats}/>
                 </Grid>
