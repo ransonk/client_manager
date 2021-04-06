@@ -47,11 +47,18 @@ const useStyles = makeStyles((theme) => ({
     info: {
         backgroundColor: 'rgba(101, 139, 109, 0.2)'
     },
+    timeDate: {
+        display: 'flex',
+        backgroundColor: 'rgba(0,0,0,0.4)'
+    },
     dateHeader: {
-        paddingLeft: '1rem'
+        paddingTop: '10px'
     },
     timeHeader: {
-        paddingRight: '1rem'
+        paddingBottom: '10px'
+    },
+    spaceRight: {
+        marginRight: '4rem',
     },
     logout: {
         display: 'flex',
@@ -268,13 +275,16 @@ const HomePage = ({ setAuthenticated }) => {
                 <Grid item xs={10} md={8} >
                     <Grid item md={2} className='side__margin'></Grid>
                     <Grid item md={12} className='content__title-bar'>
-
-                    <h2 className={classes.dateHeader}>
+                    <div className={classes.timeDate}>
+                    {/* <h2 className={classes.dateHeader}>
                         {date1}
                     </h2>
-                            <p className='content__title-text' onClick={handleClickTrain}>Train</p>
-                    <h2 className={classes.timeHeader}>
-                        {time}
+                    <h2 className={classes.timeHeader}>{time}</h2> */}
+                    </div>
+
+                    <p className='content__title-text' onClick={handleClickTrain}>Train</p>
+
+                    <h2 className={classes.spaceRight}>
                     </h2>
 
 
@@ -290,7 +300,15 @@ const HomePage = ({ setAuthenticated }) => {
 
                 {/* start */}
                 <Grid item xs={1} md={2}></Grid>
-                <Grid item xs={1} md={2} className='side__bar'></Grid>
+                <Grid item xs={1} md={2} className='side__bar__date'>
+                    <h3 className={classes.dateHeader}>
+                        Date: {date1}
+                    </h3>
+                    <h3 className={classes.timeHeader}>
+                        Time: {time}
+                    </h3>
+
+                </Grid>
                 <Grid item xs={12} md={6} className='selection__title-bar'>
                     {
                         !clientView
