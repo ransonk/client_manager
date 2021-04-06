@@ -245,6 +245,11 @@ const HomePage = ({ setAuthenticated }) => {
         grabStats();
     }
 
+    const selectedButton = {
+        padding: '20px 60px',
+        backgroundColor: 'rgba(255, 255, 255, 0.3)'
+    }
+
     return (
         <>
             <Grid container>
@@ -291,15 +296,15 @@ const HomePage = ({ setAuthenticated }) => {
                         !clientView
                         ?
                         <>
-                            <div className="selection__buttons" onClick={grabCalendar}>Calendar</div>
-                            <div className="selection__buttons" onClick={grabStats}>Stats</div>
-                            <div className="selection__buttons" onClick={grabPlan}>Plan</div>
+                            <div className="selection__buttons" onClick={grabCalendar} style={calendar && !clientView ? selectedButton : null}>Calendar</div>
+                            <div className="selection__buttons" onClick={grabStats} style={stats && !clientView ? selectedButton : null}>Stats</div>
+                            <div className="selection__buttons" onClick={grabPlan} style={plan && !clientView ? selectedButton : null}>Plan</div>
                             </>
                             :
                             <>
-                                <div className="selection__buttons" onClick={grabClientInfo}>Info</div>
-                                <div className="selection__buttons" onClick={grabClientStats}>Stats</div>
-                                <div className="selection__buttons" onClick={grabClientPlan}>Plan</div>
+                                <div className="selection__buttons" onClick={grabClientInfo} style={clientInfo && clientView ? selectedButton : null}>Info</div>
+                                <div className="selection__buttons" onClick={grabClientStats} style={clientStats && clientView ? selectedButton : null}>Stats</div>
+                                <div className="selection__buttons" onClick={grabClientPlan} style={clientPlan && clientView ? selectedButton : null}>Plan</div>
                                 </>
 
                     }

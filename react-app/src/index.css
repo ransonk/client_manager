@@ -656,8 +656,7 @@ html{
     padding-bottom: 3rem;
     color: white;
     /* background-color: rgba(101, 139, 109, 1); */
-    background-color: rgba(0, 0, 0, 0.3);
-}
+    background-color: rgba(255, 255, 255, 0.1);}
 
 .clientinfo__info__contact{
     border: 1px solid transparent;
