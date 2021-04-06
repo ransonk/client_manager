@@ -352,7 +352,6 @@ const HomePage = ({ setAuthenticated }) => {
                                             :
                                             plan && !clientView ?
                                             <Grid container>
-                                            {/* <Grid item xs={1} md={3}></Grid> */}
                                             <Grid item xs={12} md={6} className='home-clients__payment'>
                                                 <h1 className='home-clients__header2'>Available Exercises</h1>
                                                 <div className='home-clients__workouts'>
