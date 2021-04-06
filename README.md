@@ -65,15 +65,15 @@
 *User can view client contact and payment information.
 ![review](readmeImages/trainer-client-info.png)
 
-*User can track client progress in targeted exercises.
+*User can track client frequency and progress in targeted exercises to balance future workout plans.
 ![search](readmeImages/trainer-exercise.png)
 
-*User can track targeted exercise frequency to balance future workout plans.
-![createbusiness](readmeImages/trainer-frequency.png)
-
-*User can view current workout plans and schedule more.
+*User can view current workout plans for rescheduling or create more.
 ![profile](readmeImages/trainer-plan.png)
 ![profile](readmeImages/trainer-add-plan.png)
+
+*User can view today's workout plan for a client.
+![profile](readmeImages/trainer-today-plan.png)
 
 <!-- *Database Schema
 ![database](readmeImages/DBschema.png) -->

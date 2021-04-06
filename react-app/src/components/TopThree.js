@@ -9,6 +9,9 @@ const useStyles = makeStyles((theme) => ({
       width: '100%',
       maxWidth: 360,
     },
+    Title: {
+        paddingTop: '10px'
+    },
   }));
 
 function TopThree({setSelectedClient, grabClientStats}) {
@@ -49,7 +52,7 @@ function TopThree({setSelectedClient, grabClientStats}) {
 
     return (
         <div>
-            <h2>Top Clients</h2>
+            <h2 className={classes.Title}>Top Clients</h2>
             <List component="nav" className={classes.root} aria-label="contacts">
                 <ListItem button>
                     <ListItemIcon>
