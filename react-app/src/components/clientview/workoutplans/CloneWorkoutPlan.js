@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux'
-import { Typography, Button, Modal, TextField } from '@material-ui/core';
+import { Typography, Button, Dialog, TextField } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import Backdrop from '@material-ui/core/Backdrop';
 import Fade from '@material-ui/core/Fade';
@@ -55,10 +55,12 @@ const useStyles = makeStyles((theme) => ({
     exitBtn: {
         position: 'relative',
         bottom: '1.95rem',
-        left: '11rem',
+        left: '22rem',
         border: 'none',
         paddingRight: '0px',
         paddingLeft: '0px',
+        width: '10px',
+        color: 'red'
     },
     paid: {
         display: 'flex',
@@ -460,10 +462,11 @@ const CloneWorkoutPlan = ({cloneId}) => {
                 Clone
             </a>
 
-            <Modal
+            <Dialog
                 aria-labelledby="transition-modal-title"
                 aria-describedby="transition-modal-description"
                 className={classes.modal}
+                maxWidth="md"
                 open={openModal}
                 onClose={handleCloseModal}
                 closeAfterTransition
@@ -805,7 +808,7 @@ const CloneWorkoutPlan = ({cloneId}) => {
                         </form>
                     </Typography>
                 </Fade>
-            </Modal>
+            </Dialog>
         </div>
     );
 }
