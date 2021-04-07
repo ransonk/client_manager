@@ -52,10 +52,10 @@ const useStyles = makeStyles((theme) => ({
         backgroundColor: 'rgba(0,0,0,0.4)'
     },
     dateHeader: {
-        paddingTop: '10px'
+        paddingTop: '5px'
     },
     timeHeader: {
-        paddingBottom: '10px'
+        paddingBottom: '5px'
     },
     spaceRight: {
         marginRight: '4rem',

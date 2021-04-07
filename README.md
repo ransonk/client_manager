@@ -7,7 +7,7 @@
 <br />
 <p align="center">
 <a href="https://trainer-hub.herokuapp.com/">
-    <img src="readmeImages/trainer-graphs.png" alt="Logo" width="120" height="auto"
+    <img src="readmeImages/trainer-exercise.png" alt="Logo" width="120" height="auto"
     ></a>
 <a href="https://trainer-hub.herokuapp.com/">
   <h3 align="center">Trainer Hub</h3></a>
