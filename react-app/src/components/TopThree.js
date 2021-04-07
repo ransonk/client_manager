@@ -32,6 +32,7 @@ function TopThree({setSelectedClient, grabClientStats}) {
 
 
     let topThreeClients = localStorage.getItem('asd9f0393y8fgkls233fxxh');
+    if (!topThreeClients) return null;
     topThreeClients = topThreeClients.split(',');
     let lastNames = []
     topThreeClients.map(client => {
