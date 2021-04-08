@@ -11,7 +11,7 @@ const useStyles = makeStyles((theme) => ({
     },
     Title: {
         paddingTop: '30px',
-        fontFamily: 'Viga'
+        fontFamily: 'Pacifico, cursive'
     },
     listItem: {
         fontFamily: 'Monteserrat, sans-serif'

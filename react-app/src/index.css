@@ -5,20 +5,6 @@
     box-sizing: border-box;
 }
 
-/* :root {
-    --v1: #be91c6;
-    --v2: #8a65cc;
-    --v3: #5e30d9;
-    --transparentv3: #5e30d900;
-    --v4: #3b1895;
-    --s1: #fea798;
-    --s2: #ff846e;
-    --cloud: #fea798;
-
-     background-image: linear-gradient(var(--v1), var(--s1), var(--v1));
-  } */
-
-
 html{
     overflow: none;
 
@@ -67,7 +53,7 @@ html{
     position: relative;
     bottom: 1rem;
     /* font-family: Monteserrat, sans-serif; */
-    font-family: Viga;
+    font-family: Pacifico, cursive;
 }
 
 .content__title-text:hover{
@@ -128,7 +114,7 @@ html{
     position: relative;
     text-align: center;
     color: white;
-    font-family: Viga;
+    font-family: 'Montesserat, sans-serif';
     border-right: 1px solid white;
 }
 
@@ -394,7 +380,7 @@ html{
 .login-page__container{
     display: flex;
     justify-content: space-evenly;
-    background-image: url('./images/logan-weaver-apyd8hWmIw0-unsplash\ \(1\).jpg');
+    background-image: url('./images/meghan-holmes-buWcS7G1_28-unsplash.jpg');
     background-size: cover;
 }
 

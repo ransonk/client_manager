@@ -29,7 +29,7 @@ const useStyles = makeStyles((theme) => ({
 
   },
   header1: {
-    color: '#bde0fe',
+    color: '#0077b6',
     fontFamily: 'Pacifico, cursive',
     fontSize: "180%",
     position: "relative",

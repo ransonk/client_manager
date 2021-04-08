@@ -200,7 +200,9 @@ function GraphProgress() {
                         position: 'top',
                         left: 3,
                         labels: {
-                            fontColor: 'white'
+                            fontColor: 'white',
+                            boxWidth: 15,
+                            boxHeight: 15,
                         }
                     },
 
