@@ -95,7 +95,7 @@ function FrequencyPie() {
     }
 
     return (
-        <div>
+        <div className='progress-chart-container'>
             {
                 dates.length ?
                 <Doughnut

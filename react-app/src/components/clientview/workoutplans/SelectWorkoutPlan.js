@@ -16,8 +16,8 @@ import {Apps} from '@material-ui/icons';
 
 const useStyles = makeStyles({
     root: {
-        minWidth: 200,
-        maxWidth: 200,
+        // minWidth: 200,
+        // maxWidth: 200,
         margin: '0.5rem',
         width: 'auto',
     },

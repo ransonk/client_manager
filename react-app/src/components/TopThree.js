@@ -56,7 +56,7 @@ function TopThree({setSelectedClient, grabClientStats}) {
     }
 
     return (
-        <div>
+        <div className='topThree'>
             <h2 className={classes.Title}>Top Clients</h2>
             <List component="nav" className={classes.root} aria-label="contacts">
                 <ListItem button>

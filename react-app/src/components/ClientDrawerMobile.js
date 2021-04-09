@@ -147,18 +147,20 @@ const useStyles = makeStyles((theme) => ({
         marginTop: '1.5rem',
     },
     clientList: {
-        overflowY: 'auto',
-        height: '450px',
-        '@media(max-width: 376px)' : {
-            display: 'flex'
-          }
+        display: 'flex',
+        backgroundColor: 'rgba(0, 0, 0, 0.4)',
+        overflowX: 'scroll',
     },
     listItem: {
-        fontFamily: 'Monteserrat, sans-serif'
+        fontFamily: 'Monteserrat, sans-serif',
     },
     listHeader: {
         fontFamily: 'Viga',
         fontWeight: 700,
+    },
+    runIcon: {
+        position: 'relative',
+        left: '15px'
     }
 }));
 
@@ -305,41 +307,28 @@ export default function ClientDrawer({ authenticated, setAuthenticated, props, c
 
     return (
         <>
-        <div className={classes.clientList}>
+    <div className={classes.clientList}>
 
-            <List
-            selected
-      component="nav"
-      aria-labelledby="nested-list-subheader"
-      subheader={
-          <ListSubheader component="div" id="nested-list-subheader">
-          Current Clients
-        </ListSubheader>
-      }
-      className={classes.root}
-      >
+          <ListItem>
+          <ListItemText className={classes.listItem} />
+            < CreateNewClient />
+          </ListItem>
+
       {clientsArray.map(({ firstName, lastName, id }) => (
           <ListItem
           divider
           button
           key={id}
-          className={`client-${id}`}
+          className='client-list-mobile'
           style={id === selectedClient ? myStyle : null }
           onClick={() => handlePress(id)}>
 
                         <ListItemText className={classes.listItem} primary={firstName + ' ' + lastName} />
-                        <ListItemIcon><DirectionsRunTwoTone /></ListItemIcon>
+                        <ListItemIcon className={classes.runIcon}><DirectionsRunTwoTone /></ListItemIcon>
                     </ListItem>
                 ))}
-    </List>
-                </div>
-    <List>
 
-                <ListItem>
-                <ListItemText className={classes.listItem} primary='Add Client' />
-    < CreateNewClient />
-                </ListItem>
-    </List>
+    </div>
             <div className='profile-edit__container'>
 
                 <Modal

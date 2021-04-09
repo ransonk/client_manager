@@ -59,7 +59,7 @@ const useStyles = makeStyles((theme) => ({
     },
     exitBtn: {
         position: 'relative',
-        left: '11rem',
+        left: '70%',
         border: 'none',
         paddingRight: '0px',
         paddingLeft: '0px',
@@ -68,13 +68,16 @@ const useStyles = makeStyles((theme) => ({
     },
     deleteBtn: {
         position: 'relative',
-        bottom: '2rem',
-        right: '9rem',
+        bottom: '2.35rem',
+        right: '60%',
         border: 'none',
         paddingRight: '0px',
         paddingLeft: '0px',
         color: 'red',
-        fontFamily: 'Calibri'
+        fontFamily: 'Calibri',
+        '&:hover': {
+            backgroundColor: 'rgb(230, 230, 230)'
+        }
     },
     icon: {
         borderRadius: 3,

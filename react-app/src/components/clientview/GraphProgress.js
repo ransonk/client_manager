@@ -163,12 +163,16 @@ function GraphProgress() {
     }
 
     return (
-        <div>
+        <div className='progress-chart-container'>
             {
                 (dates.length > 1) ?
                 <Line
                 data={data}
                 options={{
+                    beforeDraw: function(c) {
+                        var chartHeight = c.chart.height;
+                        c.scales['y-axis-0'].options.ticks.fontSize = chartHeight * 6 / 100;
+                     },
                     scales: {
                         xAxes: [{
                             gridLines: {
@@ -176,6 +180,7 @@ function GraphProgress() {
                             },
                             ticks: {
                                 fontColor: "white",
+                                fontSize: 10
                             },
                         }],
                         yAxes: [{
@@ -198,7 +203,8 @@ function GraphProgress() {
                     legend: {
                         display: true,
                         position: 'top',
-                        left: 3,
+                        maxHeight: '10',
+                        maxWidth: '10',
                         labels: {
                             fontColor: 'white',
                             boxWidth: 15,
