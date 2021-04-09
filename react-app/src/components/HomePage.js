@@ -16,6 +16,7 @@ import moment from 'moment'
 import 'react-big-calendar/lib/css/react-big-calendar.css';
 import TopThree from './TopThree';
 import ClientDrawer from './ClientDrawer';
+import ClientDrawerMobile from './ClientDrawerMobile';
 import ClientInfo from './clientview/ClientInfo';
 import ClientPayment from './clientview/ClientPayment';
 import GraphProgress from './clientview/GraphProgress';
@@ -253,7 +254,7 @@ const HomePage = ({ setAuthenticated }) => {
     }
 
     const selectedButton = {
-        padding: '20px 60px',
+        padding: '5px 5px',
         backgroundColor: 'rgba(255, 255, 255, 0.3)'
     }
 
@@ -272,9 +273,7 @@ const HomePage = ({ setAuthenticated }) => {
 
                 {/* start */}
                 <Grid item xs={1} md={2}></Grid>
-                <Grid item xs={10} md={8} >
-                    <Grid item md={2} className='side__margin'></Grid>
-                    <Grid item md={12} className='content__title-bar'>
+                    <Grid item xs={10} md={8} className='content__title-bar'>
                     <div className={classes.timeDate}>
                     {/* <h2 className={classes.dateHeader}>
                         {date1}
@@ -286,21 +285,14 @@ const HomePage = ({ setAuthenticated }) => {
 
                     <h2 className={classes.spaceRight}>
                     </h2>
-
-
                     </Grid>
-
-                    <Grid item md={3} className='side__margin'></Grid>
-
-
-                    <Grid item md={3}></Grid>
-                </Grid>
                 <Grid item xs={1} md={2}></Grid>
                 {/* end */}
 
                 {/* start */}
-                <Grid item xs={1} md={2}></Grid>
-                <Grid item xs={1} md={2} className='side__bar__date'>
+
+                {/* <Grid item xs={1} md={2}></Grid>
+                <Grid item xs={10} md={2} className='side__bar__date'>
                     <h3 className={classes.dateHeader}>
                         Date: {date1}
                     </h3>
@@ -309,7 +301,10 @@ const HomePage = ({ setAuthenticated }) => {
                     </h3>
 
                 </Grid>
-                <Grid item xs={12} md={6} className='selection__title-bar'>
+                <Grid item xs></Grid> */}
+
+                <Grid item xs={1} md={2}></Grid>
+                <Grid item xs={10} md={8} className='selection__title-bar'>
                     {
                         !clientView
                         ?
@@ -325,19 +320,24 @@ const HomePage = ({ setAuthenticated }) => {
                                 <div className="selection__buttons" onClick={grabClientPlan} style={clientPlan && clientView ? selectedButton : null}>Plan</div>
                                 </>
 
-                    }
+}
                 </Grid>
                 <Grid item xs={1} md={2}></Grid>
                 {/* end */}
 
                 {/* start */}
                 <Grid item xs={1} md={2}></Grid>
-                <Grid item xs={1} md={2} className='side__bar'>
+                <Grid item xs={3} md={2} className='side__bar'>
                     <TopThree setSelectedClient={setSelectedClient} grabClientStats={grabClientStats}/>
                     <br />
                     <ClientDrawer clientView={clientView} setClientView={setClientView} selectedClient={selectedClient} setSelectedClient={setSelectedClient} grabClientStats={grabClientStats} grabStats={grabStats}/>
                 </Grid>
-                <Grid item xs={12} md={6} className='main__content'>
+                <Grid item xs={10} className='side__bar__mobile'>
+                    <ClientDrawerMobile clientView={clientView} setClientView={setClientView} selectedClient={selectedClient} setSelectedClient={setSelectedClient} grabClientStats={grabClientStats} grabStats={grabStats}/>
+                </Grid>
+                <Grid item xs={1} className='mobile-spacing'></Grid>
+                <Grid item xs={1} className='mobile-spacing'></Grid>
+                <Grid item xs={10} md={6} className='main__content'>
                     {   stats && !clientView ?
                     <>
                         <Grid container>
@@ -394,12 +394,18 @@ const HomePage = ({ setAuthenticated }) => {
                                                             {/* <Grid item xs={12} md={12}></Grid> */}
                                                             <Grid item md={3} className={classes.info}></Grid>
                                                             <Grid item xs={12} md={6} className={classes.info}>
+                                                            <EditClientProfile />
+                                                            </Grid>
+                                                            <Grid item md={3} className={classes.info}>
+                                                            </Grid>
+
+                                                            <Grid item md={3} className={classes.info}></Grid>
+                                                            <Grid item xs={12} md={6} className={classes.info}>
                                                             <ClientInfo />
                                                             </Grid>
                                                             <Grid item md={3} className={classes.info}>
-                                                            <EditClientProfile />
-
                                                             </Grid>
+
                                                             <Grid item md={3} className={classes.info}></Grid>
                                                             <Grid item xs={12} md={6} className={classes.info}>
                                                             <ClientPayment />

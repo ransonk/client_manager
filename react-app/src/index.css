@@ -87,14 +87,14 @@ html{
 }
 
 .selection__buttons {
-    padding: 20px 60px;
+    /* padding: 20px 60px; */
     font-family: Monteserrat, sans-serif;
     /* border: 1px solid white; */
 }
 
 .selection__buttons:hover {
     cursor: pointer;
-    padding: 20px 60px;
+    /* padding: 20px 60px; */
     /* border: 1px solid white; */
     background-color: rgba(255, 255, 255, 0.3)
 }
@@ -575,7 +575,7 @@ html{
     /* display: flex; */
     border-radius: 3px;
     padding-top: 1rem;
-    margin-top: 2rem;
+    margin-top: 1rem;
     /* width: 30rem; */
 }
 
@@ -1035,6 +1035,7 @@ html{
 
 .workoutplans__container{
     display: flex;
+    overflow-x: auto;
 }
 
 .today-plan-sched__container{
@@ -1190,12 +1191,164 @@ html{
     margin-top: 2rem;
 }
 
+.client-list-mobile{
+    border-left: 1px solid white;
+}
+
 .profile-edit__container{
     display: flex;
     justify-content: center;
 }
 
-.chartjs-render-monitor{
-    height: 300;
-    color: rgb(101, 139, 109)
+.chart-container{
+    position: relative;
+    width: auto;
+    /* margin-bottom: 10rem; */
 }
+
+.chartjs-render-monitor{
+    height: auto;
+    color: rgb(101, 139, 109);
+    overflow-x: auto;
+}
+
+.chartjs-size-monitor{
+    position: relative;
+}
+
+.progress-chart-container{
+    height: auto;
+    overflow-x: auto;
+    overflow-y: auto;
+}
+
+.side__bar__mobile {
+    display: none;
+    background-color: rgba(124,168,133);
+    position: relative;
+    text-align: center;
+    color: white;
+    /* height: 80vh; */
+    border-right: 1px solid rgba(255, 255, 255, 0.466);
+}
+
+.mobile-spacing{
+    display: none;
+}
+
+
+@media only screen
+    and (max-width : 1100px)
+    {
+        .progress-chart-container{
+            height: auto;
+            width: 655px;
+        }
+        .chart-container{
+            position: relative;
+            width: auto;
+            margin-bottom: 10rem;
+        }
+    }
+
+@media only screen
+    and (max-width : 955px)
+    {
+        .side__bar {
+            display: none;
+        }
+        .side__bar__mobile {
+            display: flex;
+        }
+        .progress-chart-container{
+            height: auto;
+            width: 655px;
+        }
+        .mobile-spacing{
+            display: block;
+        }
+        .chart-container{
+            position: relative;
+            width: auto;
+            margin-bottom: 10rem;
+        }
+    }
+
+@media only screen
+    and (max-width : 550px)
+    {
+        .side__bar {
+            display: none;
+        }
+        .side__bar__mobile {
+            display: flex;
+        }
+        .progress-chart-container{
+            height: auto;
+            width: 655px;
+        }
+        .mobile-spacing{
+            display: block;
+        }
+        .chart-container{
+            position: relative;
+            width: auto;
+            margin-bottom: -3rem;
+        }
+    }
+
+@media only screen
+    and (max-width : 500px)
+    {
+        .side__bar {
+            display: none;
+        }
+        .side__bar__mobile {
+            display: flex;
+        }
+        .progress-chart-container{
+            height: auto;
+            width: 655px;
+        }
+        .mobile-spacing{
+            display: block;
+        }
+        .chart-container{
+            position: relative;
+            width: auto;
+            margin-bottom: -10rem;
+        }
+    }
+
+@media only screen
+    and (max-width : 380px)
+    {
+        .side__bar {
+            display: none;
+        }
+        .side__bar__mobile {
+            display: flex;
+        }
+        .progress-chart-container{
+            height: auto;
+            width: 655px;
+        }
+        .mobile-spacing{
+            display: block;
+        }
+        .chart-container{
+            position: relative;
+            width: auto;
+            margin-bottom: -20rem;
+        }
+    }
+
+    /* @media only screen
+    and (min-device-width: 375px)
+    and (max-device-height: 812px)
+    and (-webkit-device-pixel-ratio: 3) {
+        .topThree {
+            display: none;
+        }
+
+     } */

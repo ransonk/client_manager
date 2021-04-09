@@ -24,7 +24,7 @@ const useStyles = makeStyles({
         }
     },
     addWorkoutPlan: {
-        minWidth: 200,
+        // minWidth: 200,
         margin: '0.5rem',
         height: '20rem',
     },

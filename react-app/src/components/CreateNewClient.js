@@ -62,7 +62,7 @@ const useStyles = makeStyles((theme) => ({
     exitBtn: {
         position: 'relative',
         bottom: '1.95rem',
-        left: '10rem',
+        left: '60%',
         border: 'none',
         paddingRight: '0px',
         paddingLeft: '0px',
@@ -221,7 +221,7 @@ const CreateNewClient = ({ authenticated, setAuthenticated, props }) => {
 
     return (
 
-        <div className='profile-edit__container'>
+        <div className='profile-edit__container' >
 
             <a className='addClient' onClick={handleOpenModal}>
                 <PlaylistAdd />

@@ -13,6 +13,10 @@ const useStyles = makeStyles((theme) => ({
     color: 'white',
     '&:hover': {
       backgroundColor: 'rgba(0,0,0,0.4)'
+    },
+    '@media(max-width: 376px)' : {
+      marginTop: '0',
+      marginRight: '2rem',
     }
   }
 }));

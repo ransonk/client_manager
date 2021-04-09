@@ -21,7 +21,7 @@ const useStyles = makeStyles((theme) => ({
 
     },
     paperWidthSm: {
-        maxWidth: '800px'
+        // maxWidth: '800px'
 
     },
     paper: {
@@ -37,7 +37,11 @@ const useStyles = makeStyles((theme) => ({
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
-        width: '50rem'
+        width: '100%',
+        overflowX: 'hidden'
+        // '@media(max-width: 376px)' : {
+        //     width: '100%'
+        //   }
 
     },
     editHeading: {
@@ -58,7 +62,7 @@ const useStyles = makeStyles((theme) => ({
     exitBtn: {
         position: 'relative',
         bottom: '1.95rem',
-        left: '22rem',
+        left: '60%',
         border: 'none',
         paddingRight: '0px',
         paddingLeft: '0px',
@@ -440,7 +444,7 @@ const AddWorkoutPlan = (props) => {
                                 <br/>
                                 Follow time and date formatting for reliable functionality.
                             </Typography>
-                            <span><TextField id='standard-basic' className={classes.inputs} value={name} onChange={updateName} label='Name of Workout Plan' autoFocus />
+                            <span><TextField id='standard-basic' className={classes.inputs} value={name} onChange={updateName} label='Name of Workout' autoFocus />
                                 <TextField id='standard-basic' className={classes.inputs} value={time} onChange={updateTime} label='Time: 03:45 pm' />
                                 <TextField id='standard-basic' className={classes.inputs} value={date} onChange={updateDate} label='Date: mm/dd/yyyy' /></span>
                             <div>
@@ -481,7 +485,7 @@ const AddWorkoutPlan = (props) => {
                                         }
                                     </Select>
                                 </FormControl>
-                                <TextField id='standard-basic' className={classes.inputs} value={weight1} onChange={updateWeight1} label='Weight (lbs)' autoFocus />
+                                <TextField id='standard-basic' className={classes.inputs} value={weight1} onChange={updateWeight1} label='Weight (lbs)' />
                                 <br />
                                 <FormControl className={classes.formControl}>
                                     <InputLabel htmlFor="grouped-native-select">Workouts</InputLabel>
@@ -520,7 +524,7 @@ const AddWorkoutPlan = (props) => {
                                         }
                                     </Select>
                                 </FormControl>
-                                <TextField id='standard-basic' className={classes.inputs} value={weight2} onChange={updateWeight2} label='Weight (lbs)' autoFocus />
+                                <TextField id='standard-basic' className={classes.inputs} value={weight2} onChange={updateWeight2} label='Weight (lbs)' />
                                 <br />
                                 <FormControl className={classes.formControl}>
                                     <InputLabel htmlFor="grouped-native-select">Workouts</InputLabel>
@@ -559,7 +563,7 @@ const AddWorkoutPlan = (props) => {
                                         }
                                     </Select>
                                 </FormControl>
-                                <TextField id='standard-basic' className={classes.inputs} value={weight3} onChange={updateWeight3} label='Weight (lbs)' autoFocus />
+                                <TextField id='standard-basic' className={classes.inputs} value={weight3} onChange={updateWeight3} label='Weight (lbs)' />
                                 <br />
                                 <FormControl className={classes.formControl}>
                                     <InputLabel htmlFor="grouped-native-select">Workouts</InputLabel>
@@ -598,7 +602,7 @@ const AddWorkoutPlan = (props) => {
                                         }
                                     </Select>
                                 </FormControl>
-                                <TextField id='standard-basic' className={classes.inputs} value={weight4} onChange={updateWeight4} label='Weight (lbs)' autoFocus />
+                                <TextField id='standard-basic' className={classes.inputs} value={weight4} onChange={updateWeight4} label='Weight (lbs)' />
                                 <br />
                                 <FormControl className={classes.formControl}>
                                     <InputLabel htmlFor="grouped-native-select">Workouts</InputLabel>
@@ -637,7 +641,7 @@ const AddWorkoutPlan = (props) => {
                                         }
                                     </Select>
                                 </FormControl>
-                                <TextField id='standard-basic' className={classes.inputs} value={weight5} onChange={updateWeight5} label='Weight (lbs)' autoFocus />
+                                <TextField id='standard-basic' className={classes.inputs} value={weight5} onChange={updateWeight5} label='Weight (lbs)' />
                                 <br />
                                 <FormControl className={classes.formControl}>
                                     <InputLabel htmlFor="grouped-native-select">Workouts</InputLabel>
@@ -676,7 +680,7 @@ const AddWorkoutPlan = (props) => {
                                         }
                                     </Select>
                                 </FormControl>
-                                <TextField id='standard-basic' className={classes.inputs} value={weight6} onChange={updateWeight6} label='Weight (lbs)' autoFocus />
+                                <TextField id='standard-basic' className={classes.inputs} value={weight6} onChange={updateWeight6} label='Weight (lbs)' />
                                 <br />
                                 <FormControl className={classes.formControl}>
                                     <InputLabel htmlFor="grouped-native-select">Workouts</InputLabel>
@@ -715,7 +719,7 @@ const AddWorkoutPlan = (props) => {
                                         }
                                     </Select>
                                 </FormControl>
-                                <TextField id='standard-basic' className={classes.inputs} value={weight7} onChange={updateWeight7} label='Weight (lbs)' autoFocus />
+                                <TextField id='standard-basic' className={classes.inputs} value={weight7} onChange={updateWeight7} label='Weight (lbs)' />
                                 <br />
                                 <FormControl className={classes.formControl}>
                                     <InputLabel htmlFor="grouped-native-select">Workouts</InputLabel>
@@ -754,7 +758,7 @@ const AddWorkoutPlan = (props) => {
                                         }
                                     </Select>
                                 </FormControl>
-                                <TextField id='standard-basic' className={classes.inputs} value={weight8} onChange={updateWeight8} label='Weight (lbs)' autoFocus />
+                                <TextField id='standard-basic' className={classes.inputs} value={weight8} onChange={updateWeight8} label='Weight (lbs)' />
                             </div>
                             <br/>
                             <Button variant='contained' color='primary' className={classes.button} type='submit'>Submit</Button>

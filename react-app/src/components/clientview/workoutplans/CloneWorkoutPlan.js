@@ -34,7 +34,8 @@ const useStyles = makeStyles((theme) => ({
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
-        width: '50rem'
+        width: '100%',
+        overflowX: 'hidden'
 
     },
     editHeading: {
@@ -55,7 +56,7 @@ const useStyles = makeStyles((theme) => ({
     exitBtn: {
         position: 'relative',
         bottom: '1.95rem',
-        left: '22rem',
+        left: '60%',
         border: 'none',
         paddingRight: '0px',
         paddingLeft: '0px',
@@ -487,7 +488,7 @@ const CloneWorkoutPlan = ({cloneId}) => {
                                 <br/>
                                 Follow time and date formatting for reliable functionality.
                             </Typography>
-                            <span><TextField id='standard-basic' className={classes.inputs} value={name} onChange={updateName} label='Name of Workout Plan' autoFocus />
+                            <span><TextField id='standard-basic' className={classes.inputs} value={name} onChange={updateName} label='Name of Workout' autoFocus />
                                 <TextField id='standard-basic' className={classes.inputs} value={time} onChange={updateTime} label='Time: 03:45 pm' />
                                 <TextField id='standard-basic' className={classes.inputs} value={date} onChange={updateDate} label='Date: mm/dd/yyyy' /></span>
                             <div>
