@@ -51,7 +51,9 @@ const ClientInfo = () => {
     return (
         <div className='clientinfo__container'>
             <div className='clientinfo__info'>
-                <h1 className='clientinfo__header'>{firstName + ' ' + lastName}</h1>
+                <h1 className='clientinfo__header'>{firstName + ' ' + lastName}
+                <EditClientProfile />
+                </h1>
                 <div className='clientinfo__clientcard'>
                     <div className='clientinfo__info__contact'>
                         <p className='card__header'>Contact</p>

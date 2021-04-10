@@ -131,7 +131,7 @@ function SessionFrequency() {
                 backgroundColor: 'white',
                 hoverBorderColor: 'orange',
                 pointBorderColor: 'white',
-                borderColor: 'red',
+                borderColor: 'green',
                 borderWidth: 2,
                 color: 'white',
                 data: monthCounts

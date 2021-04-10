@@ -22,7 +22,6 @@ import ClientPayment from './clientview/ClientPayment';
 import GraphProgress from './clientview/GraphProgress';
 import FrequencyPie from './clientview/FrequencyPie';
 import WorkoutPlans from './clientview/workoutplans/WorkoutPlans'
-import EditClientProfile from './clientview/EditClientProfile';
 import SessionFrequency from './clientview/SessionFrequency';
 import LogoutButton from './auth/LogoutButton';
 
@@ -391,14 +390,6 @@ const HomePage = ({ setAuthenticated }) => {
                                                     clientInfo && clientView ?
                                                     <>
                                                     <Grid container>
-                                                            {/* <Grid item xs={12} md={12}></Grid> */}
-                                                            <Grid item md={3} className={classes.info}></Grid>
-                                                            <Grid item xs={12} md={6} className={classes.info}>
-                                                            <EditClientProfile />
-                                                            </Grid>
-                                                            <Grid item md={3} className={classes.info}>
-                                                            </Grid>
-
                                                             <Grid item md={3} className={classes.info}></Grid>
                                                             <Grid item xs={12} md={6} className={classes.info}>
                                                             <ClientInfo />
