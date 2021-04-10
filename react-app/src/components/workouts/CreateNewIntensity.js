@@ -146,7 +146,7 @@ const CreateNewIntensity = (props) => {
 
         <div className='profile-edit__container'>
 
-            <a className='addWorkout' onClick={handleOpenModal}>
+            <a className='addIntensity' onClick={handleOpenModal}>
                 Create Sets and Reps
             </a>
             <Modal

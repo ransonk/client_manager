@@ -380,7 +380,7 @@ const HomePage = ({ setAuthenticated }) => {
 
                                                 <Grid item xs={12} md={6} className='home-clients__payment'>
                                                     <h1 className='home-clients__header2'>Available Intensities</h1>
-                                                    <div className='home-clients__workouts'>
+                                                    <div className='home-clients__workouts2'>
                                                         <Intensities />
                                                     </div>
                                                     <CreateNewIntensity />

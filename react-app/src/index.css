@@ -157,17 +157,12 @@ html{
     padding: 10px 30px;
     text-decoration: none;
     background-color: red;
-    /* text-transform: uppercase; */
     font-weight: 500;
     letter-spacing: 2px;
     color: white;
     font-size: 18px;
     margin-top: 3rem;
     border-radius: 5px;
-    /* box-shadow: -2px -2px 8px rgba(255, 255, 255, 1),
-    -2px -2px 12px rgba(255, 255, 255, 0.5),
-    inset 2px 2px 4px rgba(255, 255, 255, 0.1),
-    2px 2px 8px rgba(0, 0, 0, 0.15); */
 }
 
 .addWorkout:hover{
@@ -180,28 +175,38 @@ html{
     transform: scale(0.98);
 }
 
-/* .addClient{
-    margin-top: 1.2rem;
-    margin-left: 6.5rem;
+.addIntensity{
+    margin-top: 1rem;
     position: relative;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;    display: inline-block;
-    padding: 5px 10px;
+    bottom: 1rem;
+    font-family: Calibri;
+    display: inline-block;
+    padding: 10px 30px;
     text-decoration: none;
-    text-transform: uppercase;
-    font-weight: 800;
-    letter-spacing: 1px;
+    background-color: red;
+    font-weight: 500;
+    letter-spacing: 2px;
     color: white;
     font-size: 18px;
-    border-radius: 50px;
+    margin-top: 3rem;
+    border-radius: 5px;
+}
 
-} */
+.addIntensity:hover{
+    cursor: pointer;
+    background-color: rgb(151, 1, 1);
+}
+
+.addIntensity:hover span{
+    display: inline-block;
+    transform: scale(0.98);
+}
+
 
 .addClient:hover{
     cursor: pointer;
 
 }
-
-
 
 .addWorkoutPlan{
     font-size: 5rem;
@@ -823,6 +828,11 @@ html{
     justify-content: center;
 }
 
+.home-clients__workouts2{
+    display: flex;
+    justify-content: center;
+}
+
 .home-clients__clientcard{
     display: flex;
     justify-content: space-evenly;
@@ -1397,14 +1407,21 @@ html{
             max-height: 150px;
         }
         .home-clients__workouts{
-            padding-top: 0rem;
+            margin-top: 0.1rem;
         }
-        .home-clients__header{
-            margin-top: 1rem;
+        .home-clients__workouts2{
+            position: relative;
+            bottom: 2rem;
+            margin-top: -2rem;
         }
-        .home-clients__header2{
-            margin-top: 0rem;
+        .addIntensity{
+            position: relative;
+            bottom: 2rem;
         }
+        .home-clients__header, .home-clients__header2{
+            display: none;
+        }
+
     }
 
     /* @media only screen
