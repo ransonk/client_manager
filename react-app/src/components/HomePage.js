@@ -273,7 +273,7 @@ const HomePage = ({ setAuthenticated }) => {
 
                 {/* start */}
                 <Grid item xs={1} md={2}></Grid>
-                    <Grid item xs={10} md={8} className='content__title-bar'>
+                    <Grid item xs={12} md={8} className='content__title-bar'>
                     <div className={classes.timeDate}>
                     {/* <h2 className={classes.dateHeader}>
                         {date1}
@@ -304,7 +304,7 @@ const HomePage = ({ setAuthenticated }) => {
                 <Grid item xs></Grid> */}
 
                 <Grid item xs={1} md={2}></Grid>
-                <Grid item xs={10} md={8} className='selection__title-bar'>
+                <Grid item xs={12} md={8} className='selection__title-bar'>
                     {
                         !clientView
                         ?
@@ -320,7 +320,7 @@ const HomePage = ({ setAuthenticated }) => {
                                 <div className="selection__buttons" onClick={grabClientPlan} style={clientPlan && clientView ? selectedButton : null}>Plan</div>
                                 </>
 
-}
+                    }
                 </Grid>
                 <Grid item xs={1} md={2}></Grid>
                 {/* end */}
@@ -332,12 +332,12 @@ const HomePage = ({ setAuthenticated }) => {
                     <br />
                     <ClientDrawer clientView={clientView} setClientView={setClientView} selectedClient={selectedClient} setSelectedClient={setSelectedClient} grabClientStats={grabClientStats} grabStats={grabStats}/>
                 </Grid>
-                <Grid item xs={10} className='side__bar__mobile'>
+                <Grid item xs={12} className='side__bar__mobile'>
                     <ClientDrawerMobile clientView={clientView} setClientView={setClientView} selectedClient={selectedClient} setSelectedClient={setSelectedClient} grabClientStats={grabClientStats} grabStats={grabStats}/>
                 </Grid>
                 <Grid item xs={1} className='mobile-spacing'></Grid>
                 <Grid item xs={1} className='mobile-spacing'></Grid>
-                <Grid item xs={10} md={6} className='main__content'>
+                <Grid item xs={12} md={6} className='main__content'>
                     {   stats && !clientView ?
                     <>
                         <Grid container>
@@ -371,7 +371,7 @@ const HomePage = ({ setAuthenticated }) => {
                                             plan && !clientView ?
                                             <Grid container>
                                             <Grid item xs={12} md={6} className='home-clients__payment'>
-                                                <h1 className='home-clients__header2'>Available Exercises</h1>
+                                                <h1 className='home-clients__header'>Available Exercises</h1>
                                                 <div className='home-clients__workouts'>
                                                     <Workouts />
                                                 </div>
@@ -452,24 +452,15 @@ const HomePage = ({ setAuthenticated }) => {
 
                                             }
                 </Grid>
-                <Grid item xs={1} md={2}></Grid>
+                {/* <Grid item xs={1} md={2}></Grid> */}
                 {/* end */}
-
-                {/* space */}
-                <Grid item xs={12} className='content__top-margin'></Grid>
-                {/* space */}
-
-                {/* <Grid container> */}
-
-                {/* </Grid> */}
-                <Grid item xs={12} md={12} className='invisibar'></Grid>
-
-                <Grid item xs={12} md={12} className='invisibar'></Grid>
-
 
 
             </Grid>
-            <Grid item xs={12} md={12} className='invisibar'></Grid>
+
+
+
+
 
 
 

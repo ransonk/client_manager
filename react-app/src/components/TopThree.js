@@ -39,7 +39,6 @@ function TopThree({setSelectedClient, grabClientStats}) {
         client = client.split(' ')
         lastNames.push(client[1])
     })
-    console.log('clientss', lastNames)
 
     const handlePress = async (id) => {
         setSelectedClient(id);

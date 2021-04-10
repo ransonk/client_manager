@@ -37,7 +37,7 @@ const StyledTableCell = withStyles((theme) => ({
 const useStyles = makeStyles((theme) => ({
     root: {
         width: '70%',
-        maxHeight: '400px',
+        maxHeight: '150px',
         overflowY: 'auto'
     },
     heading: {
@@ -112,7 +112,7 @@ export default function Workouts() {
 
 
     return (
-        <div className={classes.root}>
+        <div className='workoutsDiv'>
 
             <TableContainer component={Paper}>
                 <Table className={classes.table} aria-label="customized table">

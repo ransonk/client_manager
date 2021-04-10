@@ -31,7 +31,7 @@ const StyledTableCell = withStyles((theme) => ({
 const useStyles = makeStyles((theme) => ({
     root: {
         width: '70%',
-        maxHeight: '300px',
+        maxHeight: '150px',
         overflowY: 'auto'
     },
     heading: {
@@ -72,7 +72,7 @@ export default function Intensities() {
 
 
     return (
-        <div className={classes.root}>
+        <div className='intensitiesDiv'>
             <TableContainer component={Paper}>
                 <Table className={classes.table} aria-label="customized table">
                     <TableHead>

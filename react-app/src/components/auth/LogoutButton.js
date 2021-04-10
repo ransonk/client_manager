@@ -17,7 +17,8 @@ const useStyles = makeStyles((theme) => ({
     '@media(max-width: 376px)' : {
       marginTop: '0',
       marginRight: '2rem',
-    }
+    },
+    zIndex: 1,
   }
 }));
 

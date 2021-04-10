@@ -10,7 +10,8 @@ html{
 
     /* background-color: red; */
     background-image: url('./images/meghan-holmes-buWcS7G1_28-unsplash.jpg');
-    background-size: contain;
+    background-position: center;
+    background-size: cover;
     overflow-x: hidden;
     overflow-y: hidden;
     width: 100%;
@@ -1236,6 +1237,12 @@ html{
     display: none;
 }
 
+.intensitiesDiv, .workoutsDiv{
+    width: 70%;
+    max-height: 400px;
+    overflow-y: auto;
+}
+
 
 @media only screen
     and (max-width : 1100px)
@@ -1257,6 +1264,9 @@ html{
         .side__bar {
             display: none;
         }
+        .content__top-margin {
+            display: none;
+        }
         .side__bar__mobile {
             display: flex;
         }
@@ -1272,12 +1282,24 @@ html{
             width: auto;
             margin-bottom: 10rem;
         }
+        .content__title-bar{
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+        .selection__title-bar{
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+        .intensitiesDiv, .workoutsDiv{
+            max-height: 150px;
+        }
     }
 
 @media only screen
     and (max-width : 550px)
     {
         .side__bar {
+            display: none;
+        }
+        .content__top-margin {
             display: none;
         }
         .side__bar__mobile {
@@ -1295,12 +1317,24 @@ html{
             width: auto;
             margin-bottom: -3rem;
         }
+        .content__title-bar{
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+        .selection__title-bar{
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+        .intensitiesDiv, .workoutsDiv{
+            max-height: 150px;
+        }
     }
 
 @media only screen
     and (max-width : 500px)
     {
         .side__bar {
+            display: none;
+        }
+        .content__top-margin {
             display: none;
         }
         .side__bar__mobile {
@@ -1318,12 +1352,24 @@ html{
             width: auto;
             margin-bottom: -10rem;
         }
+        .content__title-bar{
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+        .selection__title-bar{
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+        .intensitiesDiv, .workoutsDiv{
+            max-height: 150px;
+        }
     }
 
 @media only screen
     and (max-width : 380px)
     {
         .side__bar {
+            display: none;
+        }
+        .content__top-margin {
             display: none;
         }
         .side__bar__mobile {
@@ -1339,7 +1385,25 @@ html{
         .chart-container{
             position: relative;
             width: auto;
-            margin-bottom: -20rem;
+            margin-bottom: -10rem;
+        }
+        .content__title-bar{
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+        .selection__title-bar{
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+        .intensitiesDiv, .workoutsDiv{
+            max-height: 150px;
+        }
+        .home-clients__workouts{
+            padding-top: 0rem;
+        }
+        .home-clients__header{
+            margin-top: 1rem;
+        }
+        .home-clients__header2{
+            margin-top: 0rem;
         }
     }
 
