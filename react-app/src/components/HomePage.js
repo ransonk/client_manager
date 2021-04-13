@@ -275,7 +275,7 @@ const HomePage = ({ setAuthenticated }) => {
 
                     <p className='content__title-text' onClick={handleClickTrain}>Train</p>
 
-                    <div className='logout-btn'>
+                    <div className='logout-btn-div'>
                     <LogoutButton setAuthenticated={setAuthenticated}/>
                     </div>
                     </Grid>

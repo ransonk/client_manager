@@ -27,7 +27,7 @@ html{
     z-index: 2;
 }
 
-.logout-btn{
+.logout-btn-div{
     position: relative;
     margin-right: 2rem;
     margin-bottom: 1.7rem;
