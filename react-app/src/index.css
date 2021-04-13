@@ -27,6 +27,19 @@ html{
     z-index: 2;
 }
 
+.logout-btn{
+    position: relative;
+    margin-right: 2rem;
+    margin-bottom: 1.7rem;
+    text-align: center;
+    width: auto;
+    background-color: rgba(124,168,133, 0.8);
+    color: white;
+    z-index: 1;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
 .content__container {
     letter-spacing: 2px;
     border-radius: 5px;
@@ -1306,6 +1319,22 @@ html{
         .intensitiesDiv, .workoutsDiv{
             max-height: 150px;
         }
+        .content__container{
+            position: relative;
+            bottom: 10px;
+        }
+        .content__title-bar{
+            border-top-left-radius: 0px;
+            border-top-right-radius: 0px;
+        }
+        .editProfile{
+            position: absolute;
+            right: 3%;
+        }
+        .logout-btn{
+            position: relative;
+            top: 3px;
+        }
     }
 
 @media only screen
@@ -1341,6 +1370,22 @@ html{
         .intensitiesDiv, .workoutsDiv{
             max-height: 150px;
         }
+        .content__container{
+            position: relative;
+            bottom: 10px;
+        }
+        .content__title-bar{
+            border-top-left-radius: 0px;
+            border-top-right-radius: 0px;
+        }
+        .editProfile{
+            position: absolute;
+            right: 3%;
+        }
+        .logout-btn{
+            position: relative;
+            top: 3px;
+        }
     }
 
 @media only screen
@@ -1375,6 +1420,22 @@ html{
         }
         .intensitiesDiv, .workoutsDiv{
             max-height: 150px;
+        }
+        .content__container{
+            position: relative;
+            bottom: 10px;
+        }
+        .content__title-bar{
+            border-top-left-radius: 0px;
+            border-top-right-radius: 0px;
+        }
+        .editProfile{
+            position: absolute;
+            right: 3%;
+        }
+        .logout-btn{
+            position: relative;
+            top: 3px;
         }
     }
 
@@ -1422,5 +1483,9 @@ html{
         .editProfile{
             position: absolute;
             right: 3%;
+        }
+        .logout-btn{
+            position: relative;
+            top: 3px;
         }
     }

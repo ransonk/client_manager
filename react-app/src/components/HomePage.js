@@ -57,9 +57,9 @@ const useStyles = makeStyles((theme) => ({
     timeHeader: {
         paddingBottom: '5px'
     },
-    spaceRight: {
-        marginRight: '4rem',
-    },
+    // spaceRight: {
+    //     marginRight: '4rem',
+    // },
     logout: {
         display: 'flex',
         justifyContent: 'flex-end'
@@ -260,9 +260,6 @@ const HomePage = ({ setAuthenticated }) => {
     return (
         <>
             <Grid container>
-                <Grid item xs={12} className={classes.logout}>
-                    <LogoutButton setAuthenticated={setAuthenticated}/>
-                </Grid>
             </Grid>
             <Grid container className='content__container'>
 
@@ -274,33 +271,18 @@ const HomePage = ({ setAuthenticated }) => {
                 <Grid item xs={1} md={2}></Grid>
                     <Grid item xs={12} md={8} className='content__title-bar'>
                     <div className={classes.timeDate}>
-                    {/* <h2 className={classes.dateHeader}>
-                        {date1}
-                    </h2>
-                    <h2 className={classes.timeHeader}>{time}</h2> */}
                     </div>
 
                     <p className='content__title-text' onClick={handleClickTrain}>Train</p>
 
-                    <h2 className={classes.spaceRight}>
-                    </h2>
+                    <div className='logout-btn'>
+                    <LogoutButton setAuthenticated={setAuthenticated}/>
+                    </div>
                     </Grid>
                 <Grid item xs={1} md={2}></Grid>
                 {/* end */}
 
                 {/* start */}
-
-                {/* <Grid item xs={1} md={2}></Grid>
-                <Grid item xs={10} md={2} className='side__bar__date'>
-                    <h3 className={classes.dateHeader}>
-                        Date: {date1}
-                    </h3>
-                    <h3 className={classes.timeHeader}>
-                        Time: {time}
-                    </h3>
-
-                </Grid>
-                <Grid item xs></Grid> */}
 
                 <Grid item xs={1} md={2}></Grid>
                 <Grid item xs={12} md={8} className='selection__title-bar'>
