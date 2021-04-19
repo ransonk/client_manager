@@ -9,12 +9,17 @@ html{
     /* overflow: none; */
 
     /* background-color: red; */
-    background-image: url('./images/meghan-holmes-buWcS7G1_28-unsplash.jpg');
+    /* background-image: url('./images/meghan-holmes-buWcS7G1_28-unsplash.jpg');
     background-position: center;
     background-size: cover;
     overflow-x: hidden;
     overflow-y: auto;
-    width: 100%;
+    width: 100%; */
+    background: url(images/meghan-holmes-buWcS7G1_28-unsplash.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
 
 }
 
